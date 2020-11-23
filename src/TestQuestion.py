@@ -6,12 +6,9 @@ class TestQuestion:
     Klasa reprezentująca pytanie testowe.
 
     Przykład:
-    >>>testQuestion = TestQuestion()
+    >>> testQuestion = TestQuestion()
     """
     def __init__(self):
-        """
-        Konstruktor klasy
-        """
         self.question = ""
         self.answers = []
 

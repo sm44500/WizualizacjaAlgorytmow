@@ -9,16 +9,13 @@ class Algorithm:
     """
     Klasa abstrakcyjna reprezentująca algorytm
 
+    Parametry:
+    name - skrótowa nazwa algorytmu. Tożsama z nazwą w folderze algorithm.
+
     Przykład:
     >>> algorithm = Algorithm("bst")
     """
     def __init__(self, name: str):
-        """
-        Konstruktor klasy
-
-        Parametry:
-        name - skrótowa nazwa algorytmu. Tożsama z nazwą w folderze algorithm.
-        """
         self.widget = QWidget()
         self.name = name
         self.description = ""

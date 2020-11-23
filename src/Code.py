@@ -8,9 +8,6 @@ class Code:
     >>> code = Code()
     """
     def __init__(self):
-        """
-        Konstruktor klasy
-        """
         self.path = ""
         self.language = ""
         self.code = ""
