@@ -2,6 +2,7 @@ from PyQt5.QtWidgets import QWidget
 import os
 import json
 
+from Paths import Paths
 from TestQuestion import TestQuestion
 from Code import Code
 
@@ -19,22 +20,21 @@ class Algorithm:
         self.widget = QWidget()
         self.name = name
         self.description = ""
-        self.path = open(os.path.join("./algorithm", self.name))
         self.codes = []
         self.test_questions = []
-        __loadTest()
-        __loadCodes()
+        self.__load_test()
+        self.__load_codes()
 
 
-    def __loadTest(self):
-        file = os.path.join(self.path, "test.json")
-        self.test_questions = TestQuestion.fromFile(file)
+    def __load_test(self):
+        test_path = Paths.test(self.name)
+        self.test_questions = TestQuestion.from_file(test_path)
 
         
-    def __loadCodes(self):
-        codes_path = os.path.join(self.path, "codes")
+    def __load_codes(self):
+        codes_path = Paths.codes(self.name)
         codes_files = os.listdir(codes_path)
         for code_file in codes_files:
             code_file_path = os.path.join(codes_path, code_file)
-            code = Code.fromFile(code_file_path)
+            code = Code.from_file(code_file_path)
             self.codes.append(code)

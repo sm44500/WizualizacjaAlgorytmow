@@ -13,7 +13,7 @@ class Code:
         self.code = ""
 
     @staticmethod
-    def fromFile(path: str):
+    def from_file(path: str):
         """
         Wczytuje obiekt Code z pliku. Nazwa pliku do pierwszej kropki jest interpretowana jako nazwa języka.
 

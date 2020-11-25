@@ -4,7 +4,7 @@ from PyQt5.QtGui import *
 
 from Widgets.ControlPanelButton import ControlPanelButton
 
-class ControlPanel(QLabel):
+class ControlPanel(QWidget):
     def __init__(self, parent=None):
         super().__init__(parent)
         self.buttons = []
@@ -20,9 +20,6 @@ class ControlPanel(QLabel):
         self.widget_layout = QVBoxLayout(self)
         self.widget_layout.setContentsMargins(0, 0, 0, 0)
         self.widget_layout.setAlignment(Qt.AlignTop)
-
-        self.add_button("Test")
-        self.add_button("Test 2", "resources/icons/bookmark")
 
     def clear(self):
         for button in self.buttons:

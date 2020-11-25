@@ -9,3 +9,6 @@ class TopWidget(QComboBox):
 
     def setup_ui(self):
         pass
+
+    def add_algorithms(self, algorithm_name):
+        self.addItem(algorithm_name)

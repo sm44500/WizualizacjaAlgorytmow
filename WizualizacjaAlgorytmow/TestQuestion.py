@@ -30,7 +30,7 @@ class TestQuestion:
             return True
         False
 
-    def getCorrect(self):
+    def get_correct(self):
         """
         Zwraca poprawną odpowiedz jako tekst
 
@@ -44,7 +44,7 @@ class TestQuestion:
         return self.answers[self.correct]
 
     @staticmethod
-    def fromFile(path: str):
+    def from_file(path: str):
         """
         Wczytuje obiekty TestQuestion z pliku json.
 
@@ -58,13 +58,16 @@ class TestQuestion:
         >>> questions = Code.fromFile("algorithm/example/test.cpp")
         """
         questions = []
-        json_file = json.load(path)
+        file = open(path, "r")
+        json_file = json.load(file)
         for json_object in json_file:
-                question = TestQuestion()
-                question.question = json_object["question"]
-                question.answers = json_object["answers"]
-                question.correct = json_object["correct"]
-                questions.append(question)
+            question = TestQuestion()
+            question.question = json_object["question"]
+            question.answers = json_object["answers"]
+            question.correct = json_object["correct"]
+            questions.append(question)
+
+        file.close()
 
         return questions
     
