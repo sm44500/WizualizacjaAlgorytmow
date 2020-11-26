@@ -13,9 +13,6 @@ class ControlPanel(QWidget):
     def setup_ui(self):
         self.setMaximumWidth(300)
         self.setMinimumWidth(200)
-        self.setStyleSheet("""
-            background-color: red;
-        """)
 
         self.widget_layout = QVBoxLayout(self)
         self.widget_layout.setContentsMargins(0, 0, 0, 0)

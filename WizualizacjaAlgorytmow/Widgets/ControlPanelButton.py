@@ -10,6 +10,9 @@ class ControlPanelButton(QPushButton):
 
     def setup_ui(self):
         font = QFont()
+        self.setStyleSheet("""
+            background-color: red;
+        """)
         font.setPointSize(12)
         font.setBold(True)
         font.setWeight(75)
