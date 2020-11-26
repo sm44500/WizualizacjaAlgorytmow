@@ -1,5 +1,6 @@
 import os
-
+from PyQt5.QtCore import QUrl
+from Paths import Paths
 class Code:
     """
     Klasa reprezentująca przykładowy kod algorytmu.
@@ -10,7 +11,8 @@ class Code:
     def __init__(self):
         self.path = ""
         self.language = ""
-        self.code = ""
+        self.url = ""
+        self.icon = ""
 
     @staticmethod
     def from_file(path: str):
@@ -28,7 +30,10 @@ class Code:
         """
         code = Code()
         code.path = path
+        code.url = QUrl.fromLocalFile(code.path)
         code.language = os.path.basename(path).split(".")[0]
-        file = open(path, "r")
-        code.code = file.read()
+        icon_file = code.language + ".png"
+        code.icon = Paths.icon(icon_file)
+        if not os.path.isfile(code.icon):
+            code.icon = Paths.icon("code.png")
         return code

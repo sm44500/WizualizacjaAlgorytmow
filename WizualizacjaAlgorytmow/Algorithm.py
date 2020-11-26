@@ -16,9 +16,10 @@ class Algorithm:
     Przykład:
     >>> algorithm = Algorithm("bst")
     """
-    def __init__(self, name: str):
-        self.widget = QWidget()
+    def __init__(self, name: str, title: str):
+        self.visualization_widget = QWidget
         self.name = name
+        self.title = title
         self.description = ""
         self.codes = []
         self.test_questions = []
