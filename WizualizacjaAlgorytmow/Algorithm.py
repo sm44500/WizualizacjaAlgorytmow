@@ -25,12 +25,11 @@ class Algorithm:
         self.test_questions = []
         self.__load_test()
         self.__load_codes()
-
+        self.buttons = []
 
     def __load_test(self):
         test_path = Paths.test(self.name)
         self.test_questions = TestQuestion.from_file(test_path)
-
         
     def __load_codes(self):
         codes_path = Paths.codes(self.name)

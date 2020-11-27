@@ -2,7 +2,7 @@ from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 
-class CenterWidget(QLabel):
+class CenterWidget(QWidget):
     def __init__(self, parent=None):
         super().__init__(parent)
         self.widget = None
