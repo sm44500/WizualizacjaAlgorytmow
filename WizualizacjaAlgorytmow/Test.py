@@ -8,7 +8,7 @@ from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.backends.backend_qt5agg import NavigationToolbar2QT as NavigationToolbar
 import networkx as nx
 import random
-from algorithms.example.MinSearch import MinSearch
+from Algorithms.MinSearch.load import MinSearch
 import time
 
 class PrettyWidget(QWidget):
