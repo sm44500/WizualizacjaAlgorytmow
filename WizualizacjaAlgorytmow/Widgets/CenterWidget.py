@@ -10,6 +10,7 @@ class CenterWidget(QWidget):
 
     def setup_ui(self):
         self.widget_layout = QHBoxLayout(self)
+        self.widget_layout.setContentsMargins(0, 0, 0, 0)
         self.setLayout(self.widget_layout)
         self.setStyleSheet("""
             background-color: red;
@@ -21,6 +22,6 @@ class CenterWidget(QWidget):
             self.widget.setParent(None)
             self.widget = None
 
-    def set_widget(self, widget_class):
-        self.widget = widget_class(self)
+    def set_widget(self, widget_class, snapshot, description_widget):
+        self.widget = widget_class(self, snapshot, description_widget)
         self.widget_layout.addWidget(self.widget)

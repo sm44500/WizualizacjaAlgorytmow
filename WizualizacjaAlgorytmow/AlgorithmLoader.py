@@ -40,6 +40,9 @@ def get_algorithm_list(directory: str = "Algorithms", filename: str = "load.py")
 			print("Object is not instance of Algorithm! (%s)" % module)
 			continue
 
+		if algorithm.name == "missing":
+			continue
+
 		algorithm.name = module
 		algorithm.load_test()
 		algorithm.load_codes()

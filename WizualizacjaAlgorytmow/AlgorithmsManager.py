@@ -51,6 +51,22 @@ class AlgorithmsManager:
             algorithm_button.clicked.connect(on_clicked)
             self.codes_buttons.append(algorithm_button)
 
+
+        # self.center.set_widget(self.current_algorithm.visualization_widget)
+
+    def left_snapshot(self):
+        print("-")
+        self.update_snapshot()
+        print("+")
+
+    def right_snapshot(self):
+        print()
+
+    def update_snapshot(self):
+        # self.center.clear_widget()
+        # self.center.set_widget(self.current_algorithm.visualization_widget, self.current_algorithm.snapshots)
+        pass
+
     def on_click_algorithm(self):
         self.current_algorithm.value = self.text_box.text()
         self.text_box.clear()
@@ -74,4 +90,14 @@ class AlgorithmsManager:
     def reset(self):
         self.setup_control_panel()
         self.show_description()
+
+        self.center.set_widget(self.current_algorithm.visualization_widget, self.current_algorithm.snapshots, self.bottom)
+
+        left_snapshot_button = self.control_panel.add_button("Poprzedni krok", "")
+        left_snapshot_button.clicked.connect(self.center.widget.previous_snapshot)
+        self.codes_buttons.append(left_snapshot_button)
+
+        right_snapshot_button = self.control_panel.add_button("Nastepny krok", "")
+        right_snapshot_button.clicked.connect(self.center.widget.next_snapshot)
+        self.codes_buttons.append(right_snapshot_button)
         pass
