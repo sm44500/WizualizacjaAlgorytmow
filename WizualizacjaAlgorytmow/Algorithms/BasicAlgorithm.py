@@ -4,15 +4,16 @@ from Visualisation.BasicAlgorithmVisualisation import BasicAlgorithmVisualisatio
 
 class BasicAlgorithm(Algorithm):
 	"""
-	Klasa abstrakcyjna reprezentująca łatwy algorytm (algorytm wykorzystujący bibliotekę NetworkX)
+	Klasa abstrakcyjna reprezentująca algorytm z kategori łatwe (difficulty=1)
+    (algorytm wykorzystujący bibliotekę NetworkX)
 
 	Parametry:
 	name - skrótowa nazwa algorytmu. Tożsama z nazwą w folderze algorithm.
+    title - pełna nazwa algorytmu. Wyswietlana w aplikacji.
 
 	Przykład:
-	>>> bs = BasicAlgorithm("bubble_sort")
+	>>> min_search = BasicAlgorithm("MinSearch")
 	"""
-
 	def __init__(self, name: str = "missing", title: str = "missing"):
 		super().__init__(name, title)
 		self.value = 3
@@ -24,14 +25,35 @@ class BasicAlgorithm(Algorithm):
 		self.save_snapshot("")
 
 	def add_element(self, value):
-		if self.data.count(value) == 0:
-			self.data.append(int(value))
-			self.save_snapshot("Dodanie wartosci %s" % value, {len(self.data)-1: 'r'})
+        """
+       	Metoda dodawająca element o podanej wartosci do tablicy wejsciowej.
+       
+       	Parametry:
+       	value - wartosć elementu, który ma zostać dodany
+       
+       	Przykład:
+       	>>> add_element(5)
+	    """
+        if self.data.count(value) == 0:
+            self.data.append(int(value))
+            self.save_snapshot("Dodanie wartosci %s" % value, {len(self.data)-1: 'r'})
 
 	def remove_element(self, value):
+        """
+    	Metoda usuwająca pierwszy element o podanej wartosci z tablicy wejsciowej.
+    
+    	Parametry:
+    	value - wartosć elementu, który ma zostać usunięty
+    
+    	Przykład:
+    	>>> remove_element(5)
+    	"""
 		if self.data.count(value) > 0:
 			self.data.remove(value)
 			self.save_snapshot("Usuniecie wartosci %i" % value)
 
 	def execute(self):
-		print("execute")
+        """
+    	Abstrakcyjna metoda uruchamiająca algorytm.
+    	"""
+		pass
