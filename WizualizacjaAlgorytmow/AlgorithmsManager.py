@@ -42,6 +42,19 @@ class AlgorithmsManager:
             code_button.clicked.connect(lambda: self.on_click_code(index))
             self.codes_buttons.append(code_button)
 
+        self.text_box = self.control_panel.add_text_box()
+        self.codes_buttons.append(self.text_box)
+
+        for name, on_clicked in self.current_algorithm.buttons:
+            algorithm_button = self.control_panel.add_button(name, "")
+            algorithm_button.clicked.connect(self.on_click_algorithm)
+            algorithm_button.clicked.connect(on_clicked)
+            self.codes_buttons.append(algorithm_button)
+
+    def on_click_algorithm(self):
+        self.current_algorithm.value = self.text_box.text()
+        self.text_box.clear()
+
     def on_click_code(self, index):
         QDesktopServices.openUrl(self.current_algorithm.codes[index].url)
 

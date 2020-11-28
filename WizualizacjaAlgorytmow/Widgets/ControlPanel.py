@@ -3,6 +3,8 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 
 from Widgets.ControlPanelButton import ControlPanelButton
+from Widgets.ControlPanelTextBox import ControlPanelTextBox
+
 
 class ControlPanel(QWidget):
     def __init__(self, parent=None):
@@ -30,3 +32,11 @@ class ControlPanel(QWidget):
         self.widget_layout.addWidget(button)
         self.buttons.append(button)
         return button
+
+    def add_text_box(self):
+        text = ControlPanelTextBox()
+        text.setText("Tu wpisz wartość")
+        text.setAlignment(Qt.AlignCenter)
+        self.widget_layout.addWidget(text)
+        self.buttons.append(text)
+        return text

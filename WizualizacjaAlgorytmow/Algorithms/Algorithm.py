@@ -22,11 +22,12 @@ class Algorithm:
         self.name = name
         self.title = title
         self.description = ""
+        self.difficulty = 1
         self.codes = []
         self.test_questions = []
         # self.__load_test()
         # self.__load_codes()
-        self.buttons = []
+        # self.buttons = []
         self.data=list()
         self.snapshots=list()
         
