@@ -1,1 +1,0 @@
-# Wizualizacja Algorytmów

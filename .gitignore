@@ -1,8 +1,0 @@
-.idea/
-*.iml
-.vscode
-__pycache__
-ignore/*
-*.pyc
-*.db
-.spyproject
