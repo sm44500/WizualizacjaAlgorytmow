@@ -54,6 +54,6 @@ class BasicAlgorithmVisualisation(QWidget):
 		for i in range(len(snapshot.data)):
 			tmp_color.append(snapshot.highlights[i])
 
-		nx.draw(Nodes, pos=position, with_labels=True, node_size=[500.0+60.0*(math.log10(i+1)+1)**2 for i in snapshot.data], ax=ax1, node_color=tmp_color)
+		nx.draw(Nodes, pos=position, with_labels=True, node_size=[500.0+60.0*(math.log10(abs(i)+1)+1)**2 for i in snapshot.data], ax=ax1, node_color=tmp_color)
 
 		self.canvas.draw_idle()
