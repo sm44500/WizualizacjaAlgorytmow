@@ -24,8 +24,8 @@ class Algorithm:
         self.description = ""
         self.codes = []
         self.test_questions = []
-        self.__load_test()
-        self.__load_codes()
+        # self.__load_test()
+        # self.__load_codes()
         self.buttons = []
         self.data=list()
         self.snapshots=list()
@@ -33,11 +33,11 @@ class Algorithm:
     def save_snapshot(self,description:str,highlights:dict={}):
         self.snapshots.append(Snapshot(self.data.copy(),description,highlights))
         
-    def __load_test(self):
+    def load_test(self):
         test_path = Paths.test(self.name)
         self.test_questions = TestQuestion.from_file(test_path)
         
-    def __load_codes(self):
+    def load_codes(self):
         codes_path = Paths.codes(self.name)
         codes_files = os.listdir(codes_path)
         for code_file in codes_files:

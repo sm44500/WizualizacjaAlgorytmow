@@ -1,8 +1,8 @@
-from algorithms.BasicAlgorithm import BasicAlgorithm
+from Algorithms.BasicAlgorithm import BasicAlgorithm
 
 class InsertionSort(BasicAlgorithm):
     def __init__(self):
-        pass
+        super().__init__()
                 
     def execute(self):
         pass

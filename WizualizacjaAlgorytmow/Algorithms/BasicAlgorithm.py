@@ -10,7 +10,7 @@ class BasicAlgorithm(Algorithm):
     Przykład:
     >>> bs = BasicAlgorithm("bubble_sort")
     """
-    def __init__(self, name: str, title: str):
+    def __init__(self, name: str="missing", title: str="missing"):
         super().__init__(name, title)
         
     def add_element(self,value):

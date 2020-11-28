@@ -3,20 +3,12 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from Algorithms.Algorithm import Algorithm
 from Paths import Paths
-from Algorithms.MinSearch.load import MinSearch
+
+from AlgorithmLoader import *
 
 class AlgorithmsManager:
     def __init__(self, main_widget: QWidget):
-        self.algorithms = [
-            Algorithm("example", "Przykładowy algorytm 1"),
-            Algorithm("example_2", "Przykładowy algorytm 2"),
-            MinSearch()
-        ]
-
-        self.algorithms[0].description = "Przykładowy opis algo 1"
-        self.algorithms[1].description = "Przykładowy opis algo 2"
-        self.algorithms[2].description = "Wyszukiwanie minimum"
-
+        self.algorithms = get_algorithm_list()
         self.main_widget = main_widget
         self.combobox = self.main_widget.top_widget
         self.control_panel = self.main_widget.middle_widget.right_widget
