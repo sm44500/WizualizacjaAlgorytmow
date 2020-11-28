@@ -1,5 +1,0 @@
-pip install PyQt5
-pip install networkx[all]
-pip install matplotlib
-pip install pdoc3
-pip install pyinstaller

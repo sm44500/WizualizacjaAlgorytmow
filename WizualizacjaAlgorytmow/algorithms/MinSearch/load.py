@@ -27,4 +27,6 @@ class MinSearch(BasicAlgorithm):
         self.save_snapshot("Znaleziona wartosć minimalna wynosi %i" %current_min,{current_min_index:'y'})
         
 
-            
+def __init__():
+    return MinSearch()
+                  
