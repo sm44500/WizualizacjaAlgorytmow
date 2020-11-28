@@ -1,4 +1,4 @@
-from algorithms.BasicAlgorithm import BasicAlgorithm
+from Algorithms.BasicAlgorithm import BasicAlgorithm
 
 class MinSearch(BasicAlgorithm):
     """
@@ -10,7 +10,7 @@ class MinSearch(BasicAlgorithm):
 
     """
     def __init__(self):
-        super().__init__("min_search", "Wyszukiwanie wartosci minimalnej")
+        super().__init__("MinSearch", "Wyszukiwanie wartosci minimalnej")
                 
     def execute(self):
         current_min=self.data[0]

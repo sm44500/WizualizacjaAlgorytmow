@@ -1,4 +1,4 @@
-from Algorithm import Algorithm
+from Algorithms.Algorithm import Algorithm
 
 class BasicAlgorithm(Algorithm):
     """

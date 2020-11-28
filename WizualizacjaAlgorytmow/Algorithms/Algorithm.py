@@ -5,6 +5,7 @@ import json
 from Paths import Paths
 from TestQuestion import TestQuestion
 from Code import Code
+from Snapshot import Snapshot
 
 class Algorithm:
     """
@@ -26,7 +27,12 @@ class Algorithm:
         self.__load_test()
         self.__load_codes()
         self.buttons = []
-
+        self.data=list()
+        self.snapshots=list()
+        
+    def save_snapshot(self,description:str,highlights:dict={}):
+        self.snapshots.append(Snapshot(self.data.copy(),description,highlights))
+        
     def __load_test(self):
         test_path = Paths.test(self.name)
         self.test_questions = TestQuestion.from_file(test_path)

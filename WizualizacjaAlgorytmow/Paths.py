@@ -2,9 +2,9 @@ import os
 
 class Paths:
     program = os.path.dirname(os.path.abspath(__file__))
-    resources = os.path.join(program, "resources")
-    icons = os.path.join(resources, "icons")
-    algorithms = os.path.join(program, "algorithms")
+    resources = os.path.join(program, "Resources")
+    icons = os.path.join(resources, "Icons")
+    algorithms = os.path.join(program, "Algorithms")
 
     @staticmethod
     def icon(icon_file: str):
