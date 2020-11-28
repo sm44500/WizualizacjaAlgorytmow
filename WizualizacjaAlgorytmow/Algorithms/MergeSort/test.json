@@ -1,0 +1,20 @@
+[
+    {
+        "question": "Example question one",
+        "answers": [
+            "Example answer 1",
+            "Example answer 2",
+            "Example answer 3"
+        ],
+        "correct": 1
+    },
+    {
+        "question": "Example question two",
+        "answers": [
+            "Example answer 1",
+            "Example answer 2",
+            "Example answer 3"
+        ],
+        "correct": 0
+    }
+]
