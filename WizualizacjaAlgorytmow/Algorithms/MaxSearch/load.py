@@ -4,15 +4,16 @@ class MaxSearch(BasicAlgorithm):
     """
     Klasa reprezentująca algorytm wyszukiwania maximum w tablicy
 
-    Parametry:
-
     Przykład:
-
+    >>> max_search = MaxSearch()
     """
     def __init__(self):
         super().__init__("MaxSearch", "Wyszukiwanie wartosci maksymalnej")
                 
     def execute(self):
+        """
+        Metoda uruchamiająca algorytm.
+        """
         current_max=self.data[0]
         current_max_index=0
         self.save_snapshot("Na początek ustalamy majwiększy element na pierwszą wartosć z tablicy (%i)" %current_max,{0:'g'})
