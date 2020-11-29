@@ -3,12 +3,12 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 
 class TopWidget(QComboBox):
-    def __init__(self, parent=None):
-        super().__init__(parent)
-        self.setup_ui()
+	def __init__(self, parent=None):
+		super().__init__(parent)
+		self.setup_ui()
 
-    def setup_ui(self):
-        pass
+	def setup_ui(self):
+		pass
 
-    def add_algorithms(self, algorithm_name):
-        self.addItem(algorithm_name)
+	def add_algorithms(self, algorithm_name):
+		self.addItem(algorithm_name)
