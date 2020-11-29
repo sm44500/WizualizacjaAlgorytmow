@@ -60,7 +60,7 @@ class MergeSort(BasicAlgorithm):
         else:
             self.save_snapshot("Sortujemy elementy o indeksie %s oraz indeksie %s." % (left_index, right_index), colors)
 
-        left_copy = self.data[left_index:center_index + 1]
+        left_copy = self.data[left_index:center_index+1]
         right_copy = self.data[center_index+1:right_index+1]
 
         left_copy_index = 0
@@ -68,7 +68,8 @@ class MergeSort(BasicAlgorithm):
         sorted_index = left_index
 
         while left_copy_index < len(left_copy) and right_copy_index < len(right_copy):
-            if compare(left_copy[left_copy_index], right_copy[right_copy_index], Comparator.is_less_or_equal_to):
+            print("%s comp %s (%s)" % (left_copy[left_copy_index], right_copy[right_copy_index], str(compare(left_copy[left_copy_index], right_copy[right_copy_index], Comparator.is_less_than))))
+            if compare(left_copy[left_copy_index], right_copy[right_copy_index], Comparator.is_less_than):
                 self.data[sorted_index] = left_copy[left_copy_index]
                 left_copy_index = left_copy_index + 1
             else:

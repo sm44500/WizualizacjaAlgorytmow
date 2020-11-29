@@ -12,10 +12,10 @@ def compare(a: str, b: str, comparator) -> bool:
 	Zwracany typ:
 	bool - wynik porównania dwóch wartości.
 	"""
-	if (a.isdigit() and b.isdigit() and comparator(float(a), float(b))) or comparator(a, b):
-		return True
-
-	return False
+	if a.isdigit() and b.isdigit():
+		return comparator(float(a), float(b))
+	else:
+		return comparator(a, b)
 
 
 class Comparator:
