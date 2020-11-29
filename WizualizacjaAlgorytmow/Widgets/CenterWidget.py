@@ -23,5 +23,5 @@ class CenterWidget(QWidget):
             self.widget = None
 
     def set_widget(self, widget_class, snapshot, description_widget):
-        self.widget = widget_class(self, snapshot, description_widget)
+        self.widget = widget_class(snapshot, description_widget)
         self.widget_layout.addWidget(self.widget)
