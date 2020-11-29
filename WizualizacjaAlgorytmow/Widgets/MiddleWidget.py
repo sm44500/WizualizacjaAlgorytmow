@@ -3,7 +3,7 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 
 from Widgets.CenterWidget import CenterWidget
-from Widgets.ControlPanel import ControlPanel
+from Widgets.RightPanel import RightPanel
 
 class MiddleWidget(QWidget):
 	def __init__(self, parent=None):
@@ -15,7 +15,7 @@ class MiddleWidget(QWidget):
 		self.widget_layout.setContentsMargins(0, 0, 0, 0)
 
 		self.left_widget = CenterWidget(self)
-		self.right_widget = ControlPanel(self)
+		self.right_widget = RightPanel(self)
 
 		self.widget_layout.addWidget(self.left_widget, 4)
 		self.widget_layout.addWidget(self.right_widget, 1)

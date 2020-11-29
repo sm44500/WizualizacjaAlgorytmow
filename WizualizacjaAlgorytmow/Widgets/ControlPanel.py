@@ -8,21 +8,17 @@ from Widgets.ControlPanelTextBox import ControlPanelTextBox
 
 
 class ControlPanel(QWidget):
-	def __init__(self, parent=None):
+	def __init__(self, parent=None, alignment=Qt.AlignTop):
 		super().__init__(parent)
 		self.widgets = list()
 		self.widget_layout = None
-		self.setup_ui()
+		self.setup_ui(alignment)
 
-	def setup_ui(self):
-		self.setMaximumWidth(300)
-		self.setMinimumWidth(200)
-
+	def setup_ui(self, alignment):
 		self.widget_layout = QVBoxLayout(self)
 		self.widget_layout.setContentsMargins(0, 0, 0, 0)
-		self.widget_layout.setAlignment(Qt.AlignTop)
+		self.widget_layout.setAlignment(alignment)
 		self.widget_layout.setSpacing(0)
-
 		self.setContentsMargins(0, 0, 0, 0)
 
 	def clear(self):

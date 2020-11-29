@@ -12,7 +12,8 @@ class AlgorithmsManager:
 		self.algorithms = get_algorithm_list()
 		self.main_widget = main_widget
 		self.combobox = self.main_widget.top_widget
-		self.control_panel = self.main_widget.middle_widget.right_widget
+		self.control_panel_top = self.main_widget.middle_widget.right_widget.top_control_panel
+		self.control_panel_bottom = self.main_widget.middle_widget.right_widget.bottom_control_panel
 		self.center = self.main_widget.middle_widget.left_widget
 		self.bottom = self.main_widget.bottom_widget
 		self.current_index = 0
@@ -33,17 +34,19 @@ class AlgorithmsManager:
 		self.set_algorithm(0)
 
 	def setup_control_panel(self):
-		self.control_panel.clear()
-		self.description_button = self.control_panel.add_button("Opis", Paths.icon("bookmark.png"))
+		self.control_panel_top.clear()
+		self.control_panel_bottom.clear()
+
+		self.description_button = self.control_panel_top.add_button("Opis", Paths.icon("bookmark.png"))
 		self.description_button.clicked.connect(self.show_description)
-		self.visualisation_button = self.control_panel.add_button("Wizualizacja", Paths.icon("eye.png"))
+		self.visualisation_button = self.control_panel_top.add_button("Wizualizacja", Paths.icon("eye.png"))
 		self.visualisation_button.clicked.connect(self.show_visualisation)
-		self.questions_button = self.control_panel.add_button("Pytania", Paths.icon("question_mark.png"))
+		self.questions_button = self.control_panel_top.add_button("Pytania", Paths.icon("question_mark.png"))
 
 		self.codes_buttons = []
 		for index, code in enumerate(self.current_algorithm.codes):
-			code_button = self.control_panel.add_button("Kod " + code.language, code.icon)
-			code_button.clicked.connect(lambda: self.on_click_code(index))
+			code_button = self.control_panel_top.add_button("Kod " + code.language, code.icon)
+			code_button.clicked.connect(self.on_click_code)
 			self.codes_buttons.append(code_button)
 
 	def on_click_algorithm(self):
@@ -73,36 +76,35 @@ class AlgorithmsManager:
 		self.center.set_visualisation_widget(self.current_algorithm.visualization_widget, self.current_algorithm.snapshots, self.bottom)
 
 		self.special_widgets = list()
-		label, self.text_box = self.control_panel.add_text_box()
+		label, self.text_box = self.control_panel_bottom.add_text_box()
 		self.special_widgets.append(label)
 		self.special_widgets.append(self.text_box)
 
 		for name, on_clicked, icon, should_update_current_snapshot in self.current_algorithm.buttons:
-			algorithm_button = self.control_panel.add_button(name, icon)
+			algorithm_button = self.control_panel_bottom.add_button(name, icon)
 			algorithm_button.clicked.connect(self.on_click_algorithm)
 			algorithm_button.clicked.connect(on_clicked)
 			if should_update_current_snapshot:
 				algorithm_button.clicked.connect(self.center.widget.last_snapshot)
 			self.special_widgets.append(algorithm_button)
 
-		left_snapshot_button = self.control_panel.add_button("Poprzedni krok (tymczasowo tutaj)", "")
+		left_snapshot_button = self.control_panel_bottom.add_button("Poprzedni krok (tymczasowo tutaj)", "")
 		left_snapshot_button.clicked.connect(self.center.widget.previous_snapshot)
 		self.special_widgets.append(left_snapshot_button)
 
-		right_snapshot_button = self.control_panel.add_button("Nastepny krok (tymczasowo tutaj)", "")
+		right_snapshot_button = self.control_panel_bottom.add_button("Nastepny krok (tymczasowo tutaj)", "")
 		right_snapshot_button.clicked.connect(self.center.widget.next_snapshot)
 		self.special_widgets.append(right_snapshot_button)
 
-		first_snapshot_button = self.control_panel.add_button("Pierwszy krok (tymczasowo tutaj)", "")
+		first_snapshot_button = self.control_panel_bottom.add_button("Pierwszy krok (tymczasowo tutaj)", "")
 		first_snapshot_button.clicked.connect(self.center.widget.first_snapshot)
 		self.special_widgets.append(first_snapshot_button)
 
-		last_snapshot_button = self.control_panel.add_button("Ostatni krok (tymczasowo tutaj)", "")
+		last_snapshot_button = self.control_panel_bottom.add_button("Ostatni krok (tymczasowo tutaj)", "")
 		last_snapshot_button.clicked.connect(self.center.widget.last_snapshot)
 		self.special_widgets.append(last_snapshot_button)
 
 	def reset(self):
 		self.setup_control_panel()
 		self.show_description()
-
 		pass
