@@ -1,4 +1,5 @@
 import math
+import collections
 
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
@@ -41,6 +42,37 @@ class BasicAlgorithmVisualisation(Visualisation):
 		"""
 		if len(self.snapshots) == 0:
 			return
+
+		current_snapshot = self.snapshots[self.current_snapshot_index]
+		ids = [id for id in range(len(current_snapshot.data))]
+		print(current_snapshot.data)
+		self.figure.clf()
+		self.description_widget.set_text(current_snapshot.description)
+
+		nodes = nx.Graph()
+		nodes.add_nodes_from(ids)
+
+		position = dict()
+		position.update((element, (i, 1)) for i, element in enumerate(ids))
+
+		axes = plt.axes([0.0, 0.0, 1.0, 1.0])
+
+		node_size = [500.0+60.0*(math.log10(( abs(i) if isinstance(i, int) else len(i))+1)+1)**2 for i in current_snapshot.data]
+
+		colors = list()
+		for i in range(len(current_snapshot.data)):
+			colors.append(current_snapshot.highlights[i])
+
+
+		labels = dict()
+		for i in range(len(current_snapshot.data)):
+			labels[i] = current_snapshot.data[i]
+
+		nx.draw(nodes, labels=labels, pos=position, with_labels=True, node_size=node_size, ax=axes, node_color=colors)
+		print(labels)
+		self.canvas.draw_idle()
+
+		return
 
 		current_snapshot = self.snapshots[self.current_snapshot_index]
 
