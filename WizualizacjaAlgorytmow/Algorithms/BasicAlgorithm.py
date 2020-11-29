@@ -16,7 +16,7 @@ class BasicAlgorithm(Algorithm):
 	"""
 	def __init__(self, name: str = "missing", title: str = "missing"):
 		super().__init__(name, title)
-		self.value = 3
+		#self.value = 3
 		self.visualization_widget = BasicAlgorithmVisualisation
 		self.buttons = list()
 		self.buttons.append(["Dodaj element", lambda: self.add_element(self.value)])
