@@ -13,6 +13,8 @@ class MainWidget(QWidget):
 
     def setup_ui(self):
         self.widget_layout = QVBoxLayout(self)
+        self.widget_layout.setContentsMargins(5, 5, 5, 5)
+        self.widget_layout.setSpacing(0)
         
         self.top_widget = TopWidget(self)
         self.middle_widget = MiddleWidget(self)

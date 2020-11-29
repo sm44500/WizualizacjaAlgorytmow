@@ -1,59 +1,99 @@
+from Paths import Paths
 from Algorithms.Algorithm import Algorithm
+from Snapshot import Snapshot
 from Visualisation.BasicAlgorithmVisualisation import BasicAlgorithmVisualisation
 
 
 class BasicAlgorithm(Algorithm):
 	"""
-	Klasa abstrakcyjna reprezentująca algorytm z kategori łatwe (difficulty=1)
-	(algorytm wykorzystujący bibliotekę NetworkX)
+	Klasa abstrakcyjna reprezentująca algorytm niezłożony.
+	Jest to algorytm, który przechowuje tylko pojedyncze dane elementu.
+	Algorytm dziedziczący po tej klasie będzie wykorzystywać bibliotekę NetworkX.
 	
 	Parametry:
 	name - skrótowa nazwa algorytmu. Tożsama z nazwą w folderze algorithm.
 	title - pełna nazwa algorytmu. Wyswietlana w aplikacji.
 	
 	Przykład:
-	>>> min_search = BasicAlgorithm("MinSearch")
+	>>> min_search = BasicAlgorithm("MinSearch", "Wyszukiwanie Minimum")
 	"""
 	def __init__(self, name: str = "missing", title: str = "missing"):
 		super().__init__(name, title)
-		self.value = 3
 		self.visualization_widget = BasicAlgorithmVisualisation
-		self.buttons = list()
-		self.buttons.append(["Dodaj element", lambda: self.add_element(str(self.value))])
-		self.buttons.append(["Usun element", lambda: self.remove_element(str(self.value))])
-		self.buttons.append(["Wykonaj", lambda: self.execute()])
-		self.save_snapshot("")
+		self.load_buttons()
+		self.clear()
 
-	def add_element(self, value):
+	def add_element(self, value: str):
 		"""
-		Metoda dodawająca element o podanej wartosci do tablicy wejsciowej.
-		       
+		Metoda dodająca element o podanej wartości do tablicy danych.
+
 		Parametry:
-		value - wartosć elementu, który ma zostać dodany
-		       
+		value - wartość elementu, który ma zostać dodany.
+
 		Przykład:
 		>>> add_element(5)
+		>>> add_element("Janek")
 		"""
-		if self.data.count(value) == 0:
-			self.data.append(value)
-			self.save_snapshot("Dodanie wartosci %s" % value, {len(self.data)-1: 'r'})
+		self.data.append(value.strip())
+		self.save_snapshot("Dodanie elementu '%s' do tablicy danych." % value, {len(self.data)-1: Snapshot.color_selected})
 
-	def remove_element(self, value):
+	def remove_element(self, value: str) -> bool:
 		"""
-		Metoda usuwająca pierwszy element o podanej wartosci z tablicy wejsciowej.
-		    
+		Metoda usuwająca pierwszy znaleziony element o podanej wartości z tablicy danych.
+
 		Parametry:
-		value - wartosć elementu, który ma zostać usunięty
-		    
+		value - wartość elementu, który ma zostać usunięty.
+
+		Typ zwracany:
+		bool - reprezentuje czy element znajdował się w tablicy.
+
 		Przykład:
 		>>> remove_element(5)
 		"""
 		if self.data.count(value) > 0:
 			self.data.remove(value)
-			self.save_snapshot("Usuniecie wartosci %i" % value)
+			self.save_snapshot("Usunięcie elementu '%s' z tablicy danych." % value)
+			return True
+
+		self.save_snapshot("W tablicy danych nie znajduje się element o wartości '%s'." % value)
+		return False
+
+	def remove_all_elements(self, value: str):
+		"""
+		Metoda usuwająca wszystkie elementy o podanej wartości z tablicy danych.
+
+		Parametry:
+		value - wartość elementów, które mają zostać usunięte.
+
+		Przykład:
+		>>> remove_all_elements(5)
+		"""
+		self.save_snapshot("Rozpoczynamy usuwanie wszystkich elementów z tablicy o wartości '%s'." % value)
+		while self.remove_element(value):
+			pass
+		self.save_snapshot("Usunięto wszystkie elementy o wartości '%s'." % value)
+
+	def clear(self):
+		"""
+		Metoda usuwająca wszystkie elementy z tablicy i czyszcząca listę kroków.
+		"""
+		self.data.clear()
+		self.snapshots.clear()
+		self.save_snapshot("Usunięto wszystko elementy z tablicy danych i wszystkie kroki są ponownie puste.")
 
 	def execute(self):
 		"""
 		Abstrakcyjna metoda uruchamiająca algorytm.
 		"""
 		pass
+
+	def load_buttons(self):
+		"""
+		Metoda wczytująca klawisze odpowiedzialne za manipulację wizualizacją.
+		"""
+		self.buttons = list()
+		self.buttons.append(["Dodaj", lambda: self.add_element(self.last_value), Paths.icon("plus.png"), True])
+		self.buttons.append(["Usuń", lambda: self.remove_element(self.last_value), Paths.icon("minus.png"), True])
+		self.buttons.append(["Usuń wszystkie", lambda: self.remove_all_elements(self.last_value), Paths.icon("minus.png"), True])
+		self.buttons.append(["Wyczyść", lambda: self.clear(), Paths.icon("clear.png"), True])
+		self.buttons.append(["Wykonaj algorytm", lambda: self.execute(), Paths.icon("execute.png"), False])

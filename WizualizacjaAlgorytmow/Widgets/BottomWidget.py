@@ -10,17 +10,14 @@ class BottomWidget(QLabel):
     def setup_ui(self):
         font = QFont()
         self.setStyleSheet("""
-            background-color: red;
+            background-color: #bcbcbc;
+            padding: 10px;
         """)
         font.setPointSize(20)
         font.setBold(True)
-        font.setWeight(75)
         self.setFont(font)
         self.setMaximumHeight(300)
         self.setMinimumHeight(200)
-        self.setStyleSheet("""
-            background-color: red;
-        """)
         pass
 
     def set_text(self, content: str):

@@ -3,9 +3,9 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 
 
-class ControlPanelTextBox(QLineEdit):
+class ControlPanelLabel(QLabel):
     """
-    Klasa reprezentująca pole tekstowe do którego można wpisywać wartości w panelu kontrolnym.
+    Klasa reprezentująca pole tekstowe w panelu kontrolnym.
 
     Parametry:
     parent - rodzic, do którego zostanie podłączony ten widget.
@@ -22,5 +22,5 @@ class ControlPanelTextBox(QLineEdit):
         font.setPointSize(14)
         font.setBold(True)
         self.setFont(font)
-        self.setMinimumHeight(20)
+        self.setMinimumHeight(15)
         self.setAlignment(Qt.AlignCenter)

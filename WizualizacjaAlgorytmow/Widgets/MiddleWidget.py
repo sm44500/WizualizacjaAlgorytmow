@@ -17,7 +17,7 @@ class MiddleWidget(QWidget):
         self.left_widget = CenterWidget(self)
         self.right_widget = ControlPanel(self)
 
-        self.widget_layout.addWidget(self.left_widget, 99)
+        self.widget_layout.addWidget(self.left_widget, 4)
         self.widget_layout.addWidget(self.right_widget, 1)
         self.setLayout(self.widget_layout)
         pass

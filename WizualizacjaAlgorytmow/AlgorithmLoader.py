@@ -9,8 +9,11 @@ def get_algorithm_list(directory: str = "Algorithms", filename: str = "load.py")
 	Funkcja wczytujacą wszystkie algorytmy.
 
 	Parametry:
-	directory - folder z wszystkimi algorytmami
-	filename - nazwa pliku który zostanie wczytany z folderu
+	directory - folder z wszystkimi algorytmami.
+	filename - nazwa pliku który zostanie wczytany z folderu.
+
+	Typ zwracany:
+	list - lista przechowująca wszystkie obiekty, które dziedziczą po Algorithm.
 
 	Przykład:
 	>>> algorithms = get_algorithm_list()

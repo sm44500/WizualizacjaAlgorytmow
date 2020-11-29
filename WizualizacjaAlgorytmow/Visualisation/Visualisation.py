@@ -19,14 +19,28 @@ class Visualisation(QWidget):
 		"""
 		Uruchomienie następnego kroku, jeżeli istnieje.
 		"""
-		self.current_snapshot_index = min(self.current_snapshot_index+1, len(self.snapshots)-1)
+		self.current_snapshot_index = max(0, min(self.current_snapshot_index+1, len(self.snapshots)-1))
 		self.render_snapshot()
 
 	def previous_snapshot(self):
 		"""
 		Uruchomienie poprzedniego kroku, jeżeli istnieje.
 		"""
-		self.current_snapshot_index = max(self.current_snapshot_index-1, 0)
+		self.current_snapshot_index = max(0, min(self.current_snapshot_index-1, len(self.snapshots)-1))
+		self.render_snapshot()
+
+	def first_snapshot(self):
+		"""
+		Uruchomienie pierwszego kroku, jeżeli istnieje.
+		"""
+		self.current_snapshot_index = 0
+		self.render_snapshot()
+
+	def last_snapshot(self):
+		"""
+		Uruchomienie ostatniego kroku, jeżeli istnieje.
+		"""
+		self.current_snapshot_index = max(0, len(self.snapshots) - 1)
 		self.render_snapshot()
 
 	def render_snapshot(self):

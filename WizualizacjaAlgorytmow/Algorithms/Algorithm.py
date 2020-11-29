@@ -7,16 +7,14 @@ from TestQuestion import TestQuestion
 from Code import Code
 from Snapshot import Snapshot
 
+
 class Algorithm:
     """
     Klasa abstrakcyjna reprezentująca algorytm.
 
     Parametry:
     name - skrótowa nazwa algorytmu. Tożsama z nazwą w folderze algorithm.
-	title - pełna nazwa algorytmu. Wyswietlana w aplikacji.
-	
-    Przykład:
-    >>> algorithm = Algorithm("bst")
+    title - pełna nazwa algorytmu. Wyswietlana w aplikacji.
     """
     def __init__(self, name: str, title: str):
         self.visualization_widget = QWidget
@@ -24,15 +22,14 @@ class Algorithm:
         self.title = title
         self.description = ""
         self.difficulty = 1
-        self.codes = []
-        self.test_questions = []
-        # self.__load_test()
-        # self.__load_codes()
-        # self.buttons = []
-        self.data=list()
-        self.snapshots=list()
+        self.last_value = 0
+        self.codes = None
+        self.test_questions = None
+        self.buttons = None
+        self.data = list()
+        self.snapshots = list()
         
-    def save_snapshot(self,description:str,highlights:dict={}):
+    def save_snapshot(self, description: str, highlights: dict = {}):
         """
         Metoda zapisująca aktualny stan tablicy z danymi.
 
@@ -40,19 +37,21 @@ class Algorithm:
         description - opis zmian dokonanych w zapisywanym stanie.
         highlights - słownik z węzłami oznaczonymi innym kolorem.
         """
-        self.snapshots.append(Snapshot(self.data.copy(),description,highlights))
-        
+        self.snapshots.append(Snapshot(self.data.copy(), description, highlights))
+
     def load_test(self):
         """
         Metoda importująca pytania testowe do algorytmu.
         """
+        self.test_questions = list()
         test_path = Paths.test(self.name)
         self.test_questions = TestQuestion.from_file(test_path)
         
     def load_codes(self):
         """
         Metoda importująca przykładowe kody do algorytmu.
-        """    
+        """
+        self.codes = list()
         codes_path = Paths.codes(self.name)
         codes_files = os.listdir(codes_path)
         for code_file in codes_files:

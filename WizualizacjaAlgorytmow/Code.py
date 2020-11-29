@@ -20,7 +20,7 @@ class Code:
         Wczytuje obiekt Code z pliku. Nazwa pliku do pierwszej kropki jest interpretowana jako nazwa języka.
 
         Parametry:
-        path - Ścieżka do pliku
+        path - ścieżka do pliku.
 
         Typ zwracany:
         obiekt klasy Code

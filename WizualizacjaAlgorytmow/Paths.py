@@ -1,5 +1,6 @@
 import os
 
+
 class Paths:
     program = os.path.dirname(os.path.abspath(__file__))
     resources = os.path.join(program, "Resources")
@@ -11,15 +12,15 @@ class Paths:
         return os.path.join(Paths.icons, icon_file)
 
     @staticmethod
-    def algorithm(algorythm_name: str):
-        return os.path.join(Paths.algorithms, algorythm_name)
+    def algorithm(algorithm_name: str):
+        return os.path.join(Paths.algorithms, algorithm_name)
 
     @staticmethod
-    def codes(algorythm_name: str):
-        algorythm_path = Paths.algorithm(algorythm_name)
-        return os.path.join(algorythm_path, "codes")
+    def codes(algorithm_name: str):
+        algorithm_path = Paths.algorithm(algorithm_name)
+        return os.path.join(algorithm_path, "codes")
 
     @staticmethod
-    def test(algorythm_name: str):
-        algorythm_path = Paths.algorithm(algorythm_name)
-        return os.path.join(algorythm_path, "test.json")
+    def test(algorithm_name: str):
+        algorithm_path = Paths.algorithm(algorithm_name)
+        return os.path.join(algorithm_path, "test.json")
