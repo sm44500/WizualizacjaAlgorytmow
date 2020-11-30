@@ -85,10 +85,11 @@ class VisualisationManager:
 		self.description_widget.set_text(snapshot.description)
 		self.center.widget.render_snapshot(snapshot)
 
-	def on_click_algorithm(self):
-		self.algorithm.last_value = self.text_box.text()
-		self.description_widget.set_text(snapshot.description)
-		self.text_box.clear()
-
 	def on_click_play(self):
 		pass
+
+	def on_click_algorithm(self):
+		self.algorithm.last_value = self.text_box.text()
+		#self.description_widget.set_text(snapshot.description)
+		self.text_box.clear()
+
