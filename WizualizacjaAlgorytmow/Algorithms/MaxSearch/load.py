@@ -13,6 +13,7 @@ class MaxSearch(BasicAlgorithm):
 
 	def __init__(self):
 		super().__init__("MaxSearch", "Wyszukiwanie wartosci maksymalnej")
+		self.difficulty = 1
 
 	def execute(self):
 		"""

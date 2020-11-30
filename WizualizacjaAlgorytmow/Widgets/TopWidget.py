@@ -2,6 +2,9 @@ from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 
+from Paths import *
+
+
 class TopWidget(QComboBox):
 	"""
 	Klasa reprezentująca górny panel.
@@ -28,3 +31,13 @@ class TopWidget(QComboBox):
 		algorithm_name - tytuł algorytmu do dodania.
 		"""
 		self.addItem(algorithm_name)
+
+	def set_difficulty(self, index, difficulty):
+		"""
+		Ustawia ikonę symbolizującą poziom trudności algorytmu do listy rozwijanej.
+
+		Parametry:
+		index - numer pozycji w liście rozwijanej
+		difficulty - poziom trudności
+		"""
+		self.setItemIcon(index, QIcon(Paths.icon("difficulty_"+str(difficulty)+".png")))
