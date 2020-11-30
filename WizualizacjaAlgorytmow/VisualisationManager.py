@@ -1,4 +1,5 @@
 from PyQt5.QtCore import *
+from PyQt5.QtTest import QTest
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 
@@ -94,7 +95,9 @@ class VisualisationManager:
 		Zdarzenie naciśnięcia przycisku.
 		Automatyczne odtwarza algorytm krok po kroku.
 		"""
-		pass
+		for i in range(len(self.algorithm.snapshots)):
+			self.on_click_next_step()
+			QTest.qWait(300)
 
 	def on_click_algorithm(self):
 		"""
