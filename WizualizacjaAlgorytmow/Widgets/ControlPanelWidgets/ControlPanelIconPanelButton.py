@@ -3,11 +3,20 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 
 class ControlPanelIconPanelButton(QPushButton):
+	"""
+	Kontrolka panelu z ikonami. Przycisk z ikoną.
+
+	Parametry:
+	parent - widget rodzic.
+	"""
 	def __init__(self, parent=None):
 		super().__init__(parent)
 		self.setup_ui()
 
 	def setup_ui(self):
+		"""
+		Inicjalizacja interfejsu użytkownika.
+		"""
 		font = QFont()
 		font.setFixedPitch(True)
 		self.setStyleSheet("""

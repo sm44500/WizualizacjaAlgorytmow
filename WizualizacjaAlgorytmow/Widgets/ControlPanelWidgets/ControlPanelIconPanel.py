@@ -5,6 +5,12 @@ from PyQt5.QtGui import *
 from Widgets.ControlPanelWidgets.ControlPanelIconPanelButton import ControlPanelIconPanelButton
 
 class ControlPanelIconPanel(QWidget):
+	"""
+	Kontrolka panelu kontrolnego. Panel z ikonami.
+
+	Parametry:
+	parent - widget rodzic.
+	"""
 	def __init__(self, parent=None):
 		super().__init__(parent)
 		self.widgets = []
@@ -12,6 +18,9 @@ class ControlPanelIconPanel(QWidget):
 		self.setup_ui()
 
 	def setup_ui(self):
+		"""
+		Inicjalizacja interfejsu użytkownika.
+		"""
 		self.widget_layout = QHBoxLayout(self)
 		self.widget_layout.setContentsMargins(0, 0, 0, 0)
 		self.widget_layout.setAlignment(Qt.AlignHCenter)

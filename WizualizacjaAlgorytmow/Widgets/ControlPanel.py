@@ -8,6 +8,13 @@ from Widgets.ControlPanelWidgets.ControlPanelTextBox import ControlPanelTextBox
 from Widgets.ControlPanelWidgets.ControlPanelIconPanel import ControlPanelIconPanel
 
 class ControlPanel(QWidget):
+	"""
+	Klasa reprezentująca panel kontrolny.
+
+	Parametry:
+	parent - widget rodzic.
+	alignment - wyrównanie, domyślnie Qt.AlignTop
+	"""
 	def __init__(self, parent=None, alignment=Qt.AlignTop):
 		super().__init__(parent)
 		self.widgets = []
@@ -15,6 +22,9 @@ class ControlPanel(QWidget):
 		self.setup_ui(alignment)
 
 	def setup_ui(self, alignment):
+		"""
+		Inicjalizacja interfejsu użytkownika.
+		"""
 		self.widget_layout = QVBoxLayout(self)
 		self.widget_layout.setContentsMargins(0, 0, 0, 0)
 		self.widget_layout.setAlignment(alignment)

@@ -55,6 +55,7 @@ class VisualisationManager:
 
 	def on_click_first_step(self):
 		"""
+		Zdarzenie naciśnięcia przycisku.
 		Uruchomienie pierwszego kroku, jeżeli istnieje.
 		"""
 		snapshot = self.algorithm.first_snapshot()
@@ -63,6 +64,7 @@ class VisualisationManager:
 
 	def on_click_previous_step(self):
 		"""
+		Zdarzenie naciśnięcia przycisku.
 		Uruchomienie poprzedniego kroku, jeżeli istnieje.
 		"""
 		snapshot = self.algorithm.previous_snapshot()
@@ -71,6 +73,7 @@ class VisualisationManager:
 
 	def on_click_next_step(self):
 		"""
+		Zdarzenie naciśnięcia przycisku.
 		Uruchomienie następnego kroku, jeżeli istnieje.
 		"""
 		snapshot = self.algorithm.next_snapshot()
@@ -79,6 +82,7 @@ class VisualisationManager:
 
 	def on_click_last_snapshot(self):
 		"""
+		Zdarzenie naciśnięcia przycisku.
 		Uruchomienie ostatniego kroku, jeżeli istnieje.
 		"""
 		snapshot = self.algorithm.last_snapshot()
@@ -86,9 +90,16 @@ class VisualisationManager:
 		self.center.widget.render_snapshot(snapshot)
 
 	def on_click_play(self):
+		"""
+		Zdarzenie naciśnięcia przycisku.
+		Automatyczne odtwarza algorytm krok po kroku.
+		"""
 		pass
 
 	def on_click_algorithm(self):
+		"""
+		Obsługuje zdarzenia wewnącz algorytmu.
+		"""
 		self.algorithm.last_value = self.text_box.text()
 		#self.description_widget.set_text(snapshot.description)
 		self.text_box.clear()

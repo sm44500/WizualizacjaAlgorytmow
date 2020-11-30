@@ -5,6 +5,11 @@ class Snapshot:
 	"""
 	Klasa reprezentująca pojedyńczy krok wykonywania algorytmu.
 
+	Parametry:
+	data - stan algorytmu
+	description - opis kroku
+	highlights - elementy wyróżnione
+
 	Przykład:
 	>>> Snapshot([1, 2, 3], "Dodanie elementu '3' na koniec tablicy danych.", {2: '#ff0000'})
 	"""

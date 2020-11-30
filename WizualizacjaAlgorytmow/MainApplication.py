@@ -7,16 +7,21 @@ from AlgorithmsManager import AlgorithmsManager
 WINDOW_TITLE = "Wizualizacja Algorytmów"
 
 class MainApplication(QMainWindow):
+	"""
+	Główna klasa aplikacji.
+	
+	Parametry:
+	parent - widget rodzic.
+	"""
 	def __init__(self, parent=None):
 		super().__init__(parent)
 		self.setup_ui()
 		self.algorithms_manager = AlgorithmsManager(self.main_widget)
 
 	def setup_ui(self):
-		#
-		# Main window
-		#
-
+		"""
+		Inicjalizacja UI
+		"""
 		# Window config
 		self.setObjectName("MainWindow")
 		self.resize(800, 620)

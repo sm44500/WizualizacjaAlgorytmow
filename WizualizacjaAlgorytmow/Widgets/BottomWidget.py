@@ -3,11 +3,20 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 
 class BottomWidget(QLabel):
+	"""
+	Klasa reprezentująca dolny panel.
+
+	Parametry:
+	parent - widget rodzic.
+	"""
 	def __init__(self, parent=None):
 		super().__init__(parent)
 		self.setup_ui()
 
 	def setup_ui(self):
+		"""
+		Inicjalizacja interfejsu użytkownika.
+		"""
 		font = QFont()
 		self.setStyleSheet("""
 			background-color: #bcbcbc;
