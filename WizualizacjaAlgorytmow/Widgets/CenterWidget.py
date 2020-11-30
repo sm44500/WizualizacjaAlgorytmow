@@ -23,10 +23,10 @@ class CenterWidget(QWidget):
 			self.widget.setParent(None)
 			self.widget = None
 
-	def set_widget(self, widget_class, snapshot, description_widget):
-		self.widget = widget_class(snapshot, description_widget)
+	def set_widget(self, widget_class):
+		self.widget = widget_class()
 		self.widget_layout.addWidget(self.widget)
 
-	def set_visualisation_widget(self, widget_class, snapshot, description_widget):
-		self.widget = widget_class(snapshot, description_widget)
-		self.widget_layout.addWidget(self.widget)
+	# def set_visualisation_widget(self, widget_class, snapshot, description_widget):
+	# 	self.widget = widget_class(snapshot, description_widget)
+	# 	self.widget_layout.addWidget(self.widget)

@@ -26,9 +26,38 @@ class Algorithm:
         self.codes = None
         self.test_questions = None
         self.buttons = None
-        self.data = list()
-        self.snapshots = list()
+        self.data = []
+        self.snapshots = []
+        self.current_snapshot_index = 0
+
+    def next_snapshot(self):
+        """
+		Przechodzi oraz zwraca następny krok.
+
+        Typ zwracany:
+		obiekt klasy Snapshot
+		"""
+        self.current_snapshot_index = max(0, min(self.current_snapshot_index+1, len(self.snapshots)-1))
+        return self.snapshots[self.current_snapshot_index]
+
+    def previous_snapshot(self):
+        """
+		Przechodzi oraz zwraca poprzedni krok.
+
+        Typ zwracany:
+		obiekt klasy Snapshot
+		"""
+        self.current_snapshot_index = max(0, min(self.current_snapshot_index-1, len(self.snapshots)-1))
+        return self.snapshots[self.current_snapshot_index]
         
+    def first_snapshot(self):
+        self.current_snapshot_index = 0
+        return self.snapshots[self.current_snapshot_index]
+
+    def last_snapshot(self):
+        self.current_snapshot_index = max(0, len(self.snapshots) - 1)
+        return self.snapshots[self.current_snapshot_index]
+
     def save_snapshot(self, description: str, highlights: dict = {}):
         """
         Metoda zapisująca aktualny stan tablicy z danymi.

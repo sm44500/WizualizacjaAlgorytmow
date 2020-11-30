@@ -1,7 +1,7 @@
 from Paths import Paths
 from Algorithms.Algorithm import Algorithm
 from Snapshot import Snapshot
-from Visualisation.BasicAlgorithmVisualisation import BasicAlgorithmVisualisation
+from Widgets.NetworkXWidget import NetworkXWidget
 
 
 class BasicAlgorithm(Algorithm):
@@ -19,7 +19,7 @@ class BasicAlgorithm(Algorithm):
 	"""
 	def __init__(self, name: str = "missing", title: str = "missing"):
 		super().__init__(name, title)
-		self.visualization_widget = BasicAlgorithmVisualisation
+		self.visualization_widget = NetworkXWidget
 		self.load_buttons()
 		self.clear()
 
