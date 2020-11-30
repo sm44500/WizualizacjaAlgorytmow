@@ -28,7 +28,7 @@ class ControlPanel(QWidget):
 		self.widget_layout = QVBoxLayout(self)
 		self.widget_layout.setContentsMargins(0, 0, 0, 0)
 		self.widget_layout.setAlignment(alignment)
-		self.widget_layout.setSpacing(0)
+		self.widget_layout.setSpacing(4)
 		self.setContentsMargins(0, 0, 0, 0)
 
 	def clear(self):

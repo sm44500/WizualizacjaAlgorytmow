@@ -97,7 +97,7 @@ class VisualisationManager:
 		"""
 		for i in range(len(self.algorithm.snapshots)):
 			self.on_click_next_step()
-			QTest.qWait(300)
+			QTest.qWait(1000)
 
 	def on_click_algorithm(self):
 		"""
