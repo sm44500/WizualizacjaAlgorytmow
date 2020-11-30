@@ -24,3 +24,9 @@ class Paths:
 	def test(algorithm_name: str):
 		algorithm_path = Paths.algorithm(algorithm_name)
 		return os.path.join(algorithm_path, "test.json")
+
+	@staticmethod
+	def logic(algorithm_name: str):
+		algorithm_path = Paths.algorithm(algorithm_name)
+		return os.path.join(algorithm_path, "load.py")
+		
