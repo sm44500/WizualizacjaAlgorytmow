@@ -16,8 +16,8 @@ class BottomWidget(QLabel):
 		font.setPointSize(20)
 		font.setBold(True)
 		self.setFont(font)
-		self.setMaximumHeight(300)
-		self.setMinimumHeight(200)
+		self.setMaximumHeight(200)
+		self.setMinimumHeight(150)
 		pass
 
 	def set_text(self, content: str):
