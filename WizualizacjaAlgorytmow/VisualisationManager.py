@@ -25,7 +25,6 @@ class VisualisationManager:
         self.description_widget = self.main_widget.bottom_widget
         self.internal_widgets = []
         self.setup_control_panel()
-
         self.is_playing = False
 
     def setup_control_panel(self):
@@ -110,7 +109,9 @@ class VisualisationManager:
         self.is_playing = True
         for i in range(len(self.algorithm.snapshots) - self.algorithm.current_snapshot_index - 1):
             if self.is_playing:
-                self.on_click_next_step()
+                snapshot = self.algorithm.next_snapshot()
+                self.description_widget.set_text(snapshot.description)
+                self.center.widget.render_snapshot(snapshot)
                 QTest.qWait(1000)
 
     def on_click_pause(self):
