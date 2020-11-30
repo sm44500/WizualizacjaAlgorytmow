@@ -123,7 +123,7 @@ class VisualisationManager:
 
     def on_click_algorithm(self):
         """
-        Obsługuje zdarzenia wewnącz algorytmu.
+        Obsługuje zdarzenia wewnątrz algorytmu.
         """
         self.algorithm.last_value = self.text_box.text()
         # self.description_widget.set_text(snapshot.description)
