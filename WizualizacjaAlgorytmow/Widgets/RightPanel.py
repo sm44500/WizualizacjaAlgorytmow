@@ -22,7 +22,7 @@ class RightPanel(QWidget):
 		self.setMaximumWidth(300)
 		self.setMinimumWidth(200)
 		self.widget_layout = QVBoxLayout(self)
-		self.widget_layout.setContentsMargins(0, 0, 0, 0)
+		self.widget_layout.setContentsMargins(0, 4, 0, 4)
 
 		self.top_control_panel = ControlPanel(self, Qt.AlignTop)
 		self.bottom_control_panel = ControlPanel(self, Qt.AlignBottom)
