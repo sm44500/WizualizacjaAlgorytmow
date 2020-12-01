@@ -113,7 +113,7 @@ class VisualisationManager:
                     snapshot = self.algorithm.next_snapshot()
                     self.description_widget.set_text(snapshot.description)
                     self.center.widget.render_snapshot(snapshot)
-                    QTest.qWait(30*len(snapshot.description))
+                    QTest.qWait(50*len(snapshot.description))
 
     def on_click_pause(self):
         """

@@ -32,7 +32,7 @@ class MainApplication(QMainWindow):
 		size_policy.setVerticalStretch(1)
 		size_policy.setHeightForWidth(self.sizePolicy().hasHeightForWidth())
 		self.setSizePolicy(size_policy)
-		self.setMinimumSize(QSize(1000, 800))
+		self.setMinimumSize(QSize(1280, 720))
 		self.setWindowTitle(WINDOW_TITLE)
 
 		# Main widget
