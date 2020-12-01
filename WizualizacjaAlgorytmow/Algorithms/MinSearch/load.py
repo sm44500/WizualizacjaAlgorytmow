@@ -12,7 +12,7 @@ class MinSearch(BasicAlgorithm):
 	"""
 
 	def __init__(self):
-		super().__init__("MinSearch", "Wyszukiwanie wartosci minimalnej")
+		super().__init__("MinSearch", "Wyszukiwanie wartości minimalnej")
 		self.difficulty = 1
 
 	def execute(self):
@@ -21,11 +21,11 @@ class MinSearch(BasicAlgorithm):
 		"""
 		current_min = self.data[0]
 		current_min_index = 0
-		self.save_snapshot("Na początek ustalamy najmniejszy element na pierwszą wartość z tablicy (%s)." % current_min,
+		self.save_snapshot("Na początek ustalamy najmniejszy element na pierwszą wartość z tablicy równą '%s'." % current_min,
 							{current_min_index: Snapshot.color_current})
 		for i in range(1, len(self.data)):
 			self.save_snapshot(
-				"Porównujemy o wartości '%s' z tablicy z aktualnym minimum (%s)." % (self.data[i], current_min),
+				"Porównujemy %s. element z tablicy o wartości '%s' z aktualnym minimum wynoszącym '%s'." % (i, self.data[i], current_min),
 				{current_min_index: Snapshot.color_current, i: Snapshot.color_selected})
 			if compare(self.data[i], current_min, Comparator.is_less_than):
 				self.save_snapshot("'%s' jest mniejsze od '%s', więc zapamiętujemy nową wartosć minimalną." % (
@@ -34,8 +34,9 @@ class MinSearch(BasicAlgorithm):
 				current_min_index = i
 			else:
 				self.save_snapshot(
-					"%s nie jest mniejsze od '%s', więc przechodzimy dalej." % (self.data[i], current_min),
+					"'%s' nie jest mniejsze od '%s', więc przechodzimy dalej." % (self.data[i], current_min),
 					{current_min_index: Snapshot.color_current, i: Snapshot.color_selected})
+		self.save_snapshot("Był to ostatni element z tablicy danych, więc algorytm kończy działanie.", {current_min_index: Snapshot.color_selected})
 		self.save_snapshot("Znaleziona wartosć minimalna wynosi '%s'." % current_min,
 							{current_min_index: Snapshot.color_current_final})
 
