@@ -4,6 +4,7 @@ import os
 from Algorithms.Algorithm import Algorithm
 from Paths import Paths
 
+
 def get_algorithm_list() -> list:
 	"""
 	Funkcja wczytujacą wszystkie algorytmy.
@@ -45,4 +46,5 @@ def get_algorithm_list() -> list:
 		algorithm.load_codes()
 		algorithms.append(algorithm)
 
+	algorithms.sort(key=lambda algo: algo.difficulty)
 	return algorithms
