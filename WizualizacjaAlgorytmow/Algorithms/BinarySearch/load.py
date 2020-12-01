@@ -9,8 +9,9 @@ class BinarySearch(BasicAlgorithm):
     """
     def __init__(self):
         super().__init__("BinarySearch", "Wyszukiwanie binarne")
+        self.difficulty = 2
     
-    def execute(self,value):
+    def execute(self):
         """
         Metoda uruchamiająca algorytm.
         
