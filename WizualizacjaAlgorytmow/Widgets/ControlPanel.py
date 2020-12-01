@@ -38,9 +38,10 @@ class ControlPanel(BaseWidget):
 		self.widgets.append(icon_panel)
 		return icon_panel
 
-	def add_button(self, text, icon_path="") -> ControlPanelButton:
+	def add_button(self, text, icon_path="", hint="") -> ControlPanelButton:
 		button = ControlPanelButton()
 		button.set_icon(icon_path)
+		button.set_hint(hint)
 		button.set_text(text)
 		self.widget_layout.addWidget(button)
 		self.widgets.append(button)

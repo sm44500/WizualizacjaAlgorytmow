@@ -24,6 +24,7 @@ class ControlPanelButton(QPushButton):
 		self.setStyleSheet(Styles.button_background)
 		self.setMinimumHeight(32)
 		self.setContentsMargins(5, 0, 5, 0)
+		self.setIconSize(QSize(24, 24))
 
 		shadow = QGraphicsDropShadowEffect()
 		shadow.setOffset(1.0, 1.0)
@@ -42,7 +43,9 @@ class ControlPanelButton(QPushButton):
 	def set_icon(self, icon_path):
 		icon = QIcon(icon_path)
 		self.setIcon(icon)
-		self.setIconSize(QSize(24, 24))
+
+	def set_hint(self, hint):
+		self.setToolTip(hint)
 
 	def set_text(self, text: str):
 		# self.setText(text)

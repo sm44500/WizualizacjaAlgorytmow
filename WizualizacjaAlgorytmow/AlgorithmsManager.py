@@ -47,7 +47,7 @@ class AlgorithmsManager:
 		for index, code in enumerate(self.current_algorithm.codes):
 			code_button = self.control_panel_top.add_button(code.get_button_name(), code.icon)
 			code_button.clicked.connect(self.on_click_code)
-			code_button.setToolTip("Wyświetlenie kodu źródłowego w przeglądarce.")
+			code_button.set_hint("Wyświetlenie kodu źródłowego w przeglądarce.")
 			self.codes_buttons.append(code_button)
 
 	def on_click_code(self, index):
