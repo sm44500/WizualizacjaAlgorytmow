@@ -47,6 +47,7 @@ class AlgorithmsManager:
 		for index, code in enumerate(self.current_algorithm.codes):
 			code_button = self.control_panel_top.add_button(code.get_button_name(), code.icon)
 			code_button.clicked.connect(self.on_click_code)
+			code_button.setToolTip("Wyświetlenie kodu źródłowego w przeglądarce.")
 			self.codes_buttons.append(code_button)
 
 	def on_click_code(self, index):
@@ -73,7 +74,7 @@ class AlgorithmsManager:
 		self.manager = VisualisationManager(self.main_widget, self.current_algorithm)
 
 	def show_questions(self):
-		if(len(self.current_algorithm.test_questions) > 0):
+		if len(self.current_algorithm.test_questions) > 0:
 			self.center.clear_widget()
 			self.setup_control_panel()
 			self.manager = QuestionsManager(self.main_widget, self.current_algorithm)

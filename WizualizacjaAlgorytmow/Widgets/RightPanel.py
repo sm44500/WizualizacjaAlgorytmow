@@ -1,10 +1,12 @@
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QVBoxLayout, QWidget, QLabel
+
 from Styles import Styles
 from Widgets.ControlPanel import ControlPanel
+from Widgets.BaseWidget import BaseWidget
 
 
-class RightPanel(QWidget):
+class RightPanel(BaseWidget):
 	"""
 	Klasa reprezentująca prawy panel.
 
@@ -12,7 +14,9 @@ class RightPanel(QWidget):
 	parent - widget rodzic.
 	"""
 	def __init__(self, parent=None):
-		super().__init__(parent)
+		super().__init__(parent, QVBoxLayout)
+		self.top_control_panel = None
+		self.bottom_control_panel = None
 		self.setup_ui()
 
 	def setup_ui(self):
@@ -21,9 +25,6 @@ class RightPanel(QWidget):
 		"""
 		self.setMaximumWidth(250)
 		self.setMinimumWidth(220)
-		self.widget_layout = QVBoxLayout(self)
-		self.widget_layout.setContentsMargins(0, 0, 0, 0)
-		self.widget_layout.setSpacing(0)
 
 		self.top_control_panel = ControlPanel(self, Qt.AlignTop)
 		self.__generate_label_background(Styles.right_panel_background).setParent(self.top_control_panel)
@@ -33,9 +34,18 @@ class RightPanel(QWidget):
 
 		self.widget_layout.addWidget(self.top_control_panel)
 		self.widget_layout.addWidget(self.bottom_control_panel)
-		self.setLayout(self.widget_layout)
 
-	def __generate_label_background(self, style: str):
+	@staticmethod
+	def __generate_label_background(style: str) -> QLabel:
+		"""
+		Wygenerowanie pustego pola, które posłuży za tło
+
+		Parametry:
+		style - style w jakim zostanie wygenerowane tło.
+
+		Zwracany typ:
+		QLabel
+		"""
 		label = QLabel()
 		label.setStyleSheet(style)
 		label.setAlignment(Qt.AlignCenter)

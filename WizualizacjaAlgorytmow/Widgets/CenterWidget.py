@@ -1,8 +1,10 @@
-from PyQt5.QtWidgets import QWidget, QHBoxLayout
+from PyQt5.QtWidgets import QHBoxLayout
+
 from Styles import Styles
+from Widgets.BaseWidget import BaseWidget
 
 
-class CenterWidget(QWidget):
+class CenterWidget(BaseWidget):
 	"""
 	Klasa reprezentująca centralny panel aplikacji.
 
@@ -10,7 +12,7 @@ class CenterWidget(QWidget):
 	parent - widget rodzic.
 	"""
 	def __init__(self, parent=None):
-		super().__init__(parent)
+		super().__init__(parent, QHBoxLayout)
 		self.widget = None
 		self.setup_ui()
 
@@ -18,18 +20,13 @@ class CenterWidget(QWidget):
 		"""
 		Inicjalizacja interfejsu użytkownika.
 		"""
-		self.widget_layout = QHBoxLayout(self)
-		self.widget_layout.setContentsMargins(0, 0, 0, 0)
-		self.widget_layout.setSpacing(0)
-
-		self.setLayout(self.widget_layout)
 		self.setStyleSheet(Styles.description_background)
 
 	def clear_widget(self):
 		"""
-		Czyści widget.
+		Czyszczenie widget'u z odepnięciem go od rodzica wpierw.
 		"""
-		if not self.widget is None:
+		if self.widget is not None:
 			self.widget.setParent(None)
 			self.widget = None
 
@@ -39,7 +36,3 @@ class CenterWidget(QWidget):
 		"""
 		self.widget = widget_class()
 		self.widget_layout.addWidget(self.widget)
-
-	# def set_visualisation_widget(self, widget_class, snapshot, description_widget):
-	# 	self.widget = widget_class(snapshot, description_widget)
-	# 	self.widget_layout.addWidget(self.widget)

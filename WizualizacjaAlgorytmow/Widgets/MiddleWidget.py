@@ -1,8 +1,11 @@
 from PyQt5.QtWidgets import QWidget, QHBoxLayout
+
 from Widgets.CenterWidget import CenterWidget
 from Widgets.RightPanel import RightPanel
+from Widgets.BaseWidget import BaseWidget
 
-class MiddleWidget(QWidget):
+
+class MiddleWidget(BaseWidget):
 	"""
 	Klasa reprezentująca środkowy panel.
 
@@ -10,20 +13,17 @@ class MiddleWidget(QWidget):
 	parent - widget rodzic.
 	"""
 	def __init__(self, parent=None):
-		super().__init__(parent)
+		super().__init__(parent, QHBoxLayout)
+		self.left_widget = None
+		self.right_widget = None
 		self.setup_ui()
 
 	def setup_ui(self):
 		"""
 		Inicjalizacja interfejsu użytkownika.
 		"""
-		self.widget_layout = QHBoxLayout(self)
-		self.widget_layout.setContentsMargins(0, 0, 0, 0)
-		self.widget_layout.setSpacing(0)
-
 		self.left_widget = CenterWidget(self)
 		self.right_widget = RightPanel(self)
 
 		self.widget_layout.addWidget(self.left_widget, 6)
 		self.widget_layout.addWidget(self.right_widget, 1)
-		self.setLayout(self.widget_layout)

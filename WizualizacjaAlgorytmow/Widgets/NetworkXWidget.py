@@ -1,13 +1,16 @@
 import math
+
 import matplotlib.pyplot as plt
+from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 import networkx as nx
 from PyQt5.QtWidgets import QWidget, QGridLayout
-from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
+
 from Snapshot import Snapshot
 from Styles import Styles
+from Widgets.BaseWidget import BaseWidget
 
 
-class NetworkXWidget(QWidget):
+class NetworkXWidget(BaseWidget):
 	"""
 	Widget wizualuzacji opartej na bibliotece NetworkX.
 
@@ -15,8 +18,7 @@ class NetworkXWidget(QWidget):
 	parent - widget rodzic.
 	"""
 	def __init__(self, parent=None):
-		super().__init__(parent)
-		self.widget_layout = None
+		super().__init__(parent, QGridLayout)
 		self.figure = None
 		self.canvas = None
 		self.setup_ui()
@@ -25,14 +27,11 @@ class NetworkXWidget(QWidget):
 		"""
 		Inicjalizacja interfejsu użytkownika.
 		"""
-		self.widget_layout = QGridLayout(self)
 		self.figure = plt.figure()
 		self.figure.set_facecolor("#00000F")
 		self.canvas = FigureCanvas(self.figure)
 		self.setStyleSheet(Styles.description_background)
-		self.widget_layout.setContentsMargins(0, 0, 0, 0)
 		self.widget_layout.addWidget(self.canvas)
-		pass
 
 	def render_snapshot(self, snapshot: Snapshot):
 		"""

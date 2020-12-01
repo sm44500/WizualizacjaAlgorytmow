@@ -1,6 +1,8 @@
 import os
 from PyQt5.QtCore import QUrl
 from Paths import Paths
+
+
 class Code:
 	"""
 	Klasa reprezentująca przykładowy kod algorytmu.

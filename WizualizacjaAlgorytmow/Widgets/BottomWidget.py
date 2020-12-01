@@ -1,7 +1,9 @@
 from PyQt5.QtWidgets import QLabel
-from PyQt5.QtGui import QFont
+
 from TestQuestion import TestQuestion
 from Styles import Styles
+from Widgets.BaseWidget import BaseWidget
+
 
 class BottomWidget(QLabel):
 	"""
@@ -18,18 +20,15 @@ class BottomWidget(QLabel):
 		"""
 		Inicjalizacja interfejsu użytkownika.
 		"""
-		font = QFont()
+		font = BaseWidget.generate_font()
 		self.setStyleSheet("""
 			padding: 10px;
 			%s
 		""" % Styles.description_background)
-		font.setPointSize(20)
-		font.setBold(True)
 		self.setFont(font)
 		self.setWordWrap(True)
 		self.setMaximumHeight(200)
 		self.setMinimumHeight(150)
-		pass
 
 	def set_text(self, content: str):
 		self.setText(content)

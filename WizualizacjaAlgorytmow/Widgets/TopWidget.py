@@ -1,7 +1,9 @@
 from PyQt5.QtWidgets import QComboBox
 from PyQt5.QtGui import QFont, QIcon
+
 from Paths import Paths
 from Styles import Styles
+from Widgets.BaseWidget import BaseWidget
 
 
 class TopWidget(QComboBox):
@@ -25,10 +27,8 @@ class TopWidget(QComboBox):
 		self.setStyleSheet(Styles.top_panel_background)
 		self.setMinimumHeight(40)
 		self.setMaxVisibleItems(5)
-		font = QFont()
-		font.setPointSize(20)
-		font.setBold(True)
-		self.setFont(font)
+
+		self.setFont(BaseWidget.generate_font())
 
 	def load_difficulty_icons(self):
 		for filename in ["easy", "moderate", "difficult"]:
