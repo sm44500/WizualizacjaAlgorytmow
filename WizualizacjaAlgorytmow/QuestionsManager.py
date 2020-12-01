@@ -26,26 +26,26 @@ class QuestionsManager:
 		self.title_label = self.control_panel_bottom.add_label("Odpowiedź:")
 		self.icon_panel = self.control_panel_bottom.add_icon_panel()
 
-		self.previous_button = self.icon_panel.add_button(Paths.icon("backward.png"))
+		self.previous_button = self.icon_panel.add_button(Paths.icon("backward.png"), "Poprzednie pytanie")
 		self.previous_button.clicked.connect(self.on_click_previous)
 
-		answer_button = self.icon_panel.add_button(Paths.icon("letter_a.png"))
+		answer_button = self.icon_panel.add_button(Paths.icon("letter_a.png"), "Odpowiedź A")
 		answer_button.clicked.connect(lambda: self.on_click_answer(0))
 		self.answer_buttons.append(answer_button)
 
-		answer_button = self.icon_panel.add_button(Paths.icon("letter_b.png"))
+		answer_button = self.icon_panel.add_button(Paths.icon("letter_b.png"), "Odpowiedź B")
 		answer_button.clicked.connect(lambda: self.on_click_answer(1))
 		self.answer_buttons.append(answer_button)
 
-		answer_button = self.icon_panel.add_button(Paths.icon("letter_c.png"))
+		answer_button = self.icon_panel.add_button(Paths.icon("letter_c.png"), "Odpowiedź C")
 		answer_button.clicked.connect(lambda: self.on_click_answer(2))
 		self.answer_buttons.append(answer_button)
 
-		answer_button = self.icon_panel.add_button(Paths.icon("letter_d.png"))
+		answer_button = self.icon_panel.add_button(Paths.icon("letter_d.png"), "Odpowiedź D")
 		answer_button.clicked.connect(lambda: self.on_click_answer(3))
 		self.answer_buttons.append(answer_button)
 
-		self.next_button = self.icon_panel.add_button(Paths.icon("forward.png"))
+		self.next_button = self.icon_panel.add_button(Paths.icon("forward.png"), "Następne pytanie")
 		self.next_button.clicked.connect(self.on_click_next)
 
 	def on_click_previous(self):
