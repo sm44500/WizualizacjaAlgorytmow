@@ -57,9 +57,9 @@ class MergeSort(BasicAlgorithm):
             colors[i] = Snapshot.color_group1 if not is_right_side else Snapshot.color_group2
 
         if right_index - left_index > 1:
-            self.save_snapshot("Sortujemy elementy od indeksu %s do indeksu %s." % (left_index, right_index), colors)
+            self.save_snapshot("Sortujemy elementy od indeksu %s. do indeksu %s." % (left_index, right_index), colors)
         else:
-            self.save_snapshot("Sortujemy elementy o indeksie %s oraz indeksie %s." % (left_index, right_index), colors)
+            self.save_snapshot("Sortujemy elementy o indeksie %s. oraz indeksie %s." % (left_index, right_index), colors)
 
         left_copy = self.data[left_index:center_index+1]
         right_copy = self.data[center_index+1:right_index+1]
@@ -69,7 +69,6 @@ class MergeSort(BasicAlgorithm):
         sorted_index = left_index
 
         while left_copy_index < len(left_copy) and right_copy_index < len(right_copy):
-            print("%s comp %s (%s)" % (left_copy[left_copy_index], right_copy[right_copy_index], str(compare(left_copy[left_copy_index], right_copy[right_copy_index], Comparator.is_less_than))))
             if compare(left_copy[left_copy_index], right_copy[right_copy_index], Comparator.is_less_than):
                 self.data[sorted_index] = left_copy[left_copy_index]
                 left_copy_index = left_copy_index + 1

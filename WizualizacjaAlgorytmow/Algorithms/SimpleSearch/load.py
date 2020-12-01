@@ -33,5 +33,6 @@ class SimpleSearch(BasicAlgorithm):
 		if not self.found:
 			self.save_snapshot("Wyszukiwany element nie został znaleziony.")
 
+
 def __init__():
 	return SimpleSearch()
