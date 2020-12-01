@@ -1,7 +1,5 @@
-from PyQt5.QtCore import *
-from PyQt5.QtWidgets import *
-from PyQt5.QtGui import *
-
+from PyQt5.QtCore import QSize
+from PyQt5.QtWidgets import QMainWindow, QSizePolicy
 from Styles import Styles
 from Widgets.MainWidget import MainWidget
 from AlgorithmsManager import AlgorithmsManager

@@ -1,11 +1,6 @@
-import os
-import importlib.util
-from PyQt5.QtCore import *
-from PyQt5.QtWidgets import *
-from PyQt5.QtGui import *
-from Algorithms.Algorithm import Algorithm
-from Paths import Paths
-from AlgorithmLoader import *
+from PyQt5.QtWidgets import QWidget
+from PyQt5.QtGui import QDesktopServices
+from AlgorithmLoader import get_algorithm_list, Paths
 from VisualisationManager import VisualisationManager
 from QuestionsManager import QuestionsManager
 

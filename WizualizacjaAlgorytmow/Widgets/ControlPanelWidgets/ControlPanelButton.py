@@ -1,7 +1,6 @@
-from PyQt5.QtCore import *
-from PyQt5.QtWidgets import *
-from PyQt5.QtGui import *
-
+from PyQt5.QtCore import Qt, QSize
+from PyQt5.QtWidgets import QPushButton, QGraphicsDropShadowEffect, QLabel, QVBoxLayout
+from PyQt5.QtGui import QColor, QIcon
 from Styles import Styles
 
 

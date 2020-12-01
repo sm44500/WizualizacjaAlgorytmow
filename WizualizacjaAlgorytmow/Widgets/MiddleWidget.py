@@ -1,8 +1,4 @@
-from PyQt5.QtCore import *
-from PyQt5.QtWidgets import *
-from PyQt5.QtGui import *
-
-from Styles import Styles
+from PyQt5.QtWidgets import QWidget, QHBoxLayout
 from Widgets.CenterWidget import CenterWidget
 from Widgets.RightPanel import RightPanel
 

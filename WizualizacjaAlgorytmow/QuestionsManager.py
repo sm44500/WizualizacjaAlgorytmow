@@ -1,9 +1,4 @@
-from PyQt5 import QtGui
-from PyQt5.QtCore import *
-from PyQt5.QtTest import QTest
-from PyQt5.QtWidgets import *
-from PyQt5.QtGui import *
-
+from PyQt5.QtWidgets import QWidget
 from Paths import Paths
 from Algorithms.Algorithm import Algorithm
 

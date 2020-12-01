@@ -1,11 +1,7 @@
 import math
-
 import matplotlib.pyplot as plt
 import networkx as nx
-
-from PyQt5.QtCore import *
-from PyQt5.QtWidgets import *
-from PyQt5.QtGui import *
+from PyQt5.QtWidgets import QWidget, QGridLayout
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from Snapshot import Snapshot
 from Styles import Styles

@@ -1,7 +1,5 @@
-from PyQt5.QtCore import *
-from PyQt5.QtWidgets import *
-from PyQt5.QtGui import *
-
+from PyQt5.QtCore import Qt
+from PyQt5.QtWidgets import QVBoxLayout, QWidget, QLabel
 from Styles import Styles
 from Widgets.ControlPanel import ControlPanel
 
