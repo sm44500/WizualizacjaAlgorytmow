@@ -1,6 +1,8 @@
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
+
+from Styles import Styles
 from Widgets.MainWidget import MainWidget
 from AlgorithmsManager import AlgorithmsManager
 
@@ -30,12 +32,13 @@ class MainApplication(QMainWindow):
 		size_policy.setVerticalStretch(1)
 		size_policy.setHeightForWidth(self.sizePolicy().hasHeightForWidth())
 		self.setSizePolicy(size_policy)
-		self.setMinimumSize(QSize(800, 600))
+		self.setMinimumSize(QSize(1280, 720))
 		self.setWindowTitle(WINDOW_TITLE)
 
 		# Main widget
 		self.main_widget = MainWidget(self)
 		self.main_widget.setObjectName("main_widget")
+		self.setStyleSheet(Styles.main_background)
 		self.setCentralWidget(self.main_widget)
 
 	

@@ -2,6 +2,7 @@ from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 
+from Styles import Styles
 from Widgets.TopWidget import TopWidget
 from Widgets.MiddleWidget import MiddleWidget
 from Widgets.BottomWidget import BottomWidget

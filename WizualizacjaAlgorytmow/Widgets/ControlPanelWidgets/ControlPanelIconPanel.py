@@ -22,7 +22,7 @@ class ControlPanelIconPanel(QWidget):
 		Inicjalizacja interfejsu użytkownika.
 		"""
 		self.widget_layout = QHBoxLayout(self)
-		self.widget_layout.setContentsMargins(0, 0, 0, 0)
+		self.widget_layout.setContentsMargins(0, 10+10, 0, 10)
 		self.widget_layout.setAlignment(Qt.AlignHCenter)
 		self.widget_layout.setSpacing(0)
 		self.setContentsMargins(0, 0, 0, 0)
@@ -37,4 +37,5 @@ class ControlPanelIconPanel(QWidget):
 		button.set_icon(icon_path)
 		self.widget_layout.addWidget(button)
 		self.widgets.append(button)
+
 		return button

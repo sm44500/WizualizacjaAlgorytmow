@@ -3,6 +3,7 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 
 from TestQuestion import TestQuestion
+from Styles import Styles
 
 class BottomWidget(QLabel):
 	"""
@@ -21,9 +22,9 @@ class BottomWidget(QLabel):
 		"""
 		font = QFont()
 		self.setStyleSheet("""
-			background-color: #bcbcbc;
 			padding: 10px;
-		""")
+			%s
+		""" % Styles.description_background)
 		font.setPointSize(20)
 		font.setBold(True)
 		self.setFont(font)

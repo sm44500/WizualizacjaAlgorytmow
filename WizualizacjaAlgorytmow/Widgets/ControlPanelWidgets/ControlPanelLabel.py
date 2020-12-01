@@ -2,6 +2,8 @@ from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 
+from Styles import Styles
+
 
 class ControlPanelLabel(QLabel):
 	"""
@@ -22,5 +24,6 @@ class ControlPanelLabel(QLabel):
 		font.setPointSize(14)
 		font.setBold(True)
 		self.setFont(font)
-		self.setMinimumHeight(15)
+		self.setMinimumHeight(20)
 		self.setAlignment(Qt.AlignCenter)
+		self.setStyleSheet(Styles.label_background)

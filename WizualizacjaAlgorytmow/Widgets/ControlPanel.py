@@ -26,7 +26,7 @@ class ControlPanel(QWidget):
 		Inicjalizacja interfejsu użytkownika.
 		"""
 		self.widget_layout = QVBoxLayout(self)
-		self.widget_layout.setContentsMargins(0, 0, 0, 0)
+		self.widget_layout.setContentsMargins(10, 10, 10, 10)
 		self.widget_layout.setAlignment(alignment)
 		self.widget_layout.setSpacing(4)
 		self.setContentsMargins(0, 0, 0, 0)

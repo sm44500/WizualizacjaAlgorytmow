@@ -2,6 +2,9 @@ from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 
+from Styles import Styles
+
+
 class CenterWidget(QWidget):
 	"""
 	Klasa reprezentująca centralny panel aplikacji.
@@ -20,12 +23,10 @@ class CenterWidget(QWidget):
 		"""
 		self.widget_layout = QHBoxLayout(self)
 		self.widget_layout.setContentsMargins(0, 0, 0, 0)
+		self.widget_layout.setSpacing(0)
 
 		self.setLayout(self.widget_layout)
-		self.setStyleSheet("""
-			background-color: grey;
-		""")
-		pass
+		self.setStyleSheet(Styles.description_background)
 
 	def clear_widget(self):
 		"""

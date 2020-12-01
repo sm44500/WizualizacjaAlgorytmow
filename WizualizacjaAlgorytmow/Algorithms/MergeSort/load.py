@@ -11,7 +11,7 @@ class MergeSort(BasicAlgorithm):
     """
     def __init__(self):
         super().__init__("MergeSort", "Sortowanie przez scalanie")
-        self.difficulty = 2
+        self.difficulty = 3
 
     def execute(self):
         """
