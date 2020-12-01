@@ -7,6 +7,7 @@ from Algorithms.Algorithm import Algorithm
 from Paths import Paths
 from AlgorithmLoader import *
 from VisualisationManager import VisualisationManager
+from QuestionsManager import QuestionsManager
 
 
 class AlgorithmsManager:
@@ -18,7 +19,8 @@ class AlgorithmsManager:
         self.control_panel_bottom = self.main_widget.middle_widget.right_widget.bottom_control_panel
         self.center = self.main_widget.middle_widget.left_widget
         self.bottom = self.main_widget.bottom_widget
-        self.visualisation_manager = None
+        self.manager = None
+        self.questions_manager = None
         self.current_index = 0
         self.current_algorithm = None
         self.setup_algorithms()
@@ -47,6 +49,7 @@ class AlgorithmsManager:
         self.visualisation_button = self.control_panel_top.add_button("Wizualizacja", Paths.icon("eye.png"))
         self.visualisation_button.clicked.connect(self.show_visualisation)
         self.questions_button = self.control_panel_top.add_button("Pytania", Paths.icon("question_mark.png"))
+        self.questions_button.clicked.connect(self.show_questions)
 
         self.codes_buttons = []
         for index, code in enumerate(self.current_algorithm.codes):
@@ -69,16 +72,22 @@ class AlgorithmsManager:
     def show_description(self):
         self.center.clear_widget()
         self.setup_control_panel()
-        self.visualisation_manager = None
+        self.manager = None
         self.bottom.set_text(self.current_algorithm.description)
 
     def show_visualisation(self):
         self.center.clear_widget()
         self.setup_control_panel()
-        self.visualisation_manager = VisualisationManager(self.main_widget, self.current_algorithm)
+        self.manager = VisualisationManager(self.main_widget, self.current_algorithm)
+
+    def show_questions(self):
+        if(len(self.current_algorithm.test_questions) > 0):
+            self.center.clear_widget()
+            self.setup_control_panel()
+            self.manager = QuestionsManager(self.main_widget, self.current_algorithm)
 
     def reset(self):
         self.setup_control_panel()
-        self.visualisation_manager = None
+        self.manager = None
         self.show_description()
         pass

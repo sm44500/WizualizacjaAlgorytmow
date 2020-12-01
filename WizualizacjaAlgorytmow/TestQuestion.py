@@ -11,6 +11,7 @@ class TestQuestion:
 	def __init__(self):
 		self.question = ""
 		self.answers = []
+		self.correct = -1
 
 	def check(self, answer: int):
 		"""

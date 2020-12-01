@@ -24,7 +24,7 @@ class Algorithm:
 		self.difficulty = 0
 		self.last_value = 0
 		self.codes = None
-		self.test_questions = None
+		self.test_questions = []
 		self.buttons = None
 		self.data = []
 		self.snapshots = []
