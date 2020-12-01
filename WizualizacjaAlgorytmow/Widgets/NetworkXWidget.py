@@ -45,6 +45,12 @@ class NetworkXWidget(QWidget):
 		Parametry:
 		snapshot - aktualny stan algorytmu. Obiekt typu Snapshot.
 		"""
+		if len(snapshot.data) == 0:
+			self.figure.clf()
+			self.figure.set_facecolor("#00000F")
+			self.canvas.draw_idle()
+			return
+
 		data_range = range(len(snapshot.data))
 		data_ids = [data_id for data_id in data_range]
 		data_indexes = ["index_%i" % index for index in data_range]

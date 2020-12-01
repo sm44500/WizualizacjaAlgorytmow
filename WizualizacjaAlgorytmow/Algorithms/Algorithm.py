@@ -67,7 +67,7 @@ class Algorithm:
 		Typ zwracany:
 		obiekt klasy Snapshot
 		"""
-		self.current_snapshot_index = max(0, len(self.snapshots) - 1)
+		self.current_snapshot_index = max(0, min(len(self.snapshots) - 1, len(self.snapshots)))
 		return self.snapshots[self.current_snapshot_index]
 
 	def save_snapshot(self, description: str, highlights: dict = {}):
