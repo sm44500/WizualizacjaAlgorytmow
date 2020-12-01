@@ -2,6 +2,9 @@ from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 
+from Styles import Styles
+
+
 class BottomWidget(QLabel):
 	"""
 	Klasa reprezentująca dolny panel.
@@ -19,9 +22,9 @@ class BottomWidget(QLabel):
 		"""
 		font = QFont()
 		self.setStyleSheet("""
-			background-color: #bcbcbc;
 			padding: 10px;
-		""")
+			%s
+		""" % Styles.description_background)
 		font.setPointSize(20)
 		font.setBold(True)
 		self.setFont(font)

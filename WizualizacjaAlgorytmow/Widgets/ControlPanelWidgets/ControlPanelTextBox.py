@@ -2,6 +2,8 @@ from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 
+from Styles import Styles
+
 
 class ControlPanelTextBox(QLineEdit):
 	"""
@@ -24,3 +26,4 @@ class ControlPanelTextBox(QLineEdit):
 		self.setFont(font)
 		self.setMinimumHeight(20)
 		self.setAlignment(Qt.AlignCenter)
+		self.setStyleSheet(Styles.text_box_background)

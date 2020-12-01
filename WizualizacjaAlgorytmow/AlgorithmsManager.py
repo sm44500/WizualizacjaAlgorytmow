@@ -28,7 +28,7 @@ class AlgorithmsManager:
 		# Ui
 		self.combobox.clear()
 		for algorithm in self.algorithms:
-			self.combobox.add_algorithms(algorithm.title)
+			self.combobox.add_algorithms(algorithm.title, algorithm.difficulty)
 
 		# Events
 		self.main_widget.top_widget.currentIndexChanged.connect(self.on_change_algorithm)

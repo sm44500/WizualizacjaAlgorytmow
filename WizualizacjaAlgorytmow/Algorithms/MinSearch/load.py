@@ -13,6 +13,7 @@ class MinSearch(BasicAlgorithm):
 
 	def __init__(self):
 		super().__init__("MinSearch", "Wyszukiwanie wartosci minimalnej")
+		self.difficulty = 1
 
 	def execute(self):
 		"""

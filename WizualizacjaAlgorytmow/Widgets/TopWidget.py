@@ -2,6 +2,10 @@ from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 
+from Paths import Paths
+from Styles import Styles
+
+
 class TopWidget(QComboBox):
 	"""
 	Klasa reprezentująca górny panel.
@@ -12,19 +16,32 @@ class TopWidget(QComboBox):
 	"""
 	def __init__(self, parent=None):
 		super().__init__(parent)
+		self.difficulty_icons = list()
+		self.load_difficulty_icons()
 		self.setup_ui()
 
 	def setup_ui(self):
 		"""
 		Inicjalizacja interfejsu użytkownika.
 		"""
-		pass
+		self.setStyleSheet(Styles.top_panel_background)
+		self.setMinimumHeight(40)
+		self.setMaxVisibleItems(5)
+		font = QFont()
+		font.setPointSize(20)
+		font.setBold(True)
+		self.setFont(font)
 
-	def add_algorithms(self, algorithm_name):
+	def load_difficulty_icons(self):
+		for filename in ["easy", "moderate", "difficult"]:
+			self.difficulty_icons.append(QIcon(Paths.icon("%s.png" % filename)))
+
+	def add_algorithms(self, algorithm_name: str, algorithm_difficulty: int = 1):
 		"""
 		Dodaje algorytm do listy rozwijanej.
 
 		Parametry:
 		algorithm_name - tytuł algorytmu do dodania.
 		"""
-		self.addItem(algorithm_name)
+		icon_index = max(min(algorithm_difficulty-1, 2), 0)
+		self.addItem(self.difficulty_icons[icon_index], algorithm_name)

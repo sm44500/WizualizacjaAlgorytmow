@@ -2,6 +2,7 @@ from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 
+from Styles import Styles
 from Widgets.CenterWidget import CenterWidget
 from Widgets.RightPanel import RightPanel
 
@@ -22,11 +23,11 @@ class MiddleWidget(QWidget):
 		"""
 		self.widget_layout = QHBoxLayout(self)
 		self.widget_layout.setContentsMargins(0, 0, 0, 0)
+		self.widget_layout.setSpacing(0)
 
 		self.left_widget = CenterWidget(self)
 		self.right_widget = RightPanel(self)
 
-		self.widget_layout.addWidget(self.left_widget, 4)
+		self.widget_layout.addWidget(self.left_widget, 6)
 		self.widget_layout.addWidget(self.right_widget, 1)
 		self.setLayout(self.widget_layout)
-		pass
