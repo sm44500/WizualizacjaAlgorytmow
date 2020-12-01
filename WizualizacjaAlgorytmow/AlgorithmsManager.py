@@ -6,8 +6,14 @@ from QuestionsManager import QuestionsManager
 
 
 class AlgorithmsManager:
+	"""
+	Kontroler odpowiadający za obsługę algorytmu.
+
+	Parametry:
+	main_widget - referencja do głównego widget'u.
+	"""
 	def __init__(self, main_widget: QWidget):
-		self.algorithms = get_algorithm_list()
+		self.algorithms = []
 		self.main_widget = main_widget
 		self.combobox = self.main_widget.top_widget
 		self.control_panel_top = self.main_widget.middle_widget.right_widget.top_control_panel
@@ -20,19 +26,23 @@ class AlgorithmsManager:
 		self.setup_algorithms()
 
 	def setup_algorithms(self):
-		# Ui
+		"""
+		Wczytuje algorytmy. 
+		"""
+		self.algorithms = get_algorithm_list()
+
 		self.combobox.clear()
-		
 		for algorithm in self.algorithms:
 			self.combobox.add_algorithms(algorithm.title, algorithm.difficulty)
 
-		# Events
 		self.main_widget.top_widget.currentIndexChanged.connect(self.on_change_algorithm)
 
-		# Setup
 		self.set_algorithm(0)
 
 	def setup_control_panel(self):
+		"""
+		Inicjalizuje panel kontrolny.
+		"""
 		self.control_panel_top.clear()
 		self.control_panel_bottom.clear()
 
@@ -51,35 +61,58 @@ class AlgorithmsManager:
 			self.codes_buttons.append(code_button)
 
 	def on_click_code(self, index):
+		"""
+        Zdarzenie naciśnięcia przycisku.
+        Uruchomienie kodu źródłowego algorytmu w przeglądarce.
+        """
 		QDesktopServices.openUrl(self.current_algorithm.codes[index].url)
 
 	def on_change_algorithm(self, index):
+		"""
+        Zdarzenie zmiany algorytmu.
+        Ustawia wybrany algorytm.
+        """
 		self.set_algorithm(index)
 		pass
 
 	def set_algorithm(self, index):
+		"""
+        Aktywuje dany algorytm.
+        """
 		self.current_index = index
 		self.current_algorithm = self.algorithms[index]
 		self.reset()
 
 	def show_description(self):
+		"""
+        Wyświetla opis algorytmu 
+        """
 		self.center.clear_widget()
 		self.setup_control_panel()
 		self.manager = None
 		self.bottom.set_text(self.current_algorithm.description)
 
 	def show_visualisation(self):
+		"""
+		Uruchamia zarządcę odpowiedzialnego za wizualizacje algorytmu.
+        """
 		self.center.clear_widget()
 		self.setup_control_panel()
 		self.manager = VisualisationManager(self.main_widget, self.current_algorithm)
 
 	def show_questions(self):
+		"""
+		Uruchamia zarządcę odpowiedzialnego za pytania testowe.
+        """
 		if len(self.current_algorithm.test_questions) > 0:
 			self.center.clear_widget()
 			self.setup_control_panel()
 			self.manager = QuestionsManager(self.main_widget, self.current_algorithm)
 
 	def reset(self):
+		"""
+		Przywraca stan programu do stanu początkowego.
+        """
 		self.setup_control_panel()
 		self.manager = None
 		self.show_description()
