@@ -28,8 +28,8 @@ class ControlPanelIconPanelButton(QPushButton):
 		self.setFont(font)
 		self.setFixedHeight(32)
 		self.setFixedWidth(32)
+		self.setIconSize(QSize(24, 24))
 
 	def set_icon(self, icon_path):
 		icon = QIcon(icon_path)
 		self.setIcon(icon)
-		self.setIconSize(QSize(24, 24))
