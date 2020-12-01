@@ -28,7 +28,6 @@ class ControlPanelIconPanelButton(QPushButton):
 		self.setFont(font)
 		self.setFixedHeight(32)
 		self.setFixedWidth(32)
-		self.setToolTip("hint")
 
 	def set_icon(self, icon_path):
 		icon = QIcon(icon_path)

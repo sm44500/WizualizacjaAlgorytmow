@@ -23,9 +23,17 @@ class VisualisationManager:
         self.internal_widgets = []
         self.play_icon = Paths.icon("play.png")
         self.pause_icon = Paths.icon("pause.png")
+        self.text_box_label = None
+        self.text_box = None
+        self.icon_panel = None
+        self.first_step_button = None
+        self.previous_step_button = None
+        self.next_step_button = None
+        self.last_snapshot_button = None
+        self.play_button = None
         self.setup_control_panel()
         self.is_playing = False
-        self.update_playing_icon()
+        self.update_playing_button()
 
     def setup_control_panel(self):
         self.center.set_widget(self.algorithm.visualization_widget)
@@ -44,18 +52,22 @@ class VisualisationManager:
         self.icon_panel = self.control_panel_bottom.add_icon_panel()
 
         self.first_step_button = self.icon_panel.add_button(Paths.icon("first.png"))
+        self.first_step_button.setToolTip("Uruchomienie pierwszego kroku")
         self.first_step_button.clicked.connect(self.on_click_first_step)
 
         self.previous_step_button = self.icon_panel.add_button(Paths.icon("backward.png"))
+        self.previous_step_button.setToolTip("Uruchomienie poprzedniego kroku")
         self.previous_step_button.clicked.connect(self.on_click_previous_step)
 
         self.play_button = self.icon_panel.add_button(Paths.icon("play.png"))
         self.play_button.clicked.connect(self.on_click_play)
 
         self.next_step_button = self.icon_panel.add_button(Paths.icon("forward.png"))
+        self.next_step_button.setToolTip("Uruchomienie następnego kroku")
         self.next_step_button.clicked.connect(self.on_click_next_step)
 
         self.last_snapshot_button = self.icon_panel.add_button(Paths.icon("last.png"))
+        self.last_snapshot_button.setToolTip("Uruchomienie ostatniego kroku")
         self.last_snapshot_button.clicked.connect(self.on_click_last_snapshot)
 
     def on_click_first_step(self):
@@ -104,7 +116,7 @@ class VisualisationManager:
         Automatycznie odtwarza algorytm krok po kroku.
         """
         self.is_playing = not self.is_playing
-        self.update_playing_icon()
+        self.update_playing_button()
         for i in range(len(self.algorithm.snapshots) - self.algorithm.current_snapshot_index - 1):
             if self.is_playing:
                 snapshot = self.algorithm.next_snapshot()
@@ -114,25 +126,23 @@ class VisualisationManager:
 
         self.stop_changing_snapshots()
 
-    def on_click_pause(self):
-        """
-        Zdarzenie naciśnięcia przycisku.
-        Zatrzymuje automatyczne odtwarzanie algorytmu krok po kroku.
-        """
-        self.update_playing_icon()
-
     def stop_changing_snapshots(self):
         """
         Wyłączenie przełączania pomiędzy krokami automatycznie.
         """
         self.is_playing = False
-        self.update_playing_icon()
+        self.update_playing_button()
 
-    def update_playing_icon(self):
+    def update_playing_button(self):
         """
         Zaktualizowanie ikony klawiszu odpowiedzialnego za automatyczne wyświetlanie kroków.
         """
-        self.play_button.setIcon(QIcon(self.play_icon if not self.is_playing else self.pause_icon))
+        if not self.is_playing:
+            self.play_button.setIcon(QIcon(self.play_icon))
+            self.play_button.setToolTip("Rozpoczęcie automatycznego odtwarzania kroków")
+        else:
+            self.play_button.setIcon(QIcon(self.pause_icon))
+            self.play_button.setToolTip("Zatrzymanie automatycznego odtwarzania kroków")
 
     def on_click_algorithm(self):
         """
