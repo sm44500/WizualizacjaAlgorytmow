@@ -51,23 +51,19 @@ class VisualisationManager:
 
         self.icon_panel = self.control_panel_bottom.add_icon_panel()
 
-        self.first_step_button = self.icon_panel.add_button(Paths.icon("first.png"))
-        self.first_step_button.setToolTip("Uruchomienie pierwszego kroku")
+        self.first_step_button = self.icon_panel.add_button(Paths.icon("first.png"), "Uruchomienie pierwszego kroku")
         self.first_step_button.clicked.connect(self.on_click_first_step)
 
-        self.previous_step_button = self.icon_panel.add_button(Paths.icon("backward.png"))
-        self.previous_step_button.setToolTip("Uruchomienie poprzedniego kroku")
+        self.previous_step_button = self.icon_panel.add_button(Paths.icon("backward.png"), "Uruchomienie poprzedniego kroku")
         self.previous_step_button.clicked.connect(self.on_click_previous_step)
 
         self.play_button = self.icon_panel.add_button(Paths.icon("play.png"))
         self.play_button.clicked.connect(self.on_click_play)
 
-        self.next_step_button = self.icon_panel.add_button(Paths.icon("forward.png"))
-        self.next_step_button.setToolTip("Uruchomienie następnego kroku")
+        self.next_step_button = self.icon_panel.add_button(Paths.icon("forward.png"), "Uruchomienie następnego kroku")
         self.next_step_button.clicked.connect(self.on_click_next_step)
 
-        self.last_snapshot_button = self.icon_panel.add_button(Paths.icon("last.png"))
-        self.last_snapshot_button.setToolTip("Uruchomienie ostatniego kroku")
+        self.last_snapshot_button = self.icon_panel.add_button(Paths.icon("last.png"), "Uruchomienie ostatniego kroku")
         self.last_snapshot_button.clicked.connect(self.on_click_last_snapshot)
 
     def on_click_first_step(self):
@@ -138,11 +134,11 @@ class VisualisationManager:
         Zaktualizowanie ikony klawiszu odpowiedzialnego za automatyczne wyświetlanie kroków.
         """
         if not self.is_playing:
-            self.play_button.setIcon(QIcon(self.play_icon))
-            self.play_button.setToolTip("Rozpoczęcie automatycznego odtwarzania kroków")
+            self.play_button.set_icon(self.play_icon)
+            self.play_button.set_hint("Rozpoczęcie automatycznego odtwarzania kroków")
         else:
-            self.play_button.setIcon(QIcon(self.pause_icon))
-            self.play_button.setToolTip("Zatrzymanie automatycznego odtwarzania kroków")
+            self.play_button.set_icon(self.pause_icon)
+            self.play_button.set_hint("Zatrzymanie automatycznego odtwarzania kroków")
 
     def on_click_algorithm(self):
         """

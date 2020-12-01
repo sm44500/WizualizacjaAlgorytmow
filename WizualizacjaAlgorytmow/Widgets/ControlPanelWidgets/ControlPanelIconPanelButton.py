@@ -33,3 +33,6 @@ class ControlPanelIconPanelButton(QPushButton):
 	def set_icon(self, icon_path):
 		icon = QIcon(icon_path)
 		self.setIcon(icon)
+
+	def set_hint(self, hint):
+		self.setToolTip(hint)

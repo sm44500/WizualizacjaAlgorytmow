@@ -30,9 +30,10 @@ class ControlPanelIconPanel(QWidget):
 			widget.setParent(None)
 		self.widgets = []
 
-	def add_button(self, icon_path=""):
+	def add_button(self, icon_path="", hint=""):
 		button = ControlPanelIconPanelButton()
 		button.set_icon(icon_path)
+		button.set_hint(hint)
 		self.widget_layout.addWidget(button)
 		self.widgets.append(button)
 
