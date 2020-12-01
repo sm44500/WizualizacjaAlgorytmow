@@ -1,3 +1,5 @@
+import random
+
 from Paths import Paths
 from Algorithms.Algorithm import Algorithm
 from Snapshot import Snapshot
@@ -21,7 +23,9 @@ class BasicAlgorithm(Algorithm):
 		super().__init__(name, title)
 		self.visualization_widget = NetworkXWidget
 		self.load_buttons()
-		self.clear()
+		self.data.clear()
+		self.snapshots.clear()
+		self.save_snapshot("")  # pusty snapshot zeby wszystko poprawnie dzialalo
 
 	def add_element(self, value: str):
 		"""
@@ -81,6 +85,16 @@ class BasicAlgorithm(Algorithm):
 		self.snapshots.clear()
 		self.save_snapshot("Usunięto wszystko elementy z tablicy danych i wszystkie kroki są ponownie puste.")
 
+	def shuffle(self):
+		"""
+		Metoda odpowiedzialna za przemieszanie wszystkich elementów.
+		"""
+		if len(self.data) == 0:
+			return
+
+		random.shuffle(self.data)
+		self.save_snapshot("Elementy zostały przemieszane!")
+
 	def execute(self):
 		"""
 		Abstrakcyjna metoda uruchamiająca algorytm.
@@ -96,4 +110,5 @@ class BasicAlgorithm(Algorithm):
 		self.buttons.append(["Usuń", lambda: self.remove_element(self.last_value), Paths.icon("minus.png"), True])
 		self.buttons.append(["Usuń wszystkie", lambda: self.remove_all_elements(self.last_value), Paths.icon("minus.png"), True])
 		self.buttons.append(["Wyczyść", lambda: self.clear(), Paths.icon("clear.png"), True])
+		self.buttons.append(["Przemieszaj", lambda: self.shuffle(), Paths.icon("shuffle.png"), True])
 		self.buttons.append(["Wykonaj algorytm", lambda: self.execute(), Paths.icon("execute.png"), False])
