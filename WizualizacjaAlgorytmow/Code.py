@@ -37,3 +37,19 @@ class Code:
 		if not os.path.isfile(code.icon):
 			code.icon = Paths.icon("code.png")
 		return code
+
+	def get_button_name(self) -> str:
+		"""
+		Zwrócenie nazwy klawisza w zależności od języka.
+
+		Zwracany typ:
+		str - nazwa klawisza.
+		"""
+		if self.language == "c++":
+			return "Kod C++"
+		elif self.language == "python":
+			return "Kod Python"
+		elif self.language == "pseudocode":
+			return "Pseudokod"
+		else:
+			return "Kod '%s'" % self.language

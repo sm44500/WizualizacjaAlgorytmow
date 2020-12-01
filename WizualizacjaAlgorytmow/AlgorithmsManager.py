@@ -45,7 +45,7 @@ class AlgorithmsManager:
 
 		self.codes_buttons = []
 		for index, code in enumerate(self.current_algorithm.codes):
-			code_button = self.control_panel_top.add_button("Kod " + code.language, code.icon)
+			code_button = self.control_panel_top.add_button(code.get_button_name(), code.icon)
 			code_button.clicked.connect(self.on_click_code)
 			self.codes_buttons.append(code_button)
 
