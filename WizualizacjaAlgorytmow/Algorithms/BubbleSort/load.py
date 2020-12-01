@@ -9,6 +9,9 @@ class BubbleSort(BasicAlgorithm):
 		self.difficulty = 1
 
 	def execute(self):
+		"""
+		Metoda rozpoczynająca sortowanie bąbelkowe.
+		"""
 		self.save_snapshot("Rozpoczynamy sortowanie bąbelkowe...")
 		size = len(self.data)
 		for i in range(size):

@@ -21,8 +21,11 @@ class VisualisationManager:
         self.center = self.main_widget.middle_widget.left_widget
         self.description_widget = self.main_widget.bottom_widget
         self.internal_widgets = []
+        self.play_icon = Paths.icon("play.png")
+        self.pause_icon = Paths.icon("pause.png")
         self.setup_control_panel()
         self.is_playing = False
+        self.update_playing_icon()
 
     def setup_control_panel(self):
         self.center.set_widget(self.algorithm.visualization_widget)
@@ -49,9 +52,6 @@ class VisualisationManager:
         self.play_button = self.icon_panel.add_button(Paths.icon("play.png"))
         self.play_button.clicked.connect(self.on_click_play)
 
-        self.pause_button = self.icon_panel.add_button(Paths.icon("pause.png"))
-        self.pause_button.clicked.connect(self.on_click_pause)
-
         self.next_step_button = self.icon_panel.add_button(Paths.icon("forward.png"))
         self.next_step_button.clicked.connect(self.on_click_next_step)
 
@@ -63,7 +63,7 @@ class VisualisationManager:
         Zdarzenie naciśnięcia przycisku.
         Uruchomienie pierwszego kroku, jeżeli istnieje.
         """
-        self.is_playing = False
+        self.stop_changing_snapshots()
         snapshot = self.algorithm.first_snapshot()
         self.description_widget.set_text(snapshot.description)
         self.center.widget.render_snapshot(snapshot)
@@ -73,7 +73,7 @@ class VisualisationManager:
         Zdarzenie naciśnięcia przycisku.
         Uruchomienie poprzedniego kroku, jeżeli istnieje.
         """
-        self.is_playing = False
+        self.stop_changing_snapshots()
         snapshot = self.algorithm.previous_snapshot()
         self.description_widget.set_text(snapshot.description)
         self.center.widget.render_snapshot(snapshot)
@@ -83,7 +83,7 @@ class VisualisationManager:
         Zdarzenie naciśnięcia przycisku.
         Uruchomienie następnego kroku, jeżeli istnieje.
         """
-        self.is_playing = False
+        self.stop_changing_snapshots()
         snapshot = self.algorithm.next_snapshot()
         self.description_widget.set_text(snapshot.description)
         self.center.widget.render_snapshot(snapshot)
@@ -93,7 +93,7 @@ class VisualisationManager:
         Zdarzenie naciśnięcia przycisku.
         Uruchomienie ostatniego kroku, jeżeli istnieje.
         """
-        self.is_playing = False
+        self.stop_changing_snapshots()
         snapshot = self.algorithm.last_snapshot()
         self.description_widget.set_text(snapshot.description)
         self.center.widget.render_snapshot(snapshot)
@@ -103,21 +103,36 @@ class VisualisationManager:
         Zdarzenie naciśnięcia przycisku.
         Automatycznie odtwarza algorytm krok po kroku.
         """
-        if not self.is_playing:
-            self.is_playing = True
-            for i in range(len(self.algorithm.snapshots) - self.algorithm.current_snapshot_index - 1):
-                if self.is_playing:
-                    snapshot = self.algorithm.next_snapshot()
-                    self.description_widget.set_text(snapshot.description)
-                    self.center.widget.render_snapshot(snapshot)
-                    QTest.qWait(50*len(snapshot.description))
+        self.is_playing = not self.is_playing
+        self.update_playing_icon()
+        for i in range(len(self.algorithm.snapshots) - self.algorithm.current_snapshot_index - 1):
+            if self.is_playing:
+                snapshot = self.algorithm.next_snapshot()
+                self.description_widget.set_text(snapshot.description)
+                self.center.widget.render_snapshot(snapshot)
+                QTest.qWait(50*len(snapshot.description))
+
+        self.stop_changing_snapshots()
 
     def on_click_pause(self):
         """
         Zdarzenie naciśnięcia przycisku.
         Zatrzymuje automatyczne odtwarzanie algorytmu krok po kroku.
         """
+        self.update_playing_icon()
+
+    def stop_changing_snapshots(self):
+        """
+        Wyłączenie przełączania pomiędzy krokami automatycznie.
+        """
         self.is_playing = False
+        self.update_playing_icon()
+
+    def update_playing_icon(self):
+        """
+        Zaktualizowanie ikony klawiszu odpowiedzialnego za automatyczne wyświetlanie kroków.
+        """
+        self.play_button.setIcon(QIcon(self.play_icon if not self.is_playing else self.pause_icon))
 
     def on_click_algorithm(self):
         """
