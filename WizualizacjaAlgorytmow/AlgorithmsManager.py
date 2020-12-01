@@ -27,11 +27,9 @@ class AlgorithmsManager:
 	def setup_algorithms(self):
 		# Ui
 		self.combobox.clear()
-		local_index = 0
+		
 		for algorithm in self.algorithms:
-			self.combobox.add_algorithms(algorithm.title)
-			self.combobox.set_difficulty(local_index, algorithm.difficulty)
-			local_index += 1
+			self.combobox.add_algorithms(algorithm.title, algorithm.difficulty)
 
 		# Events
 		self.main_widget.top_widget.currentIndexChanged.connect(self.on_change_algorithm)
