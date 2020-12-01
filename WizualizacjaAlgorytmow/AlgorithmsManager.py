@@ -62,31 +62,31 @@ class AlgorithmsManager:
 
 	def on_click_code(self, index):
 		"""
-        Zdarzenie naciśnięcia przycisku.
-        Uruchomienie kodu źródłowego algorytmu w przeglądarce.
-        """
+		Zdarzenie naciśnięcia przycisku.
+		Uruchomienie kodu źródłowego algorytmu w przeglądarce.
+		"""
 		QDesktopServices.openUrl(self.current_algorithm.codes[index].url)
 
 	def on_change_algorithm(self, index):
 		"""
-        Zdarzenie zmiany algorytmu.
-        Ustawia wybrany algorytm.
-        """
+		Zdarzenie zmiany algorytmu.
+		Ustawia wybrany algorytm.
+		"""
 		self.set_algorithm(index)
 		pass
 
 	def set_algorithm(self, index):
 		"""
-        Aktywuje dany algorytm.
-        """
+		Aktywuje dany algorytm.
+		"""
 		self.current_index = index
 		self.current_algorithm = self.algorithms[index]
 		self.reset()
 
 	def show_description(self):
 		"""
-        Wyświetla opis algorytmu 
-        """
+		Wyświetla opis algorytmu 
+		"""
 		self.center.clear_widget()
 		self.setup_control_panel()
 		self.manager = None
@@ -95,7 +95,7 @@ class AlgorithmsManager:
 	def show_visualisation(self):
 		"""
 		Uruchamia zarządcę odpowiedzialnego za wizualizacje algorytmu.
-        """
+		"""
 		self.center.clear_widget()
 		self.setup_control_panel()
 		self.manager = VisualisationManager(self.main_widget, self.current_algorithm)
@@ -103,7 +103,7 @@ class AlgorithmsManager:
 	def show_questions(self):
 		"""
 		Uruchamia zarządcę odpowiedzialnego za pytania testowe.
-        """
+		"""
 		if len(self.current_algorithm.test_questions) > 0:
 			self.center.clear_widget()
 			self.setup_control_panel()
@@ -112,7 +112,7 @@ class AlgorithmsManager:
 	def reset(self):
 		"""
 		Przywraca stan programu do stanu początkowego.
-        """
+		"""
 		self.setup_control_panel()
 		self.manager = None
 		self.show_description()
