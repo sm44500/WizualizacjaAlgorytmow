@@ -25,13 +25,25 @@ class AdvancedAlgorithm(Algorithm):
 		self.data.clear()
 		self.snapshots.clear()
 
-	def add_element(self, value: str):
+	def head(self):
 		pass
 
-	def remove_element(self, value: str) -> bool:
+	def tail(self):
 		pass
 
-	def remove_all_elements(self, value: str):
+	def push_front(self, value: str):
+		pass
+
+	def push_back(self, value: str):
+		pass
+
+	def pop_front(self, value: str):
+		pass
+
+	def pop_back(self, value: str):
+		pass
+
+	def remove(self, value: str):
 		pass
 
 	def clear(self):
@@ -47,8 +59,3 @@ class AdvancedAlgorithm(Algorithm):
 		Metoda wczytująca klawisze odpowiedzialne za manipulację wizualizacją.
 		"""
 		self.buttons = list()
-		self.buttons.append(["Dodaj", lambda: self.add_element(self.last_value), Paths.icon("plus.png"), True])
-		self.buttons.append(["Usuń", lambda: self.remove_element(self.last_value), Paths.icon("minus.png"), True])
-		self.buttons.append(
-			["Usuń wszystkie", lambda: self.remove_all_elements(self.last_value), Paths.icon("minus.png"), True])
-		self.buttons.append(["Wyczyść", lambda: self.clear(), Paths.icon("clear.png"), True])
