@@ -28,17 +28,37 @@ class ControlPanel(BaseWidget):
 		self.widget_layout.setAlignment(alignment)
 
 	def clear(self):
+		"""
+		Czyści panel z widget'ów
+		"""
 		for widget in self.widgets:
 			widget.setParent(None)
 		self.widgets = []
 
 	def add_icon_panel(self) -> ControlPanelIconPanel:
+		"""
+		Dodaje panel z ikonami do panelu.
+
+		Typ zwracany:
+		ControlPanelIconPanel - Panel z ikonami
+		"""
 		icon_panel = ControlPanelIconPanel()
 		self.widget_layout.addWidget(icon_panel)
 		self.widgets.append(icon_panel)
 		return icon_panel
 
 	def add_button(self, text, icon_path="", hint="") -> ControlPanelButton:
+		"""
+		Dodaje przycisk do panelu.
+
+		Parametry:
+		text - tekst wyświetlany na przycisku
+		icon_path - ścieżka do ikony (opcjonalnie)
+		hint - tekst po najechaniu kursowem (opcjonalnie)
+
+		Typ zwracany:
+		ControlPanelButton - przycisk
+		"""
 		button = ControlPanelButton()
 		button.set_icon(icon_path)
 		button.set_hint(hint)
@@ -47,13 +67,29 @@ class ControlPanel(BaseWidget):
 		self.widgets.append(button)
 		return button
 
-	def add_label(self, text):
+	def add_label(self, text) -> ControlPanelLabel:
+		"""
+		Dodaje etykietę do panelu.
+
+		Parametry:
+		text - tekst wyświetlany na etykiecie
+
+		Typ zwracany:
+		ControlPanelLabel - przycisk
+		"""
 		label = ControlPanelLabel()
 		label.setText(text)
 		self.widget_layout.addWidget(label)
 		self.widgets.append(label)
+		return label
 
 	def add_text_box(self) -> ControlPanelTextBox:
+		"""
+		Dodaje pole tekstowe do panelu.
+
+		Typ zwracany:
+		ControlPanelTextBox - przycisk
+		"""
 		text_box = ControlPanelTextBox()
 		self.widget_layout.addWidget(text_box)
 		self.widgets.append(text_box)
