@@ -33,6 +33,9 @@ class CenterWidget(BaseWidget):
 	def set_widget(self, widget_class):
 		"""
 		Tworzy widget o podanej klasie i ustawia na sobie.
+
+		Parametry:
+		widget_class - Typ klasy widget'u
 		"""
 		self.widget = widget_class()
 		self.widget_layout.addWidget(self.widget)
