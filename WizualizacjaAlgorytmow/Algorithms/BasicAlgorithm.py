@@ -25,7 +25,6 @@ class BasicAlgorithm(Algorithm):
 		self.load_buttons()
 		self.data.clear()
 		self.snapshots.clear()
-		self.save_snapshot("")  # pusty snapshot zeby wszystko poprawnie dzialalo
 
 	def add_element(self, value: str):
 		"""

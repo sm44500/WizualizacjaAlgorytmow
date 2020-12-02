@@ -3,7 +3,8 @@ import math
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 import networkx as nx
-from PyQt5.QtWidgets import QWidget, QGridLayout
+from PyQt5.QtWidgets import QGridLayout, QLabel
+from PyQt5.QtCore import Qt
 
 from Snapshot import Snapshot
 from Styles import Styles
@@ -21,6 +22,10 @@ class NetworkXWidget(BaseWidget):
 		super().__init__(parent, QGridLayout)
 		self.figure = None
 		self.canvas = None
+		self.background_color = '#00000f'
+		self.node_text_color = self.background_color
+		self.index_text_color = '#cccccc'
+		self.label = QLabel(self)
 		self.setup_ui()
 
 	def setup_ui(self):
@@ -28,10 +33,11 @@ class NetworkXWidget(BaseWidget):
 		Inicjalizacja interfejsu użytkownika.
 		"""
 		self.figure = plt.figure()
-		self.figure.set_facecolor("#00000F")
 		self.canvas = FigureCanvas(self.figure)
+
 		self.setStyleSheet(Styles.description_background)
-		self.widget_layout.addWidget(self.canvas)
+
+		self.render_snapshot(Snapshot([], "", {}))
 
 	def render_snapshot(self, snapshot: Snapshot):
 		"""
@@ -40,65 +46,113 @@ class NetworkXWidget(BaseWidget):
 		Parametry:
 		snapshot - aktualny stan algorytmu. Obiekt typu Snapshot.
 		"""
-		if len(snapshot.data) == 0:
-			self.figure.clf()
-			self.figure.set_facecolor("#00000F")
-			self.canvas.draw_idle()
-			return
+		self.clean_figure()
 
-		data_range = range(len(snapshot.data))
-		data_ids = [data_id for data_id in data_range]
-		data_indexes = ["index_%i" % index for index in data_range]
+		if len(snapshot.data) > 0:
+			self.widget_layout.addWidget(self.canvas)
+			data_range = range(len(snapshot.data))
+			axes = plt.axes([0.0, 0.0, 1.0, 1.0])
+			self.render_nodes(snapshot, axes)
+			self.render_indexes(data_range, axes)
+		else:
+			self.widget_layout.addWidget(self.label)
+			self.render_hint()
 
+		self.render_figure()
+
+	def clean_figure(self):
+		"""
+		Wyczyszczenie poprzedniej wizualizacji.
+		"""
 		self.figure.clf()
+		self.widget_layout.removeWidget(self.label)
+		self.widget_layout.removeWidget(self.canvas)
 
-		nodes = nx.Graph()
-		nodes2 = nx.Graph()
-		nodes.add_nodes_from(data_ids)
-		nodes2.add_nodes_from(data_indexes)
-		nodes2.add_node("__top")
-		nodes2.add_node("__bottom")
-
-		position = dict()
-		position2 = dict()
-		position.update((element, (i, 10)) for i, element in enumerate(data_ids))
-		position2.update((element, (i, 20)) for i, element in enumerate(data_indexes))
-
-		axes = plt.axes([0.0, 0.0, 1.0, 1.0])
-
-		node_size = [*self.__generate_size(snapshot)]
-		node_size2 = [*[0.0 for i in data_range], 0.0, 0.0]
-
-		index_correction = min(30.0, max(node_size)/750.0)
-		position2["__top"] = (-1, -30+index_correction)
-		position2["__bottom"] = (len(data_ids), 60-index_correction)
-
-		colors = list()
-		colors2 = list()
-		for i in data_range:
-			colors.append(snapshot.highlights[i])
-		for i in data_range:
-			colors2.append('w')
-		colors2.append('w')
-		colors2.append('w')
-
-		labels = dict()
-		labels2 = dict()
-		labels2["__top"] = ""
-		labels2["__bottom"] = ""
-		for i in data_range:
-			labels[i] = snapshot.data[i]
-			labels2["index_%i" % i] = "%i." % i
-
-		nx.draw(nodes, labels=labels, pos=position, with_labels=True, node_size=node_size, ax=axes, node_color=colors, font_color='#00000f')
-		nx.draw(nodes2, labels=labels2, pos=position2, with_labels=True, node_size=node_size2, ax=axes, node_color=colors2, font_color='#cccccc', font_weight='bold')
-		self.figure.set_facecolor("#00000F")
+	def render_figure(self):
+		"""
+		Wyrysowanie wizualizacji.
+		"""
+		self.figure.set_facecolor(self.background_color)
 		self.canvas.draw_idle()
 
-	@staticmethod
-	def __generate_size(snapshot: Snapshot) -> list:
+	def render_nodes(self, snapshot: Snapshot, axes):
 		"""
-		Wygenerowanie rozmiarów węzłów w zależności od rozmiaru.
+		Wyrysowanie aktualnego kroku.
+
+		Parametry:
+		snapshot - obiekt reprezentujacy aktualny krok.
+		axes - proporcje tekstury na jakiej mają zostać wyrysowane.
+		"""
+		data_range = range(len(snapshot.data))
+		data_ids = [data_id for data_id in data_range]
+
+		nodes = nx.Graph()
+		nodes.add_nodes_from(data_ids)
+
+		positions = dict()
+		positions.update((element, (i, 10)) for i, element in enumerate(data_ids))
+
+		colors = list()
+		for i in data_range:
+			colors.append(snapshot.highlights[i])
+
+		labels = dict()
+		for i in data_range:
+			labels[i] = snapshot.data[i]
+
+		nx.draw(nodes, labels=labels, pos=positions, with_labels=True, node_size=self.__generate_node_sizes(snapshot),
+				ax=axes, node_color=colors, font_color=self.node_text_color)
+
+	def render_indexes(self, data_range: range, axes):
+		"""
+		Wyrysowanie indeksów nad istniejącymi obiektami.
+
+		Parametry:
+		data_range - przedział indeksów jakie mają zostać wyrysowane.
+		axes - proporcje tekstury na jakiej mają zostać wyrysowane.
+		"""
+		data_indexes = ["index_%i" % index for index in data_range]
+
+		nodes = nx.Graph()
+		nodes.add_nodes_from(data_indexes)
+		nodes.add_node("__top")
+		nodes.add_node("__bottom")
+
+		positions = dict()
+		positions.update((element, (i, 20)) for i, element in enumerate(data_indexes))
+
+		node_sizes = [*[0.0 for i in data_range], 0.0, 0.0]
+
+		index_correction = min(30.0, max(node_sizes)/750.0)
+		positions["__top"] = (-1, -30+index_correction)
+		positions["__bottom"] = (len(data_indexes), 60-index_correction)
+
+		colors = list(['w', 'w'])
+		for i in data_range:
+			colors.append('w')
+
+		labels = dict()
+		labels["__top"] = ""
+		labels["__bottom"] = ""
+		for i in data_range:
+			labels["index_%i" % i] = "%i." % i
+
+		nx.draw(nodes, labels=labels, pos=positions, with_labels=True, node_size=node_sizes, ax=axes,
+				node_color=colors, font_color=self.index_text_color, font_weight='bold')
+
+	def render_hint(self):
+		"""
+		Wyświetlenie podpowiedzi dla użytkownika, gdy nie wprowadzono żadnych danych.
+		"""
+		self.label.setText("Skorzystaj z panelu po prawej stronie, aby rozpocząć wizualizację.")
+		self.label.setAlignment(Qt.AlignCenter)
+		self.label.setStyleSheet("""background-color:%s; color:%s; font-family:Arial; font-size:20px; font-weight: bold;""" %
+								(self.background_color, self.index_text_color))
+
+	@staticmethod
+	def __generate_node_sizes(snapshot: Snapshot) -> list:
+		"""
+		Wygenerowanie rozmiarów węzłów w zależności od rozmiaru tekstu.
 
 		Parametry:
 		snapshot - aktualny stan algorytmu. Obiekt typu Snapshot.
