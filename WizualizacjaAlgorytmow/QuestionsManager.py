@@ -80,14 +80,19 @@ class QuestionsManager:
 	def next_question(self):
 		"""
 		Zmienia pytanie na następne.
+
+		Typ zwracany:
+		obiekt klasy TestQuestion - następne pytanie 
 		"""
 		self.current_question_index = max(0, min(len(self.algorithm.test_questions) - 1, self.current_question_index + 1))
 		return self.algorithm.test_questions[self.current_question_index]
 
 	def previous_question(self):
 		"""
-		Zmienia pytanie na następne.
 		Zmienia pytanie na poprzednie.
+		
+		Typ zwracany:
+		obiekt klasy TestQuestion - poprzednie pytanie 
 		"""
 		self.current_question_index = max(0, self.current_question_index - 1)
 		return self.algorithm.test_questions[self.current_question_index]
