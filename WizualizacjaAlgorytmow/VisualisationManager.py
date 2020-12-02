@@ -36,6 +36,9 @@ class VisualisationManager:
 		self.update_playing_button()
 
 	def setup_control_panel(self):
+		"""
+		Inicjalizuje panel kontrolny.
+		"""
 		self.center.set_widget(self.algorithm.visualization_widget)
 
 		self.text_box_label = self.control_panel_bottom.add_label("Wartość elementu:")

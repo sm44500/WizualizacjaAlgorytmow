@@ -64,6 +64,9 @@ class AlgorithmsManager:
 		"""
 		Zdarzenie naciśnięcia przycisku.
 		Uruchomienie kodu źródłowego algorytmu w przeglądarce.
+
+		Parametry:
+		index - numer wybranego kodu przez użytkownika
 		"""
 		QDesktopServices.openUrl(self.current_algorithm.codes[index].url)
 
@@ -71,6 +74,9 @@ class AlgorithmsManager:
 		"""
 		Zdarzenie zmiany algorytmu.
 		Ustawia wybrany algorytm.
+
+		Parametry:
+		index - numer algorytmu.
 		"""
 		self.set_algorithm(index)
 		pass
@@ -78,6 +84,9 @@ class AlgorithmsManager:
 	def set_algorithm(self, index):
 		"""
 		Aktywuje dany algorytm.
+
+		Parametry:
+		index - numer algorytmu.
 		"""
 		self.current_index = index
 		self.current_algorithm = self.algorithms[index]

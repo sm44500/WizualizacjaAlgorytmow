@@ -23,6 +23,9 @@ class QuestionsManager:
 		self.is_playing = False
 
 	def setup_control_panel(self):
+		"""
+		Inicjalizuje panel kontrolny.
+		"""
 		self.title_label = self.control_panel_bottom.add_label("Odpowiedź:")
 		self.icon_panel = self.control_panel_bottom.add_icon_panel()
 
@@ -49,20 +52,42 @@ class QuestionsManager:
 		self.next_button.clicked.connect(self.on_click_next)
 
 	def on_click_previous(self):
+		"""
+		Zdarzenie naciśnięcia przycisku.
+		Zmienia pytanie na poprzednie.
+		"""
 		question = self.previous_question()
 		self.description_widget.show_question(question)	
 
 	def on_click_next(self):
+		"""
+		Zdarzenie naciśnięcia przycisku.
+		Zmienia pytanie na następne.
+		"""
 		question = self.next_question()
 		self.description_widget.show_question(question)	
 
 	def on_click_answer(self, answer: int):
+		"""
+		Zdarzenie naciśnięcia przycisku odpowiedzi.
+		Ustawia wybraną odpowiedz.
+
+		Parametry:
+		answer - numer odpowiedzi
+		"""
 		print(answer)
 
 	def next_question(self):
+		"""
+		Zmienia pytanie na następne.
+		"""
 		self.current_question_index = max(0, min(len(self.algorithm.test_questions) - 1, self.current_question_index + 1))
 		return self.algorithm.test_questions[self.current_question_index]
 
 	def previous_question(self):
+		"""
+		Zmienia pytanie na następne.
+		Zmienia pytanie na poprzednie.
+		"""
 		self.current_question_index = max(0, self.current_question_index - 1)
 		return self.algorithm.test_questions[self.current_question_index]
