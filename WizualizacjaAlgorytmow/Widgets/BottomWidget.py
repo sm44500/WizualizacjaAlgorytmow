@@ -31,7 +31,19 @@ class BottomWidget(QLabel):
 		self.setMinimumHeight(150)
 
 	def set_text(self, content: str):
+		"""
+		Ustawia daną treść. 
+
+		Parametry:
+		content - Tekst do ustawienia
+		"""
 		self.setText(content)
 
 	def show_question(self, question: TestQuestion):
+		"""
+		Wyświetla pytanie. 
+
+		Parametry:
+		question - pytanie, obiekt klasy TestQuestion
+		"""
 		self.set_text(question.question)
