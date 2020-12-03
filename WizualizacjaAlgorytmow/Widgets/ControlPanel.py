@@ -1,5 +1,7 @@
 from PyQt5.QtWidgets import QWidget, QVBoxLayout
 from PyQt5.QtCore import Qt
+
+from Widgets.ControlPanelWidgets.ControlPanelSlider import ControlPanelSlider
 from Widgets.ControlPanelWidgets.ControlPanelButton import ControlPanelButton
 from Widgets.ControlPanelWidgets.ControlPanelLabel import ControlPanelLabel
 from Widgets.ControlPanelWidgets.ControlPanelTextBox import ControlPanelTextBox
@@ -15,6 +17,7 @@ class ControlPanel(BaseWidget):
 	parent - widget rodzic.
 	alignment - wyrównanie, domyślnie Qt.AlignTop
 	"""
+
 	def __init__(self, parent=None, alignment=Qt.AlignTop):
 		super().__init__(parent, QVBoxLayout)
 		self.widgets = []
@@ -94,3 +97,25 @@ class ControlPanel(BaseWidget):
 		self.widget_layout.addWidget(text_box)
 		self.widgets.append(text_box)
 		return text_box
+
+	def add_slider(self, minimum, maximum, value, step) -> ControlPanelSlider:
+		"""
+		Dodaje suwak do panelu.
+
+		Parametry:
+		minimum - wartość minimalna suwaka
+		maximum - wartość maksymalna suwaka
+		value - wartość domyślna suwaka
+		step - krok zmiany wartości suwaka
+
+		Typ zwracany:
+		ControlPanelSlider - suwak
+		"""
+		slider = ControlPanelSlider(Qt.Horizontal)
+		slider.setMinimum(minimum)
+		slider.setMaximum(maximum)
+		slider.setValue(value)
+		slider.setSingleStep(step)
+		self.widget_layout.addWidget(slider)
+		self.widgets.append(slider)
+		return slider

@@ -101,12 +101,17 @@ class BasicAlgorithm(Algorithm):
 		pass
 
 	def random_data(self):
+		"""
+		Metoda doająca n losowych wartości z przedziału <-100;100>.
+		Jeżeli w pole tekstowe nie zostało wpisane nic lub tekst -> n=10
+		Jeżeli w pole tekstowe została wpisana liczba -> n=ta liczba
+		"""
 		if self.last_value == '' or not self.last_value.isdigit():
 			n = 10
 		else:
 			n = int(self.last_value)
 		for i in range(n):
-			self.add_element(str(random.randint(0, 100)))
+			self.add_element(str(random.randint(-100, 100)))
 
 	def load_buttons(self):
 		"""

@@ -55,3 +55,8 @@ class Styles:
 	background:qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgb(180, 180, 180), stop:1 rgb(200, 200, 200));
 	border-radius: 0px;
 	"""
+
+	slider_background = """
+	background:qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgb(160, 160, 160), stop:1 rgb(150, 150, 150));
+	border-radius: 0px;
+	"""

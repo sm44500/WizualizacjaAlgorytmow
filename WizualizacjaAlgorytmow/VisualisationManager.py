@@ -31,6 +31,7 @@ class VisualisationManager:
 		self.next_step_button = None
 		self.last_snapshot_button = None
 		self.play_button = None
+		self.slider = None
 		self.setup_control_panel()
 		self.is_playing = False
 		self.update_playing_button()
@@ -68,6 +69,8 @@ class VisualisationManager:
 
 		self.last_snapshot_button = self.icon_panel.add_button(Paths.icon("last.png"), "Uruchomienie ostatniego kroku")
 		self.last_snapshot_button.clicked.connect(self.on_click_last_snapshot)
+
+		self.slider = self.control_panel_bottom.add_slider(1, 100, 50, 1)
 
 	def on_click_first_step(self):
 		"""
@@ -113,6 +116,7 @@ class VisualisationManager:
 		"""
 		Zdarzenie naciśnięcia przycisku.
 		Automatycznie odtwarza algorytm krok po kroku.
+		Prędkość odtwarzania zależy od pozycji suwaka (1-100) ms na każdy znak w opisie.
 		"""
 		self.is_playing = not self.is_playing
 		self.update_playing_button()
@@ -121,8 +125,7 @@ class VisualisationManager:
 				snapshot = self.algorithm.next_snapshot()
 				self.description_widget.set_text(snapshot.description)
 				self.center.widget.render_snapshot(snapshot)
-				QTest.qWait(50*len(snapshot.description))
-
+				QTest.qWait((101 - self.slider.value()) * len(snapshot.description))
 		self.stop_changing_snapshots()
 
 	def stop_changing_snapshots(self):

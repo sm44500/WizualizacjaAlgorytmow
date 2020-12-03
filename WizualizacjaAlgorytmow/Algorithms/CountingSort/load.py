@@ -8,7 +8,7 @@ class CountingSort(BasicAlgorithm):
     def __init__(self):
         super().__init__("CountingSort", "TODO: Sortowanie przez zliczanie")
         self.difficulty = 2
-        self.counters = 0
+        self.counters = np.array([])
         self.local_data = np.array(self.data)
         self.min_value = 0
         self.max_value = 0
