@@ -2,9 +2,9 @@ from PyQt5.QtWidgets import QGridLayout, QLabel
 from Widgets.BaseWidget import BaseWidget
 
 
-class NodeZWidget(BaseWidget):
+class NodZWidget(BaseWidget):
 	"""
-	Widget wizualizacji opartej na bibliotece NodeZ.
+	Widget wizualizacji opartej na bibliotece NodZ.
 
 	Parametry:
 	parent - widget rodzic.

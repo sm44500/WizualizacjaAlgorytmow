@@ -1,14 +1,14 @@
 from Paths import Paths
 from Algorithms.Algorithm import Algorithm
 from Snapshot import Snapshot
-from Widgets.NodeZWidget import NodeZWidget
+from Widgets.NodZWidget import NodZWidget
 
 
 class AdvancedAlgorithm(Algorithm):
 	"""
 	Klasa abstrakcyjna reprezentująca algorytm złożony.
 	Jest to algorytm, który przechowuje elementy typy Node.
-	Algorytm dziedziczący po tej klasie będzie wykorzystywać bibliotekę NodeZ.
+	Algorytm dziedziczący po tej klasie będzie wykorzystywać bibliotekę NodZ.
 
 	Parametry:
 	name - skrótowa nazwa algorytmu. Tożsama z nazwą w folderze algorithm.
@@ -20,7 +20,7 @@ class AdvancedAlgorithm(Algorithm):
 
 	def __init__(self, name: str = "missing", title: str = "missing"):
 		super().__init__(name, title)
-		self.visualization_widget = NodeZWidget
+		self.visualization_widget = NodZWidget
 		self.load_buttons()
 		self.data.clear()
 		self.snapshots.clear()
