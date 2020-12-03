@@ -100,6 +100,14 @@ class BasicAlgorithm(Algorithm):
 		"""
 		pass
 
+	def random_data(self):
+		if self.last_value == '' or not self.last_value.isdigit():
+			n = 10
+		else:
+			n = int(self.last_value)
+		for i in range(n):
+			self.add_element(str(random.randint(0, 100)))
+
 	def load_buttons(self):
 		"""
 		Metoda wczytująca klawisze odpowiedzialne za manipulację wizualizacją.
@@ -109,5 +117,6 @@ class BasicAlgorithm(Algorithm):
 		self.buttons.append(["Usuń", lambda: self.remove_element(self.last_value), Paths.icon("minus.png"), True])
 		self.buttons.append(["Usuń wszystkie", lambda: self.remove_all_elements(self.last_value), Paths.icon("minus.png"), True])
 		self.buttons.append(["Wyczyść", lambda: self.clear(), Paths.icon("clear.png"), True])
+		self.buttons.append(["Losowe dane", lambda: self.random_data(), Paths.icon("random.png"), True])
 		self.buttons.append(["Przemieszaj", lambda: self.shuffle(), Paths.icon("shuffle.png"), True])
 		self.buttons.append(["Wykonaj algorytm", lambda: self.execute(), Paths.icon("execute.png"), False])
