@@ -36,10 +36,15 @@ class BinarySearch(BasicAlgorithm):
 		right_index = len(self.data)
 		found_index = -1
 
+		colors = dict()
 		while left_index <= right_index:
 			center_index = (right_index + left_index) // 2
-			self.save_snapshot("Wyznaczamy element środkowy.", {center_index: Snapshot.color_selected})
-			self.save_snapshot("Sprawdzamy czy szukana wartość '%s' jest równa wartości elementu środkowego '%s'." %(value, self.data[center_index]), {center_index: Snapshot.color_selected})
+			colors[center_index] = Snapshot.color_selected
+			self.save_snapshot("Wyznaczamy element środkowy.", colors)
+			self.save_snapshot("Sprawdzamy czy szukana wartość '%s' jest równa wartości elementu środkowego '%s'." %(value, self.data[center_index]), colors)
+
+			#self.save_snapshot("Wyznaczamy element środkowy.", {center_index: Snapshot.color_selected})
+			#self.save_snapshot("Sprawdzamy czy szukana wartość '%s' jest równa wartości elementu środkowego '%s'." %(value, self.data[center_index]), {center_index: Snapshot.color_selected})
 			if value == self.data[center_index]:
 				found_index = center_index
 				break
@@ -47,13 +52,13 @@ class BinarySearch(BasicAlgorithm):
 				right_index = center_index - 1
 				colors = dict()
 				for i in range(left_index, right_index + 1):
-					colors[i] = Snapshot.color_selected
+					colors[i] = Snapshot.color_current
 				self.save_snapshot("Szukana wartość '%s' jest mniejsza od wartości elementu środkowego '%s', więc przeszukujemy elementy na lewo od elementu środkowego." %(value, self.data[center_index]), colors)
 			else:
 				left_index = center_index + 1
 				colors = dict()
 				for i in range(left_index, right_index + 1):
-					colors[i] = Snapshot.color_selected
+					colors[i] = Snapshot.color_current
 				self.save_snapshot("Szukana wartość '%s' jest większa od wartości elementu środkowego '%s', więc przeszukujemy elementy na prawo od elementu środkowego." %(value, self.data[center_index]), colors)
 
 		if found_index >= 0:
