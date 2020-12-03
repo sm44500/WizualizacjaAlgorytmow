@@ -60,7 +60,7 @@ class BottomWidget(QLabel):
 			
 		if show_answer: 
 			final_text += "<tr>"
-			final_text += "<td>Uzasadnienie: </td>"
+			final_text += "<td></td>"
 			final_text += "<td>" + question.reason + "</td>"
 			final_text += "</tr>"
 		final_text += "</table>"
