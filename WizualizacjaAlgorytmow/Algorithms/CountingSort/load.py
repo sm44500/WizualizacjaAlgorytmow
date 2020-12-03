@@ -1,3 +1,5 @@
+import random
+
 from Algorithms.BasicAlgorithm import BasicAlgorithm
 from Comparators import Comparator, compare
 from Snapshot import Snapshot
@@ -5,41 +7,43 @@ import numpy as np
 
 
 class CountingSort(BasicAlgorithm):
-    def __init__(self):
-        super().__init__("CountingSort", "TODO: Sortowanie przez zliczanie")
-        self.difficulty = 2
-        self.counters = np.array([])
-        self.local_data = np.array(self.data)
-        self.min_value = 0
-        self.max_value = 0
+	def __init__(self):
+		super().__init__("CountingSort", "TODO: Sortowanie przez zliczanie")
+		self.difficulty = 2
+		self.counters = None
+		self.local_data = None
 
-    def execute(self):
-        """
-        Metoda rozpoczynająca sortowanie przez zliczanie.
-        """
+	def execute(self):
+		"""
+		Metoda rozpoczynająca sortowanie przez zliczanie.
+		"""
+		self.counters = np.zeros(21)
+		self.local_data = np.array(self.data)
 
-        print(self.data)
-        self.local_data = np.array(self.data)
-        print(self.local_data.astype("int32"))
+	def data_snapshot(self, description="", highlights={}):
+		self.data = self.local_data.astype("int32").astype("str").tolist()
+		self.save_snapshot(description, highlights)
 
-        self.min_value = self.local_data[np.argmin(self.local_data)]
-        print("a")
-        self.data = self.local_data.tolist()
-        self.save_snapshot("Szukamy wartości minimalnej")
-        self.save_snapshot("Wartość minimalna wynosi '%s'" % self.min_value, {np.argmin(self.local_data): Snapshot.color_selected})
-        print("a")
-        self.max_value = self.local_data[np.argmax(self.local_data)]
-        print(self.min_value, self.max_value)
-        self.save_snapshot("Szukamy wartości maksymalnej")
-        self.save_snapshot("Wartość maksymalna wynosi '%s'" % self.max_value, {np.argmax(self.local_data): Snapshot.color_selected})
-        self.counters = np.zeros(int(self.max_value) - int(self.min_value))
-        print(self.counters)
-        self.data = self.counters.astype("int32").astype("str").tolist()
-        print(self.data)
-        self.save_snapshot("Generujemy liczniki")
-        print("b")
+	def counters_snapshot(self, description="", highlights={}):
+		self.data = self.counters.astype("int32").astype("str").tolist()
+		self.save_snapshot(description, highlights)
 
+	def add_element(self, value: str):
+		if value == '' or not value.isdigit() or int(value) < 0 or int(value) > 20:
+			self.save_snapshot("W celu czytelnej wizualizacji należy wprowadzić liczbę z przedziału <0;20>")
+		else:
+			self.data.append(value.strip())
+			self.save_snapshot("Dodanie elementu '%s' do tablicy danych." % value,
+			                   {len(self.data) - 1: Snapshot.color_selected})
+
+	def random_data(self):
+		if self.last_value == '' or not self.last_value.isdigit():
+			n = 10
+		else:
+			n = int(self.last_value)
+		for i in range(n):
+			self.add_element(str(random.randint(0, 20)))
 
 
 def __init__():
-    return CountingSort()
+	return CountingSort()
