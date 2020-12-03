@@ -1,3 +1,7 @@
+#from Algorithms.BasicAlgorithm import BasicAlgorithm
+#from Snapshot import Snapshot
+
+
 class Node:
     def __init__(self, data, next = None):
         self.data = data
@@ -27,30 +31,55 @@ class List:
         self.length += 1
 
     def insert(self, position, element):
-        pass
-
-    def remove_element(self, element):
-        current = self.head
-        if current.data == element:
-            self.head = current.next
+        if position <= 0:
+            self.push_front(element)
+        elif position >= self.length - 1:
+            self.push_back(element)
         else:
-            while current.next.data != element:
-                if count == self.length:
-                    break
+            current = self.head
+            pos = 0
+            while pos != position:
                 current = current.next
-                count += 1
-            current.next = current.next.next
-        self.length -= 1
+            tmp = current.next
+            current.next = Node(element, tmp)
+        self.length += 1
 
-    def find_element(self, element):
-        pass
+    def remove(self, element):
+        if not self.empty():
+            current = self.head
+            previous = None
+            
+            while current.next.data != element:
+                previous = current
+                current = current.next
+                if current == None:
+                    break
+                    
+
+            print(current.next.data)
+            if current.data == element:
+                current.next = current.next.next
+                
+            self.length -= 1
+        else:
+            return "The list is empty"
+
+    def find(self, element):
+        current = self.head
+        index = 0
+        while current.next != None:
+            if (current.data == element):
+                return [index, current]
+            current = current.next
+            index += 1
+        return "There's no matching element in the list"
 
     def clear(self):
         self.head = None
         self.length = 0
 
     def empty(self):
-        return bool(length)
+        return bool(not self.length)
 
     def out(self):
         current = self.head
@@ -59,9 +88,23 @@ class List:
             current = current.next
         print("\n")
 
-#mylist = List()
-#for i in range(9):
-#    mylist.push_front(i)
-#mylist.out()
-#mylist.remove_element(8)
-#mylist.out()
+mylist = List()
+for i in range(9):
+    mylist.push_front(i)
+mylist.out()
+mylist.push_back(10)
+mylist.out()
+mylist.remove(8)
+mylist.out()
+mylist.remove(10)
+mylist.out()
+
+
+mylist.remove(10)
+mylist.out()
+
+
+
+
+
+
