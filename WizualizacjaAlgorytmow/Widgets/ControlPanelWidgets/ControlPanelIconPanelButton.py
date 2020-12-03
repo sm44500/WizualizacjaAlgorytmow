@@ -34,5 +34,12 @@ class ControlPanelIconPanelButton(QPushButton):
 		icon = QIcon(icon_path)
 		self.setIcon(icon)
 
+	def set_highlight(self, enabled):
+		if enabled:
+			self.setIconSize(QSize(32, 32))
+		else:
+			self.setIconSize(QSize(24, 24))
+		pass
+
 	def set_hint(self, hint):
 		self.setToolTip(hint)
