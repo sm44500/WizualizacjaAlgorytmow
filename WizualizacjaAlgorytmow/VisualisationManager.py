@@ -71,6 +71,7 @@ class VisualisationManager:
 		self.last_snapshot_button.clicked.connect(self.on_click_last_snapshot)
 
 		self.slider = self.control_panel_bottom.add_slider(1, 100, 50, 1)
+		#self.slider.valueChanged.connect(lambda: self.stop_changing_snapshots())
 
 	def on_click_first_step(self):
 		"""
