@@ -32,8 +32,9 @@ class VisualisationManager:
 		self.last_snapshot_button = None
 		self.play_button = None
 		self.slider = None
-		self.setup_control_panel()
 		self.is_playing = False
+		self.setup_control_panel()
+		self.current_snapshot_index = 0
 		self.update_playing_button()
 
 	def setup_control_panel(self):
@@ -78,7 +79,8 @@ class VisualisationManager:
 		Uruchomienie pierwszego kroku, jeżeli istnieje.
 		"""
 		self.stop_changing_snapshots()
-		snapshot = self.algorithm.first_snapshot()
+		self.current_snapshot_index = 0
+		snapshot = self.algorithm.snapshots[self.current_snapshot_index]
 		self.description_widget.set_text(snapshot.description)
 		self.center.widget.render_snapshot(snapshot)
 
@@ -88,7 +90,8 @@ class VisualisationManager:
 		Uruchomienie poprzedniego kroku, jeżeli istnieje.
 		"""
 		self.stop_changing_snapshots()
-		snapshot = self.algorithm.previous_snapshot()
+		self.current_snapshot_index = max(0, min(self.current_snapshot_index-1, len(self.algorithm.snapshots)-1))
+		snapshot = self.algorithm.snapshots[self.current_snapshot_index]
 		self.description_widget.set_text(snapshot.description)
 		self.center.widget.render_snapshot(snapshot)
 
@@ -98,7 +101,8 @@ class VisualisationManager:
 		Uruchomienie następnego kroku, jeżeli istnieje.
 		"""
 		self.stop_changing_snapshots()
-		snapshot = self.algorithm.next_snapshot()
+		self.current_snapshot_index = max(0, min(self.current_snapshot_index+1, len(self.algorithm.snapshots)-1))
+		snapshot =  self.algorithm.snapshots[self.current_snapshot_index]
 		self.description_widget.set_text(snapshot.description)
 		self.center.widget.render_snapshot(snapshot)
 
@@ -108,7 +112,8 @@ class VisualisationManager:
 		Uruchomienie ostatniego kroku, jeżeli istnieje.
 		"""
 		self.stop_changing_snapshots()
-		snapshot = self.algorithm.last_snapshot()
+		self.current_snapshot_index = max(0, min(len(self.algorithm.snapshots) - 1, len(self.algorithm.snapshots)))
+		snapshot = self.algorithm.snapshots[self.current_snapshot_index]
 		self.description_widget.set_text(snapshot.description)
 		self.center.widget.render_snapshot(snapshot)
 
@@ -120,9 +125,10 @@ class VisualisationManager:
 		"""
 		self.is_playing = not self.is_playing
 		self.update_playing_button()
-		for i in range(len(self.algorithm.snapshots) - self.algorithm.current_snapshot_index - 1):
+		for i in range(len(self.algorithm.snapshots) - self.current_snapshot_index - 1):
 			if self.is_playing:
-				snapshot = self.algorithm.next_snapshot()
+				self.current_snapshot_index = max(0, min(self.current_snapshot_index+1, len(self.algorithm.snapshots)-1))
+				snapshot = self.algorithm.snapshots[self.current_snapshot_index]
 				self.description_widget.set_text(snapshot.description)
 				self.center.widget.render_snapshot(snapshot)
 				QTest.qWait((101 - self.slider.value()) * len(snapshot.description))
