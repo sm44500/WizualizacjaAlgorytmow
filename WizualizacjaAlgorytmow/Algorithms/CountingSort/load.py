@@ -31,7 +31,7 @@ class CountingSort(BasicAlgorithm):
 		self.data_snapshot("Rozpoczynamy zliczanie - przechodzimy przez wszstkie elementy i zwiększamy odpowiednie liczniki.")
 		for i in range(self.local_data.size):
 			self.counters[self.local_data[i]-self.min_value] += 1
-			self.data_snapshot("Zwiększamy licznik dla elementu '%s' o 1." % self.local_data[i],
+			self.data_snapshot("Sprawdzamy wartość %s. elementu. Wynosi ona '%s'." % (i, self.local_data[i]),
 			                   {i: Snapshot.color_selected})
 			self.counters_snapshot("Zwiększamy licznik dla elementu '%s' o 1." % self.local_data[i],
 			                       {self.local_data[i]-self.min_value: Snapshot.color_selected})
@@ -76,7 +76,7 @@ class CountingSort(BasicAlgorithm):
 		else:
 			n = int(self.last_value)
 		for i in range(n):
-			self.add_element(str(random.randint(-10, 10)))
+			self.add_element(str(random.randint(-5, 10)))
 
 
 def __init__():
