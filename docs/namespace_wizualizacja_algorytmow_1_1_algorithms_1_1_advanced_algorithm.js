@@ -1,0 +1,4 @@
+var namespace_wizualizacja_algorytmow_1_1_algorithms_1_1_advanced_algorithm =
+[
+    [ "AdvancedAlgorithm", "class_wizualizacja_algorytmow_1_1_algorithms_1_1_advanced_algorithm_1_1_advanced_algorithm.html", "class_wizualizacja_algorytmow_1_1_algorithms_1_1_advanced_algorithm_1_1_advanced_algorithm" ]
+];
