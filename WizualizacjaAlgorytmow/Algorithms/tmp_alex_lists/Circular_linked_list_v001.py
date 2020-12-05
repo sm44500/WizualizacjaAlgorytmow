@@ -1,12 +1,9 @@
-class Node:
-    def __init__(self, data, next = None):
-        self.data = data
-        self.next = next
+from List_v001 import Node, List
 
-class Circular_linked_list:
+
+class Circular_linked_list(List):
     def __init__(self):
-        self.head = None
-        self.length = 0
+        super().__init__()
 
     def push_back(self, element):
         if not self.length:
@@ -24,49 +21,23 @@ class Circular_linked_list:
             self.head = Node(element)
             self.head.next = self.head
         else:
-            current = Node(self.head.data, self.head.next)
+            current = self.head
+            tmp = self.head
+            while tmp.next != self.head:
+                tmp = tmp.next
             self.head = Node(element, current)
+            tmp.next = self.head
         self.length += 1
-
-    def insert (self, position, element):
-        pass
-
-    def remove_element(self, element):
-        current = self.head
-        if current.data == element:
-            self.head = current.next
-        else:
-            count = 0
-            while (current.next.data != element):
-                if count == self.length:
-                    break
-                current = current.next
-                count += 1
-            current.next = current.next.next
-        self.length -= 1
-
-    def find_element(self, element):
-        pass
 
     def clear(self):
         self.head = None
         self.length = 0
 
-    def empty(self):
-        return bool(length)
-
-    def out(self):
-        tmp = []
-        current = self.head
-        for i in range(self.length * 2):
-            #tmp.append(current.data)
-            print(current.data, end = " ")
-            current = current.next
-        print("\n")
-        #return " ".join(tmp)
-
 mylist = Circular_linked_list()
 for i in range(9):
     mylist.push_front(i)
+for i in range(20, 29):
+    mylist.push_back(i)
 mylist.out()
+
 

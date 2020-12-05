@@ -3,9 +3,11 @@
 
 
 class Node:
-    def __init__(self, data, next = None):
+    def __init__(self, data, _next = None, *args):
         self.data = data
-        self.next = next
+        self.next = _next
+        if len(args) >= 1:
+            self.previous = args[0]
 
 class List:
     def __init__(self):
@@ -46,21 +48,20 @@ class List:
 
     def remove(self, element):
         if not self.empty():
-            current = self.head
-            previous = None
             
-            while current.next.data != element:
-                previous = current
-                current = current.next
-                if current == None:
-                    break
+            if self.head.data == element:
+                self.head = self.head.next
+                self.length -= 1
+            else:
+                current = self.head
+                while current.next != None:
+                    if current.next.data == element:
+                        current.next = current.next.next
+                        self.length -= 1
+                        break
+                    current = current.next
                     
-
-            print(current.next.data)
-            if current.data == element:
-                current.next = current.next.next
                 
-            self.length -= 1
         else:
             return "The list is empty"
 
@@ -79,7 +80,7 @@ class List:
         self.length = 0
 
     def empty(self):
-        return bool(not self.length)
+        return not self.length
 
     def out(self):
         current = self.head
@@ -88,20 +89,23 @@ class List:
             current = current.next
         print("\n")
 
-mylist = List()
-for i in range(9):
-    mylist.push_front(i)
-mylist.out()
-mylist.push_back(10)
-mylist.out()
-mylist.remove(8)
-mylist.out()
-mylist.remove(10)
-mylist.out()
+#mylist = List()
+#for i in range(9):
+#    mylist.push_front(i)
+#mylist.out()
+#mylist.push_back(10)
+#mylist.out()
+#mylist.remove(8)
+#mylist.out()
+#mylist.remove(10)
+#mylist.out()
 
-
-mylist.remove(10)
-mylist.out()
+#mylist.remove(10)
+#mylist.out()
+#mylist.remove(10)
+#mylist.out()
+#mylist.remove(7)
+#mylist.out()
 
 
 
