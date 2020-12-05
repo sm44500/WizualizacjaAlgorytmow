@@ -1,4 +1,5 @@
 from PyQt5.QtWidgets import QLabel
+from PyQt5.QtCore import Qt
 
 from TestQuestion import TestQuestion
 from Styles import Styles
@@ -27,6 +28,7 @@ class BottomWidget(QLabel):
 		""" % Styles.description_background)
 		self.setFont(font)
 		self.setWordWrap(True)
+		self.setTextFormat(Qt.RichText)
 		self.setMaximumHeight(200)
 		self.setMinimumHeight(150)
 
@@ -39,11 +41,28 @@ class BottomWidget(QLabel):
 		"""
 		self.setText(content)
 
-	def show_question(self, question: TestQuestion):
+	def show_question(self, question: TestQuestion, show_answer=False):
 		"""
 		Wyświetla pytanie. 
 
 		Parametry:
 		question - pytanie, obiekt klasy TestQuestion
+		show_answer - określa czy wyświetlić odpowiedz.
 		"""
-		self.set_text(question.question)
+
+		final_text = "" + question.question + "</br>"
+		final_text += "<table>"
+		for index, answer in enumerate(question.answers):
+			final_text += "<tr>"
+			final_text += "<td>" + chr(0x41 + index) + "</td>"
+			final_text += "<td>" + answer + "</td>"
+			final_text += "</tr>"
+			
+		if show_answer: 
+			final_text += "<tr>"
+			final_text += "<td></td>"
+			final_text += "<td>" + question.reason + "</td>"
+			final_text += "</tr>"
+		final_text += "</table>"
+
+		self.set_text(final_text)

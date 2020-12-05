@@ -1,0 +1,4 @@
+var namespace_wizualizacja_algorytmow_1_1_widgets_1_1_control_panel_widgets_1_1_control_panel_label =
+[
+    [ "ControlPanelLabel", "class_wizualizacja_algorytmow_1_1_widgets_1_1_control_panel_widgets_1_1_control_panel_label_1_1_control_panel_label.html", "class_wizualizacja_algorytmow_1_1_widgets_1_1_control_panel_widgets_1_1_control_panel_label_1_1_control_panel_label" ]
+];

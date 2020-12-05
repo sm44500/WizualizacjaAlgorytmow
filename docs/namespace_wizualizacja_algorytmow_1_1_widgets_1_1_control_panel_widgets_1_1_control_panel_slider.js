@@ -1,0 +1,4 @@
+var namespace_wizualizacja_algorytmow_1_1_widgets_1_1_control_panel_widgets_1_1_control_panel_slider =
+[
+    [ "ControlPanelSlider", "class_wizualizacja_algorytmow_1_1_widgets_1_1_control_panel_widgets_1_1_control_panel_slider_1_1_control_panel_slider.html", "class_wizualizacja_algorytmow_1_1_widgets_1_1_control_panel_widgets_1_1_control_panel_slider_1_1_control_panel_slider" ]
+];

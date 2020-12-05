@@ -66,6 +66,7 @@ class TestQuestion:
 			question.question = json_object["question"]
 			question.answers = json_object["answers"]
 			question.correct = json_object["correct"]
+			question.reason = "test uzasadnienie test" # json_object["explain"]
 			questions.append(question)
 
 		file.close()

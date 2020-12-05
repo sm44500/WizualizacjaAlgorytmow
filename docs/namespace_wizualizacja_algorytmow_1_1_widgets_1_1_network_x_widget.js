@@ -1,0 +1,4 @@
+var namespace_wizualizacja_algorytmow_1_1_widgets_1_1_network_x_widget =
+[
+    [ "NetworkXWidget", "class_wizualizacja_algorytmow_1_1_widgets_1_1_network_x_widget_1_1_network_x_widget.html", "class_wizualizacja_algorytmow_1_1_widgets_1_1_network_x_widget_1_1_network_x_widget" ]
+];

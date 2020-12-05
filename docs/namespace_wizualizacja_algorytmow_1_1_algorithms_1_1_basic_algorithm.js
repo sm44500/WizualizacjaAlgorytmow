@@ -1,0 +1,4 @@
+var namespace_wizualizacja_algorytmow_1_1_algorithms_1_1_basic_algorithm =
+[
+    [ "BasicAlgorithm", "class_wizualizacja_algorytmow_1_1_algorithms_1_1_basic_algorithm_1_1_basic_algorithm.html", "class_wizualizacja_algorytmow_1_1_algorithms_1_1_basic_algorithm_1_1_basic_algorithm" ]
+];

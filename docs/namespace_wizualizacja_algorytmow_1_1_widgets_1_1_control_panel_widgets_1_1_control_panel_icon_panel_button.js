@@ -1,0 +1,4 @@
+var namespace_wizualizacja_algorytmow_1_1_widgets_1_1_control_panel_widgets_1_1_control_panel_icon_panel_button =
+[
+    [ "ControlPanelIconPanelButton", "class_wizualizacja_algorytmow_1_1_widgets_1_1_control_panel_widgets_1_1_control_panel_icon_panel401bd25c6dcd4753d5e37e8c34e29662.html", "class_wizualizacja_algorytmow_1_1_widgets_1_1_control_panel_widgets_1_1_control_panel_icon_panel401bd25c6dcd4753d5e37e8c34e29662" ]
+];

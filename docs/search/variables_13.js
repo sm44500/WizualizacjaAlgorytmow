@@ -1,0 +1,7 @@
+var searchData=
+[
+  ['widget_951',['widget',['../class_wizualizacja_algorytmow_1_1_widgets_1_1_center_widget_1_1_center_widget.html#a14ef45b1fb41b467d75d65d4de370f16',1,'WizualizacjaAlgorytmow::Widgets::CenterWidget::CenterWidget']]],
+  ['widget_5flayout_952',['widget_layout',['../class_wizualizacja_algorytmow_1_1_widgets_1_1_base_widget_1_1_base_widget.html#aa650d66109c0e3747d367834287ca9c1',1,'WizualizacjaAlgorytmow.Widgets.BaseWidget.BaseWidget.widget_layout()'],['../class_wizualizacja_algorytmow_1_1_widgets_1_1_control_panel_widgets_1_1_control_panel_icon_panel_1_1_control_panel_icon_panel.html#a793b968d97093fd414795fec9a49b9ed',1,'WizualizacjaAlgorytmow.Widgets.ControlPanelWidgets.ControlPanelIconPanel.ControlPanelIconPanel.widget_layout()']]],
+  ['widgets_953',['widgets',['../class_wizualizacja_algorytmow_1_1_widgets_1_1_control_panel_1_1_control_panel.html#adea0586e9f7329327cd8cef665523837',1,'WizualizacjaAlgorytmow.Widgets.ControlPanel.ControlPanel.widgets()'],['../class_wizualizacja_algorytmow_1_1_widgets_1_1_control_panel_widgets_1_1_control_panel_icon_panel_1_1_control_panel_icon_panel.html#a1bf3ee4ed610739575fc6510aee0bc62',1,'WizualizacjaAlgorytmow.Widgets.ControlPanelWidgets.ControlPanelIconPanel.ControlPanelIconPanel.widgets()']]],
+  ['window_5ftitle_954',['WINDOW_TITLE',['../namespace_wizualizacja_algorytmow_1_1_main_application.html#a0a7d2c906a0a4c506c3b8df7f74cba0b',1,'WizualizacjaAlgorytmow::MainApplication']]]
+];

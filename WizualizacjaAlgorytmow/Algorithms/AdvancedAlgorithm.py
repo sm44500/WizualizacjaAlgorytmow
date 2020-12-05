@@ -7,7 +7,7 @@ from Widgets.NodZWidget import NodZWidget
 class AdvancedAlgorithm(Algorithm):
 	"""
 	Klasa abstrakcyjna reprezentująca algorytm złożony.
-	Jest to algorytm, który przechowuje elementy typy Node.
+	Jest to algorytm, który przechowuje elementy typu Node.
 	Algorytm dziedziczący po tej klasie będzie wykorzystywać bibliotekę NodZ.
 
 	Parametry:

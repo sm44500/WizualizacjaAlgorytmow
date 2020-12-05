@@ -1,0 +1,5 @@
+var class_wizualizacja_algorytmow_1_1_widgets_1_1_control_panel_widgets_1_1_control_panel_label_1_1_control_panel_label =
+[
+    [ "__init__", "class_wizualizacja_algorytmow_1_1_widgets_1_1_control_panel_widgets_1_1_control_panel_label_1_1_control_panel_label.html#af062d7ff91918894608e150f009de7f9", null ],
+    [ "init_ui", "class_wizualizacja_algorytmow_1_1_widgets_1_1_control_panel_widgets_1_1_control_panel_label_1_1_control_panel_label.html#ae696b7cfa601c7e0fa63995c5c398bd9", null ]
+];
