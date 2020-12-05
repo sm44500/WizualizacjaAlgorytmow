@@ -132,7 +132,7 @@ class VisualisationManager:
 				snapshot = self.algorithm.snapshots[self.current_snapshot_index]
 				self.description_widget.set_text(snapshot.description)
 				self.center.widget.render_snapshot(snapshot)
-				QTest.qWait((101 - self.slider.value()) * len(snapshot.description))
+				QTest.qWait((100 - self.slider.value()) * len(snapshot.description))
 		self.stop_changing_snapshots()
 
 	def stop_changing_snapshots(self):
