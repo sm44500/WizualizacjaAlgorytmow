@@ -23,11 +23,13 @@ class InsertionSort(BasicAlgorithm):
 				j = j - 1
 			self.data[j + 1] = value
 			if j == -1:
-				self.save_snapshot("Nie ma więcej elementów po lewej stronie, więc element '%s' został umieszczony na pozycji %s." % (
-					value, j + 1), {j + 1: Snapshot.color_current_final})
+				self.save_snapshot(
+					"Nie ma więcej elementów po lewej stronie, więc element '%s' został umieszczony na pozycji %s." % (
+						value, j + 1), {j + 1: Snapshot.color_current_final})
 			else:
 				self.save_snapshot("Element '%s' nie jest większy od '%s', więc został umieszczony na pozycji %s." % (
 					self.data[j], value, j + 1), {j + 1: Snapshot.color_current_final})
+		self.save_snapshot("Algorytm zakończył działanie!")
 
 
 def __init__():
