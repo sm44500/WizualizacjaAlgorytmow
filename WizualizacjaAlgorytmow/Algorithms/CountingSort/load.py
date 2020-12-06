@@ -7,7 +7,7 @@ import numpy as np
 class CountingSort(BasicAlgorithm):
 	def __init__(self):
 		super().__init__("CountingSort", "Sortowanie przez zliczanie")
-		self.difficulty = 2
+		self.difficulty = 3
 		self.counters = None
 		self.local_data = None
 		self.min_value = None

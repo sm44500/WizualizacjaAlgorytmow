@@ -25,7 +25,7 @@ class MaxSearch(BasicAlgorithm):
 							{current_max_index: Snapshot.color_current})
 		for i in range(1, len(self.data)):
 			self.save_snapshot(
-				"Porównujemy %s. element z tablicy o wartości '%s' z aktualnym maksimum wynoszącym '%s')." % (i, self.data[i], current_max),
+				"Porównujemy %s. element z tablicy o wartości '%s' z aktualnym maksimum wynoszącym '%s'." % (i, self.data[i], current_max),
 				{current_max_index: Snapshot.color_current, i: Snapshot.color_selected})
 			if compare(self.data[i], current_max, Comparator.is_greater_than):
 				self.save_snapshot("'%s' jest większe od '%s', więc zapamiętujemy nową wartosć maksymalną." % (
