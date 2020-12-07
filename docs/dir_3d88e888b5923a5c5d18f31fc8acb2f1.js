@@ -9,7 +9,7 @@ var dir_3d88e888b5923a5c5d18f31fc8acb2f1 =
     [ "MaxSearch", "dir_6bddf8bc04266c81af0169dc39a9012b.html", "dir_6bddf8bc04266c81af0169dc39a9012b" ],
     [ "MergeSort", "dir_8d87823b324199eb7f5f03ff4a15220f.html", "dir_8d87823b324199eb7f5f03ff4a15220f" ],
     [ "MinSearch", "dir_81f58d601858bd6f14675015d67e0b23.html", "dir_81f58d601858bd6f14675015d67e0b23" ],
-    [ "SimpleSearch", "dir_07998396441c71010d45a9ba1480d31c.html", "dir_07998396441c71010d45a9ba1480d31c" ],
+    [ "LinearSearch", "dir_07998396441c71010d45a9ba1480d31c.html", "dir_07998396441c71010d45a9ba1480d31c" ],
     [ "SinglyLinkedList", "dir_d84bda13aa632877aab80e44a7f9952d.html", "dir_d84bda13aa632877aab80e44a7f9952d" ],
     [ "tmp_alex_lists", "dir_4cb0d1aab1a1bdbabfcd1dd0e1d57d71.html", "dir_4cb0d1aab1a1bdbabfcd1dd0e1d57d71" ],
     [ "__init__.py", "_algorithms_2____init_____8py.html", null ],

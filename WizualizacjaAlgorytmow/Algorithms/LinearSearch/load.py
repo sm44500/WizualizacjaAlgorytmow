@@ -3,16 +3,16 @@ from Comparators import Comparator, compare
 from Snapshot import Snapshot
 
 
-class SimpleSearch(BasicAlgorithm):
+class LinearSearch(BasicAlgorithm):
 	"""
 	Klasa reprezentująca algorytm wyszukiwania elementu w tablicy
 
 	Przykład:
-	>>> simple_search = SimpleSearch()
+	>>> linear_search = LinearSearch()
 	"""
 
 	def __init__(self):
-		super().__init__("SimpleSearch", "Wyszukiwanie proste")
+		super().__init__("LinearSearch", "Wyszukiwanie liniowe")
 		self.difficulty = 1
 		self.found = False
 
@@ -35,4 +35,4 @@ class SimpleSearch(BasicAlgorithm):
 
 
 def __init__():
-	return SimpleSearch()
+	return LinearSearch()

@@ -20,7 +20,7 @@ var searchData=
   ['show_5fquestions_378',['show_questions',['../class_wizualizacja_algorytmow_1_1_algorithms_manager_1_1_algorithms_manager.html#aed24250d3716eeabdbe98269b08d79b4',1,'WizualizacjaAlgorytmow::AlgorithmsManager::AlgorithmsManager']]],
   ['show_5fvisualisation_379',['show_visualisation',['../class_wizualizacja_algorytmow_1_1_algorithms_manager_1_1_algorithms_manager.html#a38874f155b46e95f39d9b228658e5e4b',1,'WizualizacjaAlgorytmow::AlgorithmsManager::AlgorithmsManager']]],
   ['shuffle_380',['shuffle',['../class_wizualizacja_algorytmow_1_1_algorithms_1_1_basic_algorithm_1_1_basic_algorithm.html#aef1148eedc05d5b376e74ed3ee8e4095',1,'WizualizacjaAlgorytmow::Algorithms::BasicAlgorithm::BasicAlgorithm']]],
-  ['simplesearch_381',['SimpleSearch',['../classload_1_1_simple_search.html',1,'load']]],
+  ['simplesearch_381',['LinearSearch',['../classload_1_1_simple_search.html',1,'load']]],
   ['singlylinkedlist_382',['SinglyLinkedList',['../classload_1_1_singly_linked_list.html',1,'load']]],
   ['slider_383',['slider',['../class_wizualizacja_algorytmow_1_1_visualisation_manager_1_1_visualisation_manager.html#a13a0f4835998584c7a497915a8b9e3ca',1,'WizualizacjaAlgorytmow::VisualisationManager::VisualisationManager']]],
   ['snapshot_384',['Snapshot',['../class_wizualizacja_algorytmow_1_1_snapshot_1_1_snapshot.html',1,'WizualizacjaAlgorytmow::Snapshot']]],

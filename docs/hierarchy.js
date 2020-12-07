@@ -47,7 +47,7 @@ var hierarchy =
       [ "load.MaxSearch", "classload_1_1_max_search.html", null ],
       [ "load.MergeSort", "classload_1_1_merge_sort.html", null ],
       [ "load.MinSearch", "classload_1_1_min_search.html", null ],
-      [ "load.SimpleSearch", "classload_1_1_simple_search.html", null ]
+      [ "load.LinearSearch", "classload_1_1_simple_search.html", null ]
     ] ],
     [ "QComboBox", null, [
       [ "WizualizacjaAlgorytmow.Widgets.TopWidget.TopWidget", "class_wizualizacja_algorytmow_1_1_widgets_1_1_top_widget_1_1_top_widget.html", null ]
