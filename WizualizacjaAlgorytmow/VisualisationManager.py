@@ -72,7 +72,7 @@ class VisualisationManager:
 		self.last_snapshot_button.clicked.connect(self.on_click_last_snapshot)
 
 		self.slider = self.control_panel_bottom.add_slider(1, 100, 50, 1)
-		#self.slider.valueChanged.connect(lambda: self.stop_changing_snapshots())
+		self.slider.sliderReleased.connect(lambda: self.on_update_slider())
 
 	def on_click_first_step(self):
 		"""
@@ -160,3 +160,7 @@ class VisualisationManager:
 		self.algorithm.last_value = self.text_box.text()
 		# self.description_widget.set_text(snapshot.description)
 		self.text_box.clear()
+
+	def on_update_slider(self):
+		self.stop_changing_snapshots()
+		self.on_click_play()
