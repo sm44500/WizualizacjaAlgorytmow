@@ -1,6 +1,101 @@
-#include <iostream>
-
-int main() {
-    std::cout << "Hello World!";
-    return 0;
+<!DOCTYPE html>
+<html lang="pl"> 
+<head>
+    <title>Wyszukiwanie binarne - C++</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="AlgoZUT 2020/2021">    
+    <link rel="shortcut icon" href="resources/cpp.png"> 
+    <link id="theme-style" rel="stylesheet" href="resources/theme.css">
+</head> 
+<script language=JavaScript>
+function disableCtrlKeyCombination(e)
+{
+	var forbiddenKeys = new Array('a', 'c', 'x', 'v', 'u', 'p');
+	var key;
+	var isCtrl;
+	if(window.event)
+	{
+		key = window.event.keyCode;
+		if(window.event.ctrlKey)
+			isCtrl = true;
+		else
+			isCtrl = false;
+	}
+	else
+	{
+		key = e.which;
+		if(e.ctrlKey)
+			isCtrl = true;
+		else
+			isCtrl = false;
+	}
+	if(isCtrl)
+	{
+		for(i=0; i<forbiddenKeys.length; i++)
+		{
+			if(forbiddenKeys[i].toLowerCase() == String.fromCharCode(key).toLowerCase())
+			{
+				return false;
+			}
+		}
+	}
+	return true;
 }
+function ieClicked() {
+    if (document.all) {
+        return false;
+    }
+}
+function firefoxClicked(e) {
+    if(document.layers||(document.getElementById&&!document.all)) {
+        if (e.which==2||e.which==3) {
+            return false;
+        }
+    }
+}
+if (document.layers){
+    document.captureEvents(Event.MOUSEDOWN);
+    document.onmousedown=firefoxClicked;
+}else{
+    document.onmouseup=firefoxClicked;
+    document.oncontextmenu=ieClicked;
+}
+document.oncontextmenu=new Function("return false")
+function disableselect(e){
+    return false
+}
+function reEnable(){
+    return true
+}
+document.onselectstart=new Function ("return false")
+if (window.sidebar){
+    document.onmousedown=disableselect
+    document.onclick=reEnable
+}
+</script>
+<body> 
+    <header class="header text-center" onmousedown='return false;' onselectstart='return false;'>	    
+	    <h1 class="site-name pt-lg-4 mb-0">Wyszukiwanie binarne</h1>    
+	    <nav class="navbar navbar-expand-lg navbar-dark" >
+			<div id="navigation" class="collapse navbar-collapse flex-column" >
+				<div class="code-section pt-3 pt-lg-0">
+				    <img class="code-image mb-3 rounded-circle mx-auto" src="resources/cpp.png" alt="image" >			
+					<div class="bio mb-0">
+					Przykładowy kod w języku C++.
+					</div>
+				</div>
+			</div>
+		</nav>
+    </header>
+    <div class="main-wrapper" onmousedown='return false;' onselectstart='return false;'>
+	    <section class="main-code">			
+		>>> TU WKLEJ KOD <<<
+	    </section>
+	    <footer class="footer text-center py-2 theme-bg-dark">
+			<small class="copyright">AlgoZUT 2020/2021</small>  
+	    </footer>
+    </div>
+</body>
+</html>

@@ -55,6 +55,7 @@ class Algorithm:
 		codes_path = Paths.codes(self.name)
 		codes_files = os.listdir(codes_path)
 		for code_file in codes_files:
-			code_file_path = os.path.join(codes_path, code_file)
-			code = Code.from_file(code_file_path)
-			self.codes.append(code)
+			if code_file[-4:] == "html":
+				code_file_path = os.path.join(codes_path, code_file)
+				code = Code.from_file(code_file_path)
+				self.codes.append(code)
