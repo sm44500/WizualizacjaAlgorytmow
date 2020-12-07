@@ -100,7 +100,7 @@ class NetworkXWidget(BaseWidget):
 		for i in data_range:
 			labels[i] = snapshot.data[i]
 
-		nx.draw(nodes, labels=labels, pos=positions, with_labels=True, node_size=self.__generate_node_sizes(snapshot),
+		nx.draw(nodes, labels=labels, pos=positions, with_labels=True, node_shape='s', node_size=self.__generate_node_sizes(snapshot),
 				ax=axes, node_color=colors, font_color=self.node_text_color)
 
 	def render_indexes(self, data_range: range, axes):
