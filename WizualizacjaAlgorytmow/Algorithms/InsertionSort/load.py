@@ -13,12 +13,12 @@ class InsertionSort(BasicAlgorithm):
 			value = self.data[i]
 			j = i - 1
 			self.save_snapshot(
-				"Zapamiętujemy wartość %s. elementu ('%s') i szukamy dla niego odpowiedniego miejsca." % (i, value),
+				"Zapamiętujemy wartość %s. elementu ('%s') i szukamy dla niego odpowiedniego miejsca po lewej stronie, tak, aby po jego lewej stronie stał element o mniejszej wartości, a po prawej stronie element o większej wartości." % (i, value),
 				{i: Snapshot.color_current})
 			while j >= 0 and compare(self.data[j], value, Comparator.is_greater_than):
 				self.save_snapshot(
-					"Element '%s' jest większy od '%s', więc sprawdzamy wartość kolejnego elementu po lewej." % (
-						self.data[j], value), {j: Snapshot.color_selected})
+					"Element '%s' jest mniejszy od '%s', więc sprawdzamy wartość kolejnego elementu po lewej." % (
+						value, self.data[j]), {j: Snapshot.color_selected})
 				self.data[j + 1] = self.data[j]
 				j = j - 1
 			self.data[j + 1] = value
@@ -27,8 +27,8 @@ class InsertionSort(BasicAlgorithm):
 					"Nie ma więcej elementów po lewej stronie, więc element '%s' został umieszczony na pozycji %s." % (
 						value, j + 1), {j + 1: Snapshot.color_current_final})
 			else:
-				self.save_snapshot("Element '%s' nie jest większy od '%s', więc został umieszczony na pozycji %s." % (
-					self.data[j], value, j + 1), {j + 1: Snapshot.color_current_final})
+				self.save_snapshot("Element '%s' nie jest mniejszy od '%s', więc został umieszczony na pozycji %s." % (
+					value, self.data[j], j + 1), {j + 1: Snapshot.color_current_final})
 		self.save_snapshot("Algorytm zakończył działanie!")
 
 
