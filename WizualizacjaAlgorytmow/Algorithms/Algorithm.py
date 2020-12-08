@@ -23,7 +23,7 @@ class Algorithm:
 		self.description = ""
 		self.difficulty = 0
 		self.last_value = 0
-		self.codes = None
+		self.codes = []
 		self.test_questions = []
 		self.buttons = None
 		self.data = []
@@ -43,7 +43,7 @@ class Algorithm:
 		"""
 		Metoda importująca pytania testowe do algorytmu.
 		"""
-		self.test_questions = list()
+		self.test_questions = []
 		test_path = Paths.test(self.name)
 		self.test_questions = TestQuestion.from_file(test_path)
 		
@@ -51,11 +51,11 @@ class Algorithm:
 		"""
 		Metoda importująca przykładowe kody do algorytmu.
 		"""
-		self.codes = list()
+		self.codes = []
 		codes_path = Paths.codes(self.name)
 		codes_files = os.listdir(codes_path)
 		for code_file in codes_files:
-			if code_file[-4:] == "html":
-				code_file_path = os.path.join(codes_path, code_file)
+			code_file_path = os.path.join(codes_path, code_file)
+			if os.path.isfile(code_file_path) and code_file.split(".")[-1].lower() == "html":
 				code = Code.from_file(code_file_path)
 				self.codes.append(code)

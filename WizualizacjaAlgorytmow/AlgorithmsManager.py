@@ -1,8 +1,8 @@
 from PyQt5.QtWidgets import QWidget
-from PyQt5.QtGui import QDesktopServices
 from AlgorithmLoader import get_algorithm_list, Paths
 from VisualisationManager import VisualisationManager
 from QuestionsManager import QuestionsManager
+from CodesManager import CodesManager
 
 
 class AlgorithmsManager:
@@ -52,23 +52,8 @@ class AlgorithmsManager:
 		self.visualisation_button.clicked.connect(self.show_visualisation)
 		self.questions_button = self.control_panel_top.add_button("Pytania", Paths.icon("question_mark.png"))
 		self.questions_button.clicked.connect(self.show_questions)
-
-		self.codes_buttons = []
-		for index, code in enumerate(self.current_algorithm.codes):
-			code_button = self.control_panel_top.add_button(code.get_button_name(), code.icon)
-			code_button.clicked.connect(self.on_click_code)
-			code_button.set_hint("Wyświetlenie kodu źródłowego w przeglądarce.")
-			self.codes_buttons.append(code_button)
-
-	def on_click_code(self, index):
-		"""
-		Zdarzenie naciśnięcia przycisku.
-		Uruchomienie kodu źródłowego algorytmu w przeglądarce.
-
-		Parametry:
-		index - numer wybranego kodu przez użytkownika
-		"""
-		QDesktopServices.openUrl(self.current_algorithm.codes[index].url)
+		self.codes_button = self.control_panel_top.add_button("Implementacje", Paths.icon("code.png"))
+		self.codes_button.clicked.connect(self.show_codes)
 
 	def on_change_algorithm(self, index):
 		"""
@@ -117,6 +102,15 @@ class AlgorithmsManager:
 			self.center.clear_widget()
 			self.setup_control_panel()
 			self.manager = QuestionsManager(self.main_widget, self.current_algorithm)
+
+	def show_codes(self):
+		"""
+		Uruchamia zarządcę odpowiedzialnego za wyświetlanie implementacji.
+		"""
+		if len(self.current_algorithm.codes) > 0:
+			self.center.clear_widget()
+			self.setup_control_panel()
+			self.manager = CodesManager(self.main_widget, self.current_algorithm)
 
 	def reset(self):
 		"""
