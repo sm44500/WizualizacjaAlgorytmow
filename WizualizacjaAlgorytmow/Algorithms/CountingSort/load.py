@@ -78,6 +78,5 @@ class CountingSort(BasicAlgorithm):
 		for i in range(n):
 			self.add_element(str(random.randint(-5, 10)))
 
-
 def __init__():
 	return CountingSort()

@@ -57,6 +57,13 @@ class Styles:
 	"""
 
 	slider_background = """
-	background:qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgb(160, 160, 160), stop:1 rgb(150, 150, 150));
-	border-radius: 0px;
+	QSlider::groove {
+		background: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 rgb(180, 180, 180), stop:1 rgb(200, 200, 200));
+	}
+	QSlider::handle {
+		background: qlineargradient(x1:1, y1:0, x2:0, y2:0, stop:0 rgb(180, 180, 180), stop:1 rgb(200, 200, 200));
+		border: 2px solid rgb(100, 100, 100);
+		width: 12px;
+		margin: 2px;
+	}
 	"""

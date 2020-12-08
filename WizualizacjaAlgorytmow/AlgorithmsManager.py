@@ -52,7 +52,7 @@ class AlgorithmsManager:
 		self.visualisation_button.clicked.connect(self.show_visualisation)
 		self.questions_button = self.control_panel_top.add_button("Pytania", Paths.icon("question_mark.png"))
 		self.questions_button.clicked.connect(self.show_questions)
-		self.codes_button = self.control_panel_top.add_button("Implementacje", Paths.icon("code.png"))
+		self.codes_button = self.control_panel_top.add_button("Kody źródłowe", Paths.icon("code.png"))
 		self.codes_button.clicked.connect(self.show_codes)
 
 	def on_change_algorithm(self, index):

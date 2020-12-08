@@ -38,7 +38,7 @@ class BasicAlgorithm(Algorithm):
 		>>> add_element("Janek")
 		"""
 		self.data.append(value.strip())
-		self.save_snapshot("Dodanie elementu '%s' do tablicy danych." % value, {len(self.data)-1: Snapshot.color_selected})
+		self.save_snapshot("Dodanie elementu '%s'." % value, {len(self.data)-1: Snapshot.color_selected})
 
 	def remove_element(self, value: str) -> bool:
 		"""
@@ -55,7 +55,7 @@ class BasicAlgorithm(Algorithm):
 		"""
 		if self.data.count(value) > 0:
 			self.data.remove(value)
-			self.save_snapshot("Usunięcie elementu '%s' z tablicy danych." % value)
+			self.save_snapshot("Usunięcie elementu '%s'." % value)
 			return True
 
 		self.save_snapshot("W tablicy danych nie znajduje się element o wartości '%s'." % value)
@@ -82,7 +82,7 @@ class BasicAlgorithm(Algorithm):
 		"""
 		self.data.clear()
 		self.snapshots.clear()
-		self.save_snapshot("Usunięto wszystko elementy z tablicy danych i wszystkie kroki są ponownie puste.")
+		self.save_snapshot("Usunięto wszystko elementy i wyczyszczono kroki.")
 
 	def shuffle(self):
 		"""
@@ -102,7 +102,7 @@ class BasicAlgorithm(Algorithm):
 
 	def random_data(self):
 		"""
-		Metoda doająca n losowych wartości z przedziału <-100;100>.
+		Metoda doająca n losowych wartości z przedziału <0;100>.
 		Jeżeli w pole tekstowe nie zostało wpisane nic lub tekst -> n=10
 		Jeżeli w pole tekstowe została wpisana liczba -> n=ta liczba
 		"""
@@ -111,7 +111,7 @@ class BasicAlgorithm(Algorithm):
 		else:
 			n = int(self.last_value)
 		for i in range(n):
-			self.add_element(str(random.randint(-100, 100)))
+			self.add_element(str(random.randint(0, 100)))
 
 	def load_buttons(self):
 		"""

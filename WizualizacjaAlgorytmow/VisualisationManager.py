@@ -43,6 +43,9 @@ class VisualisationManager:
 		"""
 		self.center.set_widget(self.algorithm.visualization_widget)
 
+		self.slider = self.control_panel_bottom.add_slider(1, 100, 50, 1)
+		self.slider.sliderReleased.connect(lambda: self.on_update_slider())
+
 		self.text_box_label = self.control_panel_bottom.add_label("Wartość elementu:")
 		self.text_box = self.control_panel_bottom.add_text_box()
 
@@ -71,8 +74,6 @@ class VisualisationManager:
 		self.last_snapshot_button = self.icon_panel.add_button(Paths.icon("last.png"), "Uruchomienie ostatniego kroku")
 		self.last_snapshot_button.clicked.connect(self.on_click_last_snapshot)
 
-		self.slider = self.control_panel_bottom.add_slider(1, 100, 50, 1)
-		self.slider.sliderReleased.connect(lambda: self.on_update_slider())
 
 	def on_click_first_step(self):
 		"""
@@ -103,7 +104,7 @@ class VisualisationManager:
 		"""
 		self.stop_changing_snapshots()
 		self.current_snapshot_index = max(0, min(self.current_snapshot_index+1, len(self.algorithm.snapshots)-1))
-		snapshot =  self.algorithm.snapshots[self.current_snapshot_index]
+		snapshot = self.algorithm.snapshots[self.current_snapshot_index]
 		self.description_widget.set_text(snapshot.description)
 		self.center.widget.render_snapshot(snapshot)
 

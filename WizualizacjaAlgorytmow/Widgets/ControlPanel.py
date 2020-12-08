@@ -116,6 +116,7 @@ class ControlPanel(BaseWidget):
 		slider.setMaximum(maximum)
 		slider.setValue(value)
 		slider.setSingleStep(step)
+		self.add_label("Prędkość animacji:")
 		self.widget_layout.addWidget(slider)
 		self.widgets.append(slider)
 		return slider

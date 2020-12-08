@@ -1,5 +1,7 @@
 from PyQt5.QtWidgets import QSlider
 
+from Styles import Styles
+
 
 class ControlPanelSlider(QSlider):
 	"""
@@ -16,4 +18,5 @@ class ControlPanelSlider(QSlider):
 		"""
 		Inicjalizacja interfejsu użytkownika.
 		"""
-		pass
+		self.setMinimumHeight(20)
+		self.setStyleSheet(Styles.slider_background)
