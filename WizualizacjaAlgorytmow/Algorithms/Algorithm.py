@@ -16,7 +16,7 @@ class Algorithm:
 	name - skrótowa nazwa algorytmu. Tożsama z nazwą w folderze algorithm.
 	title - pełna nazwa algorytmu. Wyswietlana w aplikacji.
 	"""
-	def __init__(self, name: str, title: str):
+	def __init__(self, name: str = "missing", title: str = "missing"):
 		self.visualization_widget = QWidget
 		self.name = name
 		self.title = title
@@ -29,7 +29,7 @@ class Algorithm:
 		self.data = []
 		self.snapshots = []
 
-	def save_snapshot(self, description: str, highlights: dict = {}):
+	def save_snapshot(self, description: str = "", highlights: dict = {}):
 		"""
 		Metoda zapisująca aktualny stan tablicy z danymi.
 
