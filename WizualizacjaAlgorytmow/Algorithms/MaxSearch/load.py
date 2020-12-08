@@ -39,7 +39,7 @@ class MaxSearch(BasicAlgorithm):
 		self.save_snapshot("Był to ostatni element z tablicy danych, więc algorytm kończy działanie.", {current_max_index: Snapshot.color_selected})
 		self.save_snapshot("Znaleziona wartosć maksymalna wynosi '%s'." % current_max,
 							{current_max_index: Snapshot.color_current_final})
-
+		return current_max_index, current_max
 
 def __init__():
 	return MaxSearch()
