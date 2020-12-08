@@ -25,14 +25,18 @@ class LinearSearch(BasicAlgorithm):
 				"Porównujemy %s. element z tablicy o wartości '%s' z wyszukiwanym elementem '%s'." % (i, self.data[i], self.last_value),
 				{i: Snapshot.color_current})
 			if self.data[i] == self.last_value:
+				found_index = i
+				found_value = self.data[i]
 				self.save_snapshot("Znaleziono element o wartości '%s'" % (self.data[i]), {i: Snapshot.color_current_final})
 				self.found = True
 				break
 			else:
 				self.save_snapshot("'%s' nie jest równe '%s', więc przechodzimy dalej." % (self.data[i], self.last_value),{i: Snapshot.color_current})
 		if not self.found:
+			found_index = "not_found"
+			found_value = "not_found"
 			self.save_snapshot("Wyszukiwany element nie został znaleziony.")
-
+		return found_index, found_value
 
 def __init__():
 	return LinearSearch()
