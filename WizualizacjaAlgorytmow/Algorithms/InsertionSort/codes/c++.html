@@ -91,7 +91,37 @@ if (window.sidebar){
     </header>
     <div class="main-wrapper" onmousedown='return false;' onselectstart='return false;'>
 	    <section class="main-code">			
-		>>> TU WKLEJ KOD <<<
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">insertSort</span>(<span style="color: #333399; font-weight: bold">int</span> a[], <span style="color: #333399; font-weight: bold">int</span> length)
+{
+    <span style="color: #333399; font-weight: bold">int</span> i, j, value;
+
+    <span style="color: #008800; font-weight: bold">for</span> (i <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>; i <span style="color: #333333">&lt;</span> length; <span style="color: #333333">++</span>i) 
+    {
+        value <span style="color: #333333">=</span> a[i];
+        <span style="color: #008800; font-weight: bold">for</span> (j <span style="color: #333333">=</span> i <span style="color: #333333">-</span> <span style="color: #0000DD; font-weight: bold">1</span>; j <span style="color: #333333">&gt;=</span> <span style="color: #0000DD; font-weight: bold">0</span> <span style="color: #333333">&amp;&amp;</span> a[j] <span style="color: #333333">&gt;</span> value; <span style="color: #333333">--</span>j) 
+        {
+            a[j <span style="color: #333333">+</span> <span style="color: #0000DD; font-weight: bold">1</span>] <span style="color: #333333">=</span> a[j];
+        }
+        a[j <span style="color: #333333">+</span> <span style="color: #0000DD; font-weight: bold">1</span>] <span style="color: #333333">=</span> value;
+    }
+}
+</pre></td></tr></table></div>
+
+
 	    </section>
 	    <footer class="footer text-center py-2 theme-bg-dark">
 			<small class="copyright">AlgoZUT 2020/2021</small>  
