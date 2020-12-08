@@ -19,16 +19,44 @@ class TestInit(TestMinSearch):
 
 
 class TestExecute(TestMinSearch):
-	def test_found_index(self):
+	def test_int_found_index(self):
 		self.min_search.add_element('1')
 		self.min_search.add_element('2')
 		self.min_search.add_element('3')
 		index, value = self.min_search.execute()
 		self.assertEqual(index, 0)
 
-	def test_found_value(self):
+	def test_int_found_value(self):
 		self.min_search.add_element('1')
 		self.min_search.add_element('2')
 		self.min_search.add_element('3')
 		index, value = self.min_search.execute()
 		self.assertEqual(value, '1')
+
+	def test_char_found_index(self):
+		self.min_search.add_element('a')
+		self.min_search.add_element('b')
+		self.min_search.add_element('c')
+		index, value = self.min_search.execute()
+		self.assertEqual(index, 0)
+
+	def test_char_found_value(self):
+		self.min_search.add_element('a')
+		self.min_search.add_element('b')
+		self.min_search.add_element('c')
+		index, value = self.min_search.execute()
+		self.assertEqual(value, 'a')
+
+	def test_string_found_index(self):
+		self.min_search.add_element('aaa')
+		self.min_search.add_element('bbb')
+		self.min_search.add_element('ccc')
+		index, value = self.min_search.execute()
+		self.assertEqual(index, 0)
+
+	def test_string_found_value(self):
+		self.min_search.add_element('aaa')
+		self.min_search.add_element('bbb')
+		self.min_search.add_element('ccc')
+		index, value = self.min_search.execute()
+		self.assertEqual(value, 'aaa')
