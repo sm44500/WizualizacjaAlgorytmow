@@ -39,6 +39,7 @@ class MinSearch(BasicAlgorithm):
 		self.save_snapshot("Był to ostatni element z tablicy danych, więc algorytm kończy działanie.", {current_min_index: Snapshot.color_selected})
 		self.save_snapshot("Znaleziona wartosć minimalna wynosi '%s'." % current_min,
 							{current_min_index: Snapshot.color_current_final})
+		return current_min_index, current_min
 
 
 def __init__():

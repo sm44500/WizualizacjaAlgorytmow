@@ -2,12 +2,12 @@ from unittest import TestCase
 from Algorithms.BinarySearch.load import BinarySearch
 
 
-class TestBinarySearchTestCase(TestCase):
+class TestBinarySearch(TestCase):
 	def setUp(self):
 		self.binary_search = BinarySearch()
 
 
-class TestInit(TestBinarySearchTestCase):
+class TestInit(TestBinarySearch):
 	def test_name(self):
 		self.assertEqual(self.binary_search.name, "BinarySearch")
 
@@ -18,7 +18,7 @@ class TestInit(TestBinarySearchTestCase):
 		self.assertEqual(self.binary_search.difficulty, 2)
 
 
-class TestExecute(TestBinarySearchTestCase):
+class TestExecute(TestBinarySearch):
 	def test_found_index(self):
 		self.binary_search.add_element('1')
 		self.binary_search.add_element('2')
