@@ -48,7 +48,7 @@ class TestSnapshot(TestAlgorithm):
 	def test_save_snapshot(self):
 		self.assertEqual(len(self.algorithm.snapshots), 0)
 		self.algorithm.save_snapshot()
-		self.assertEqual(len(self.algorithm.snapshots), 1)
+		self.assertNotEqual(len(self.algorithm.snapshots), 0)
 
 
 class TestTests(TestAlgorithm):

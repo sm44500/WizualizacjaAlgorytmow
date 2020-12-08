@@ -90,7 +90,6 @@ class BasicAlgorithm(Algorithm):
 		"""
 		if len(self.data) == 0:
 			return
-
 		random.shuffle(self.data)
 		self.save_snapshot("Elementy zostały przemieszane!")
 
