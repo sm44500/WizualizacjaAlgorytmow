@@ -63,4 +63,3 @@ class Paths:
 		"""
 		algorithm_path = Paths.algorithm(algorithm_name)
 		return os.path.join(algorithm_path, "load.py")
-		
