@@ -2,9 +2,9 @@ from PyQt5.QtWidgets import QGridLayout, QLabel
 from PyQt5.QtCore import QPointF
 
 from Snapshot import Snapshot
+from Node import Node
 from Widgets.BaseWidget import BaseWidget
 import NodZ.Main as nodz_main
-import uuid
 
 class NodZWidget(BaseWidget):
 	"""
@@ -53,28 +53,7 @@ class NodZWidget(BaseWidget):
 		return node_attr
 
 	def render_snapshot(self, snapshot: Snapshot):
-		node1 = Node("Node 1")
-		attr1 = node1.add_attribute("Attr 1")
-		attr2 = node1.add_attribute("Attr 2")
-		attr3 = node1.add_attribute("Attr 3")
-
-		node2 = Node("Node 2")
-		attr4 = node2.add_attribute("Attr 4")
-		attr5 = node2.add_attribute("Attr 5")
-		attr6 = node2.add_attribute("Attr 6")
-
-		attr1.connection = attr5
-		attr2.connection = attr6
-		attr3.connection = attr4
-
-		node3 = Node("Node 3")
-		node4 = Node("Node 4")
-		node5 = Node("Node 5")
-		
-		self.nodz.clearGraph()
-		self.nodz_nodes = []
-
-		nodes = [node1, node2, node3, node4, node5]
+		nodes = snapshot.data
 
 		center_position = self.nodz.mapToScene(self.nodz.viewport().rect().center())
 
@@ -99,20 +78,4 @@ class NodZWidget(BaseWidget):
 
 		self.nodz.evaluateGraph()
 		pass
-
-class Node:
-	def __init__(self, name):
-		self.name = name
-		self.attributes = []
-
-	def add_attribute(self, name):
-		attribute = NodeAttribute(name, self.name)
-		self.attributes.append(attribute)
-		return attribute
-
-class NodeAttribute:
-	def __init__(self, name, node_name):
-		self.node_name = node_name
-		self.name = name
-		self.connection = None
 		
