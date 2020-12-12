@@ -58,7 +58,7 @@ class Nodz(QtWidgets.QGraphicsView):
         self.gridVisToggle = True
         self.gridSnapToggle = False
         self._nodeSnap = False
-        self.selectedNodes = None
+        self.selectedNodes = []
 
         # Connections data.
         self.drawingConnection = False
@@ -166,39 +166,39 @@ class Nodz(QtWidgets.QGraphicsView):
         """
         # Zoom.
         if self.currentState == 'ZOOM_VIEW':
-            # offset = self.zoomInitialPos.x() - event.pos().x()
+            offset = self.zoomInitialPos.x() - event.pos().x()
 
-            # if offset > self.previousMouseOffset:
-            #     self.previousMouseOffset = offset
-            #     self.zoomDirection = -1
-            #     self.zoomIncr -= 1
+            if offset > self.previousMouseOffset:
+                self.previousMouseOffset = offset
+                self.zoomDirection = -1
+                self.zoomIncr -= 1
 
-            # elif offset == self.previousMouseOffset:
-            #     self.previousMouseOffset = offset
-            #     if self.zoomDirection == -1:
-            #         self.zoomDirection = -1
-            #     else:
-            #         self.zoomDirection = 1
+            elif offset == self.previousMouseOffset:
+                self.previousMouseOffset = offset
+                if self.zoomDirection == -1:
+                    self.zoomDirection = -1
+                else:
+                    self.zoomDirection = 1
 
-            # else:
-            #     self.previousMouseOffset = offset
-            #     self.zoomDirection = 1
-            #     self.zoomIncr += 1
+            else:
+                self.previousMouseOffset = offset
+                self.zoomDirection = 1
+                self.zoomIncr += 1
 
-            # if self.zoomDirection == 1:
-            #     zoomFactor = 1.03
-            # else:
-            #     zoomFactor = 1 / 1.03
+            if self.zoomDirection == 1:
+                zoomFactor = 1.03
+            else:
+                zoomFactor = 1 / 1.03
 
-            # # Perform zoom and re-center on initial click position.
-            # pBefore = self.mapToScene(self.initMousePos)
-            # self.setTransformationAnchor(QtWidgets.QGraphicsView.AnchorViewCenter)
-            # self.scale(zoomFactor, zoomFactor)
-            # pAfter = self.mapToScene(self.initMousePos)
-            # diff = pAfter - pBefore
+            # Perform zoom and re-center on initial click position.
+            pBefore = self.mapToScene(self.initMousePos)
+            self.setTransformationAnchor(QtWidgets.QGraphicsView.AnchorViewCenter)
+            self.scale(zoomFactor, zoomFactor)
+            pAfter = self.mapToScene(self.initMousePos)
+            diff = pAfter - pBefore
 
-            # self.setTransformationAnchor(QtWidgets.QGraphicsView.NoAnchor)
-            # self.translate(diff.x(), diff.y())
+            self.setTransformationAnchor(QtWidgets.QGraphicsView.NoAnchor)
+            self.translate(diff.x(), diff.y())
             pass
 
         # Drag canvas.
