@@ -1,5 +1,8 @@
 .idea/
 .idea
+build
+dist/*
+*.spec
 *.iml
 .vscode
 __pycache__
