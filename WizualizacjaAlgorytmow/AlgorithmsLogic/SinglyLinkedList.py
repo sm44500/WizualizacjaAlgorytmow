@@ -1,5 +1,4 @@
-from Algorithms.AdvancedAlgorithm import AdvancedAlgorithm
-
+from AlgorithmsLogic.AdvancedAlgorithm import AdvancedAlgorithm
 
 class SinglyLinkedList(AdvancedAlgorithm):
 	"""
@@ -13,5 +12,3 @@ class SinglyLinkedList(AdvancedAlgorithm):
 		super().__init__("SinglyLinkedList", "TODO: Lista jednokierunkowa")
 		self.difficulty = 2
 
-def __init__():
-	return SinglyLinkedList()

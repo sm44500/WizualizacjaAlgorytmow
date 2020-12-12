@@ -1,4 +1,4 @@
-from Algorithms.BasicAlgorithm import BasicAlgorithm
+from AlgorithmsLogic.BasicAlgorithm import BasicAlgorithm
 from Snapshot import Snapshot
 from Comparators import Comparator, compare
 
@@ -30,7 +30,3 @@ class InsertionSort(BasicAlgorithm):
 				self.save_snapshot("Element '%s' nie jest mniejszy od '%s', więc został umieszczony na pozycji %s." % (
 					value, self.data[j], j + 1), {j + 1: Snapshot.color_current_final})
 		self.save_snapshot("Algorytm zakończył działanie!")
-
-
-def __init__():
-	return InsertionSort()

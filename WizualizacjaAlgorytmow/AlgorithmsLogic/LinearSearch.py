@@ -1,4 +1,4 @@
-from Algorithms.BasicAlgorithm import BasicAlgorithm
+from AlgorithmsLogic.BasicAlgorithm import BasicAlgorithm
 from Comparators import Comparator, compare
 from Snapshot import Snapshot
 
@@ -37,6 +37,3 @@ class LinearSearch(BasicAlgorithm):
 			found_value = "not_found"
 			self.save_snapshot("Wyszukiwany element nie został znaleziony.")
 		return found_index, found_value
-
-def __init__():
-	return LinearSearch()

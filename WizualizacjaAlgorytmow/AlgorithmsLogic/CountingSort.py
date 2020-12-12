@@ -1,5 +1,5 @@
 import random
-from Algorithms.BasicAlgorithm import BasicAlgorithm
+from AlgorithmsLogic.BasicAlgorithm import BasicAlgorithm
 from Snapshot import Snapshot
 import numpy as np
 
@@ -77,6 +77,3 @@ class CountingSort(BasicAlgorithm):
 			n = int(self.last_value)
 		for i in range(n):
 			self.add_element(str(random.randint(-5, 10)))
-
-def __init__():
-	return CountingSort()

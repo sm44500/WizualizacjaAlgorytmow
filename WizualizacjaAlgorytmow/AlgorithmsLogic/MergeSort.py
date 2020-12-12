@@ -1,6 +1,6 @@
 import math
 
-from Algorithms.BasicAlgorithm import BasicAlgorithm
+from AlgorithmsLogic.BasicAlgorithm import BasicAlgorithm
 from Snapshot import Snapshot
 from Comparators import Comparator, compare
 
@@ -88,7 +88,3 @@ class MergeSort(BasicAlgorithm):
             sorted_index = sorted_index + 1
 
         self.save_snapshot("Stan po sortowaniu.", colors)
-
-
-def __init__():
-    return MergeSort()

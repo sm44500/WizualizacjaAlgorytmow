@@ -1,7 +1,7 @@
 import random
 from PyQt5.QtWidgets import QWidget, QMessageBox
 from Paths import Paths
-from Algorithms.Algorithm import Algorithm
+from AlgorithmsLogic import Algorithm
 
 class QuestionsManager:
 	"""

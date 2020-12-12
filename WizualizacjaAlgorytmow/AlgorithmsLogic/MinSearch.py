@@ -1,4 +1,4 @@
-from Algorithms.BasicAlgorithm import BasicAlgorithm
+from AlgorithmsLogic.BasicAlgorithm import BasicAlgorithm
 from Comparators import Comparator, compare
 from Snapshot import Snapshot
 
@@ -40,7 +40,3 @@ class MinSearch(BasicAlgorithm):
 		self.save_snapshot("Znaleziona wartosć minimalna wynosi '%s'." % current_min,
 							{current_min_index: Snapshot.color_current_final})
 		return current_min_index, current_min
-
-
-def __init__():
-	return MinSearch()

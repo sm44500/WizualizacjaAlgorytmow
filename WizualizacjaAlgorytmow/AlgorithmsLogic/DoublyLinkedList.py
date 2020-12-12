@@ -1,4 +1,4 @@
-from Algorithms.AdvancedAlgorithm import AdvancedAlgorithm
+from AlgorithmsLogic.AdvancedAlgorithm import AdvancedAlgorithm
 
 
 class DoublyLinkedList(AdvancedAlgorithm):
@@ -13,5 +13,3 @@ class DoublyLinkedList(AdvancedAlgorithm):
 		super().__init__("DoublyLinkedList", "TODO: Lista dwukierunkowa")
 		self.difficulty = 3
 
-def __init__():
-	return DoublyLinkedList()

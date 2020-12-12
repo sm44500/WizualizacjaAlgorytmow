@@ -1,7 +1,6 @@
-from Algorithms.BasicAlgorithm import BasicAlgorithm
+from AlgorithmsLogic.BasicAlgorithm import BasicAlgorithm
 from Comparators import Comparator, compare
 from Snapshot import Snapshot
-
 
 class MaxSearch(BasicAlgorithm):
 	"""
@@ -40,6 +39,3 @@ class MaxSearch(BasicAlgorithm):
 		self.save_snapshot("Znaleziona wartosć maksymalna wynosi '%s'." % current_max,
 							{current_max_index: Snapshot.color_current_final})
 		return current_max_index, current_max
-
-def __init__():
-	return MaxSearch()

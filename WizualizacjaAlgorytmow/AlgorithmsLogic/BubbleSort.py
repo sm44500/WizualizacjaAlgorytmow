@@ -1,4 +1,4 @@
-from Algorithms.BasicAlgorithm import BasicAlgorithm
+from AlgorithmsLogic.BasicAlgorithm import BasicAlgorithm
 from Comparators import Comparator, compare
 from Snapshot import Snapshot
 
@@ -48,6 +48,3 @@ class BubbleSort(BasicAlgorithm):
 				self.save_snapshot("Rozpoczynamy kolejną iterację.")
 		self.save_snapshot("Algorytm zakończył działanie!")
 
-
-def __init__():
-	return BubbleSort()

@@ -2,7 +2,7 @@ import random
 from PyQt5.QtWidgets import QWidget, QMessageBox
 from PyQt5.QtGui import QDesktopServices
 from Paths import Paths
-from Algorithms.Algorithm import Algorithm
+from AlgorithmsLogic import Algorithm
 
 class CodesManager:
 	"""

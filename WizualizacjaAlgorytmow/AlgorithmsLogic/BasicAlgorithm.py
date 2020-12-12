@@ -1,7 +1,7 @@
 import random
 
 from Paths import Paths
-from Algorithms.Algorithm import Algorithm
+from AlgorithmsLogic.Algorithm import Algorithm
 from Snapshot import Snapshot
 from Widgets.NetworkXWidget import NetworkXWidget
 

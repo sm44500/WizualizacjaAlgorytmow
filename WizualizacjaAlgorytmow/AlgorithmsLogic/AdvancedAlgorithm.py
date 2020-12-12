@@ -1,5 +1,5 @@
 from Paths import Paths
-from Algorithms.Algorithm import Algorithm
+from AlgorithmsLogic.Algorithm import Algorithm
 from Snapshot import Snapshot
 from Widgets.NodZWidget import NodZWidget
 

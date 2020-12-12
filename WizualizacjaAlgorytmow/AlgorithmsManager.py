@@ -1,9 +1,10 @@
 from PyQt5.QtWidgets import QWidget
-from AlgorithmLoader import get_algorithm_list, Paths
 from VisualisationManager import VisualisationManager
 from QuestionsManager import QuestionsManager
 from CodesManager import CodesManager
+from Paths import Paths
 
+import Algorithms
 
 class AlgorithmsManager:
 	"""
@@ -29,11 +30,13 @@ class AlgorithmsManager:
 		"""
 		Wczytuje algorytmy. 
 		"""
-		self.algorithms = get_algorithm_list()
+		self.algorithms = []
 
 		self.combobox.clear()
-		for algorithm in self.algorithms:
+		for algorithm_class in Algorithms.AlgorythmsClasses:
+			algorithm = algorithm_class()
 			self.combobox.add_algorithms(algorithm.title, algorithm.difficulty)
+			self.algorithms.append(algorithm)
 
 		self.main_widget.top_widget.currentIndexChanged.connect(self.on_change_algorithm)
 

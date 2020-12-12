@@ -1,4 +1,4 @@
-from Algorithms.AdvancedAlgorithm import AdvancedAlgorithm
+from AlgorithmsLogic.AdvancedAlgorithm import AdvancedAlgorithm
 
 
 class CircularLinkedList(AdvancedAlgorithm):
@@ -12,6 +12,3 @@ class CircularLinkedList(AdvancedAlgorithm):
 	def __init__(self):
 		super().__init__("CircularLinkedList", "TODO: Lista cykliczna")
 		self.difficulty = 3
-
-def __init__():
-	return CircularLinkedList()

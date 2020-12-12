@@ -1,4 +1,4 @@
-from Algorithms.BasicAlgorithm import BasicAlgorithm
+from AlgorithmsLogic.BasicAlgorithm import BasicAlgorithm
 from Snapshot import Snapshot
 from Comparators import Comparator, compare
 
@@ -63,7 +63,3 @@ class BinarySearch(BasicAlgorithm):
 			found_index = "not_found"
 			self.save_snapshot("Szukana wartość '%s' nie została znaleziona." % value)
 		return found_index, found_value
-
-
-def __init__():
-	return BinarySearch()

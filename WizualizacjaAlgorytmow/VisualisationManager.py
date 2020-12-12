@@ -2,7 +2,7 @@ from PyQt5.QtTest import QTest
 from PyQt5.QtWidgets import QWidget
 from PyQt5.QtGui import QColor, QIcon
 from Paths import Paths
-from Algorithms.Algorithm import Algorithm
+from AlgorithmsLogic import Algorithm
 
 
 class VisualisationManager:
