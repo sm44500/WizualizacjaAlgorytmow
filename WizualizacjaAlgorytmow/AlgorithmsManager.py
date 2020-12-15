@@ -67,7 +67,7 @@ class AlgorithmsManager:
 
 		self.questions_button = self.control_panel_top.add_button("Pytania", Paths.icon("question_mark.png"))
 		self.questions_button.clicked.connect(self.show_questions)
-		self.questions_button.set_hint("Panel weryfikujący zdobytą wiedzę przez użytkownika.")
+		self.questions_button.set_hint("Panel weryfikujący zdobytą przez użytkownika wiedzę.")
 
 	def on_change_algorithm(self, index):
 		"""

@@ -1,11 +1,12 @@
 import sys
 from PyQt5.QtWidgets import QApplication
 
-from MainApplication import MainApplication
+from MainWindow import MainWindow
+
 
 if __name__ == "__main__":
 	app = QApplication(sys.argv)
 	app.setStyle("fusion")
-	main_application = MainApplication()
-	main_application.show()
+	window = MainWindow()
+	window.show()
 	sys.exit(app.exec_())
