@@ -1,5 +1,5 @@
 from unittest import TestCase
-from Algorithms.InsertionSort.load import InsertionSort
+from AlgorithmsLogic.InsertionSort import InsertionSort
 
 
 class TestInsertionSort(TestCase):

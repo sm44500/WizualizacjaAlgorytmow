@@ -1,5 +1,5 @@
 from unittest import TestCase
-from Algorithms.AdvancedAlgorithm import AdvancedAlgorithm
+from AlgorithmsLogic.AdvancedAlgorithm import AdvancedAlgorithm
 from Widgets.NodZWidget import NodZWidget
 from Snapshot import Snapshot
 

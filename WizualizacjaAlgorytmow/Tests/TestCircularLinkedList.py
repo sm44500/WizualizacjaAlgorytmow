@@ -1,5 +1,5 @@
 from unittest import TestCase
-from Algorithms.CircularLinkedList.load import CircularLinkedList
+from AlgorithmsLogic.CircularLinkedList import CircularLinkedList
 
 
 class TestCircularLinkedList(TestCase):

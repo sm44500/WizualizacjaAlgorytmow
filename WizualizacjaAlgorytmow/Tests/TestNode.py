@@ -1,5 +1,5 @@
 from unittest import TestCase
-from Algorithms.Node import Node
+from Node import Node
 
 
 class TestNode(TestCase):

@@ -1,5 +1,5 @@
 from unittest import TestCase
-from Algorithms.MergeSort.load import MergeSort
+from AlgorithmsLogic.MergeSort import MergeSort
 
 
 class TestMergeSort(TestCase):

@@ -1,5 +1,5 @@
 from unittest import TestCase
-from Algorithms.CountingSort.load import CountingSort
+from AlgorithmsLogic.CountingSort import CountingSort
 
 
 class TestCountingSort(TestCase):

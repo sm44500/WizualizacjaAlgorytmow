@@ -1,5 +1,5 @@
 from unittest import TestCase
-from Algorithms.BubbleSort.load import BubbleSort
+from AlgorithmsLogic.BubbleSort import BubbleSort
 
 
 class TestBubbleSort(TestCase):

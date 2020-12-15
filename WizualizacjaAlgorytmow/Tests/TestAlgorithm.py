@@ -1,5 +1,5 @@
 from unittest import TestCase
-from Algorithms.Algorithm import Algorithm
+from AlgorithmsLogic.Algorithm import Algorithm
 from PyQt5.QtWidgets import QWidget
 from Snapshot import Snapshot
 

@@ -1,5 +1,5 @@
 from unittest import TestCase
-from Algorithms.SinglyLinkedList.load import SinglyLinkedList
+from AlgorithmsLogic.SinglyLinkedList import SinglyLinkedList
 
 
 class TestSinglyLinkedList(TestCase):

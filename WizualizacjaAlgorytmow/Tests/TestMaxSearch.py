@@ -1,5 +1,5 @@
 from unittest import TestCase
-from Algorithms.MaxSearch.load import MaxSearch
+from AlgorithmsLogic.MaxSearch import MaxSearch
 
 
 class TestMaxSearch(TestCase):

@@ -1,5 +1,5 @@
 from unittest import TestCase
-from Algorithms.DoublyLinkedList.load import DoublyLinkedList
+from AlgorithmsLogic.DoublyLinkedList import DoublyLinkedList
 
 
 class TestDoublyLinkedList(TestCase):

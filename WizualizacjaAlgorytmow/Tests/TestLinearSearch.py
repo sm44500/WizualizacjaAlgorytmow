@@ -1,5 +1,5 @@
 from unittest import TestCase
-from Algorithms.LinearSearch.load import LinearSearch
+from AlgorithmsLogic.LinearSearch import LinearSearch
 
 
 class TestLinearSearch(TestCase):

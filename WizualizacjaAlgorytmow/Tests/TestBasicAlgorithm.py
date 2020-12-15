@@ -1,5 +1,5 @@
 from unittest import TestCase
-from Algorithms.BasicAlgorithm import BasicAlgorithm
+from AlgorithmsLogic.BasicAlgorithm import BasicAlgorithm
 from Widgets.NetworkXWidget import NetworkXWidget
 from Snapshot import Snapshot
 

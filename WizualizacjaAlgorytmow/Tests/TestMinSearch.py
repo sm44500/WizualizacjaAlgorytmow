@@ -1,5 +1,5 @@
 from unittest import TestCase
-from Algorithms.MinSearch.load import MinSearch
+from AlgorithmsLogic.MinSearch import MinSearch
 
 
 class TestMinSearch(TestCase):
