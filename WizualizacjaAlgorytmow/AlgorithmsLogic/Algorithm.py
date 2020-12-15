@@ -28,6 +28,8 @@ class Algorithm:
 		self.buttons = None
 		self.data = []
 		self.snapshots = []
+		self.__load_codes()
+		self.__load_test()
 
 	def save_snapshot(self, description: str = "", highlights: dict = {}):
 		"""
@@ -39,7 +41,7 @@ class Algorithm:
 		"""
 		self.snapshots.append(Snapshot(self.data.copy(), description, highlights))
 
-	def load_test(self):
+	def __load_test(self):
 		"""
 		Metoda importująca pytania testowe do algorytmu.
 		"""
@@ -47,7 +49,7 @@ class Algorithm:
 		test_path = Paths.test(self.name)
 		self.test_questions = TestQuestion.from_file(test_path)
 		
-	def load_codes(self):
+	def __load_codes(self):
 		"""
 		Metoda importująca przykładowe kody do algorytmu.
 		"""
