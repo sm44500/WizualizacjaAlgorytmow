@@ -86,7 +86,7 @@ class ControlPanel(BaseWidget):
 		self.widgets.append(label)
 		return label
 
-	def add_text_box(self) -> ControlPanelTextBox:
+	def add_text_box(self, hint: str) -> ControlPanelTextBox:
 		"""
 		Dodaje pole tekstowe do panelu.
 
@@ -94,6 +94,7 @@ class ControlPanel(BaseWidget):
 		ControlPanelTextBox - przycisk
 		"""
 		text_box = ControlPanelTextBox()
+		text_box.setToolTip(hint)
 		self.widget_layout.addWidget(text_box)
 		self.widgets.append(text_box)
 		return text_box

@@ -3,6 +3,7 @@ from PyQt5.QtWidgets import QWidget
 from PyQt5.QtGui import QColor, QIcon
 from Paths import Paths
 from AlgorithmsLogic import Algorithm
+from Styles import Styles
 
 
 class VisualisationManager:
@@ -47,31 +48,32 @@ class VisualisationManager:
 		self.slider.sliderReleased.connect(lambda: self.on_update_slider())
 
 		self.text_box_label = self.control_panel_bottom.add_label("Wartość elementu:")
-		self.text_box = self.control_panel_bottom.add_text_box()
+		self.text_box = self.control_panel_bottom.add_text_box("Tutaj możesz wpisać dowolną wartość.")
 
-		for name, on_clicked, icon, should_update_current_snapshot in self.algorithm.buttons:
+		for name, on_clicked, icon, should_update_current_snapshot, hint in self.algorithm.buttons:
 			algorithm_button = self.control_panel_bottom.add_button(name, icon)
 			algorithm_button.clicked.connect(self.on_click_algorithm)
 			algorithm_button.clicked.connect(on_clicked)
 			if should_update_current_snapshot:
 				algorithm_button.clicked.connect(self.on_click_last_snapshot)
+			algorithm_button.set_hint(hint)
 			self.internal_widgets.append(algorithm_button)
 
 		self.icon_panel = self.control_panel_bottom.add_icon_panel()
 
-		self.first_step_button = self.icon_panel.add_button(Paths.icon("first.png"), "Uruchomienie pierwszego kroku")
+		self.first_step_button = self.icon_panel.add_button(Paths.icon("first.png"), "Uruchomienie pierwszego kroku.")
 		self.first_step_button.clicked.connect(self.on_click_first_step)
 
-		self.previous_step_button = self.icon_panel.add_button(Paths.icon("backward.png"), "Uruchomienie poprzedniego kroku")
+		self.previous_step_button = self.icon_panel.add_button(Paths.icon("backward.png"), "Uruchomienie poprzedniego kroku.")
 		self.previous_step_button.clicked.connect(self.on_click_previous_step)
 
 		self.play_button = self.icon_panel.add_button(Paths.icon("play.png"))
 		self.play_button.clicked.connect(self.on_click_play)
 
-		self.next_step_button = self.icon_panel.add_button(Paths.icon("forward.png"), "Uruchomienie następnego kroku")
+		self.next_step_button = self.icon_panel.add_button(Paths.icon("forward.png"), "Uruchomienie następnego kroku.")
 		self.next_step_button.clicked.connect(self.on_click_next_step)
 
-		self.last_snapshot_button = self.icon_panel.add_button(Paths.icon("last.png"), "Uruchomienie ostatniego kroku")
+		self.last_snapshot_button = self.icon_panel.add_button(Paths.icon("last.png"), "Uruchomienie ostatniego kroku.")
 		self.last_snapshot_button.clicked.connect(self.on_click_last_snapshot)
 
 
@@ -149,10 +151,12 @@ class VisualisationManager:
 		"""
 		if not self.is_playing:
 			self.play_button.set_icon(self.play_icon)
-			self.play_button.set_hint("Rozpoczęcie automatycznego odtwarzania kroków")
+			self.play_button.set_hint("Rozpoczęcie automatycznego odtwarzania kroków.")
+			self.play_button.setStyleSheet(Styles.snapshot_button_background)
 		else:
 			self.play_button.set_icon(self.pause_icon)
-			self.play_button.set_hint("Zatrzymanie automatycznego odtwarzania kroków")
+			self.play_button.set_hint("Zatrzymanie automatycznego odtwarzania kroków.")
+			self.play_button.setStyleSheet(Styles.snapshot_button_background_clicked)
 
 	def on_click_algorithm(self):
 		"""
