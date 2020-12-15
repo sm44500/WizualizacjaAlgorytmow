@@ -24,6 +24,10 @@ class AlgorithmsManager:
 		self.manager = None
 		self.current_index = 0
 		self.current_algorithm = None
+		self.description_button = None
+		self.visualisation_button = None
+		self.questions_button = None
+		self.codes_button = None
 		self.setup_algorithms()
 
 	def setup_algorithms(self):
@@ -51,12 +55,19 @@ class AlgorithmsManager:
 
 		self.description_button = self.control_panel_top.add_button("Opis", Paths.icon("bookmark.png"))
 		self.description_button.clicked.connect(self.show_description)
+		self.description_button.set_hint("Wyświetlenie opisu algorytmu.")
+
 		self.visualisation_button = self.control_panel_top.add_button("Wizualizacja", Paths.icon("eye.png"))
 		self.visualisation_button.clicked.connect(self.show_visualisation)
-		self.questions_button = self.control_panel_top.add_button("Pytania", Paths.icon("question_mark.png"))
-		self.questions_button.clicked.connect(self.show_questions)
+		self.visualisation_button.set_hint("Wizualizacja podstawowych operacji na rzecz danego algorytmu.")
+
 		self.codes_button = self.control_panel_top.add_button("Kody źródłowe", Paths.icon("code.png"))
 		self.codes_button.clicked.connect(self.show_codes)
+		self.codes_button.set_hint("Przejście do panelu z kodami źródłowymi.")
+
+		self.questions_button = self.control_panel_top.add_button("Pytania", Paths.icon("question_mark.png"))
+		self.questions_button.clicked.connect(self.show_questions)
+		self.questions_button.set_hint("Panel weryfikujący zdobytą wiedzę przez użytkownika.")
 
 	def on_change_algorithm(self, index):
 		"""
