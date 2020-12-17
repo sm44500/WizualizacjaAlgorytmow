@@ -3,6 +3,7 @@ from PyQt5.QtWidgets import QWidget, QMessageBox
 from PyQt5.QtGui import QDesktopServices
 from Paths import Paths
 from AlgorithmsLogic import Algorithm
+from Widgets.WebWidget import WebWidget
 
 class CodesManager:
 	"""
@@ -18,7 +19,9 @@ class CodesManager:
 		self.codes_buttons = []
 		self.main_widget = main_widget
 		self.control_panel_bottom = self.main_widget.middle_widget.right_widget.bottom_control_panel
+		self.center = self.main_widget.middle_widget.left_widget
 		self.setup_control_panel()
+		self.setup_center_panel()
 
 	def setup_control_panel(self):
 		"""
@@ -31,8 +34,16 @@ class CodesManager:
 				code_label = "Kod " + code_label
 			code_button = self.control_panel_bottom.add_button(code_label, code.icon)
 			code_button.clicked.connect(lambda checked, index=index: self.on_click_code(index))
-			code_button.set_hint("Wyświetlenie kodu źródłowego w przeglądarce.")
+			code_button.set_hint("Wyświetlenie kodu źródłowego.")
 			self.codes_buttons.append(code_button)
+
+	def setup_center_panel(self):
+		"""
+		Inicjalizuje panel centralny z opisem.
+		"""
+		self.center.set_widget(WebWidget)
+		self.center.widget.show_html_file(self.codes[0].path)
+
 
 	def on_click_code(self, index):
 		"""
@@ -42,4 +53,4 @@ class CodesManager:
 		Parametry:
 		index - numer wybranego kodu przez użytkownika
 		"""
-		QDesktopServices.openUrl(self.codes[index].url)
+		self.center.widget.show_html_file(self.codes[index].path)
