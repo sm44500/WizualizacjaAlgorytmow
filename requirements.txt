@@ -1,0 +1,6 @@
+PyQt5
+PyQtWebEngine
+matplotlib
+networkx[all]
+pdoc3
+pyinstaller
