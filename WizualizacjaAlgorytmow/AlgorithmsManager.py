@@ -2,6 +2,7 @@ from PyQt5.QtWidgets import QWidget
 from VisualisationManager import VisualisationManager
 from QuestionsManager import QuestionsManager
 from CodesManager import CodesManager
+from DescriptionManager import DescriptionManager
 from Paths import Paths
 
 import Algorithms
@@ -97,8 +98,7 @@ class AlgorithmsManager:
 		"""
 		self.center.clear_widget()
 		self.setup_control_panel()
-		self.manager = None
-		self.bottom.set_text(self.current_algorithm.description)
+		self.manager = DescriptionManager(self.main_widget, self.current_algorithm)
 
 	def show_visualisation(self):
 		"""

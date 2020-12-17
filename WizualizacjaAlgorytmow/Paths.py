@@ -54,6 +54,17 @@ class Paths:
 		return os.path.join(algorithm_path, "test.json")
 
 	@staticmethod
+	def description(algorithm_name: str):
+		"""
+		Pobiera ścieżkę do pliku z opisem danego algorytmu.
+		
+		Parametry:
+		algorithm_name - nazwa algorytmu
+		"""
+		algorithm_path = Paths.algorithm(algorithm_name)
+		return os.path.join(algorithm_path, "description.html")
+
+	@staticmethod
 	def logic(algorithm_name: str):
 		"""
 		Pobiera ścieżkę do pliku z logiką algorytmu.

@@ -20,7 +20,6 @@ class Algorithm:
 		self.visualization_widget = QWidget
 		self.name = name
 		self.title = title
-		self.description = ""
 		self.difficulty = 0
 		self.last_value = 0
 		self.codes = []
