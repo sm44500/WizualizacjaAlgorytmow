@@ -2,7 +2,7 @@ import random
 from PyQt5.QtWidgets import QWidget, QMessageBox
 from Paths import Paths
 from AlgorithmsLogic import Algorithm
-from Widgets.DescriptionWidget import DescriptionWidget
+from Widgets.WebWidget import WebWidget
 
 class DescriptionManager:
 	"""
@@ -23,7 +23,7 @@ class DescriptionManager:
 		"""
 		Inicjalizuje panel centralny z opisem.
 		"""
-		self.center.set_widget(DescriptionWidget)
-		self.center.widget.show_description(Paths.description(self.algorithm.name))
+		self.center.set_widget(WebWidget)
+		self.center.widget.show_html_file(Paths.description(self.algorithm.name))
 
 	

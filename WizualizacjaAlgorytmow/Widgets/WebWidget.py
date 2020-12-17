@@ -2,9 +2,9 @@ from PyQt5.QtWidgets import QHBoxLayout
 from PyQt5.QtCore import QUrl
 from PyQt5.QtWebEngineWidgets import QWebEngineView
 
-class DescriptionWidget(QWebEngineView):
+class WebWidget(QWebEngineView):
 	"""
-	Klasa reprezentująca centralny panel wyświetlający opis.
+	Klasa reprezentująca panel przeglądarki web.
 
 	Parametry:
 	parent - widget rodzic.
@@ -19,9 +19,9 @@ class DescriptionWidget(QWebEngineView):
 		"""
 		pass
 
-	def show_description(self, path):
+	def show_html_file(self, path):
 		"""
-		Wyświetla podany plik html jako opis.
+		Wyświetla podany plik html.
 
 		Parametry:
 		path - ścieżka do pliku HTML.
