@@ -62,7 +62,7 @@ class Paths:
 		algorithm_name - nazwa algorytmu
 		"""
 		algorithm_path = Paths.algorithm(algorithm_name)
-		return os.path.join(algorithm_path, "description.html")
+		return os.path.join(algorithm_path, "description/description.html")
 
 	@staticmethod
 	def logic(algorithm_name: str):
