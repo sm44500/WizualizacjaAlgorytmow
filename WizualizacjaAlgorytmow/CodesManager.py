@@ -39,7 +39,7 @@ class CodesManager:
 
 	def setup_center_panel(self):
 		"""
-		Inicjalizuje panel centralny z opisem.
+		Inicjalizuje panel centralny.
 		"""
 		self.center.set_widget(WebWidget)
 		self.center.widget.show_html_file(self.codes[0].path)
