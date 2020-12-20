@@ -14,8 +14,8 @@ class ControlPanel(BaseWidget):
 	Klasa reprezentująca panel kontrolny.
 
 	Parametry:
-	parent - widget rodzic.
-	alignment - wyrównanie, domyślnie Qt.AlignTop
+		parent - widget rodzic.
+		alignment - wyrównanie, domyślnie Qt.AlignTop
 	"""
 
 	def __init__(self, parent=None, alignment=Qt.AlignTop):
@@ -42,8 +42,8 @@ class ControlPanel(BaseWidget):
 		"""
 		Dodaje panel z ikonami do panelu.
 
-		Typ zwracany:
-		ControlPanelIconPanel - Panel z ikonami
+		Powrót:
+			ControlPanelIconPanel - Panel z ikonami
 		"""
 		icon_panel = ControlPanelIconPanel()
 		self.widget_layout.addWidget(icon_panel)
@@ -55,12 +55,12 @@ class ControlPanel(BaseWidget):
 		Dodaje przycisk do panelu.
 
 		Parametry:
-		text - tekst wyświetlany na przycisku
-		icon_path - ścieżka do ikony (opcjonalnie)
-		hint - tekst po najechaniu kursowem (opcjonalnie)
+			text - tekst wyświetlany na przycisku
+			icon_path - ścieżka do ikony (opcjonalnie)
+			hint - tekst po najechaniu kursowem (opcjonalnie)
 
-		Typ zwracany:
-		ControlPanelButton - przycisk
+		Powrót:
+			ControlPanelButton - przycisk
 		"""
 		button = ControlPanelButton()
 		button.set_icon(icon_path)
@@ -75,10 +75,10 @@ class ControlPanel(BaseWidget):
 		Dodaje etykietę do panelu.
 
 		Parametry:
-		text - tekst wyświetlany na etykiecie
+			text - tekst wyświetlany na etykiecie
 
-		Typ zwracany:
-		ControlPanelLabel - przycisk
+		Powrót:
+			ControlPanelLabel - przycisk
 		"""
 		label = ControlPanelLabel()
 		label.setText(text)
@@ -90,8 +90,8 @@ class ControlPanel(BaseWidget):
 		"""
 		Dodaje pole tekstowe do panelu.
 
-		Typ zwracany:
-		ControlPanelTextBox - przycisk
+		Powrót:
+			ControlPanelTextBox - przycisk
 		"""
 		text_box = ControlPanelTextBox()
 		text_box.setToolTip(hint)
@@ -104,13 +104,13 @@ class ControlPanel(BaseWidget):
 		Dodaje suwak do panelu.
 
 		Parametry:
-		minimum - wartość minimalna suwaka
-		maximum - wartość maksymalna suwaka
-		value - wartość domyślna suwaka
-		step - krok zmiany wartości suwaka
+			minimum - wartość minimalna suwaka
+			maximum - wartość maksymalna suwaka
+			value - wartość domyślna suwaka
+			step - krok zmiany wartości suwaka
 
-		Typ zwracany:
-		ControlPanelSlider - suwak
+		Powrót:
+			ControlPanelSlider - suwak
 		"""
 		slider = ControlPanelSlider(Qt.Horizontal)
 		slider.setMinimum(minimum)

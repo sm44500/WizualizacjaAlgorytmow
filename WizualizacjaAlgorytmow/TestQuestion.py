@@ -6,7 +6,7 @@ class TestQuestion:
 	Klasa reprezentująca pytanie testowe.
 
 	Przykład:
-	>>> testQuestion = TestQuestion()
+		>>> testQuestion = TestQuestion()
 	"""
 	def __init__(self):
 		self.question = ""
@@ -18,14 +18,14 @@ class TestQuestion:
 		Sprawdza czy podany numer odpowiedzi jest poprawną odpowiedzią
 
 		Parametry:
-		answer - int, numer odpowiedzi 
+			answer - int, numer odpowiedzi 
 
-		Typ zwracany:
-		bool
+		Powrót:
+			bool
 
 		Przykład:
-		>>> testQuestion.check(0)
-		true
+			>>> testQuestion.check(0)
+			true
 		"""
 		if self.correct == answer:
 			return True
@@ -35,12 +35,12 @@ class TestQuestion:
 		"""
 		Zwraca poprawną odpowiedz jako tekst
 
-		Typ zwracany:
-		str
+		Powrót:
+			str
 
 		Przykład:
-		>>> testQuestion.getCorrect()
-		"Przykładowa poprawna odpowiedz"
+			>>> testQuestion.getCorrect()
+			"Przykładowa poprawna odpowiedz"
 		"""
 		return self.answers[self.correct]
 
@@ -50,13 +50,13 @@ class TestQuestion:
 		Wczytuje obiekty TestQuestion z pliku json.
 
 		Parametry:
-		path - Ścieżka do pliku
+			path - Ścieżka do pliku
 
-		Typ zwracany:
-		List - Lista obiektów TestQuestion
+		Powrót:
+			List - Lista obiektów TestQuestion
 
 		Przykład:
-		>>> questions = Code.fromFile("algorithm/example/test.cpp")
+			>>> questions = Code.fromFile("algorithm/example/test.cpp")
 		"""
 		questions = []
 		file = open(path, "r")

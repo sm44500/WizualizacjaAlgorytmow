@@ -11,11 +11,11 @@ class AdvancedAlgorithm(Algorithm):
 	Algorytm dziedziczący po tej klasie będzie wykorzystywać bibliotekę NodZ.
 
 	Parametry:
-	name - skrótowa nazwa algorytmu. Tożsama z nazwą w folderze algorithm.
-	title - pełna nazwa algorytmu. Wyswietlana w aplikacji.
+		name - skrótowa nazwa algorytmu. Tożsama z nazwą w folderze algorithm.
+		title - pełna nazwa algorytmu. Wyswietlana w aplikacji.
 
 	Przykład:
-	>>> singly_linked_list = AdvancedAlgorithm("SinglyLinkedList", "Lista jednokierunkowa")
+		>>> singly_linked_list = AdvancedAlgorithm("SinglyLinkedList", "Lista jednokierunkowa")
 	"""
 
 	def __init__(self, name: str = "missing", title: str = "missing"):

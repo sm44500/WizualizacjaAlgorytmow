@@ -9,7 +9,7 @@ class ControlPanelTextBox(QLineEdit):
 	Klasa reprezentująca pole tekstowe do którego można wpisywać wartości w panelu kontrolnym.
 
 	Parametry:
-	parent - rodzic, do którego zostanie podłączony ten widget.
+		parent - rodzic, do którego zostanie podłączony ten widget.
 	"""
 	def __init__(self, parent=None):
 		super().__init__(parent)

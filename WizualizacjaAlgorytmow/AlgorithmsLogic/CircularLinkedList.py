@@ -6,7 +6,7 @@ class CircularLinkedList(AdvancedAlgorithm):
 	Klasa reprezentująca listę dwukierunkową
 
 	Przykład:
-	>>> circular_linked_list = CircularLinkedList()
+		>>> circular_linked_list = CircularLinkedList()
 	"""
 
 	def __init__(self):

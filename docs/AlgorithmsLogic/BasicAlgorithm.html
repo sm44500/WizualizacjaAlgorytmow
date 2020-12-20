@@ -41,11 +41,11 @@ class BasicAlgorithm(Algorithm):
         Algorytm dziedziczący po tej klasie będzie wykorzystywać bibliotekę NetworkX.
         
         Parametry:
-        name - skrótowa nazwa algorytmu. Tożsama z nazwą w folderze algorithm.
-        title - pełna nazwa algorytmu. Wyswietlana w aplikacji.
+                name - skrótowa nazwa algorytmu. Tożsama z nazwą w folderze algorithm.
+                title - pełna nazwa algorytmu. Wyswietlana w aplikacji.
         
         Przykład:
-        &gt;&gt;&gt; min_search = BasicAlgorithm(&#34;MinSearch&#34;, &#34;Wyszukiwanie Minimum&#34;)
+                &gt;&gt;&gt; min_search = BasicAlgorithm(&#34;MinSearch&#34;, &#34;Wyszukiwanie Minimum&#34;)
         &#34;&#34;&#34;
 
         def __init__(self, name: str = &#34;missing&#34;, title: str = &#34;missing&#34;):
@@ -60,11 +60,11 @@ class BasicAlgorithm(Algorithm):
                 Metoda dodająca element o podanej wartości do tablicy danych.
 
                 Parametry:
-                value - wartość elementu, który ma zostać dodany.
+                        value - wartość elementu, który ma zostać dodany.
 
                 Przykład:
-                &gt;&gt;&gt; add_element(5)
-                &gt;&gt;&gt; add_element(&#34;Janek&#34;)
+                        &gt;&gt;&gt; add_element(5)
+                        &gt;&gt;&gt; add_element(&#34;Janek&#34;)
                 &#34;&#34;&#34;
                 self.data.append(value.strip())
                 self.save_snapshot(&#34;Dodanie elementu &#39;%s&#39;.&#34; % value, {len(self.data) - 1: Snapshot.color_selected})
@@ -74,13 +74,13 @@ class BasicAlgorithm(Algorithm):
                 Metoda usuwająca pierwszy znaleziony element o podanej wartości z tablicy danych.
 
                 Parametry:
-                value - wartość elementu, który ma zostać usunięty.
+                        value - wartość elementu, który ma zostać usunięty.
 
-                Typ zwracany:
-                bool - reprezentuje czy element znajdował się w tablicy.
+                Powrót:
+                        bool - reprezentuje czy element znajdował się w tablicy.
 
                 Przykład:
-                &gt;&gt;&gt; remove_element(5)
+                        &gt;&gt;&gt; remove_element(5)
                 &#34;&#34;&#34;
                 if self.data.count(value) &gt; 0:
                         self.data.remove(value)
@@ -95,10 +95,10 @@ class BasicAlgorithm(Algorithm):
                 Metoda usuwająca wszystkie elementy o podanej wartości z tablicy danych.
 
                 Parametry:
-                value - wartość elementów, które mają zostać usunięte.
+                        value - wartość elementów, które mają zostać usunięte.
 
                 Przykład:
-                &gt;&gt;&gt; remove_all_elements(5)
+                        &gt;&gt;&gt; remove_all_elements(5)
                 &#34;&#34;&#34;
                 self.save_snapshot(&#34;Rozpoczynamy usuwanie wszystkich elementów z tablicy o wartości &#39;%s&#39;.&#34; % value)
                 while self.remove_element(value):
@@ -179,10 +179,10 @@ class BasicAlgorithm(Algorithm):
 <div class="desc"><p>Klasa abstrakcyjna reprezentująca algorytm niezłożony.
 Jest to algorytm, który przechowuje tylko pojedyncze dane elementu.
 Algorytm dziedziczący po tej klasie będzie wykorzystywać bibliotekę NetworkX.</p>
-<p>Parametry:
-name - skrótowa nazwa algorytmu. Tożsama z nazwą w folderze algorithm.
+<h2 id="parametry">Parametry</h2>
+<p>name - skrótowa nazwa algorytmu. Tożsama z nazwą w folderze algorithm.
 title - pełna nazwa algorytmu. Wyswietlana w aplikacji.</p>
-<p>Przykład:</p>
+<h2 id="przykad">Przykład</h2>
 <pre><code class="language-python-repl">&gt;&gt;&gt; min_search = BasicAlgorithm(&quot;MinSearch&quot;, &quot;Wyszukiwanie Minimum&quot;)
 </code></pre></div>
 <details class="source">
@@ -196,11 +196,11 @@ title - pełna nazwa algorytmu. Wyswietlana w aplikacji.</p>
         Algorytm dziedziczący po tej klasie będzie wykorzystywać bibliotekę NetworkX.
         
         Parametry:
-        name - skrótowa nazwa algorytmu. Tożsama z nazwą w folderze algorithm.
-        title - pełna nazwa algorytmu. Wyswietlana w aplikacji.
+                name - skrótowa nazwa algorytmu. Tożsama z nazwą w folderze algorithm.
+                title - pełna nazwa algorytmu. Wyswietlana w aplikacji.
         
         Przykład:
-        &gt;&gt;&gt; min_search = BasicAlgorithm(&#34;MinSearch&#34;, &#34;Wyszukiwanie Minimum&#34;)
+                &gt;&gt;&gt; min_search = BasicAlgorithm(&#34;MinSearch&#34;, &#34;Wyszukiwanie Minimum&#34;)
         &#34;&#34;&#34;
 
         def __init__(self, name: str = &#34;missing&#34;, title: str = &#34;missing&#34;):
@@ -215,11 +215,11 @@ title - pełna nazwa algorytmu. Wyswietlana w aplikacji.</p>
                 Metoda dodająca element o podanej wartości do tablicy danych.
 
                 Parametry:
-                value - wartość elementu, który ma zostać dodany.
+                        value - wartość elementu, który ma zostać dodany.
 
                 Przykład:
-                &gt;&gt;&gt; add_element(5)
-                &gt;&gt;&gt; add_element(&#34;Janek&#34;)
+                        &gt;&gt;&gt; add_element(5)
+                        &gt;&gt;&gt; add_element(&#34;Janek&#34;)
                 &#34;&#34;&#34;
                 self.data.append(value.strip())
                 self.save_snapshot(&#34;Dodanie elementu &#39;%s&#39;.&#34; % value, {len(self.data) - 1: Snapshot.color_selected})
@@ -229,13 +229,13 @@ title - pełna nazwa algorytmu. Wyswietlana w aplikacji.</p>
                 Metoda usuwająca pierwszy znaleziony element o podanej wartości z tablicy danych.
 
                 Parametry:
-                value - wartość elementu, który ma zostać usunięty.
+                        value - wartość elementu, który ma zostać usunięty.
 
-                Typ zwracany:
-                bool - reprezentuje czy element znajdował się w tablicy.
+                Powrót:
+                        bool - reprezentuje czy element znajdował się w tablicy.
 
                 Przykład:
-                &gt;&gt;&gt; remove_element(5)
+                        &gt;&gt;&gt; remove_element(5)
                 &#34;&#34;&#34;
                 if self.data.count(value) &gt; 0:
                         self.data.remove(value)
@@ -250,10 +250,10 @@ title - pełna nazwa algorytmu. Wyswietlana w aplikacji.</p>
                 Metoda usuwająca wszystkie elementy o podanej wartości z tablicy danych.
 
                 Parametry:
-                value - wartość elementów, które mają zostać usunięte.
+                        value - wartość elementów, które mają zostać usunięte.
 
                 Przykład:
-                &gt;&gt;&gt; remove_all_elements(5)
+                        &gt;&gt;&gt; remove_all_elements(5)
                 &#34;&#34;&#34;
                 self.save_snapshot(&#34;Rozpoczynamy usuwanie wszystkich elementów z tablicy o wartości &#39;%s&#39;.&#34; % value)
                 while self.remove_element(value):
@@ -327,9 +327,9 @@ title - pełna nazwa algorytmu. Wyswietlana w aplikacji.</p>
 </code></dt>
 <dd>
 <div class="desc"><p>Metoda dodająca element o podanej wartości do tablicy danych.</p>
-<p>Parametry:
-value - wartość elementu, który ma zostać dodany.</p>
-<p>Przykład:</p>
+<h2 id="parametry">Parametry</h2>
+<p>value - wartość elementu, który ma zostać dodany.</p>
+<h2 id="przykad">Przykład</h2>
 <pre><code class="language-python-repl">&gt;&gt;&gt; add_element(5)
 &gt;&gt;&gt; add_element(&quot;Janek&quot;)
 </code></pre></div>
@@ -342,11 +342,11 @@ value - wartość elementu, który ma zostać dodany.</p>
         Metoda dodająca element o podanej wartości do tablicy danych.
 
         Parametry:
-        value - wartość elementu, który ma zostać dodany.
+                value - wartość elementu, który ma zostać dodany.
 
         Przykład:
-        &gt;&gt;&gt; add_element(5)
-        &gt;&gt;&gt; add_element(&#34;Janek&#34;)
+                &gt;&gt;&gt; add_element(5)
+                &gt;&gt;&gt; add_element(&#34;Janek&#34;)
         &#34;&#34;&#34;
         self.data.append(value.strip())
         self.save_snapshot(&#34;Dodanie elementu &#39;%s&#39;.&#34; % value, {len(self.data) - 1: Snapshot.color_selected})</code></pre>
@@ -446,9 +446,9 @@ Jeżeli w pole tekstowe została wpisana liczba -&gt; n=ta liczba</p></div>
 </code></dt>
 <dd>
 <div class="desc"><p>Metoda usuwająca wszystkie elementy o podanej wartości z tablicy danych.</p>
-<p>Parametry:
-value - wartość elementów, które mają zostać usunięte.</p>
-<p>Przykład:</p>
+<h2 id="parametry">Parametry</h2>
+<p>value - wartość elementów, które mają zostać usunięte.</p>
+<h2 id="przykad">Przykład</h2>
 <pre><code class="language-python-repl">&gt;&gt;&gt; remove_all_elements(5)
 </code></pre></div>
 <details class="source">
@@ -460,10 +460,10 @@ value - wartość elementów, które mają zostać usunięte.</p>
         Metoda usuwająca wszystkie elementy o podanej wartości z tablicy danych.
 
         Parametry:
-        value - wartość elementów, które mają zostać usunięte.
+                value - wartość elementów, które mają zostać usunięte.
 
         Przykład:
-        &gt;&gt;&gt; remove_all_elements(5)
+                &gt;&gt;&gt; remove_all_elements(5)
         &#34;&#34;&#34;
         self.save_snapshot(&#34;Rozpoczynamy usuwanie wszystkich elementów z tablicy o wartości &#39;%s&#39;.&#34; % value)
         while self.remove_element(value):
@@ -476,11 +476,11 @@ value - wartość elementów, które mają zostać usunięte.</p>
 </code></dt>
 <dd>
 <div class="desc"><p>Metoda usuwająca pierwszy znaleziony element o podanej wartości z tablicy danych.</p>
-<p>Parametry:
-value - wartość elementu, który ma zostać usunięty.</p>
-<p>Typ zwracany:
-bool - reprezentuje czy element znajdował się w tablicy.</p>
-<p>Przykład:</p>
+<h2 id="parametry">Parametry</h2>
+<p>value - wartość elementu, który ma zostać usunięty.</p>
+<h2 id="powrot">Powrót</h2>
+<p>bool - reprezentuje czy element znajdował się w tablicy.</p>
+<h2 id="przykad">Przykład</h2>
 <pre><code class="language-python-repl">&gt;&gt;&gt; remove_element(5)
 </code></pre></div>
 <details class="source">
@@ -492,13 +492,13 @@ bool - reprezentuje czy element znajdował się w tablicy.</p>
         Metoda usuwająca pierwszy znaleziony element o podanej wartości z tablicy danych.
 
         Parametry:
-        value - wartość elementu, który ma zostać usunięty.
+                value - wartość elementu, który ma zostać usunięty.
 
-        Typ zwracany:
-        bool - reprezentuje czy element znajdował się w tablicy.
+        Powrót:
+                bool - reprezentuje czy element znajdował się w tablicy.
 
         Przykład:
-        &gt;&gt;&gt; remove_element(5)
+                &gt;&gt;&gt; remove_element(5)
         &#34;&#34;&#34;
         if self.data.count(value) &gt; 0:
                 self.data.remove(value)

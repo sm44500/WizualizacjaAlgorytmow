@@ -12,7 +12,7 @@ class MainWindow(QMainWindow):
 	Główne okno aplikacji.
 	
 	Parametry:
-	parent - widget rodzic.
+		parent - widget rodzic.
 	"""
 	window_title = "Wizualizacja Algorytmów"
 

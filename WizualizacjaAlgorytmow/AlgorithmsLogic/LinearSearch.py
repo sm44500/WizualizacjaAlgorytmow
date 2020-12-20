@@ -8,7 +8,7 @@ class LinearSearch(BasicAlgorithm):
 	Klasa reprezentująca algorytm wyszukiwania elementu w tablicy
 
 	Przykład:
-	>>> linear_search = LinearSearch()
+		>>> linear_search = LinearSearch()
 	"""
 
 	def __init__(self):

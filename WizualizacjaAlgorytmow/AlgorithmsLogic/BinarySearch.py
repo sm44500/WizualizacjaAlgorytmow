@@ -8,7 +8,7 @@ class BinarySearch(BasicAlgorithm):
 	Klasa reprezentująca algorytm wyszukiwania binarnego.
 
 	Przykład:
-	>>> binary_search = BinarySearch()
+		>>> binary_search = BinarySearch()
 	"""
 	def __init__(self):
 		super().__init__("BinarySearch", "Wyszukiwanie binarne")

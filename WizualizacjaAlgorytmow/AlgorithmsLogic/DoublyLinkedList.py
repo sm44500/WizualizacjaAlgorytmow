@@ -6,7 +6,7 @@ class DoublyLinkedList(AdvancedAlgorithm):
 	Klasa reprezentująca listę dwukierunkową
 
 	Przykład:
-	>>> doubly_linked_list = DoublyLinkedList()
+		>>> doubly_linked_list = DoublyLinkedList()
 	"""
 
 	def __init__(self):

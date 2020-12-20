@@ -36,8 +36,8 @@ class QuestionsManager:
         Kontroler odpowiadający za obsługę pytań.
 
         Parametry:
-        main_widget - referencja do głównego widget&#39;u.
-        algorithm - obiekt algorytmu.
+                main_widget - referencja do głównego widget&#39;u.
+                algorithm - obiekt algorytmu.
         &#34;&#34;&#34;
         def __init__(self, main_widget: QWidget, algorithm: Algorithm):
                 self.algorithm = algorithm
@@ -135,7 +135,7 @@ class QuestionsManager:
                 Ustawia wybraną odpowiedz.
 
                 Parametry:
-                answer - numer odpowiedzi
+                        answer - numer odpowiedzi
                 &#34;&#34;&#34;
                 if self.is_end:
                         return
@@ -183,7 +183,7 @@ class QuestionsManager:
                 Ustawia dane pytanie.
 
                 Parametry:
-                question - obiekt klasy TestQuestion
+                        question - obiekt klasy TestQuestion
                 &#34;&#34;&#34;
                 self.description_widget.show_question(question, self.is_end)
                 self.refresh()</code></pre>
@@ -204,8 +204,8 @@ class QuestionsManager:
 </code></dt>
 <dd>
 <div class="desc"><p>Kontroler odpowiadający za obsługę pytań.</p>
-<p>Parametry:
-main_widget - referencja do głównego widget'u.
+<h2 id="parametry">Parametry</h2>
+<p>main_widget - referencja do głównego widget'u.
 algorithm - obiekt algorytmu.</p></div>
 <details class="source">
 <summary>
@@ -216,8 +216,8 @@ algorithm - obiekt algorytmu.</p></div>
         Kontroler odpowiadający za obsługę pytań.
 
         Parametry:
-        main_widget - referencja do głównego widget&#39;u.
-        algorithm - obiekt algorytmu.
+                main_widget - referencja do głównego widget&#39;u.
+                algorithm - obiekt algorytmu.
         &#34;&#34;&#34;
         def __init__(self, main_widget: QWidget, algorithm: Algorithm):
                 self.algorithm = algorithm
@@ -315,7 +315,7 @@ algorithm - obiekt algorytmu.</p></div>
                 Ustawia wybraną odpowiedz.
 
                 Parametry:
-                answer - numer odpowiedzi
+                        answer - numer odpowiedzi
                 &#34;&#34;&#34;
                 if self.is_end:
                         return
@@ -363,7 +363,7 @@ algorithm - obiekt algorytmu.</p></div>
                 Ustawia dane pytanie.
 
                 Parametry:
-                question - obiekt klasy TestQuestion
+                        question - obiekt klasy TestQuestion
                 &#34;&#34;&#34;
                 self.description_widget.show_question(question, self.is_end)
                 self.refresh()</code></pre>
@@ -376,8 +376,8 @@ algorithm - obiekt algorytmu.</p></div>
 <dd>
 <div class="desc"><p>Zdarzenie naciśnięcia przycisku odpowiedzi.
 Ustawia wybraną odpowiedz.</p>
-<p>Parametry:
-answer - numer odpowiedzi</p></div>
+<h2 id="parametry">Parametry</h2>
+<p>answer - numer odpowiedzi</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -388,7 +388,7 @@ answer - numer odpowiedzi</p></div>
         Ustawia wybraną odpowiedz.
 
         Parametry:
-        answer - numer odpowiedzi
+                answer - numer odpowiedzi
         &#34;&#34;&#34;
         if self.is_end:
                 return
@@ -538,8 +538,8 @@ Zmienia pytanie na poprzednie.</p></div>
 </code></dt>
 <dd>
 <div class="desc"><p>Ustawia dane pytanie.</p>
-<p>Parametry:
-question - obiekt klasy TestQuestion</p></div>
+<h2 id="parametry">Parametry</h2>
+<p>question - obiekt klasy TestQuestion</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -549,7 +549,7 @@ question - obiekt klasy TestQuestion</p></div>
         Ustawia dane pytanie.
 
         Parametry:
-        question - obiekt klasy TestQuestion
+                question - obiekt klasy TestQuestion
         &#34;&#34;&#34;
         self.description_widget.show_question(question, self.is_end)
         self.refresh()</code></pre>

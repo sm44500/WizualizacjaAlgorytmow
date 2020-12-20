@@ -9,8 +9,8 @@ class DescriptionManager:
 	Kontroler odpowiadający za obsługę wyświetlania opisu.
 
 	Parametry:
-	main_widget - referencja do głównego widget'u.
-	algorithm - obiekt algorytmu.
+		main_widget - referencja do głównego widget'u.
+		algorithm - obiekt algorytmu.
 	"""
 	def __init__(self, main_widget: QWidget, algorithm: Algorithm):
 		self.algorithm = algorithm

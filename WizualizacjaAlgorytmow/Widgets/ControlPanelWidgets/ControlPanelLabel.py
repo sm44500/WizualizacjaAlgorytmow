@@ -9,7 +9,7 @@ class ControlPanelLabel(QLabel):
 	Klasa reprezentująca pole tekstowe w panelu kontrolnym.
 
 	Parametry:
-	parent - rodzic, do którego zostanie podłączony ten widget.
+		parent - rodzic, do którego zostanie podłączony ten widget.
 	"""
 	def __init__(self, parent=None):
 		super().__init__(parent)

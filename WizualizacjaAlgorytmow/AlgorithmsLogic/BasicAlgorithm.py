@@ -13,11 +13,11 @@ class BasicAlgorithm(Algorithm):
 	Algorytm dziedziczący po tej klasie będzie wykorzystywać bibliotekę NetworkX.
 	
 	Parametry:
-	name - skrótowa nazwa algorytmu. Tożsama z nazwą w folderze algorithm.
-	title - pełna nazwa algorytmu. Wyswietlana w aplikacji.
+		name - skrótowa nazwa algorytmu. Tożsama z nazwą w folderze algorithm.
+		title - pełna nazwa algorytmu. Wyswietlana w aplikacji.
 	
 	Przykład:
-	>>> min_search = BasicAlgorithm("MinSearch", "Wyszukiwanie Minimum")
+		>>> min_search = BasicAlgorithm("MinSearch", "Wyszukiwanie Minimum")
 	"""
 
 	def __init__(self, name: str = "missing", title: str = "missing"):
@@ -32,11 +32,11 @@ class BasicAlgorithm(Algorithm):
 		Metoda dodająca element o podanej wartości do tablicy danych.
 
 		Parametry:
-		value - wartość elementu, który ma zostać dodany.
+			value - wartość elementu, który ma zostać dodany.
 
 		Przykład:
-		>>> add_element(5)
-		>>> add_element("Janek")
+			>>> add_element(5)
+			>>> add_element("Janek")
 		"""
 		self.data.append(value.strip())
 		self.save_snapshot("Dodanie elementu '%s'." % value, {len(self.data) - 1: Snapshot.color_selected})
@@ -46,13 +46,13 @@ class BasicAlgorithm(Algorithm):
 		Metoda usuwająca pierwszy znaleziony element o podanej wartości z tablicy danych.
 
 		Parametry:
-		value - wartość elementu, który ma zostać usunięty.
+			value - wartość elementu, który ma zostać usunięty.
 
-		Typ zwracany:
-		bool - reprezentuje czy element znajdował się w tablicy.
+		Powrót:
+			bool - reprezentuje czy element znajdował się w tablicy.
 
 		Przykład:
-		>>> remove_element(5)
+			>>> remove_element(5)
 		"""
 		if self.data.count(value) > 0:
 			self.data.remove(value)
@@ -67,10 +67,10 @@ class BasicAlgorithm(Algorithm):
 		Metoda usuwająca wszystkie elementy o podanej wartości z tablicy danych.
 
 		Parametry:
-		value - wartość elementów, które mają zostać usunięte.
+			value - wartość elementów, które mają zostać usunięte.
 
 		Przykład:
-		>>> remove_all_elements(5)
+			>>> remove_all_elements(5)
 		"""
 		self.save_snapshot("Rozpoczynamy usuwanie wszystkich elementów z tablicy o wartości '%s'." % value)
 		while self.remove_element(value):

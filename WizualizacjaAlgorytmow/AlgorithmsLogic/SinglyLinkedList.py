@@ -5,7 +5,7 @@ class SinglyLinkedList(AdvancedAlgorithm):
 	Klasa reprezentująca listę jednokierunkową
 
 	Przykład:
-	>>> singly_linked_list = SinglyLinkedList()
+		>>> singly_linked_list = SinglyLinkedList()
 	"""
 
 	def __init__(self):

@@ -157,7 +157,7 @@ class NetworkXWidget(BaseWidget):
 		Parametry:
 		snapshot - aktualny stan algorytmu. Obiekt typu Snapshot.
 
-		Typ zwracany:
+		Powrót:
 		list
 		"""
 		only_numbers = True

@@ -45,7 +45,7 @@ class Paths:
                 Pobiera ikonę.
 
                 Parametry:
-                icon_file - nazwa pliku ikony
+                        icon_file - nazwa pliku ikony
                 &#34;&#34;&#34;
                 return os.path.join(Paths.icons, icon_file)
 
@@ -55,7 +55,7 @@ class Paths:
                 Pobiera ścieżkę do algorytmu.
                 
                 Parametry:
-                algorithm_name - nazwa algorytmu
+                        algorithm_name - nazwa algorytmu
                 &#34;&#34;&#34;
                 return os.path.join(Paths.algorithms, algorithm_name)
 
@@ -65,7 +65,7 @@ class Paths:
                 Pobiera ścieżkę do folderu z kodami danego algorytmu.
                 
                 Parametry:
-                algorithm_name - nazwa algorytmu
+                        algorithm_name - nazwa algorytmu
                 &#34;&#34;&#34;
                 algorithm_path = Paths.algorithm(algorithm_name)
                 return os.path.join(algorithm_path, &#34;codes&#34;)
@@ -76,7 +76,7 @@ class Paths:
                 Pobiera ścieżkę do pliku testu z pytaniami danego algorytmu.
                 
                 Parametry:
-                algorithm_name - nazwa algorytmu
+                        algorithm_name - nazwa algorytmu
                 &#34;&#34;&#34;
                 algorithm_path = Paths.algorithm(algorithm_name)
                 return os.path.join(algorithm_path, &#34;test.json&#34;)
@@ -87,7 +87,7 @@ class Paths:
                 Pobiera ścieżkę do pliku z opisem danego algorytmu.
                 
                 Parametry:
-                algorithm_name - nazwa algorytmu
+                        algorithm_name - nazwa algorytmu
                 &#34;&#34;&#34;
                 algorithm_path = Paths.algorithm(algorithm_name)
                 return os.path.join(algorithm_path, &#34;description/description.html&#34;)
@@ -98,7 +98,7 @@ class Paths:
                 Pobiera ścieżkę do pliku z logiką algorytmu.
                 
                 Parametry:
-                algorithm_name - nazwa algorytmu
+                        algorithm_name - nazwa algorytmu
                 &#34;&#34;&#34;
                 algorithm_path = Paths.algorithm(algorithm_name)
                 return os.path.join(algorithm_path, &#34;load.py&#34;)</code></pre>
@@ -139,7 +139,7 @@ Każda ścieżka jest ścieżką bezwzględną.</p></div>
                 Pobiera ikonę.
 
                 Parametry:
-                icon_file - nazwa pliku ikony
+                        icon_file - nazwa pliku ikony
                 &#34;&#34;&#34;
                 return os.path.join(Paths.icons, icon_file)
 
@@ -149,7 +149,7 @@ Każda ścieżka jest ścieżką bezwzględną.</p></div>
                 Pobiera ścieżkę do algorytmu.
                 
                 Parametry:
-                algorithm_name - nazwa algorytmu
+                        algorithm_name - nazwa algorytmu
                 &#34;&#34;&#34;
                 return os.path.join(Paths.algorithms, algorithm_name)
 
@@ -159,7 +159,7 @@ Każda ścieżka jest ścieżką bezwzględną.</p></div>
                 Pobiera ścieżkę do folderu z kodami danego algorytmu.
                 
                 Parametry:
-                algorithm_name - nazwa algorytmu
+                        algorithm_name - nazwa algorytmu
                 &#34;&#34;&#34;
                 algorithm_path = Paths.algorithm(algorithm_name)
                 return os.path.join(algorithm_path, &#34;codes&#34;)
@@ -170,7 +170,7 @@ Każda ścieżka jest ścieżką bezwzględną.</p></div>
                 Pobiera ścieżkę do pliku testu z pytaniami danego algorytmu.
                 
                 Parametry:
-                algorithm_name - nazwa algorytmu
+                        algorithm_name - nazwa algorytmu
                 &#34;&#34;&#34;
                 algorithm_path = Paths.algorithm(algorithm_name)
                 return os.path.join(algorithm_path, &#34;test.json&#34;)
@@ -181,7 +181,7 @@ Każda ścieżka jest ścieżką bezwzględną.</p></div>
                 Pobiera ścieżkę do pliku z opisem danego algorytmu.
                 
                 Parametry:
-                algorithm_name - nazwa algorytmu
+                        algorithm_name - nazwa algorytmu
                 &#34;&#34;&#34;
                 algorithm_path = Paths.algorithm(algorithm_name)
                 return os.path.join(algorithm_path, &#34;description/description.html&#34;)
@@ -192,7 +192,7 @@ Każda ścieżka jest ścieżką bezwzględną.</p></div>
                 Pobiera ścieżkę do pliku z logiką algorytmu.
                 
                 Parametry:
-                algorithm_name - nazwa algorytmu
+                        algorithm_name - nazwa algorytmu
                 &#34;&#34;&#34;
                 algorithm_path = Paths.algorithm(algorithm_name)
                 return os.path.join(algorithm_path, &#34;load.py&#34;)</code></pre>
@@ -223,8 +223,8 @@ Każda ścieżka jest ścieżką bezwzględną.</p></div>
 </code></dt>
 <dd>
 <div class="desc"><p>Pobiera ścieżkę do algorytmu.</p>
-<p>Parametry:
-algorithm_name - nazwa algorytmu</p></div>
+<h2 id="parametry">Parametry</h2>
+<p>algorithm_name - nazwa algorytmu</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -235,7 +235,7 @@ def algorithm(algorithm_name: str):
         Pobiera ścieżkę do algorytmu.
         
         Parametry:
-        algorithm_name - nazwa algorytmu
+                algorithm_name - nazwa algorytmu
         &#34;&#34;&#34;
         return os.path.join(Paths.algorithms, algorithm_name)</code></pre>
 </details>
@@ -245,8 +245,8 @@ def algorithm(algorithm_name: str):
 </code></dt>
 <dd>
 <div class="desc"><p>Pobiera ścieżkę do folderu z kodami danego algorytmu.</p>
-<p>Parametry:
-algorithm_name - nazwa algorytmu</p></div>
+<h2 id="parametry">Parametry</h2>
+<p>algorithm_name - nazwa algorytmu</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -257,7 +257,7 @@ def codes(algorithm_name: str):
         Pobiera ścieżkę do folderu z kodami danego algorytmu.
         
         Parametry:
-        algorithm_name - nazwa algorytmu
+                algorithm_name - nazwa algorytmu
         &#34;&#34;&#34;
         algorithm_path = Paths.algorithm(algorithm_name)
         return os.path.join(algorithm_path, &#34;codes&#34;)</code></pre>
@@ -268,8 +268,8 @@ def codes(algorithm_name: str):
 </code></dt>
 <dd>
 <div class="desc"><p>Pobiera ścieżkę do pliku z opisem danego algorytmu.</p>
-<p>Parametry:
-algorithm_name - nazwa algorytmu</p></div>
+<h2 id="parametry">Parametry</h2>
+<p>algorithm_name - nazwa algorytmu</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -280,7 +280,7 @@ def description(algorithm_name: str):
         Pobiera ścieżkę do pliku z opisem danego algorytmu.
         
         Parametry:
-        algorithm_name - nazwa algorytmu
+                algorithm_name - nazwa algorytmu
         &#34;&#34;&#34;
         algorithm_path = Paths.algorithm(algorithm_name)
         return os.path.join(algorithm_path, &#34;description/description.html&#34;)</code></pre>
@@ -291,8 +291,8 @@ def description(algorithm_name: str):
 </code></dt>
 <dd>
 <div class="desc"><p>Pobiera ikonę.</p>
-<p>Parametry:
-icon_file - nazwa pliku ikony</p></div>
+<h2 id="parametry">Parametry</h2>
+<p>icon_file - nazwa pliku ikony</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -303,7 +303,7 @@ def icon(icon_file: str):
         Pobiera ikonę.
 
         Parametry:
-        icon_file - nazwa pliku ikony
+                icon_file - nazwa pliku ikony
         &#34;&#34;&#34;
         return os.path.join(Paths.icons, icon_file)</code></pre>
 </details>
@@ -313,8 +313,8 @@ def icon(icon_file: str):
 </code></dt>
 <dd>
 <div class="desc"><p>Pobiera ścieżkę do pliku z logiką algorytmu.</p>
-<p>Parametry:
-algorithm_name - nazwa algorytmu</p></div>
+<h2 id="parametry">Parametry</h2>
+<p>algorithm_name - nazwa algorytmu</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -325,7 +325,7 @@ def logic(algorithm_name: str):
         Pobiera ścieżkę do pliku z logiką algorytmu.
         
         Parametry:
-        algorithm_name - nazwa algorytmu
+                algorithm_name - nazwa algorytmu
         &#34;&#34;&#34;
         algorithm_path = Paths.algorithm(algorithm_name)
         return os.path.join(algorithm_path, &#34;load.py&#34;)</code></pre>
@@ -336,8 +336,8 @@ def logic(algorithm_name: str):
 </code></dt>
 <dd>
 <div class="desc"><p>Pobiera ścieżkę do pliku testu z pytaniami danego algorytmu.</p>
-<p>Parametry:
-algorithm_name - nazwa algorytmu</p></div>
+<h2 id="parametry">Parametry</h2>
+<p>algorithm_name - nazwa algorytmu</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -348,7 +348,7 @@ def test(algorithm_name: str):
         Pobiera ścieżkę do pliku testu z pytaniami danego algorytmu.
         
         Parametry:
-        algorithm_name - nazwa algorytmu
+                algorithm_name - nazwa algorytmu
         &#34;&#34;&#34;
         algorithm_path = Paths.algorithm(algorithm_name)
         return os.path.join(algorithm_path, &#34;test.json&#34;)</code></pre>

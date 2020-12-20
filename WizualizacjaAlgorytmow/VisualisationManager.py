@@ -11,8 +11,8 @@ class VisualisationManager:
 	Kontroler odpowiadający za wizualizację algorytmów.
 
 	Parametry:
-	main_widget - referencja do głównego widget'u.
-	algorithm - obiekt algorytmu.
+		main_widget - referencja do głównego widget'u.
+		algorithm - obiekt algorytmu.
 	"""
 
 	def __init__(self, main_widget: QWidget, algorithm: Algorithm):

@@ -42,8 +42,8 @@ class ControlPanel(BaseWidget):
         Klasa reprezentująca panel kontrolny.
 
         Parametry:
-        parent - widget rodzic.
-        alignment - wyrównanie, domyślnie Qt.AlignTop
+                parent - widget rodzic.
+                alignment - wyrównanie, domyślnie Qt.AlignTop
         &#34;&#34;&#34;
 
         def __init__(self, parent=None, alignment=Qt.AlignTop):
@@ -70,8 +70,8 @@ class ControlPanel(BaseWidget):
                 &#34;&#34;&#34;
                 Dodaje panel z ikonami do panelu.
 
-                Typ zwracany:
-                ControlPanelIconPanel - Panel z ikonami
+                Powrót:
+                        ControlPanelIconPanel - Panel z ikonami
                 &#34;&#34;&#34;
                 icon_panel = ControlPanelIconPanel()
                 self.widget_layout.addWidget(icon_panel)
@@ -83,12 +83,12 @@ class ControlPanel(BaseWidget):
                 Dodaje przycisk do panelu.
 
                 Parametry:
-                text - tekst wyświetlany na przycisku
-                icon_path - ścieżka do ikony (opcjonalnie)
-                hint - tekst po najechaniu kursowem (opcjonalnie)
+                        text - tekst wyświetlany na przycisku
+                        icon_path - ścieżka do ikony (opcjonalnie)
+                        hint - tekst po najechaniu kursowem (opcjonalnie)
 
-                Typ zwracany:
-                ControlPanelButton - przycisk
+                Powrót:
+                        ControlPanelButton - przycisk
                 &#34;&#34;&#34;
                 button = ControlPanelButton()
                 button.set_icon(icon_path)
@@ -103,10 +103,10 @@ class ControlPanel(BaseWidget):
                 Dodaje etykietę do panelu.
 
                 Parametry:
-                text - tekst wyświetlany na etykiecie
+                        text - tekst wyświetlany na etykiecie
 
-                Typ zwracany:
-                ControlPanelLabel - przycisk
+                Powrót:
+                        ControlPanelLabel - przycisk
                 &#34;&#34;&#34;
                 label = ControlPanelLabel()
                 label.setText(text)
@@ -118,8 +118,8 @@ class ControlPanel(BaseWidget):
                 &#34;&#34;&#34;
                 Dodaje pole tekstowe do panelu.
 
-                Typ zwracany:
-                ControlPanelTextBox - przycisk
+                Powrót:
+                        ControlPanelTextBox - przycisk
                 &#34;&#34;&#34;
                 text_box = ControlPanelTextBox()
                 text_box.setToolTip(hint)
@@ -132,13 +132,13 @@ class ControlPanel(BaseWidget):
                 Dodaje suwak do panelu.
 
                 Parametry:
-                minimum - wartość minimalna suwaka
-                maximum - wartość maksymalna suwaka
-                value - wartość domyślna suwaka
-                step - krok zmiany wartości suwaka
+                        minimum - wartość minimalna suwaka
+                        maximum - wartość maksymalna suwaka
+                        value - wartość domyślna suwaka
+                        step - krok zmiany wartości suwaka
 
-                Typ zwracany:
-                ControlPanelSlider - suwak
+                Powrót:
+                        ControlPanelSlider - suwak
                 &#34;&#34;&#34;
                 slider = ControlPanelSlider(Qt.Horizontal)
                 slider.setMinimum(minimum)
@@ -166,8 +166,8 @@ class ControlPanel(BaseWidget):
 </code></dt>
 <dd>
 <div class="desc"><p>Klasa reprezentująca panel kontrolny.</p>
-<p>Parametry:
-parent - widget rodzic.
+<h2 id="parametry">Parametry</h2>
+<p>parent - widget rodzic.
 alignment - wyrównanie, domyślnie Qt.AlignTop</p></div>
 <details class="source">
 <summary>
@@ -178,8 +178,8 @@ alignment - wyrównanie, domyślnie Qt.AlignTop</p></div>
         Klasa reprezentująca panel kontrolny.
 
         Parametry:
-        parent - widget rodzic.
-        alignment - wyrównanie, domyślnie Qt.AlignTop
+                parent - widget rodzic.
+                alignment - wyrównanie, domyślnie Qt.AlignTop
         &#34;&#34;&#34;
 
         def __init__(self, parent=None, alignment=Qt.AlignTop):
@@ -206,8 +206,8 @@ alignment - wyrównanie, domyślnie Qt.AlignTop</p></div>
                 &#34;&#34;&#34;
                 Dodaje panel z ikonami do panelu.
 
-                Typ zwracany:
-                ControlPanelIconPanel - Panel z ikonami
+                Powrót:
+                        ControlPanelIconPanel - Panel z ikonami
                 &#34;&#34;&#34;
                 icon_panel = ControlPanelIconPanel()
                 self.widget_layout.addWidget(icon_panel)
@@ -219,12 +219,12 @@ alignment - wyrównanie, domyślnie Qt.AlignTop</p></div>
                 Dodaje przycisk do panelu.
 
                 Parametry:
-                text - tekst wyświetlany na przycisku
-                icon_path - ścieżka do ikony (opcjonalnie)
-                hint - tekst po najechaniu kursowem (opcjonalnie)
+                        text - tekst wyświetlany na przycisku
+                        icon_path - ścieżka do ikony (opcjonalnie)
+                        hint - tekst po najechaniu kursowem (opcjonalnie)
 
-                Typ zwracany:
-                ControlPanelButton - przycisk
+                Powrót:
+                        ControlPanelButton - przycisk
                 &#34;&#34;&#34;
                 button = ControlPanelButton()
                 button.set_icon(icon_path)
@@ -239,10 +239,10 @@ alignment - wyrównanie, domyślnie Qt.AlignTop</p></div>
                 Dodaje etykietę do panelu.
 
                 Parametry:
-                text - tekst wyświetlany na etykiecie
+                        text - tekst wyświetlany na etykiecie
 
-                Typ zwracany:
-                ControlPanelLabel - przycisk
+                Powrót:
+                        ControlPanelLabel - przycisk
                 &#34;&#34;&#34;
                 label = ControlPanelLabel()
                 label.setText(text)
@@ -254,8 +254,8 @@ alignment - wyrównanie, domyślnie Qt.AlignTop</p></div>
                 &#34;&#34;&#34;
                 Dodaje pole tekstowe do panelu.
 
-                Typ zwracany:
-                ControlPanelTextBox - przycisk
+                Powrót:
+                        ControlPanelTextBox - przycisk
                 &#34;&#34;&#34;
                 text_box = ControlPanelTextBox()
                 text_box.setToolTip(hint)
@@ -268,13 +268,13 @@ alignment - wyrównanie, domyślnie Qt.AlignTop</p></div>
                 Dodaje suwak do panelu.
 
                 Parametry:
-                minimum - wartość minimalna suwaka
-                maximum - wartość maksymalna suwaka
-                value - wartość domyślna suwaka
-                step - krok zmiany wartości suwaka
+                        minimum - wartość minimalna suwaka
+                        maximum - wartość maksymalna suwaka
+                        value - wartość domyślna suwaka
+                        step - krok zmiany wartości suwaka
 
-                Typ zwracany:
-                ControlPanelSlider - suwak
+                Powrót:
+                        ControlPanelSlider - suwak
                 &#34;&#34;&#34;
                 slider = ControlPanelSlider(Qt.Horizontal)
                 slider.setMinimum(minimum)
@@ -302,12 +302,12 @@ alignment - wyrównanie, domyślnie Qt.AlignTop</p></div>
 </code></dt>
 <dd>
 <div class="desc"><p>Dodaje przycisk do panelu.</p>
-<p>Parametry:
-text - tekst wyświetlany na przycisku
+<h2 id="parametry">Parametry</h2>
+<p>text - tekst wyświetlany na przycisku
 icon_path - ścieżka do ikony (opcjonalnie)
 hint - tekst po najechaniu kursowem (opcjonalnie)</p>
-<p>Typ zwracany:
-ControlPanelButton - przycisk</p></div>
+<h2 id="powrot">Powrót</h2>
+<p>ControlPanelButton - przycisk</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -317,12 +317,12 @@ ControlPanelButton - przycisk</p></div>
         Dodaje przycisk do panelu.
 
         Parametry:
-        text - tekst wyświetlany na przycisku
-        icon_path - ścieżka do ikony (opcjonalnie)
-        hint - tekst po najechaniu kursowem (opcjonalnie)
+                text - tekst wyświetlany na przycisku
+                icon_path - ścieżka do ikony (opcjonalnie)
+                hint - tekst po najechaniu kursowem (opcjonalnie)
 
-        Typ zwracany:
-        ControlPanelButton - przycisk
+        Powrót:
+                ControlPanelButton - przycisk
         &#34;&#34;&#34;
         button = ControlPanelButton()
         button.set_icon(icon_path)
@@ -338,8 +338,8 @@ ControlPanelButton - przycisk</p></div>
 </code></dt>
 <dd>
 <div class="desc"><p>Dodaje panel z ikonami do panelu.</p>
-<p>Typ zwracany:
-ControlPanelIconPanel - Panel z ikonami</p></div>
+<h2 id="powrot">Powrót</h2>
+<p>ControlPanelIconPanel - Panel z ikonami</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -348,8 +348,8 @@ ControlPanelIconPanel - Panel z ikonami</p></div>
         &#34;&#34;&#34;
         Dodaje panel z ikonami do panelu.
 
-        Typ zwracany:
-        ControlPanelIconPanel - Panel z ikonami
+        Powrót:
+                ControlPanelIconPanel - Panel z ikonami
         &#34;&#34;&#34;
         icon_panel = ControlPanelIconPanel()
         self.widget_layout.addWidget(icon_panel)
@@ -362,10 +362,10 @@ ControlPanelIconPanel - Panel z ikonami</p></div>
 </code></dt>
 <dd>
 <div class="desc"><p>Dodaje etykietę do panelu.</p>
-<p>Parametry:
-text - tekst wyświetlany na etykiecie</p>
-<p>Typ zwracany:
-ControlPanelLabel - przycisk</p></div>
+<h2 id="parametry">Parametry</h2>
+<p>text - tekst wyświetlany na etykiecie</p>
+<h2 id="powrot">Powrót</h2>
+<p>ControlPanelLabel - przycisk</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -375,10 +375,10 @@ ControlPanelLabel - przycisk</p></div>
         Dodaje etykietę do panelu.
 
         Parametry:
-        text - tekst wyświetlany na etykiecie
+                text - tekst wyświetlany na etykiecie
 
-        Typ zwracany:
-        ControlPanelLabel - przycisk
+        Powrót:
+                ControlPanelLabel - przycisk
         &#34;&#34;&#34;
         label = ControlPanelLabel()
         label.setText(text)
@@ -392,13 +392,13 @@ ControlPanelLabel - przycisk</p></div>
 </code></dt>
 <dd>
 <div class="desc"><p>Dodaje suwak do panelu.</p>
-<p>Parametry:
-minimum - wartość minimalna suwaka
+<h2 id="parametry">Parametry</h2>
+<p>minimum - wartość minimalna suwaka
 maximum - wartość maksymalna suwaka
 value - wartość domyślna suwaka
 step - krok zmiany wartości suwaka</p>
-<p>Typ zwracany:
-ControlPanelSlider - suwak</p></div>
+<h2 id="powrot">Powrót</h2>
+<p>ControlPanelSlider - suwak</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -408,13 +408,13 @@ ControlPanelSlider - suwak</p></div>
         Dodaje suwak do panelu.
 
         Parametry:
-        minimum - wartość minimalna suwaka
-        maximum - wartość maksymalna suwaka
-        value - wartość domyślna suwaka
-        step - krok zmiany wartości suwaka
+                minimum - wartość minimalna suwaka
+                maximum - wartość maksymalna suwaka
+                value - wartość domyślna suwaka
+                step - krok zmiany wartości suwaka
 
-        Typ zwracany:
-        ControlPanelSlider - suwak
+        Powrót:
+                ControlPanelSlider - suwak
         &#34;&#34;&#34;
         slider = ControlPanelSlider(Qt.Horizontal)
         slider.setMinimum(minimum)
@@ -432,8 +432,8 @@ ControlPanelSlider - suwak</p></div>
 </code></dt>
 <dd>
 <div class="desc"><p>Dodaje pole tekstowe do panelu.</p>
-<p>Typ zwracany:
-ControlPanelTextBox - przycisk</p></div>
+<h2 id="powrot">Powrót</h2>
+<p>ControlPanelTextBox - przycisk</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -442,8 +442,8 @@ ControlPanelTextBox - przycisk</p></div>
         &#34;&#34;&#34;
         Dodaje pole tekstowe do panelu.
 
-        Typ zwracany:
-        ControlPanelTextBox - przycisk
+        Powrót:
+                ControlPanelTextBox - przycisk
         &#34;&#34;&#34;
         text_box = ControlPanelTextBox()
         text_box.setToolTip(hint)

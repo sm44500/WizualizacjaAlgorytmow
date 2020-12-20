@@ -13,8 +13,8 @@ class Algorithm:
 	Klasa abstrakcyjna reprezentująca algorytm.
 
 	Parametry:
-	name - skrótowa nazwa algorytmu. Tożsama z nazwą w folderze algorithm.
-	title - pełna nazwa algorytmu. Wyswietlana w aplikacji.
+		name - skrótowa nazwa algorytmu. Tożsama z nazwą w folderze algorithm.
+		title - pełna nazwa algorytmu. Wyswietlana w aplikacji.
 	"""
 	def __init__(self, name: str = "missing", title: str = "missing"):
 		self.visualization_widget = QWidget

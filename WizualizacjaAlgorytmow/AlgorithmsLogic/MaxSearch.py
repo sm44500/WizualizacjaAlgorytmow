@@ -7,7 +7,7 @@ class MaxSearch(BasicAlgorithm):
 	Klasa reprezentująca algorytm wyszukiwania maximum w tablicy
 
 	Przykład:
-	>>> max_search = MaxSearch()
+		>>> max_search = MaxSearch()
 	"""
 
 	def __init__(self):

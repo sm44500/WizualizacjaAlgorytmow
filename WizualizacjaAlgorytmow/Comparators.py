@@ -5,12 +5,12 @@ def compare(a: str, b: str, comparator) -> bool:
 	porównania dla liczb mogłyby nie funkcjonować poprawnie. To znaczy na przykład '2' byłoby większe od '41'.
 
 	Parametry:
-	a - pierwsza wartość.
-	b - druga wartość.
-	comparator - funkcja porównująca.
+		a - pierwsza wartość.
+		b - druga wartość.
+		comparator - funkcja porównująca.
 
-	Zwracany typ:
-	bool - wynik porównania dwóch wartości.
+	Powrót:
+		bool - wynik porównania dwóch wartości.
 	"""
 	try:
 		return comparator(float(a), float(b))

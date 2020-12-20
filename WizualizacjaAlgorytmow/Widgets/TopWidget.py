@@ -39,7 +39,7 @@ class TopWidget(QComboBox):
 		Dodaje algorytm do listy rozwijanej.
 
 		Parametry:
-		algorithm_name - tytuł algorytmu do dodania.
+			algorithm_name - tytuł algorytmu do dodania.
 		"""
 		icon_index = max(min(algorithm_difficulty-1, 2), 0)
 		self.addItem(self.difficulty_icons[icon_index], algorithm_name)

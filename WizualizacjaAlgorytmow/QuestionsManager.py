@@ -8,8 +8,8 @@ class QuestionsManager:
 	Kontroler odpowiadający za obsługę pytań.
 
 	Parametry:
-	main_widget - referencja do głównego widget'u.
-	algorithm - obiekt algorytmu.
+		main_widget - referencja do głównego widget'u.
+		algorithm - obiekt algorytmu.
 	"""
 	def __init__(self, main_widget: QWidget, algorithm: Algorithm):
 		self.algorithm = algorithm
@@ -107,7 +107,7 @@ class QuestionsManager:
 		Ustawia wybraną odpowiedz.
 
 		Parametry:
-		answer - numer odpowiedzi
+			answer - numer odpowiedzi
 		"""
 		if self.is_end:
 			return
@@ -155,7 +155,7 @@ class QuestionsManager:
 		Ustawia dane pytanie.
 
 		Parametry:
-		question - obiekt klasy TestQuestion
+			question - obiekt klasy TestQuestion
 		"""
 		self.description_widget.show_question(question, self.is_end)
 		self.refresh()

@@ -7,8 +7,9 @@ class BaseWidget(QWidget):
 	Bazowa klasa reprezentująca widget posiadająca wspólne cechy wszystkich widget'ów.
 
 	Parametry:
-	parent - widget rodzic.
-	layout_type - typ layout'u jaki ma zostać domyślnie wygenerowany.
+		parent - widget rodzic.
+		layout_type - typ layout'u jaki ma zostać domyślnie wygenerowany.
+
 	"""
 	def __init__(self, parent=None, layout_type=QHBoxLayout):
 		super().__init__(parent)

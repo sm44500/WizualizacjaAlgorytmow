@@ -7,7 +7,7 @@ class WebWidget(QWebEngineView):
 	Klasa reprezentująca panel przeglądarki web.
 
 	Parametry:
-	parent - widget rodzic.
+		parent - widget rodzic.
 	"""
 	def __init__(self, parent=None):
 		super().__init__(parent)
@@ -24,7 +24,7 @@ class WebWidget(QWebEngineView):
 		Wyświetla podany plik html.
 
 		Parametry:
-		path - ścieżka do pliku HTML.
+			path - ścieżka do pliku HTML.
 		"""
 		url = QUrl.fromLocalFile(path)
 		self.load(url)

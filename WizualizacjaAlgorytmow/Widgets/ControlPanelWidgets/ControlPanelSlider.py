@@ -8,7 +8,7 @@ class ControlPanelSlider(QSlider):
 	Klasa reprezentująca suwak.
 
 	Parametry:
-	parent - rodzic, do którego zostanie podłączony ten widget.
+		parent - rodzic, do którego zostanie podłączony ten widget.
 	"""
 	def __init__(self, parent=None):
 		super().__init__(parent)

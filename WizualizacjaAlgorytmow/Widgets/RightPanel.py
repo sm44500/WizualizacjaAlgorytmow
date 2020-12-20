@@ -41,10 +41,10 @@ class RightPanel(BaseWidget):
 		Wygenerowanie pustego pola, które posłuży za tło
 
 		Parametry:
-		style - style w jakim zostanie wygenerowane tło.
+			style - style w jakim zostanie wygenerowane tło.
 
-		Zwracany typ:
-		QLabel
+		Powrót:
+			QLabel
 		"""
 		label = QLabel()
 		label.setStyleSheet(style)

@@ -12,7 +12,7 @@ class AlgorithmsManager:
 	Kontroler odpowiadający za obsługę algorytmu.
 
 	Parametry:
-	main_widget - referencja do głównego widget'u.
+		main_widget - referencja do głównego widget'u.
 	"""
 	def __init__(self, main_widget: QWidget):
 		self.algorithms = []
@@ -76,7 +76,7 @@ class AlgorithmsManager:
 		Ustawia wybrany algorytm.
 
 		Parametry:
-		index - numer algorytmu.
+			index - numer algorytmu.
 		"""
 		self.set_algorithm(index)
 		pass
@@ -86,7 +86,7 @@ class AlgorithmsManager:
 		Aktywuje dany algorytm.
 
 		Parametry:
-		index - numer algorytmu.
+			index - numer algorytmu.
 		"""
 		self.current_index = index
 		self.current_algorithm = self.algorithms[index]

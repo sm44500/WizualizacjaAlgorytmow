@@ -8,7 +8,7 @@ class MinSearch(BasicAlgorithm):
 	Klasa reprezentująca algorytm wyszukiwania minimum w tablicy
 
 	Przykład:
-	>>> min_search = MinSearch()
+		>>> min_search = MinSearch()
 	"""
 
 	def __init__(self):

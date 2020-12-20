@@ -8,7 +8,7 @@ class Code:
 	Klasa reprezentująca przykładowy kod algorytmu.
 
 	Przykład:
-	>>> code = Code()
+		>>> code = Code()
 	"""
 	def __init__(self):
 		self.path = ""
@@ -22,13 +22,13 @@ class Code:
 		Wczytuje obiekt Code z pliku. Nazwa pliku do pierwszej kropki jest interpretowana jako nazwa języka.
 
 		Parametry:
-		path - ścieżka do pliku.
+			path - ścieżka do pliku.
 
-		Typ zwracany:
-		obiekt klasy Code
+		Powrót:
+			obiekt klasy Code
 
 		Przykład:
-		>>> code = Code.fromFile("algorithm/example/c++.cpp")
+			>>> code = Code.fromFile("algorithm/example/c++.cpp")
 		"""
 		code = Code()
 		code.path = path

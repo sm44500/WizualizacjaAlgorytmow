@@ -17,7 +17,7 @@ class Paths:
 		Pobiera ikonę.
 
 		Parametry:
-		icon_file - nazwa pliku ikony
+			icon_file - nazwa pliku ikony
 		"""
 		return os.path.join(Paths.icons, icon_file)
 
@@ -27,7 +27,7 @@ class Paths:
 		Pobiera ścieżkę do algorytmu.
 		
 		Parametry:
-		algorithm_name - nazwa algorytmu
+			algorithm_name - nazwa algorytmu
 		"""
 		return os.path.join(Paths.algorithms, algorithm_name)
 
@@ -37,7 +37,7 @@ class Paths:
 		Pobiera ścieżkę do folderu z kodami danego algorytmu.
 		
 		Parametry:
-		algorithm_name - nazwa algorytmu
+			algorithm_name - nazwa algorytmu
 		"""
 		algorithm_path = Paths.algorithm(algorithm_name)
 		return os.path.join(algorithm_path, "codes")
@@ -48,7 +48,7 @@ class Paths:
 		Pobiera ścieżkę do pliku testu z pytaniami danego algorytmu.
 		
 		Parametry:
-		algorithm_name - nazwa algorytmu
+			algorithm_name - nazwa algorytmu
 		"""
 		algorithm_path = Paths.algorithm(algorithm_name)
 		return os.path.join(algorithm_path, "test.json")
@@ -59,7 +59,7 @@ class Paths:
 		Pobiera ścieżkę do pliku z opisem danego algorytmu.
 		
 		Parametry:
-		algorithm_name - nazwa algorytmu
+			algorithm_name - nazwa algorytmu
 		"""
 		algorithm_path = Paths.algorithm(algorithm_name)
 		return os.path.join(algorithm_path, "description/description.html")
@@ -70,7 +70,7 @@ class Paths:
 		Pobiera ścieżkę do pliku z logiką algorytmu.
 		
 		Parametry:
-		algorithm_name - nazwa algorytmu
+			algorithm_name - nazwa algorytmu
 		"""
 		algorithm_path = Paths.algorithm(algorithm_name)
 		return os.path.join(algorithm_path, "load.py")
