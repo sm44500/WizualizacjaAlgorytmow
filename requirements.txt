@@ -1,6 +1,6 @@
 PyQt5
 PyQtWebEngine
 matplotlib
-networkx[all]
+networkx
 pdoc3
 pyinstaller
