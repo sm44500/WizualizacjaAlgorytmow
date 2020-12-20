@@ -44,7 +44,7 @@ class AlgorithmsManager:
 			self.algorithms.append(algorithm)
 
 		self.main_widget.top_widget.currentIndexChanged.connect(self.on_change_algorithm)
-
+		self.reset()
 		self.set_algorithm(0)
 
 	def setup_control_panel(self):
@@ -91,21 +91,20 @@ class AlgorithmsManager:
 		self.current_index = index
 		self.current_algorithm = self.algorithms[index]
 		self.reset()
+		self.show_description()
 
 	def show_description(self):
 		"""
 		Wyświetla opis algorytmu 
 		"""
-		self.center.clear_widget()
-		self.setup_control_panel()
+		self.reset()
 		self.manager = DescriptionManager(self.main_widget, self.current_algorithm)
 
 	def show_visualisation(self):
 		"""
 		Uruchamia zarządcę odpowiedzialnego za wizualizacje algorytmu.
 		"""
-		self.center.clear_widget()
-		self.setup_control_panel()
+		self.reset()
 		self.manager = VisualisationManager(self.main_widget, self.current_algorithm)
 
 	def show_questions(self):
@@ -113,8 +112,7 @@ class AlgorithmsManager:
 		Uruchamia zarządcę odpowiedzialnego za pytania testowe.
 		"""
 		if len(self.current_algorithm.test_questions) > 0:
-			self.center.clear_widget()
-			self.setup_control_panel()
+			self.reset()
 			self.manager = QuestionsManager(self.main_widget, self.current_algorithm)
 
 	def show_codes(self):
@@ -122,8 +120,7 @@ class AlgorithmsManager:
 		Uruchamia zarządcę odpowiedzialnego za wyświetlanie implementacji.
 		"""
 		if len(self.current_algorithm.codes) > 0:
-			self.center.clear_widget()
-			self.setup_control_panel()
+			self.reset()
 			self.manager = CodesManager(self.main_widget, self.current_algorithm)
 
 	def reset(self):
@@ -131,6 +128,7 @@ class AlgorithmsManager:
 		Przywraca stan programu do stanu początkowego.
 		"""
 		self.setup_control_panel()
+		self.center.clear_widget()
+		self.bottom.set_text("")
 		self.manager = None
-		self.show_description()
 		pass
