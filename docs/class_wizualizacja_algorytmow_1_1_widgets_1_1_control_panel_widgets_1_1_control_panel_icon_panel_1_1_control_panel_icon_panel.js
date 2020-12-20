@@ -1,9 +1,0 @@
-var class_wizualizacja_algorytmow_1_1_widgets_1_1_control_panel_widgets_1_1_control_panel_icon_panel_1_1_control_panel_icon_panel =
-[
-    [ "__init__", "class_wizualizacja_algorytmow_1_1_widgets_1_1_control_panel_widgets_1_1_control_panel_icon_panel_1_1_control_panel_icon_panel.html#a5b863a463a956ab2d4477d78bf7fd135", null ],
-    [ "add_button", "class_wizualizacja_algorytmow_1_1_widgets_1_1_control_panel_widgets_1_1_control_panel_icon_panel_1_1_control_panel_icon_panel.html#a9fe3220e032571e5bc5ed46a1449fba0", null ],
-    [ "clear", "class_wizualizacja_algorytmow_1_1_widgets_1_1_control_panel_widgets_1_1_control_panel_icon_panel_1_1_control_panel_icon_panel.html#a39fcd9154d6fe36e396d6e4910d6366b", null ],
-    [ "setup_ui", "class_wizualizacja_algorytmow_1_1_widgets_1_1_control_panel_widgets_1_1_control_panel_icon_panel_1_1_control_panel_icon_panel.html#ae48a41859a4ad14fc22002416635fc4b", null ],
-    [ "widget_layout", "class_wizualizacja_algorytmow_1_1_widgets_1_1_control_panel_widgets_1_1_control_panel_icon_panel_1_1_control_panel_icon_panel.html#a793b968d97093fd414795fec9a49b9ed", null ],
-    [ "widgets", "class_wizualizacja_algorytmow_1_1_widgets_1_1_control_panel_widgets_1_1_control_panel_icon_panel_1_1_control_panel_icon_panel.html#a1bf3ee4ed610739575fc6510aee0bc62", null ]
-];

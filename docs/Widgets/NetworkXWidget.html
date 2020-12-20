@@ -1,0 +1,639 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.2" />
+<title>WizualizacjaAlgorytmow.Widgets.NetworkXWidget API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>WizualizacjaAlgorytmow.Widgets.NetworkXWidget</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import math
+
+import matplotlib.pyplot as plt
+from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
+import networkx as nx
+from PyQt5.QtWidgets import QGridLayout, QLabel
+from PyQt5.QtCore import Qt
+
+from Snapshot import Snapshot
+from Styles import Styles
+from Widgets.BaseWidget import BaseWidget
+
+
+class NetworkXWidget(BaseWidget):
+        &#34;&#34;&#34;
+        Widget wizualuzacji opartej na bibliotece NetworkX.
+
+        Parametry:
+        parent - widget rodzic.
+        &#34;&#34;&#34;
+        def __init__(self, parent=None):
+                super().__init__(parent, QGridLayout)
+                self.figure = None
+                self.canvas = None
+                self.background_color = &#39;#00000f&#39;
+                self.node_text_color = self.background_color
+                self.index_text_color = &#39;#cccccc&#39;
+                self.label = QLabel(self)
+                self.setup_ui()
+
+        def setup_ui(self):
+                &#34;&#34;&#34;
+                Inicjalizacja interfejsu użytkownika.
+                &#34;&#34;&#34;
+                self.figure = plt.figure()
+                self.canvas = FigureCanvas(self.figure)
+
+                self.setStyleSheet(Styles.description_background)
+
+                self.render_snapshot(Snapshot([], &#34;&#34;, {}))
+
+        def render_snapshot(self, snapshot: Snapshot):
+                &#34;&#34;&#34;
+                Wyświetla aktualny stan algorytmu.
+
+                Parametry:
+                snapshot - aktualny stan algorytmu. Obiekt typu Snapshot.
+                &#34;&#34;&#34;
+                self.clean_figure()
+
+                if len(snapshot.data) &gt; 0:
+                        self.widget_layout.addWidget(self.canvas)
+                        data_range = range(len(snapshot.data))
+                        axes = plt.axes([0.0, 0.0, 1.0, 1.0])
+                        self.render_nodes(snapshot, axes)
+                        self.render_indexes(data_range, axes)
+                else:
+                        self.widget_layout.addWidget(self.label)
+                        self.render_hint()
+
+                self.render_figure()
+
+        def clean_figure(self):
+                &#34;&#34;&#34;
+                Wyczyszczenie poprzedniej wizualizacji.
+                &#34;&#34;&#34;
+                self.figure.clf()
+                self.widget_layout.removeWidget(self.label)
+                self.widget_layout.removeWidget(self.canvas)
+
+        def render_figure(self):
+                &#34;&#34;&#34;
+                Wyrysowanie wizualizacji.
+                &#34;&#34;&#34;
+                self.figure.set_facecolor(self.background_color)
+                self.canvas.draw_idle()
+
+        def render_nodes(self, snapshot: Snapshot, axes):
+                &#34;&#34;&#34;
+                Wyrysowanie aktualnego kroku.
+
+                Parametry:
+                snapshot - obiekt reprezentujacy aktualny krok.
+                axes - proporcje tekstury na jakiej mają zostać wyrysowane.
+                &#34;&#34;&#34;
+                data_range = range(len(snapshot.data))
+                data_ids = [data_id for data_id in data_range]
+
+                nodes = nx.Graph()
+                nodes.add_nodes_from(data_ids)
+
+                positions = dict()
+                positions.update((element, (i, 10)) for i, element in enumerate(data_ids))
+
+                colors = list()
+                for i in data_range:
+                        colors.append(snapshot.highlights[i])
+
+                labels = dict()
+                for i in data_range:
+                        labels[i] = snapshot.data[i]
+
+                nx.draw(nodes, labels=labels, pos=positions, with_labels=True, node_shape=&#39;s&#39;, node_size=self.__generate_node_sizes(snapshot),
+                                ax=axes, node_color=colors, font_color=self.node_text_color)
+
+        def render_indexes(self, data_range: range, axes):
+                &#34;&#34;&#34;
+                Wyrysowanie indeksów nad istniejącymi obiektami.
+
+                Parametry:
+                data_range - przedział indeksów jakie mają zostać wyrysowane.
+                axes - proporcje tekstury na jakiej mają zostać wyrysowane.
+                &#34;&#34;&#34;
+                data_indexes = [&#34;index_%i&#34; % index for index in data_range]
+
+                nodes = nx.Graph()
+                nodes.add_nodes_from(data_indexes)
+                nodes.add_node(&#34;__top&#34;)
+                nodes.add_node(&#34;__bottom&#34;)
+
+                positions = dict()
+                positions.update((element, (i, 20)) for i, element in enumerate(data_indexes))
+
+                node_sizes = [*[0.0 for i in data_range], 0.0, 0.0]
+
+                index_correction = min(30.0, max(node_sizes)/750.0)
+                positions[&#34;__top&#34;] = (-1, -30+index_correction)
+                positions[&#34;__bottom&#34;] = (len(data_indexes), 60-index_correction)
+
+                colors = list([&#39;w&#39;, &#39;w&#39;])
+                for i in data_range:
+                        colors.append(&#39;w&#39;)
+
+                labels = dict()
+                labels[&#34;__top&#34;] = &#34;&#34;
+                labels[&#34;__bottom&#34;] = &#34;&#34;
+                for i in data_range:
+                        labels[&#34;index_%i&#34; % i] = &#34;%i.&#34; % i
+
+                nx.draw(nodes, labels=labels, pos=positions, with_labels=True, node_size=node_sizes, ax=axes,
+                                node_color=colors, font_color=self.index_text_color, font_weight=&#39;bold&#39;)
+
+        def render_hint(self):
+                &#34;&#34;&#34;
+                Wyświetlenie podpowiedzi dla użytkownika, gdy nie wprowadzono żadnych danych.
+                &#34;&#34;&#34;
+                self.label.setText(&#34;Skorzystaj z panelu po prawej stronie, aby rozpocząć wizualizację.&#34;)
+                self.label.setAlignment(Qt.AlignCenter)
+                self.label.setStyleSheet(&#34;&#34;&#34;background-color:%s; color:%s; font-family:Arial; font-size:20px; font-weight: bold;&#34;&#34;&#34; %
+                                                                (self.background_color, self.index_text_color))
+
+        @staticmethod
+        def __generate_node_sizes(snapshot: Snapshot) -&gt; list:
+                &#34;&#34;&#34;
+                Wygenerowanie rozmiarów węzłów w zależności od rozmiaru tekstu.
+
+                Parametry:
+                snapshot - aktualny stan algorytmu. Obiekt typu Snapshot.
+
+                Typ zwracany:
+                list
+                &#34;&#34;&#34;
+                only_numbers = True
+                for element in snapshot.data:
+                        if not element.isdigit():
+                                only_numbers = False
+                                break
+
+                data = list()
+                if not only_numbers:
+                        data = [len(snapshot.data[i]) + 1 for i in range(len(snapshot.data))]
+                else:
+                        data = [math.log10(abs(float(snapshot.data[i])) + 1) + 1 for i in range(len(snapshot.data))]
+
+                return [500.0 + 60.0 * element ** 2 for element in data]</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="WizualizacjaAlgorytmow.Widgets.NetworkXWidget.NetworkXWidget"><code class="flex name class">
+<span>class <span class="ident">NetworkXWidget</span></span>
+<span>(</span><span>parent=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Widget wizualuzacji opartej na bibliotece NetworkX.</p>
+<p>Parametry:
+parent - widget rodzic.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class NetworkXWidget(BaseWidget):
+        &#34;&#34;&#34;
+        Widget wizualuzacji opartej na bibliotece NetworkX.
+
+        Parametry:
+        parent - widget rodzic.
+        &#34;&#34;&#34;
+        def __init__(self, parent=None):
+                super().__init__(parent, QGridLayout)
+                self.figure = None
+                self.canvas = None
+                self.background_color = &#39;#00000f&#39;
+                self.node_text_color = self.background_color
+                self.index_text_color = &#39;#cccccc&#39;
+                self.label = QLabel(self)
+                self.setup_ui()
+
+        def setup_ui(self):
+                &#34;&#34;&#34;
+                Inicjalizacja interfejsu użytkownika.
+                &#34;&#34;&#34;
+                self.figure = plt.figure()
+                self.canvas = FigureCanvas(self.figure)
+
+                self.setStyleSheet(Styles.description_background)
+
+                self.render_snapshot(Snapshot([], &#34;&#34;, {}))
+
+        def render_snapshot(self, snapshot: Snapshot):
+                &#34;&#34;&#34;
+                Wyświetla aktualny stan algorytmu.
+
+                Parametry:
+                snapshot - aktualny stan algorytmu. Obiekt typu Snapshot.
+                &#34;&#34;&#34;
+                self.clean_figure()
+
+                if len(snapshot.data) &gt; 0:
+                        self.widget_layout.addWidget(self.canvas)
+                        data_range = range(len(snapshot.data))
+                        axes = plt.axes([0.0, 0.0, 1.0, 1.0])
+                        self.render_nodes(snapshot, axes)
+                        self.render_indexes(data_range, axes)
+                else:
+                        self.widget_layout.addWidget(self.label)
+                        self.render_hint()
+
+                self.render_figure()
+
+        def clean_figure(self):
+                &#34;&#34;&#34;
+                Wyczyszczenie poprzedniej wizualizacji.
+                &#34;&#34;&#34;
+                self.figure.clf()
+                self.widget_layout.removeWidget(self.label)
+                self.widget_layout.removeWidget(self.canvas)
+
+        def render_figure(self):
+                &#34;&#34;&#34;
+                Wyrysowanie wizualizacji.
+                &#34;&#34;&#34;
+                self.figure.set_facecolor(self.background_color)
+                self.canvas.draw_idle()
+
+        def render_nodes(self, snapshot: Snapshot, axes):
+                &#34;&#34;&#34;
+                Wyrysowanie aktualnego kroku.
+
+                Parametry:
+                snapshot - obiekt reprezentujacy aktualny krok.
+                axes - proporcje tekstury na jakiej mają zostać wyrysowane.
+                &#34;&#34;&#34;
+                data_range = range(len(snapshot.data))
+                data_ids = [data_id for data_id in data_range]
+
+                nodes = nx.Graph()
+                nodes.add_nodes_from(data_ids)
+
+                positions = dict()
+                positions.update((element, (i, 10)) for i, element in enumerate(data_ids))
+
+                colors = list()
+                for i in data_range:
+                        colors.append(snapshot.highlights[i])
+
+                labels = dict()
+                for i in data_range:
+                        labels[i] = snapshot.data[i]
+
+                nx.draw(nodes, labels=labels, pos=positions, with_labels=True, node_shape=&#39;s&#39;, node_size=self.__generate_node_sizes(snapshot),
+                                ax=axes, node_color=colors, font_color=self.node_text_color)
+
+        def render_indexes(self, data_range: range, axes):
+                &#34;&#34;&#34;
+                Wyrysowanie indeksów nad istniejącymi obiektami.
+
+                Parametry:
+                data_range - przedział indeksów jakie mają zostać wyrysowane.
+                axes - proporcje tekstury na jakiej mają zostać wyrysowane.
+                &#34;&#34;&#34;
+                data_indexes = [&#34;index_%i&#34; % index for index in data_range]
+
+                nodes = nx.Graph()
+                nodes.add_nodes_from(data_indexes)
+                nodes.add_node(&#34;__top&#34;)
+                nodes.add_node(&#34;__bottom&#34;)
+
+                positions = dict()
+                positions.update((element, (i, 20)) for i, element in enumerate(data_indexes))
+
+                node_sizes = [*[0.0 for i in data_range], 0.0, 0.0]
+
+                index_correction = min(30.0, max(node_sizes)/750.0)
+                positions[&#34;__top&#34;] = (-1, -30+index_correction)
+                positions[&#34;__bottom&#34;] = (len(data_indexes), 60-index_correction)
+
+                colors = list([&#39;w&#39;, &#39;w&#39;])
+                for i in data_range:
+                        colors.append(&#39;w&#39;)
+
+                labels = dict()
+                labels[&#34;__top&#34;] = &#34;&#34;
+                labels[&#34;__bottom&#34;] = &#34;&#34;
+                for i in data_range:
+                        labels[&#34;index_%i&#34; % i] = &#34;%i.&#34; % i
+
+                nx.draw(nodes, labels=labels, pos=positions, with_labels=True, node_size=node_sizes, ax=axes,
+                                node_color=colors, font_color=self.index_text_color, font_weight=&#39;bold&#39;)
+
+        def render_hint(self):
+                &#34;&#34;&#34;
+                Wyświetlenie podpowiedzi dla użytkownika, gdy nie wprowadzono żadnych danych.
+                &#34;&#34;&#34;
+                self.label.setText(&#34;Skorzystaj z panelu po prawej stronie, aby rozpocząć wizualizację.&#34;)
+                self.label.setAlignment(Qt.AlignCenter)
+                self.label.setStyleSheet(&#34;&#34;&#34;background-color:%s; color:%s; font-family:Arial; font-size:20px; font-weight: bold;&#34;&#34;&#34; %
+                                                                (self.background_color, self.index_text_color))
+
+        @staticmethod
+        def __generate_node_sizes(snapshot: Snapshot) -&gt; list:
+                &#34;&#34;&#34;
+                Wygenerowanie rozmiarów węzłów w zależności od rozmiaru tekstu.
+
+                Parametry:
+                snapshot - aktualny stan algorytmu. Obiekt typu Snapshot.
+
+                Typ zwracany:
+                list
+                &#34;&#34;&#34;
+                only_numbers = True
+                for element in snapshot.data:
+                        if not element.isdigit():
+                                only_numbers = False
+                                break
+
+                data = list()
+                if not only_numbers:
+                        data = [len(snapshot.data[i]) + 1 for i in range(len(snapshot.data))]
+                else:
+                        data = [math.log10(abs(float(snapshot.data[i])) + 1) + 1 for i in range(len(snapshot.data))]
+
+                return [500.0 + 60.0 * element ** 2 for element in data]</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>Widgets.BaseWidget.BaseWidget</li>
+<li>PyQt5.QtWidgets.QWidget</li>
+<li>PyQt5.QtCore.QObject</li>
+<li>sip.wrapper</li>
+<li>PyQt5.QtGui.QPaintDevice</li>
+<li>sip.simplewrapper</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="WizualizacjaAlgorytmow.Widgets.NetworkXWidget.NetworkXWidget.clean_figure"><code class="name flex">
+<span>def <span class="ident">clean_figure</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Wyczyszczenie poprzedniej wizualizacji.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def clean_figure(self):
+        &#34;&#34;&#34;
+        Wyczyszczenie poprzedniej wizualizacji.
+        &#34;&#34;&#34;
+        self.figure.clf()
+        self.widget_layout.removeWidget(self.label)
+        self.widget_layout.removeWidget(self.canvas)</code></pre>
+</details>
+</dd>
+<dt id="WizualizacjaAlgorytmow.Widgets.NetworkXWidget.NetworkXWidget.render_figure"><code class="name flex">
+<span>def <span class="ident">render_figure</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Wyrysowanie wizualizacji.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def render_figure(self):
+        &#34;&#34;&#34;
+        Wyrysowanie wizualizacji.
+        &#34;&#34;&#34;
+        self.figure.set_facecolor(self.background_color)
+        self.canvas.draw_idle()</code></pre>
+</details>
+</dd>
+<dt id="WizualizacjaAlgorytmow.Widgets.NetworkXWidget.NetworkXWidget.render_hint"><code class="name flex">
+<span>def <span class="ident">render_hint</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Wyświetlenie podpowiedzi dla użytkownika, gdy nie wprowadzono żadnych danych.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def render_hint(self):
+        &#34;&#34;&#34;
+        Wyświetlenie podpowiedzi dla użytkownika, gdy nie wprowadzono żadnych danych.
+        &#34;&#34;&#34;
+        self.label.setText(&#34;Skorzystaj z panelu po prawej stronie, aby rozpocząć wizualizację.&#34;)
+        self.label.setAlignment(Qt.AlignCenter)
+        self.label.setStyleSheet(&#34;&#34;&#34;background-color:%s; color:%s; font-family:Arial; font-size:20px; font-weight: bold;&#34;&#34;&#34; %
+                                                        (self.background_color, self.index_text_color))</code></pre>
+</details>
+</dd>
+<dt id="WizualizacjaAlgorytmow.Widgets.NetworkXWidget.NetworkXWidget.render_indexes"><code class="name flex">
+<span>def <span class="ident">render_indexes</span></span>(<span>self, data_range: range, axes)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Wyrysowanie indeksów nad istniejącymi obiektami.</p>
+<p>Parametry:
+data_range - przedział indeksów jakie mają zostać wyrysowane.
+axes - proporcje tekstury na jakiej mają zostać wyrysowane.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def render_indexes(self, data_range: range, axes):
+        &#34;&#34;&#34;
+        Wyrysowanie indeksów nad istniejącymi obiektami.
+
+        Parametry:
+        data_range - przedział indeksów jakie mają zostać wyrysowane.
+        axes - proporcje tekstury na jakiej mają zostać wyrysowane.
+        &#34;&#34;&#34;
+        data_indexes = [&#34;index_%i&#34; % index for index in data_range]
+
+        nodes = nx.Graph()
+        nodes.add_nodes_from(data_indexes)
+        nodes.add_node(&#34;__top&#34;)
+        nodes.add_node(&#34;__bottom&#34;)
+
+        positions = dict()
+        positions.update((element, (i, 20)) for i, element in enumerate(data_indexes))
+
+        node_sizes = [*[0.0 for i in data_range], 0.0, 0.0]
+
+        index_correction = min(30.0, max(node_sizes)/750.0)
+        positions[&#34;__top&#34;] = (-1, -30+index_correction)
+        positions[&#34;__bottom&#34;] = (len(data_indexes), 60-index_correction)
+
+        colors = list([&#39;w&#39;, &#39;w&#39;])
+        for i in data_range:
+                colors.append(&#39;w&#39;)
+
+        labels = dict()
+        labels[&#34;__top&#34;] = &#34;&#34;
+        labels[&#34;__bottom&#34;] = &#34;&#34;
+        for i in data_range:
+                labels[&#34;index_%i&#34; % i] = &#34;%i.&#34; % i
+
+        nx.draw(nodes, labels=labels, pos=positions, with_labels=True, node_size=node_sizes, ax=axes,
+                        node_color=colors, font_color=self.index_text_color, font_weight=&#39;bold&#39;)</code></pre>
+</details>
+</dd>
+<dt id="WizualizacjaAlgorytmow.Widgets.NetworkXWidget.NetworkXWidget.render_nodes"><code class="name flex">
+<span>def <span class="ident">render_nodes</span></span>(<span>self, snapshot: Snapshot.Snapshot, axes)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Wyrysowanie aktualnego kroku.</p>
+<p>Parametry:
+snapshot - obiekt reprezentujacy aktualny krok.
+axes - proporcje tekstury na jakiej mają zostać wyrysowane.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def render_nodes(self, snapshot: Snapshot, axes):
+        &#34;&#34;&#34;
+        Wyrysowanie aktualnego kroku.
+
+        Parametry:
+        snapshot - obiekt reprezentujacy aktualny krok.
+        axes - proporcje tekstury na jakiej mają zostać wyrysowane.
+        &#34;&#34;&#34;
+        data_range = range(len(snapshot.data))
+        data_ids = [data_id for data_id in data_range]
+
+        nodes = nx.Graph()
+        nodes.add_nodes_from(data_ids)
+
+        positions = dict()
+        positions.update((element, (i, 10)) for i, element in enumerate(data_ids))
+
+        colors = list()
+        for i in data_range:
+                colors.append(snapshot.highlights[i])
+
+        labels = dict()
+        for i in data_range:
+                labels[i] = snapshot.data[i]
+
+        nx.draw(nodes, labels=labels, pos=positions, with_labels=True, node_shape=&#39;s&#39;, node_size=self.__generate_node_sizes(snapshot),
+                        ax=axes, node_color=colors, font_color=self.node_text_color)</code></pre>
+</details>
+</dd>
+<dt id="WizualizacjaAlgorytmow.Widgets.NetworkXWidget.NetworkXWidget.render_snapshot"><code class="name flex">
+<span>def <span class="ident">render_snapshot</span></span>(<span>self, snapshot: Snapshot.Snapshot)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Wyświetla aktualny stan algorytmu.</p>
+<p>Parametry:
+snapshot - aktualny stan algorytmu. Obiekt typu Snapshot.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def render_snapshot(self, snapshot: Snapshot):
+        &#34;&#34;&#34;
+        Wyświetla aktualny stan algorytmu.
+
+        Parametry:
+        snapshot - aktualny stan algorytmu. Obiekt typu Snapshot.
+        &#34;&#34;&#34;
+        self.clean_figure()
+
+        if len(snapshot.data) &gt; 0:
+                self.widget_layout.addWidget(self.canvas)
+                data_range = range(len(snapshot.data))
+                axes = plt.axes([0.0, 0.0, 1.0, 1.0])
+                self.render_nodes(snapshot, axes)
+                self.render_indexes(data_range, axes)
+        else:
+                self.widget_layout.addWidget(self.label)
+                self.render_hint()
+
+        self.render_figure()</code></pre>
+</details>
+</dd>
+<dt id="WizualizacjaAlgorytmow.Widgets.NetworkXWidget.NetworkXWidget.setup_ui"><code class="name flex">
+<span>def <span class="ident">setup_ui</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Inicjalizacja interfejsu użytkownika.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def setup_ui(self):
+        &#34;&#34;&#34;
+        Inicjalizacja interfejsu użytkownika.
+        &#34;&#34;&#34;
+        self.figure = plt.figure()
+        self.canvas = FigureCanvas(self.figure)
+
+        self.setStyleSheet(Styles.description_background)
+
+        self.render_snapshot(Snapshot([], &#34;&#34;, {}))</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="WizualizacjaAlgorytmow.Widgets" href="index.html">WizualizacjaAlgorytmow.Widgets</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="WizualizacjaAlgorytmow.Widgets.NetworkXWidget.NetworkXWidget" href="#WizualizacjaAlgorytmow.Widgets.NetworkXWidget.NetworkXWidget">NetworkXWidget</a></code></h4>
+<ul class="two-column">
+<li><code><a title="WizualizacjaAlgorytmow.Widgets.NetworkXWidget.NetworkXWidget.clean_figure" href="#WizualizacjaAlgorytmow.Widgets.NetworkXWidget.NetworkXWidget.clean_figure">clean_figure</a></code></li>
+<li><code><a title="WizualizacjaAlgorytmow.Widgets.NetworkXWidget.NetworkXWidget.render_figure" href="#WizualizacjaAlgorytmow.Widgets.NetworkXWidget.NetworkXWidget.render_figure">render_figure</a></code></li>
+<li><code><a title="WizualizacjaAlgorytmow.Widgets.NetworkXWidget.NetworkXWidget.render_hint" href="#WizualizacjaAlgorytmow.Widgets.NetworkXWidget.NetworkXWidget.render_hint">render_hint</a></code></li>
+<li><code><a title="WizualizacjaAlgorytmow.Widgets.NetworkXWidget.NetworkXWidget.render_indexes" href="#WizualizacjaAlgorytmow.Widgets.NetworkXWidget.NetworkXWidget.render_indexes">render_indexes</a></code></li>
+<li><code><a title="WizualizacjaAlgorytmow.Widgets.NetworkXWidget.NetworkXWidget.render_nodes" href="#WizualizacjaAlgorytmow.Widgets.NetworkXWidget.NetworkXWidget.render_nodes">render_nodes</a></code></li>
+<li><code><a title="WizualizacjaAlgorytmow.Widgets.NetworkXWidget.NetworkXWidget.render_snapshot" href="#WizualizacjaAlgorytmow.Widgets.NetworkXWidget.NetworkXWidget.render_snapshot">render_snapshot</a></code></li>
+<li><code><a title="WizualizacjaAlgorytmow.Widgets.NetworkXWidget.NetworkXWidget.setup_ui" href="#WizualizacjaAlgorytmow.Widgets.NetworkXWidget.NetworkXWidget.setup_ui">setup_ui</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+</footer>
+</body>
+</html>

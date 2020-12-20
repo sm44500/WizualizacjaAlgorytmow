@@ -1,4 +1,0 @@
-var namespace_wizualizacja_algorytmow_1_1_widgets_1_1_control_panel_widgets_1_1_control_panel_text_box =
-[
-    [ "ControlPanelTextBox", "class_wizualizacja_algorytmow_1_1_widgets_1_1_control_panel_widgets_1_1_control_panel_text_box_1_1_control_panel_text_box.html", "class_wizualizacja_algorytmow_1_1_widgets_1_1_control_panel_widgets_1_1_control_panel_text_box_1_1_control_panel_text_box" ]
-];

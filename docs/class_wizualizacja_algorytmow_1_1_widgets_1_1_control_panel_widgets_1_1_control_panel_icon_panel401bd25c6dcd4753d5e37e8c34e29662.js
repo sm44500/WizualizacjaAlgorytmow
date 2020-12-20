@@ -1,8 +1,0 @@
-var class_wizualizacja_algorytmow_1_1_widgets_1_1_control_panel_widgets_1_1_control_panel_icon_panel401bd25c6dcd4753d5e37e8c34e29662 =
-[
-    [ "__init__", "class_wizualizacja_algorytmow_1_1_widgets_1_1_control_panel_widgets_1_1_control_panel_icon_panel401bd25c6dcd4753d5e37e8c34e29662.html#a34f9cfccbd52dacf11b786ab9c633147", null ],
-    [ "set_highlight", "class_wizualizacja_algorytmow_1_1_widgets_1_1_control_panel_widgets_1_1_control_panel_icon_panel401bd25c6dcd4753d5e37e8c34e29662.html#a18040ebb5e93b602a3ec708eaad054ed", null ],
-    [ "set_hint", "class_wizualizacja_algorytmow_1_1_widgets_1_1_control_panel_widgets_1_1_control_panel_icon_panel401bd25c6dcd4753d5e37e8c34e29662.html#a3700ee77064dc2526502839064fcf7f9", null ],
-    [ "set_icon", "class_wizualizacja_algorytmow_1_1_widgets_1_1_control_panel_widgets_1_1_control_panel_icon_panel401bd25c6dcd4753d5e37e8c34e29662.html#aa9878737ae7c8c56f2cfd2a031be330e", null ],
-    [ "setup_ui", "class_wizualizacja_algorytmow_1_1_widgets_1_1_control_panel_widgets_1_1_control_panel_icon_panel401bd25c6dcd4753d5e37e8c34e29662.html#affa26a7bc35c3d6859ede260dc54d773", null ]
-];

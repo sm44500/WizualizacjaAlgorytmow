@@ -1,5 +1,0 @@
-var class_wizualizacja_algorytmow_1_1_widgets_1_1_control_panel_widgets_1_1_control_panel_text_box_1_1_control_panel_text_box =
-[
-    [ "__init__", "class_wizualizacja_algorytmow_1_1_widgets_1_1_control_panel_widgets_1_1_control_panel_text_box_1_1_control_panel_text_box.html#afcf65208bd100b302c95e762c039237a", null ],
-    [ "init_ui", "class_wizualizacja_algorytmow_1_1_widgets_1_1_control_panel_widgets_1_1_control_panel_text_box_1_1_control_panel_text_box.html#ab471af5e9d9d34728950e147d514ab2e", null ]
-];
