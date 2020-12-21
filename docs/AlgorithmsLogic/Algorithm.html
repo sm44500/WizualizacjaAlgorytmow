@@ -52,7 +52,7 @@ class Algorithm:
                 self.last_value = 0
                 self.codes = []
                 self.test_questions = []
-                self.buttons = None
+                self.controls = []
                 self.data = []
                 self.snapshots = []
                 self.__load_codes()
@@ -67,6 +67,31 @@ class Algorithm:
                 highlights - słownik z węzłami oznaczonymi innym kolorem.
                 &#34;&#34;&#34;
                 self.snapshots.append(Snapshot(self.data.copy(), description, highlights))
+
+        def add_button(self, title: str, callback, icon=&#34;&#34;, hint=&#34;&#34; , update=True):
+                &#34;&#34;&#34;
+                Dodaje przycisk.
+
+                Parametry:
+                        title - tekst na przycisku
+                        callback - funkcja wywoływana przy przyciśnięciu przycisku.
+                        icon - ścieżka do ikony przycisku. Domyślnie brak.
+                        hint - tekst wyświetlany po najechaniu na przycisk. Domyślnie pusty.
+                        update - wartość True, False. Określa czy po wykonaniu interakcji, wizualizacja ma pokazać ostatni krok. Domyślne True.
+                &#34;&#34;&#34;
+                self.controls.append([&#34;BUTTON&#34;, title, callback, icon, hint, update])
+
+        def add_textbox(self, label: str, callback, hint=&#34;&#34; , update=False):
+                &#34;&#34;&#34;
+                Dodaje pole tekstowe.
+
+                Parametry:
+                        label - Etykieta pola tekstowego.
+                        callback - funkcja wywoływana przy zmianie wartości pola. Jej pierwszy parametr będzie zawierał wartość.
+                        hint - tekst wyświetlany po najechaniu na pole tekstowe. Domyślnie pusty.
+                        update - wartość True, False. Określa czy po wykonaniu interakcji, wizualizacja ma pokazać ostatni krok. Domyślne False.
+                &#34;&#34;&#34;
+                self.controls.append([&#34;TEXTBOX&#34;, label, callback, hint, update])
 
         def __load_test(self):
                 &#34;&#34;&#34;
@@ -128,7 +153,7 @@ title - pełna nazwa algorytmu. Wyswietlana w aplikacji.</p></div>
                 self.last_value = 0
                 self.codes = []
                 self.test_questions = []
-                self.buttons = None
+                self.controls = []
                 self.data = []
                 self.snapshots = []
                 self.__load_codes()
@@ -143,6 +168,31 @@ title - pełna nazwa algorytmu. Wyswietlana w aplikacji.</p></div>
                 highlights - słownik z węzłami oznaczonymi innym kolorem.
                 &#34;&#34;&#34;
                 self.snapshots.append(Snapshot(self.data.copy(), description, highlights))
+
+        def add_button(self, title: str, callback, icon=&#34;&#34;, hint=&#34;&#34; , update=True):
+                &#34;&#34;&#34;
+                Dodaje przycisk.
+
+                Parametry:
+                        title - tekst na przycisku
+                        callback - funkcja wywoływana przy przyciśnięciu przycisku.
+                        icon - ścieżka do ikony przycisku. Domyślnie brak.
+                        hint - tekst wyświetlany po najechaniu na przycisk. Domyślnie pusty.
+                        update - wartość True, False. Określa czy po wykonaniu interakcji, wizualizacja ma pokazać ostatni krok. Domyślne True.
+                &#34;&#34;&#34;
+                self.controls.append([&#34;BUTTON&#34;, title, callback, icon, hint, update])
+
+        def add_textbox(self, label: str, callback, hint=&#34;&#34; , update=False):
+                &#34;&#34;&#34;
+                Dodaje pole tekstowe.
+
+                Parametry:
+                        label - Etykieta pola tekstowego.
+                        callback - funkcja wywoływana przy zmianie wartości pola. Jej pierwszy parametr będzie zawierał wartość.
+                        hint - tekst wyświetlany po najechaniu na pole tekstowe. Domyślnie pusty.
+                        update - wartość True, False. Określa czy po wykonaniu interakcji, wizualizacja ma pokazać ostatni krok. Domyślne False.
+                &#34;&#34;&#34;
+                self.controls.append([&#34;TEXTBOX&#34;, label, callback, hint, update])
 
         def __load_test(self):
                 &#34;&#34;&#34;
@@ -167,6 +217,62 @@ title - pełna nazwa algorytmu. Wyswietlana w aplikacji.</p></div>
 </details>
 <h3>Methods</h3>
 <dl>
+<dt id="WizualizacjaAlgorytmow.AlgorithmsLogic.Algorithm.Algorithm.add_button"><code class="name flex">
+<span>def <span class="ident">add_button</span></span>(<span>self, title: str, callback, icon='', hint='', update=True)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Dodaje przycisk.</p>
+<h2 id="parametry">Parametry</h2>
+<p>title - tekst na przycisku
+callback - funkcja wywoływana przy przyciśnięciu przycisku.
+icon - ścieżka do ikony przycisku. Domyślnie brak.
+hint - tekst wyświetlany po najechaniu na przycisk. Domyślnie pusty.
+update - wartość True, False. Określa czy po wykonaniu interakcji, wizualizacja ma pokazać ostatni krok. Domyślne True.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def add_button(self, title: str, callback, icon=&#34;&#34;, hint=&#34;&#34; , update=True):
+        &#34;&#34;&#34;
+        Dodaje przycisk.
+
+        Parametry:
+                title - tekst na przycisku
+                callback - funkcja wywoływana przy przyciśnięciu przycisku.
+                icon - ścieżka do ikony przycisku. Domyślnie brak.
+                hint - tekst wyświetlany po najechaniu na przycisk. Domyślnie pusty.
+                update - wartość True, False. Określa czy po wykonaniu interakcji, wizualizacja ma pokazać ostatni krok. Domyślne True.
+        &#34;&#34;&#34;
+        self.controls.append([&#34;BUTTON&#34;, title, callback, icon, hint, update])</code></pre>
+</details>
+</dd>
+<dt id="WizualizacjaAlgorytmow.AlgorithmsLogic.Algorithm.Algorithm.add_textbox"><code class="name flex">
+<span>def <span class="ident">add_textbox</span></span>(<span>self, label: str, callback, hint='', update=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Dodaje pole tekstowe.</p>
+<h2 id="parametry">Parametry</h2>
+<p>label - Etykieta pola tekstowego.
+callback - funkcja wywoływana przy zmianie wartości pola. Jej pierwszy parametr będzie zawierał wartość.
+hint - tekst wyświetlany po najechaniu na pole tekstowe. Domyślnie pusty.
+update - wartość True, False. Określa czy po wykonaniu interakcji, wizualizacja ma pokazać ostatni krok. Domyślne False.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def add_textbox(self, label: str, callback, hint=&#34;&#34; , update=False):
+        &#34;&#34;&#34;
+        Dodaje pole tekstowe.
+
+        Parametry:
+                label - Etykieta pola tekstowego.
+                callback - funkcja wywoływana przy zmianie wartości pola. Jej pierwszy parametr będzie zawierał wartość.
+                hint - tekst wyświetlany po najechaniu na pole tekstowe. Domyślnie pusty.
+                update - wartość True, False. Określa czy po wykonaniu interakcji, wizualizacja ma pokazać ostatni krok. Domyślne False.
+        &#34;&#34;&#34;
+        self.controls.append([&#34;TEXTBOX&#34;, label, callback, hint, update])</code></pre>
+</details>
+</dd>
 <dt id="WizualizacjaAlgorytmow.AlgorithmsLogic.Algorithm.Algorithm.save_snapshot"><code class="name flex">
 <span>def <span class="ident">save_snapshot</span></span>(<span>self, description: str = '', highlights: dict = {})</span>
 </code></dt>
@@ -211,6 +317,8 @@ highlights - słownik z węzłami oznaczonymi innym kolorem.</p></div>
 <li>
 <h4><code><a title="WizualizacjaAlgorytmow.AlgorithmsLogic.Algorithm.Algorithm" href="#WizualizacjaAlgorytmow.AlgorithmsLogic.Algorithm.Algorithm">Algorithm</a></code></h4>
 <ul class="">
+<li><code><a title="WizualizacjaAlgorytmow.AlgorithmsLogic.Algorithm.Algorithm.add_button" href="#WizualizacjaAlgorytmow.AlgorithmsLogic.Algorithm.Algorithm.add_button">add_button</a></code></li>
+<li><code><a title="WizualizacjaAlgorytmow.AlgorithmsLogic.Algorithm.Algorithm.add_textbox" href="#WizualizacjaAlgorytmow.AlgorithmsLogic.Algorithm.Algorithm.add_textbox">add_textbox</a></code></li>
 <li><code><a title="WizualizacjaAlgorytmow.AlgorithmsLogic.Algorithm.Algorithm.save_snapshot" href="#WizualizacjaAlgorytmow.AlgorithmsLogic.Algorithm.Algorithm.save_snapshot">save_snapshot</a></code></li>
 </ul>
 </li>

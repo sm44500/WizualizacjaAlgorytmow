@@ -75,17 +75,27 @@ class VisualisationManager:
                 self.slider = self.control_panel_bottom.add_slider(1, 100, 50, 1)
                 self.slider.sliderReleased.connect(lambda: self.on_update_slider())
 
-                self.text_box_label = self.control_panel_bottom.add_label(&#34;Wartość elementu:&#34;)
-                self.text_box = self.control_panel_bottom.add_text_box(&#34;Tutaj możesz wpisać dowolną wartość.&#34;)
-
-                for name, on_clicked, icon, should_update_current_snapshot, hint in self.algorithm.buttons:
-                        algorithm_button = self.control_panel_bottom.add_button(name, icon)
-                        algorithm_button.clicked.connect(self.on_click_algorithm)
-                        algorithm_button.clicked.connect(on_clicked)
-                        if should_update_current_snapshot:
-                                algorithm_button.clicked.connect(self.on_click_last_snapshot)
-                        algorithm_button.set_hint(hint)
-                        self.internal_widgets.append(algorithm_button)
+                for control in self.algorithm.controls:
+                        control_type = control[0]
+                        if control_type == &#34;BUTTON&#34;:
+                                title, callback, icon, hint, update = control[1:]
+                                button = self.control_panel_bottom.add_button(title, icon)
+                                button.clicked.connect(callback)
+                                if update:
+                                        button.clicked.connect(self.on_click_last_snapshot)
+                                button.set_hint(hint)
+                                self.internal_widgets.append(button)
+                        elif control_type == &#34;TEXTBOX&#34;:
+                                label_text, callback, hint, update = control[1:]
+                                label = self.control_panel_bottom.add_label(label_text)
+                                textbox = self.control_panel_bottom.add_text_box(hint)
+                                textbox.textChanged.connect(callback)
+                                if update:
+                                        textbox.textChanged.connect(self.on_click_last_snapshot)
+                                self.internal_widgets.append(label)
+                                self.internal_widgets.append(textbox)
+                        else:
+                                print(&#34;Unknown control type&#34;)
 
                 self.icon_panel = self.control_panel_bottom.add_icon_panel()
 
@@ -185,14 +195,6 @@ class VisualisationManager:
                         self.play_button.set_icon(self.pause_icon)
                         self.play_button.set_hint(&#34;Zatrzymanie automatycznego odtwarzania kroków.&#34;)
                         self.play_button.setStyleSheet(Styles.snapshot_button_background_clicked)
-
-        def on_click_algorithm(self):
-                &#34;&#34;&#34;
-                Obsługuje zdarzenia wewnątrz algorytmu.
-                &#34;&#34;&#34;
-                self.algorithm.last_value = self.text_box.text()
-                # self.description_widget.set_text(snapshot.description)
-                self.text_box.clear()
 
         def on_update_slider(self):
                 self.stop_changing_snapshots()
@@ -262,17 +264,27 @@ algorithm - obiekt algorytmu.</p></div>
                 self.slider = self.control_panel_bottom.add_slider(1, 100, 50, 1)
                 self.slider.sliderReleased.connect(lambda: self.on_update_slider())
 
-                self.text_box_label = self.control_panel_bottom.add_label(&#34;Wartość elementu:&#34;)
-                self.text_box = self.control_panel_bottom.add_text_box(&#34;Tutaj możesz wpisać dowolną wartość.&#34;)
-
-                for name, on_clicked, icon, should_update_current_snapshot, hint in self.algorithm.buttons:
-                        algorithm_button = self.control_panel_bottom.add_button(name, icon)
-                        algorithm_button.clicked.connect(self.on_click_algorithm)
-                        algorithm_button.clicked.connect(on_clicked)
-                        if should_update_current_snapshot:
-                                algorithm_button.clicked.connect(self.on_click_last_snapshot)
-                        algorithm_button.set_hint(hint)
-                        self.internal_widgets.append(algorithm_button)
+                for control in self.algorithm.controls:
+                        control_type = control[0]
+                        if control_type == &#34;BUTTON&#34;:
+                                title, callback, icon, hint, update = control[1:]
+                                button = self.control_panel_bottom.add_button(title, icon)
+                                button.clicked.connect(callback)
+                                if update:
+                                        button.clicked.connect(self.on_click_last_snapshot)
+                                button.set_hint(hint)
+                                self.internal_widgets.append(button)
+                        elif control_type == &#34;TEXTBOX&#34;:
+                                label_text, callback, hint, update = control[1:]
+                                label = self.control_panel_bottom.add_label(label_text)
+                                textbox = self.control_panel_bottom.add_text_box(hint)
+                                textbox.textChanged.connect(callback)
+                                if update:
+                                        textbox.textChanged.connect(self.on_click_last_snapshot)
+                                self.internal_widgets.append(label)
+                                self.internal_widgets.append(textbox)
+                        else:
+                                print(&#34;Unknown control type&#34;)
 
                 self.icon_panel = self.control_panel_bottom.add_icon_panel()
 
@@ -373,38 +385,12 @@ algorithm - obiekt algorytmu.</p></div>
                         self.play_button.set_hint(&#34;Zatrzymanie automatycznego odtwarzania kroków.&#34;)
                         self.play_button.setStyleSheet(Styles.snapshot_button_background_clicked)
 
-        def on_click_algorithm(self):
-                &#34;&#34;&#34;
-                Obsługuje zdarzenia wewnątrz algorytmu.
-                &#34;&#34;&#34;
-                self.algorithm.last_value = self.text_box.text()
-                # self.description_widget.set_text(snapshot.description)
-                self.text_box.clear()
-
         def on_update_slider(self):
                 self.stop_changing_snapshots()
                 self.on_click_play()</code></pre>
 </details>
 <h3>Methods</h3>
 <dl>
-<dt id="WizualizacjaAlgorytmow.VisualisationManager.VisualisationManager.on_click_algorithm"><code class="name flex">
-<span>def <span class="ident">on_click_algorithm</span></span>(<span>self)</span>
-</code></dt>
-<dd>
-<div class="desc"><p>Obsługuje zdarzenia wewnątrz algorytmu.</p></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def on_click_algorithm(self):
-        &#34;&#34;&#34;
-        Obsługuje zdarzenia wewnątrz algorytmu.
-        &#34;&#34;&#34;
-        self.algorithm.last_value = self.text_box.text()
-        # self.description_widget.set_text(snapshot.description)
-        self.text_box.clear()</code></pre>
-</details>
-</dd>
 <dt id="WizualizacjaAlgorytmow.VisualisationManager.VisualisationManager.on_click_first_step"><code class="name flex">
 <span>def <span class="ident">on_click_first_step</span></span>(<span>self)</span>
 </code></dt>
@@ -554,17 +540,27 @@ Uruchomienie poprzedniego kroku, jeżeli istnieje.</p></div>
         self.slider = self.control_panel_bottom.add_slider(1, 100, 50, 1)
         self.slider.sliderReleased.connect(lambda: self.on_update_slider())
 
-        self.text_box_label = self.control_panel_bottom.add_label(&#34;Wartość elementu:&#34;)
-        self.text_box = self.control_panel_bottom.add_text_box(&#34;Tutaj możesz wpisać dowolną wartość.&#34;)
-
-        for name, on_clicked, icon, should_update_current_snapshot, hint in self.algorithm.buttons:
-                algorithm_button = self.control_panel_bottom.add_button(name, icon)
-                algorithm_button.clicked.connect(self.on_click_algorithm)
-                algorithm_button.clicked.connect(on_clicked)
-                if should_update_current_snapshot:
-                        algorithm_button.clicked.connect(self.on_click_last_snapshot)
-                algorithm_button.set_hint(hint)
-                self.internal_widgets.append(algorithm_button)
+        for control in self.algorithm.controls:
+                control_type = control[0]
+                if control_type == &#34;BUTTON&#34;:
+                        title, callback, icon, hint, update = control[1:]
+                        button = self.control_panel_bottom.add_button(title, icon)
+                        button.clicked.connect(callback)
+                        if update:
+                                button.clicked.connect(self.on_click_last_snapshot)
+                        button.set_hint(hint)
+                        self.internal_widgets.append(button)
+                elif control_type == &#34;TEXTBOX&#34;:
+                        label_text, callback, hint, update = control[1:]
+                        label = self.control_panel_bottom.add_label(label_text)
+                        textbox = self.control_panel_bottom.add_text_box(hint)
+                        textbox.textChanged.connect(callback)
+                        if update:
+                                textbox.textChanged.connect(self.on_click_last_snapshot)
+                        self.internal_widgets.append(label)
+                        self.internal_widgets.append(textbox)
+                else:
+                        print(&#34;Unknown control type&#34;)
 
         self.icon_panel = self.control_panel_bottom.add_icon_panel()
 
@@ -645,7 +641,6 @@ Uruchomienie poprzedniego kroku, jeżeli istnieje.</p></div>
 <li>
 <h4><code><a title="WizualizacjaAlgorytmow.VisualisationManager.VisualisationManager" href="#WizualizacjaAlgorytmow.VisualisationManager.VisualisationManager">VisualisationManager</a></code></h4>
 <ul class="">
-<li><code><a title="WizualizacjaAlgorytmow.VisualisationManager.VisualisationManager.on_click_algorithm" href="#WizualizacjaAlgorytmow.VisualisationManager.VisualisationManager.on_click_algorithm">on_click_algorithm</a></code></li>
 <li><code><a title="WizualizacjaAlgorytmow.VisualisationManager.VisualisationManager.on_click_first_step" href="#WizualizacjaAlgorytmow.VisualisationManager.VisualisationManager.on_click_first_step">on_click_first_step</a></code></li>
 <li><code><a title="WizualizacjaAlgorytmow.VisualisationManager.VisualisationManager.on_click_last_snapshot" href="#WizualizacjaAlgorytmow.VisualisationManager.VisualisationManager.on_click_last_snapshot">on_click_last_snapshot</a></code></li>
 <li><code><a title="WizualizacjaAlgorytmow.VisualisationManager.VisualisationManager.on_click_next_step" href="#WizualizacjaAlgorytmow.VisualisationManager.VisualisationManager.on_click_next_step">on_click_next_step</a></code></li>

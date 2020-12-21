@@ -51,7 +51,7 @@ class BasicAlgorithm(Algorithm):
         def __init__(self, name: str = &#34;missing&#34;, title: str = &#34;missing&#34;):
                 super().__init__(name, title)
                 self.visualization_widget = NetworkXWidget
-                self.load_buttons()
+                self.load_controls()
                 self.data.clear()
                 self.snapshots.clear()
 
@@ -141,25 +141,22 @@ class BasicAlgorithm(Algorithm):
                 for i in range(n):
                         self.add_element(str(random.randint(0, 100)))
 
-        def load_buttons(self):
+        def on_value_change(self, new_value):
+                self.last_value = new_value
+
+        def load_controls(self):
                 &#34;&#34;&#34;
-                Metoda wczytująca klawisze odpowiedzialne za manipulację wizualizacją.
+                Metoda tworząca klawisze oraz pola tekstowe odpowiedzialne za manipulację wizualizacją.
                 &#34;&#34;&#34;
-                self.buttons = list()
-                self.buttons.append([&#34;Dodaj&#34;, lambda: self.add_element(self.last_value), Paths.icon(&#34;plus.png&#34;), True,
-                        &#34;Dodanie nowego elementu na koniec tablicy.&#34;])
-                self.buttons.append([&#34;Usuń&#34;, lambda: self.remove_element(self.last_value), Paths.icon(&#34;minus.png&#34;), True,
-                        &#34;Usunięcie pierwszego napotkanego elementu o podanej wartości.&#34;])
-                self.buttons.append([&#34;Usuń wszystkie&#34;, lambda: self.remove_all_elements(self.last_value), Paths.icon(&#34;minus.png&#34;),
-                        True, &#34;Usunięcie wszystkich napotkanych elementów o podanej wartości.&#34;])
-                self.buttons.append([&#34;Wyczyść&#34;, lambda: self.clear(), Paths.icon(&#34;clear.png&#34;), True,
-                        &#34;Usunięcie wszystkich elementów oraz przywrócenie stanu początkowego.&#34;])
-                self.buttons.append([&#34;Losowe dane&#34;, lambda: self.random_data(), Paths.icon(&#34;random.png&#34;), True,
-                        &#34;Wylosowanie danych z ustawionego przedziału.&#34;])
-                self.buttons.append([&#34;Przemieszaj&#34;, lambda: self.shuffle(), Paths.icon(&#34;shuffle.png&#34;), True,
-                        &#34;Zamiana kolejności wszystkich elementów w tablicy.&#34;])
-                self.buttons.append([&#34;Wykonaj algorytm&#34;, lambda: self.execute(), Paths.icon(&#34;execute.png&#34;), False,
-                        &#34;Rozpoczęcie wykonywania algorytmu.&#34;])</code></pre>
+
+                self.add_textbox(&#34;Wartość elementu:&#34;, self.on_value_change, hint=&#34;Tutaj możesz wpisać dowolną wartość.&#34;)
+                self.add_button(&#34;Dodaj&#34;, lambda: self.add_element(self.last_value), icon=Paths.icon(&#34;plus.png&#34;), hint=&#34;Dodanie nowego elementu na koniec tablicy.&#34;)
+                self.add_button(&#34;Usuń&#34;, lambda: self.remove_element(self.last_value), icon=Paths.icon(&#34;minus.png&#34;), hint=&#34;Usunięcie pierwszego napotkanego elementu o podanej wartości.&#34;)
+                self.add_button(&#34;Usuń wszystkie&#34;, lambda: self.remove_all_elements(self.last_value), icon=Paths.icon(&#34;minus.png&#34;), hint=&#34;Usunięcie wszystkich napotkanych elementów o podanej wartości.&#34;)
+                self.add_button(&#34;Wyczyść&#34;, self.clear, icon=Paths.icon(&#34;clear.png&#34;), hint=&#34;Usunięcie wszystkich elementów oraz przywrócenie stanu początkowego.&#34;)
+                self.add_button(&#34;Losowe dane&#34;, self.random_data, icon=Paths.icon(&#34;random.png&#34;), hint=&#34;Wylosowanie danych z ustawionego przedziału.&#34;)
+                self.add_button(&#34;Przemieszaj&#34;, self.shuffle, icon=Paths.icon(&#34;shuffle.png&#34;), hint=&#34;Zamiana kolejności wszystkich elementów w tablicy.&#34;)
+                self.add_button(&#34;Wykonaj algorytm&#34;, self.execute, icon=Paths.icon(&#34;execute.png&#34;), hint=&#34;Rozpoczęcie wykonywania algorytmu.&#34;, update=False)</code></pre>
 </details>
 </section>
 <section>
@@ -206,7 +203,7 @@ title - pełna nazwa algorytmu. Wyswietlana w aplikacji.</p>
         def __init__(self, name: str = &#34;missing&#34;, title: str = &#34;missing&#34;):
                 super().__init__(name, title)
                 self.visualization_widget = NetworkXWidget
-                self.load_buttons()
+                self.load_controls()
                 self.data.clear()
                 self.snapshots.clear()
 
@@ -296,25 +293,22 @@ title - pełna nazwa algorytmu. Wyswietlana w aplikacji.</p>
                 for i in range(n):
                         self.add_element(str(random.randint(0, 100)))
 
-        def load_buttons(self):
+        def on_value_change(self, new_value):
+                self.last_value = new_value
+
+        def load_controls(self):
                 &#34;&#34;&#34;
-                Metoda wczytująca klawisze odpowiedzialne za manipulację wizualizacją.
+                Metoda tworząca klawisze oraz pola tekstowe odpowiedzialne za manipulację wizualizacją.
                 &#34;&#34;&#34;
-                self.buttons = list()
-                self.buttons.append([&#34;Dodaj&#34;, lambda: self.add_element(self.last_value), Paths.icon(&#34;plus.png&#34;), True,
-                        &#34;Dodanie nowego elementu na koniec tablicy.&#34;])
-                self.buttons.append([&#34;Usuń&#34;, lambda: self.remove_element(self.last_value), Paths.icon(&#34;minus.png&#34;), True,
-                        &#34;Usunięcie pierwszego napotkanego elementu o podanej wartości.&#34;])
-                self.buttons.append([&#34;Usuń wszystkie&#34;, lambda: self.remove_all_elements(self.last_value), Paths.icon(&#34;minus.png&#34;),
-                        True, &#34;Usunięcie wszystkich napotkanych elementów o podanej wartości.&#34;])
-                self.buttons.append([&#34;Wyczyść&#34;, lambda: self.clear(), Paths.icon(&#34;clear.png&#34;), True,
-                        &#34;Usunięcie wszystkich elementów oraz przywrócenie stanu początkowego.&#34;])
-                self.buttons.append([&#34;Losowe dane&#34;, lambda: self.random_data(), Paths.icon(&#34;random.png&#34;), True,
-                        &#34;Wylosowanie danych z ustawionego przedziału.&#34;])
-                self.buttons.append([&#34;Przemieszaj&#34;, lambda: self.shuffle(), Paths.icon(&#34;shuffle.png&#34;), True,
-                        &#34;Zamiana kolejności wszystkich elementów w tablicy.&#34;])
-                self.buttons.append([&#34;Wykonaj algorytm&#34;, lambda: self.execute(), Paths.icon(&#34;execute.png&#34;), False,
-                        &#34;Rozpoczęcie wykonywania algorytmu.&#34;])</code></pre>
+
+                self.add_textbox(&#34;Wartość elementu:&#34;, self.on_value_change, hint=&#34;Tutaj możesz wpisać dowolną wartość.&#34;)
+                self.add_button(&#34;Dodaj&#34;, lambda: self.add_element(self.last_value), icon=Paths.icon(&#34;plus.png&#34;), hint=&#34;Dodanie nowego elementu na koniec tablicy.&#34;)
+                self.add_button(&#34;Usuń&#34;, lambda: self.remove_element(self.last_value), icon=Paths.icon(&#34;minus.png&#34;), hint=&#34;Usunięcie pierwszego napotkanego elementu o podanej wartości.&#34;)
+                self.add_button(&#34;Usuń wszystkie&#34;, lambda: self.remove_all_elements(self.last_value), icon=Paths.icon(&#34;minus.png&#34;), hint=&#34;Usunięcie wszystkich napotkanych elementów o podanej wartości.&#34;)
+                self.add_button(&#34;Wyczyść&#34;, self.clear, icon=Paths.icon(&#34;clear.png&#34;), hint=&#34;Usunięcie wszystkich elementów oraz przywrócenie stanu początkowego.&#34;)
+                self.add_button(&#34;Losowe dane&#34;, self.random_data, icon=Paths.icon(&#34;random.png&#34;), hint=&#34;Wylosowanie danych z ustawionego przedziału.&#34;)
+                self.add_button(&#34;Przemieszaj&#34;, self.shuffle, icon=Paths.icon(&#34;shuffle.png&#34;), hint=&#34;Zamiana kolejności wszystkich elementów w tablicy.&#34;)
+                self.add_button(&#34;Wykonaj algorytm&#34;, self.execute, icon=Paths.icon(&#34;execute.png&#34;), hint=&#34;Rozpoczęcie wykonywania algorytmu.&#34;, update=False)</code></pre>
 </details>
 <h3>Ancestors</h3>
 <ul class="hlist">
@@ -386,34 +380,41 @@ title - pełna nazwa algorytmu. Wyswietlana w aplikacji.</p>
         pass</code></pre>
 </details>
 </dd>
-<dt id="WizualizacjaAlgorytmow.AlgorithmsLogic.BasicAlgorithm.BasicAlgorithm.load_buttons"><code class="name flex">
-<span>def <span class="ident">load_buttons</span></span>(<span>self)</span>
+<dt id="WizualizacjaAlgorytmow.AlgorithmsLogic.BasicAlgorithm.BasicAlgorithm.load_controls"><code class="name flex">
+<span>def <span class="ident">load_controls</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Metoda wczytująca klawisze odpowiedzialne za manipulację wizualizacją.</p></div>
+<div class="desc"><p>Metoda tworząca klawisze oraz pola tekstowe odpowiedzialne za manipulację wizualizacją.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def load_buttons(self):
+<pre><code class="python">def load_controls(self):
         &#34;&#34;&#34;
-        Metoda wczytująca klawisze odpowiedzialne za manipulację wizualizacją.
+        Metoda tworząca klawisze oraz pola tekstowe odpowiedzialne za manipulację wizualizacją.
         &#34;&#34;&#34;
-        self.buttons = list()
-        self.buttons.append([&#34;Dodaj&#34;, lambda: self.add_element(self.last_value), Paths.icon(&#34;plus.png&#34;), True,
-                &#34;Dodanie nowego elementu na koniec tablicy.&#34;])
-        self.buttons.append([&#34;Usuń&#34;, lambda: self.remove_element(self.last_value), Paths.icon(&#34;minus.png&#34;), True,
-                &#34;Usunięcie pierwszego napotkanego elementu o podanej wartości.&#34;])
-        self.buttons.append([&#34;Usuń wszystkie&#34;, lambda: self.remove_all_elements(self.last_value), Paths.icon(&#34;minus.png&#34;),
-                True, &#34;Usunięcie wszystkich napotkanych elementów o podanej wartości.&#34;])
-        self.buttons.append([&#34;Wyczyść&#34;, lambda: self.clear(), Paths.icon(&#34;clear.png&#34;), True,
-                &#34;Usunięcie wszystkich elementów oraz przywrócenie stanu początkowego.&#34;])
-        self.buttons.append([&#34;Losowe dane&#34;, lambda: self.random_data(), Paths.icon(&#34;random.png&#34;), True,
-                &#34;Wylosowanie danych z ustawionego przedziału.&#34;])
-        self.buttons.append([&#34;Przemieszaj&#34;, lambda: self.shuffle(), Paths.icon(&#34;shuffle.png&#34;), True,
-                &#34;Zamiana kolejności wszystkich elementów w tablicy.&#34;])
-        self.buttons.append([&#34;Wykonaj algorytm&#34;, lambda: self.execute(), Paths.icon(&#34;execute.png&#34;), False,
-                &#34;Rozpoczęcie wykonywania algorytmu.&#34;])</code></pre>
+
+        self.add_textbox(&#34;Wartość elementu:&#34;, self.on_value_change, hint=&#34;Tutaj możesz wpisać dowolną wartość.&#34;)
+        self.add_button(&#34;Dodaj&#34;, lambda: self.add_element(self.last_value), icon=Paths.icon(&#34;plus.png&#34;), hint=&#34;Dodanie nowego elementu na koniec tablicy.&#34;)
+        self.add_button(&#34;Usuń&#34;, lambda: self.remove_element(self.last_value), icon=Paths.icon(&#34;minus.png&#34;), hint=&#34;Usunięcie pierwszego napotkanego elementu o podanej wartości.&#34;)
+        self.add_button(&#34;Usuń wszystkie&#34;, lambda: self.remove_all_elements(self.last_value), icon=Paths.icon(&#34;minus.png&#34;), hint=&#34;Usunięcie wszystkich napotkanych elementów o podanej wartości.&#34;)
+        self.add_button(&#34;Wyczyść&#34;, self.clear, icon=Paths.icon(&#34;clear.png&#34;), hint=&#34;Usunięcie wszystkich elementów oraz przywrócenie stanu początkowego.&#34;)
+        self.add_button(&#34;Losowe dane&#34;, self.random_data, icon=Paths.icon(&#34;random.png&#34;), hint=&#34;Wylosowanie danych z ustawionego przedziału.&#34;)
+        self.add_button(&#34;Przemieszaj&#34;, self.shuffle, icon=Paths.icon(&#34;shuffle.png&#34;), hint=&#34;Zamiana kolejności wszystkich elementów w tablicy.&#34;)
+        self.add_button(&#34;Wykonaj algorytm&#34;, self.execute, icon=Paths.icon(&#34;execute.png&#34;), hint=&#34;Rozpoczęcie wykonywania algorytmu.&#34;, update=False)</code></pre>
+</details>
+</dd>
+<dt id="WizualizacjaAlgorytmow.AlgorithmsLogic.BasicAlgorithm.BasicAlgorithm.on_value_change"><code class="name flex">
+<span>def <span class="ident">on_value_change</span></span>(<span>self, new_value)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def on_value_change(self, new_value):
+        self.last_value = new_value</code></pre>
 </details>
 </dd>
 <dt id="WizualizacjaAlgorytmow.AlgorithmsLogic.BasicAlgorithm.BasicAlgorithm.random_data"><code class="name flex">
@@ -552,7 +553,8 @@ Jeżeli w pole tekstowe została wpisana liczba -&gt; n=ta liczba</p></div>
 <li><code><a title="WizualizacjaAlgorytmow.AlgorithmsLogic.BasicAlgorithm.BasicAlgorithm.add_element" href="#WizualizacjaAlgorytmow.AlgorithmsLogic.BasicAlgorithm.BasicAlgorithm.add_element">add_element</a></code></li>
 <li><code><a title="WizualizacjaAlgorytmow.AlgorithmsLogic.BasicAlgorithm.BasicAlgorithm.clear" href="#WizualizacjaAlgorytmow.AlgorithmsLogic.BasicAlgorithm.BasicAlgorithm.clear">clear</a></code></li>
 <li><code><a title="WizualizacjaAlgorytmow.AlgorithmsLogic.BasicAlgorithm.BasicAlgorithm.execute" href="#WizualizacjaAlgorytmow.AlgorithmsLogic.BasicAlgorithm.BasicAlgorithm.execute">execute</a></code></li>
-<li><code><a title="WizualizacjaAlgorytmow.AlgorithmsLogic.BasicAlgorithm.BasicAlgorithm.load_buttons" href="#WizualizacjaAlgorytmow.AlgorithmsLogic.BasicAlgorithm.BasicAlgorithm.load_buttons">load_buttons</a></code></li>
+<li><code><a title="WizualizacjaAlgorytmow.AlgorithmsLogic.BasicAlgorithm.BasicAlgorithm.load_controls" href="#WizualizacjaAlgorytmow.AlgorithmsLogic.BasicAlgorithm.BasicAlgorithm.load_controls">load_controls</a></code></li>
+<li><code><a title="WizualizacjaAlgorytmow.AlgorithmsLogic.BasicAlgorithm.BasicAlgorithm.on_value_change" href="#WizualizacjaAlgorytmow.AlgorithmsLogic.BasicAlgorithm.BasicAlgorithm.on_value_change">on_value_change</a></code></li>
 <li><code><a title="WizualizacjaAlgorytmow.AlgorithmsLogic.BasicAlgorithm.BasicAlgorithm.random_data" href="#WizualizacjaAlgorytmow.AlgorithmsLogic.BasicAlgorithm.BasicAlgorithm.random_data">random_data</a></code></li>
 <li><code><a title="WizualizacjaAlgorytmow.AlgorithmsLogic.BasicAlgorithm.BasicAlgorithm.remove_all_elements" href="#WizualizacjaAlgorytmow.AlgorithmsLogic.BasicAlgorithm.BasicAlgorithm.remove_all_elements">remove_all_elements</a></code></li>
 <li><code><a title="WizualizacjaAlgorytmow.AlgorithmsLogic.BasicAlgorithm.BasicAlgorithm.remove_element" href="#WizualizacjaAlgorytmow.AlgorithmsLogic.BasicAlgorithm.BasicAlgorithm.remove_element">remove_element</a></code></li>
