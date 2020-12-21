@@ -24,7 +24,7 @@ class Algorithm:
 		self.last_value = 0
 		self.codes = []
 		self.test_questions = []
-		self.buttons = None
+		self.controls = []
 		self.data = []
 		self.snapshots = []
 		self.__load_codes()
@@ -39,6 +39,31 @@ class Algorithm:
 		highlights - słownik z węzłami oznaczonymi innym kolorem.
 		"""
 		self.snapshots.append(Snapshot(self.data.copy(), description, highlights))
+
+	def add_button(self, title: str, callback, icon="", hint="" , update=True):
+		"""
+		Dodaje przycisk.
+
+		Parametry:
+			title - tekst na przycisku
+			callback - funkcja wywoływana przy przyciśnięciu przycisku.
+			icon - ścieżka do ikony przycisku. Domyślnie brak.
+			hint - tekst wyświetlany po najechaniu na przycisk. Domyślnie pusty.
+			update - wartość True, False. Określa czy po wykonaniu interakcji, wizualizacja ma pokazać ostatni krok. Domyślne True.
+		"""
+		self.controls.append(["BUTTON", title, callback, icon, hint, update])
+
+	def add_textbox(self, label: str, callback, hint="" , update=False):
+		"""
+		Dodaje pole tekstowe.
+
+		Parametry:
+			label - Etykieta pola tekstowego.
+			callback - funkcja wywoływana przy zmianie wartości pola. Jej pierwszy parametr będzie zawierał wartość.
+			hint - tekst wyświetlany po najechaniu na pole tekstowe. Domyślnie pusty.
+			update - wartość True, False. Określa czy po wykonaniu interakcji, wizualizacja ma pokazać ostatni krok. Domyślne False.
+		"""
+		self.controls.append(["TEXTBOX", label, callback, hint, update])
 
 	def __load_test(self):
 		"""

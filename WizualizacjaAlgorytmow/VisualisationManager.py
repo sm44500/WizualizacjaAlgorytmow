@@ -47,17 +47,27 @@ class VisualisationManager:
 		self.slider = self.control_panel_bottom.add_slider(1, 100, 50, 1)
 		self.slider.sliderReleased.connect(lambda: self.on_update_slider())
 
-		self.text_box_label = self.control_panel_bottom.add_label("Wartość elementu:")
-		self.text_box = self.control_panel_bottom.add_text_box("Tutaj możesz wpisać dowolną wartość.")
-
-		for name, on_clicked, icon, should_update_current_snapshot, hint in self.algorithm.buttons:
-			algorithm_button = self.control_panel_bottom.add_button(name, icon)
-			algorithm_button.clicked.connect(self.on_click_algorithm)
-			algorithm_button.clicked.connect(on_clicked)
-			if should_update_current_snapshot:
-				algorithm_button.clicked.connect(self.on_click_last_snapshot)
-			algorithm_button.set_hint(hint)
-			self.internal_widgets.append(algorithm_button)
+		for control in self.algorithm.controls:
+			control_type = control[0]
+			if control_type == "BUTTON":
+				title, callback, icon, hint, update = control[1:]
+				button = self.control_panel_bottom.add_button(title, icon)
+				button.clicked.connect(callback)
+				if update:
+					button.clicked.connect(self.on_click_last_snapshot)
+				button.set_hint(hint)
+				self.internal_widgets.append(button)
+			elif control_type == "TEXTBOX":
+				label_text, callback, hint, update = control[1:]
+				label = self.control_panel_bottom.add_label(label_text)
+				textbox = self.control_panel_bottom.add_text_box(hint)
+				textbox.textChanged.connect(callback)
+				if update:
+					textbox.textChanged.connect(self.on_click_last_snapshot)
+				self.internal_widgets.append(label)
+				self.internal_widgets.append(textbox)
+			else:
+			 	print("Unknown control type")
 
 		self.icon_panel = self.control_panel_bottom.add_icon_panel()
 
@@ -157,14 +167,6 @@ class VisualisationManager:
 			self.play_button.set_icon(self.pause_icon)
 			self.play_button.set_hint("Zatrzymanie automatycznego odtwarzania kroków.")
 			self.play_button.setStyleSheet(Styles.snapshot_button_background_clicked)
-
-	def on_click_algorithm(self):
-		"""
-		Obsługuje zdarzenia wewnątrz algorytmu.
-		"""
-		self.algorithm.last_value = self.text_box.text()
-		# self.description_widget.set_text(snapshot.description)
-		self.text_box.clear()
 
 	def on_update_slider(self):
 		self.stop_changing_snapshots()

@@ -23,7 +23,7 @@ class BasicAlgorithm(Algorithm):
 	def __init__(self, name: str = "missing", title: str = "missing"):
 		super().__init__(name, title)
 		self.visualization_widget = NetworkXWidget
-		self.load_buttons()
+		self.load_controls()
 		self.data.clear()
 		self.snapshots.clear()
 
@@ -113,22 +113,20 @@ class BasicAlgorithm(Algorithm):
 		for i in range(n):
 			self.add_element(str(random.randint(0, 100)))
 
-	def load_buttons(self):
+	def on_value_change(self, new_value):
+		self.last_value = new_value
+
+	def load_controls(self):
 		"""
-		Metoda wczytująca klawisze odpowiedzialne za manipulację wizualizacją.
+		Metoda tworząca klawisze oraz pola tekstowe odpowiedzialne za manipulację wizualizacją.
 		"""
-		self.buttons = list()
-		self.buttons.append(["Dodaj", lambda: self.add_element(self.last_value), Paths.icon("plus.png"), True,
-			"Dodanie nowego elementu na koniec tablicy."])
-		self.buttons.append(["Usuń", lambda: self.remove_element(self.last_value), Paths.icon("minus.png"), True,
-			"Usunięcie pierwszego napotkanego elementu o podanej wartości."])
-		self.buttons.append(["Usuń wszystkie", lambda: self.remove_all_elements(self.last_value), Paths.icon("minus.png"),
-			True, "Usunięcie wszystkich napotkanych elementów o podanej wartości."])
-		self.buttons.append(["Wyczyść", lambda: self.clear(), Paths.icon("clear.png"), True,
-			"Usunięcie wszystkich elementów oraz przywrócenie stanu początkowego."])
-		self.buttons.append(["Losowe dane", lambda: self.random_data(), Paths.icon("random.png"), True,
-			"Wylosowanie danych z ustawionego przedziału."])
-		self.buttons.append(["Przemieszaj", lambda: self.shuffle(), Paths.icon("shuffle.png"), True,
-			"Zamiana kolejności wszystkich elementów w tablicy."])
-		self.buttons.append(["Wykonaj algorytm", lambda: self.execute(), Paths.icon("execute.png"), False,
-			"Rozpoczęcie wykonywania algorytmu."])
+
+		self.add_textbox("Wartość elementu:", self.on_value_change, hint="Tutaj możesz wpisać dowolną wartość.")
+		self.add_button("Dodaj", lambda: self.add_element(self.last_value), icon=Paths.icon("plus.png"), hint="Dodanie nowego elementu na koniec tablicy.")
+		self.add_button("Usuń", lambda: self.remove_element(self.last_value), icon=Paths.icon("minus.png"), hint="Usunięcie pierwszego napotkanego elementu o podanej wartości.")
+		self.add_button("Usuń wszystkie", lambda: self.remove_all_elements(self.last_value), icon=Paths.icon("minus.png"), hint="Usunięcie wszystkich napotkanych elementów o podanej wartości.")
+		self.add_button("Wyczyść", self.clear, icon=Paths.icon("clear.png"), hint="Usunięcie wszystkich elementów oraz przywrócenie stanu początkowego.")
+		self.add_button("Losowe dane", self.random_data, icon=Paths.icon("random.png"), hint="Wylosowanie danych z ustawionego przedziału.")
+		self.add_button("Przemieszaj", self.shuffle, icon=Paths.icon("shuffle.png"), hint="Zamiana kolejności wszystkich elementów w tablicy.")
+		self.add_button("Wykonaj algorytm", self.execute, icon=Paths.icon("execute.png"), hint="Rozpoczęcie wykonywania algorytmu.", update=False)
+
