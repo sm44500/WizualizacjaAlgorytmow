@@ -25,6 +25,7 @@ class BasicAlgorithm(Algorithm):
 		self.visualization_widget = NetworkXWidget
 		self.load_controls()
 		self.data.clear()
+		self.last_value = ""
 		self.snapshots.clear()
 
 	def add_element(self, value: str):
