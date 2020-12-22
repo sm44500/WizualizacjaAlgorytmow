@@ -48,6 +48,11 @@ class Styles:
 	}
 	""" + standard_tooltip
 
+	settings_background = """
+	background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb(100, 100, 100), stop:1 rgb(90, 90, 90));
+	border-radius: 0px;
+	"""
+
 	snapshot_button_background = button_background
 
 	snapshot_button_background_clicked = """

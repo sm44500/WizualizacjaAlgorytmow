@@ -6,6 +6,7 @@ from Widgets.ControlPanelWidgets.ControlPanelButton import ControlPanelButton
 from Widgets.ControlPanelWidgets.ControlPanelLabel import ControlPanelLabel
 from Widgets.ControlPanelWidgets.ControlPanelTextBox import ControlPanelTextBox
 from Widgets.ControlPanelWidgets.ControlPanelIconPanel import ControlPanelIconPanel
+from Widgets.ControlPanelWidgets.ControlPanelTextBoxGroup import ControlPanelTextBoxGroup
 from Widgets.BaseWidget import BaseWidget
 
 
@@ -112,12 +113,25 @@ class ControlPanel(BaseWidget):
 		Powrót:
 			ControlPanelSlider - suwak
 		"""
-		slider = ControlPanelSlider(Qt.Horizontal)
+		slider = ControlPanelSlider(value, Qt.Horizontal)
 		slider.setMinimum(minimum)
 		slider.setMaximum(maximum)
-		slider.setValue(value)
 		slider.setSingleStep(step)
-		self.add_label("Prędkość animacji:")
+		self.add_label("Prędkość animacji:").setMinimumHeight(32)
 		self.widget_layout.addWidget(slider)
 		self.widgets.append(slider)
 		return slider
+
+	def add_button_group(self) -> ControlPanelTextBoxGroup:
+		"""
+		Dodanie grupy klawiszy.
+
+		Typ zwracany:
+		ControlPanelButtonGroup
+		"""
+		buttons = ControlPanelTextBoxGroup()
+
+		self.widget_layout.addWidget(buttons)
+		self.widgets.append(buttons)
+
+		return buttons

@@ -2,6 +2,7 @@ import random
 
 from Paths import Paths
 from AlgorithmsLogic.Algorithm import Algorithm
+from Settings import Settings
 from Snapshot import Snapshot
 from Widgets.NetworkXWidget import NetworkXWidget
 
@@ -103,16 +104,10 @@ class BasicAlgorithm(Algorithm):
 
 	def random_data(self):
 		"""
-		Metoda doająca n losowych wartości z przedziału <0;100>.
-		Jeżeli w pole tekstowe nie zostało wpisane nic lub tekst -> n=10
-		Jeżeli w pole tekstowe została wpisana liczba -> n=ta liczba
+		Metoda doająca losowe wartości z ustalonego przedziału.
 		"""
-		if self.last_value == '' or not self.last_value.isdigit():
-			n = 10
-		else:
-			n = int(self.last_value)
-		for i in range(n):
-			self.add_element(str(random.randint(0, 100)))
+		for i in range(Settings.random_data_amount[0]):
+			self.add_element(str(random.randint(Settings.random_data_minimum_value[0], Settings.random_data_maximum_value[0])))
 
 	def on_value_change(self, new_value):
 		self.last_value = new_value

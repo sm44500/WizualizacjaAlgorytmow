@@ -22,6 +22,7 @@ class ControlPanelLabel(QLabel):
 		font = QFont()
 		font.setPointSize(14)
 		font.setBold(True)
+
 		self.setFont(font)
 		self.setMinimumHeight(20)
 		self.setAlignment(Qt.AlignCenter)

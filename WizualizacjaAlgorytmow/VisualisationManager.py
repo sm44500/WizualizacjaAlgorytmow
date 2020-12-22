@@ -3,6 +3,7 @@ from PyQt5.QtWidgets import QWidget
 from PyQt5.QtGui import QColor, QIcon
 from Paths import Paths
 from AlgorithmsLogic import Algorithm
+from Settings import Settings
 from Styles import Styles
 
 
@@ -43,9 +44,6 @@ class VisualisationManager:
 		Inicjalizuje panel kontrolny.
 		"""
 		self.center.set_widget(self.algorithm.visualization_widget)
-
-		self.slider = self.control_panel_bottom.add_slider(1, 100, 50, 1)
-		self.slider.sliderReleased.connect(lambda: self.on_update_slider())
 
 		for control in self.algorithm.controls:
 			control_type = control[0]
@@ -145,7 +143,7 @@ class VisualisationManager:
 				snapshot = self.algorithm.snapshots[self.current_snapshot_index]
 				self.description_widget.set_text(snapshot.description)
 				self.center.widget.render_snapshot(snapshot)
-				QTest.qWait((100 - self.slider.value()) * len(snapshot.description))
+				QTest.qWait((100 - Settings.visualisation_speed[0]) * len(snapshot.description))
 		self.stop_changing_snapshots()
 
 	def stop_changing_snapshots(self):

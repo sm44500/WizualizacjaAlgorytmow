@@ -6,6 +6,8 @@ from DescriptionManager import DescriptionManager
 from Paths import Paths
 
 import Algorithms
+from SettingsWindow import SettingsWindow
+
 
 class AlgorithmsManager:
 	"""
@@ -29,6 +31,7 @@ class AlgorithmsManager:
 		self.visualisation_button = None
 		self.questions_button = None
 		self.codes_button = None
+		self.settings_window = None
 		self.setup_algorithms()
 
 	def setup_algorithms(self):
@@ -69,6 +72,10 @@ class AlgorithmsManager:
 		self.questions_button = self.control_panel_top.add_button("Pytania", Paths.icon("question_mark.png"))
 		self.questions_button.clicked.connect(self.show_questions)
 		self.questions_button.set_hint("Panel weryfikujący zdobytą przez użytkownika wiedzę.")
+
+		self.questions_button = self.control_panel_top.add_button("Ustawienia", Paths.icon("settings.png"))
+		self.questions_button.clicked.connect(self.show_settings)
+		self.questions_button.set_hint("Panel pozwalający dostosować użytkowanie aplikacji.")
 
 	def on_change_algorithm(self, index):
 		"""
@@ -114,6 +121,13 @@ class AlgorithmsManager:
 		if len(self.current_algorithm.test_questions) > 0:
 			self.reset()
 			self.manager = QuestionsManager(self.main_widget, self.current_algorithm)
+
+	def show_settings(self):
+		"""
+		Uruchomienie panelu konfiguracyjnego.
+		"""
+		self.settings_window = SettingsWindow()
+		self.settings_window.show()
 
 	def show_codes(self):
 		"""
