@@ -21,7 +21,7 @@ class Algorithm:
 		self.name = name
 		self.title = title
 		self.difficulty = 0
-		self.last_value = 0
+		self.textbox_value = 0
 		self.codes = []
 		self.test_questions = []
 		self.controls = []

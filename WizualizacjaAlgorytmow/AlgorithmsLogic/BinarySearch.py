@@ -30,7 +30,7 @@ class BinarySearch(BasicAlgorithm):
 		"""
 		self.bubble_sort()
 		self.save_snapshot("Na początek sortujemy tablicę wejściową.")
-		value = self.last_value
+		value = self.textbox_value
 		left_index = 0
 		right_index = len(self.data)
 		found_index = -1
