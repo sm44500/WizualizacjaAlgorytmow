@@ -1,20 +1,26 @@
 [
     {
         "question": "Example question one",
+        "image": "test.png",
         "answers": [
             "Example answer 1",
             "Example answer 2",
-            "Example answer 3"
+            "Example answer 3",
+            "Example answer 4"
         ],
-        "correct": 1
+        "correct": 1,
+        "explanation": "because yes"
     },
     {
         "question": "Example question two",
+        "image": "test.png",
         "answers": [
             "Example answer 1",
             "Example answer 2",
-            "Example answer 3"
+            "Example answer 3",
+            "Example answer 4"
         ],
-        "correct": 0
+        "correct": 0,
+        "explanation": "because yes"
     }
 ]

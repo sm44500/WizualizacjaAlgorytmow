@@ -1,4 +1,5 @@
 import os
+import sys
 
 
 class Paths:
@@ -6,7 +7,10 @@ class Paths:
 	Klasa pomocnicza umożliwiająca łatwy dostęp do ścierzek plików i folderów.
 	Każda ścieżka jest ścieżką bezwzględną.
 	"""
-	program = os.path.dirname(os.path.abspath(__file__))
+	if getattr(sys, 'frozen', False):
+		program = os.path.dirname(sys.executable)
+	else:
+		program = os.path.dirname(os.path.abspath(__file__)) 
 	resources = os.path.join(program, "Resources")
 	icons = os.path.join(resources, "Icons")
 	algorithms = os.path.join(program, "Algorithms")
@@ -51,7 +55,7 @@ class Paths:
 			algorithm_name - nazwa algorytmu
 		"""
 		algorithm_path = Paths.algorithm(algorithm_name)
-		return os.path.join(algorithm_path, "test.json")
+		return os.path.join(algorithm_path, "questions/questions.json")
 
 	@staticmethod
 	def description(algorithm_name: str):
