@@ -69,11 +69,3 @@ class CountingSort(BasicAlgorithm):
 		else:
 			self.data.append(value.strip())
 			self.save_snapshot("Dodanie elementu '%s' do tablicy danych." % value, {len(self.data) - 1: Snapshot.color_selected})
-
-	def random_data(self):
-		if self.last_value == '' or not self.last_value.isdigit():
-			n = 10
-		else:
-			n = int(self.last_value)
-		for i in range(n):
-			self.add_element(str(random.randint(-5, 10)))

@@ -41,6 +41,7 @@ class BasicAlgorithm(Algorithm):
 			>>> add_element("Janek")
 		"""
 		if len(self.data) == Settings.input_limit[0]:
+			self.save_snapshot("Nie można dodać więcej elementów! Musisz zwiększyć limit w ustawieniach.")
 			return
 
 		self.data.append(value.strip())
@@ -95,7 +96,9 @@ class BasicAlgorithm(Algorithm):
 		Metoda odpowiedzialna za przemieszanie wszystkich elementów.
 		"""
 		if len(self.data) == 0:
+			self.save_snapshot("Nie możesz przemieszać pustej tablicy!")
 			return
+
 		random.shuffle(self.data)
 		self.save_snapshot("Elementy zostały przemieszane!")
 
@@ -109,7 +112,13 @@ class BasicAlgorithm(Algorithm):
 		"""
 		Metoda doająca losowe wartości z ustalonego przedziału.
 		"""
-		for i in range(max(0, min(Settings.input_limit[0]-len(self.data), Settings.random_data_amount[0]))):
+		amount_of_elements = max(0, min(Settings.input_limit[0]-len(self.data), Settings.random_data_amount[0]))
+
+		if amount_of_elements == 0:
+			self.save_snapshot("Nie można dodać więcej elementów! Musisz zwiększyć limit w ustawieniach.")
+			return
+
+		for i in range(amount_of_elements):
 			self.add_element(str(random.randint(Settings.random_data_minimum_value[0], Settings.random_data_maximum_value[0])))
 
 	def on_value_change(self, new_value):
