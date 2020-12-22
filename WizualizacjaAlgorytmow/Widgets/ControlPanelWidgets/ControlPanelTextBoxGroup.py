@@ -107,7 +107,6 @@ class ControlPanelSingleRow(QWidget):
 		self.input_box.setToolTip(hint)
 
 
-
 class ControlPanelTextBoxGroup(QWidget):
 	"""
 	Panel kontrolny z grupą podpisanych klawiszy.

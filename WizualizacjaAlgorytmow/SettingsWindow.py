@@ -24,6 +24,7 @@ class SettingsWindow(QMainWindow):
 		self.control_panel = None
 		self.animation_speed_slider = None
 		self.shuffle_data = None
+		self.input = None
 		self.setup_ui()
 		self.setup_buttons()
 
@@ -49,6 +50,14 @@ class SettingsWindow(QMainWindow):
 		self.setWindowIcon(QIcon(Paths.icon("settings.png")))
 
 	def setup_buttons(self):
+		self.input = self.control_panel.add_button_group()
+		self.input.set_header("Dane wejściowe")
+
+		input_limit = self.input.add_row("Liczba elementów")
+		input_limit.set_hint("Ustawienie maksymalnej liczby elementów.")
+		input_limit.set_int_validator(10, 50)
+		input_limit.set_value(Settings.input_limit)
+
 		self.animation_speed_slider = self.control_panel.add_slider(1, 100, Settings.visualisation_speed, 1)
 		self.animation_speed_slider.setToolTip("Ustawienie prędkości zmiany pomiędzy następnymi krokami.")
 

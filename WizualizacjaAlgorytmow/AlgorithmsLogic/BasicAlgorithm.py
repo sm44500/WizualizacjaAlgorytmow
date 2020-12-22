@@ -40,6 +40,9 @@ class BasicAlgorithm(Algorithm):
 			>>> add_element(5)
 			>>> add_element("Janek")
 		"""
+		if len(self.data) == Settings.input_limit[0]:
+			return
+
 		self.data.append(value.strip())
 		self.save_snapshot("Dodanie elementu '%s'." % value, {len(self.data) - 1: Snapshot.color_selected})
 
@@ -106,7 +109,7 @@ class BasicAlgorithm(Algorithm):
 		"""
 		Metoda doająca losowe wartości z ustalonego przedziału.
 		"""
-		for i in range(Settings.random_data_amount[0]):
+		for i in range(max(0, min(Settings.input_limit[0]-len(self.data), Settings.random_data_amount[0]))):
 			self.add_element(str(random.randint(Settings.random_data_minimum_value[0], Settings.random_data_maximum_value[0])))
 
 	def on_value_change(self, new_value):
