@@ -110,7 +110,7 @@ class BasicAlgorithm(Algorithm):
 
 	def random_data(self):
 		"""
-		Metoda doająca losowe wartości z ustalonego przedziału.
+		Metoda dodająca losowe wartości z ustalonego przedziału.
 		"""
 		amount_of_elements = max(0, min(Settings.input_limit[0]-len(self.data), Settings.random_data_amount[0]))
 
