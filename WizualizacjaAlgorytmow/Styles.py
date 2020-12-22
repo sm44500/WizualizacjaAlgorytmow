@@ -74,9 +74,10 @@ class Styles:
 	"""
 
 	label_background = """
+	QLabel {
 	background:qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgb(160, 160, 160), stop:1 rgb(150, 150, 150));
 	border-radius: 0px;
-	"""
+	}""" + standard_tooltip
 
 	text_box_background = """
 	QLineEdit {

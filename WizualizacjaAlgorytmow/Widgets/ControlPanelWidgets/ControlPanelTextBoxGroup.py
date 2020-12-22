@@ -32,10 +32,10 @@ class ControlPanelSingleRow(QWidget):
 		shadow.setOffset(1.0, 1.0)
 		shadow.setColor(QColor(127, 127, 127, 255))
 
+		self.validator = QIntValidator()
+
 		font = QFont()
 		font.setPointSize(11)
-
-		self.validator = QIntValidator()
 
 		self.label = QLabel(self)
 		self.label.setMinimumSize(150, self.minimumHeight())
@@ -43,10 +43,15 @@ class ControlPanelSingleRow(QWidget):
 		self.label.setStyleSheet(Styles.label_background)
 		self.label.setAlignment(Qt.AlignCenter)
 
+		font = QFont()
+		font.setPointSize(13)
+		font.setBold(True)
+
 		self.input_box = QLineEdit(self)
 		self.input_box.setMinimumHeight(self.minimumHeight())
 		self.input_box.setStyleSheet(Styles.text_box_background)
 		self.input_box.setAlignment(Qt.AlignRight)
+		self.input_box.setFont(font)
 
 		self.layout = QHBoxLayout(self)
 		self.layout.addWidget(self.label)
@@ -90,6 +95,17 @@ class ControlPanelSingleRow(QWidget):
 		Aktualizacja zmiennej po każdej zmianie.
 		"""
 		self.value[0] = int(self.input_box.text())
+
+	def set_hint(self, hint: str):
+		"""
+		Ustawienie podpowiedzi na danym polu.
+
+		Parametry:
+		hint - tekst wyświetlany jako podpowiedź
+		"""
+		self.label.setToolTip(hint)
+		self.input_box.setToolTip(hint)
+
 
 
 class ControlPanelTextBoxGroup(QWidget):
