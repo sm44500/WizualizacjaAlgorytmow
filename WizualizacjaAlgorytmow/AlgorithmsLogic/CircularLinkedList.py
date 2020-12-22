@@ -1,7 +1,7 @@
-from AlgorithmsLogic.AdvancedAlgorithm import AdvancedAlgorithm
+from AlgorithmsLogic.ListAlgorithm import ListAlgorithm
 
 
-class CircularLinkedList(AdvancedAlgorithm):
+class CircularLinkedList(ListAlgorithm):
 	"""
 	Klasa reprezentująca listę dwukierunkową
 

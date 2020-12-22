@@ -4,7 +4,7 @@ from Snapshot import Snapshot
 from Widgets.NodZWidget import NodZWidget
 
 
-class AdvancedAlgorithm(Algorithm):
+class ListAlgorithm(Algorithm):
 	"""
 	Klasa abstrakcyjna reprezentująca algorytm złożony.
 	Jest to algorytm, który przechowuje elementy typu Node.
@@ -15,13 +15,13 @@ class AdvancedAlgorithm(Algorithm):
 		title - pełna nazwa algorytmu. Wyswietlana w aplikacji.
 
 	Przykład:
-		>>> singly_linked_list = AdvancedAlgorithm("SinglyLinkedList", "Lista jednokierunkowa")
+		>>> singly_linked_list = ListAlgorithm("SinglyLinkedList", "Lista jednokierunkowa")
 	"""
 
 	def __init__(self, name: str = "missing", title: str = "missing"):
 		super().__init__(name, title)
 		self.visualization_widget = NodZWidget
-		self.load_buttons()
+		self.load_controls()
 		self.data.clear()
 		self.snapshots.clear()
 
@@ -54,8 +54,12 @@ class AdvancedAlgorithm(Algorithm):
 		self.snapshots.clear()
 		self.save_snapshot("Usunięto wszystko elementy z tablicy danych i wszystkie kroki są ponownie puste.")
 
-	def load_buttons(self):
+	def on_value_change(self, new_value):
+		self.textbox_value = new_value
+
+	def load_controls(self):
 		"""
-		Metoda wczytująca klawisze odpowiedzialne za manipulację wizualizacją.
+		Metoda tworząca klawisze oraz pola tekstowe odpowiedzialne za manipulację wizualizacją.
 		"""
-		self.buttons = list()
+		self.add_textbox("Wartość elementu:", self.on_value_change, hint="Tutaj możesz wpisać dowolną wartość.")
+		self.add_button("Dodaj", self.push_back, icon=Paths.icon("plus.png"), hint="Dodanie nowego elementu na koniec tablicy.")

@@ -1,7 +1,7 @@
-from AlgorithmsLogic.AdvancedAlgorithm import AdvancedAlgorithm
+from AlgorithmsLogic.ListAlgorithm import ListAlgorithm
 
 
-class DoublyLinkedList(AdvancedAlgorithm):
+class DoublyLinkedList(ListAlgorithm):
 	"""
 	Klasa reprezentująca listę dwukierunkową
 

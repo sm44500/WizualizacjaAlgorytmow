@@ -53,8 +53,8 @@ class NodZWidget(BaseWidget):
 		return node_attr
 
 	def render_snapshot(self, snapshot: Snapshot):
+		self.nodz.clearGraph()
 		nodes = snapshot.data
-
 		center_position = self.nodz.mapToScene(self.nodz.viewport().rect().center())
 
 		for index, node in enumerate(nodes):
