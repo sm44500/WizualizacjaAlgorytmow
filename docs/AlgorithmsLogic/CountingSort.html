@@ -96,15 +96,7 @@ class CountingSort(BasicAlgorithm):
                         self.save_snapshot(&#34;Wprowadzany element musi być liczbą.&#34;)
                 else:
                         self.data.append(value.strip())
-                        self.save_snapshot(&#34;Dodanie elementu &#39;%s&#39; do tablicy danych.&#34; % value, {len(self.data) - 1: Snapshot.color_selected})
-
-        def random_data(self):
-                if self.last_value == &#39;&#39; or not self.last_value.isdigit():
-                        n = 10
-                else:
-                        n = int(self.last_value)
-                for i in range(n):
-                        self.add_element(str(random.randint(-5, 10)))</code></pre>
+                        self.save_snapshot(&#34;Dodanie elementu &#39;%s&#39; do tablicy danych.&#34; % value, {len(self.data) - 1: Snapshot.color_selected})</code></pre>
 </details>
 </section>
 <section>
@@ -197,15 +189,7 @@ title - pełna nazwa algorytmu. Wyswietlana w aplikacji.</p>
                         self.save_snapshot(&#34;Wprowadzany element musi być liczbą.&#34;)
                 else:
                         self.data.append(value.strip())
-                        self.save_snapshot(&#34;Dodanie elementu &#39;%s&#39; do tablicy danych.&#34; % value, {len(self.data) - 1: Snapshot.color_selected})
-
-        def random_data(self):
-                if self.last_value == &#39;&#39; or not self.last_value.isdigit():
-                        n = 10
-                else:
-                        n = int(self.last_value)
-                for i in range(n):
-                        self.add_element(str(random.randint(-5, 10)))</code></pre>
+                        self.save_snapshot(&#34;Dodanie elementu &#39;%s&#39; do tablicy danych.&#34; % value, {len(self.data) - 1: Snapshot.color_selected})</code></pre>
 </details>
 <h3>Ancestors</h3>
 <ul class="hlist">
@@ -317,26 +301,6 @@ title - pełna nazwa algorytmu. Wyswietlana w aplikacji.</p>
         self.save_snapshot(&#34;Algorytm zakończył działanie!&#34;)</code></pre>
 </details>
 </dd>
-<dt id="WizualizacjaAlgorytmow.AlgorithmsLogic.CountingSort.CountingSort.random_data"><code class="name flex">
-<span>def <span class="ident">random_data</span></span>(<span>self)</span>
-</code></dt>
-<dd>
-<div class="desc"><p>Metoda doająca n losowych wartości z przedziału &lt;0;100&gt;.
-Jeżeli w pole tekstowe nie zostało wpisane nic lub tekst -&gt; n=10
-Jeżeli w pole tekstowe została wpisana liczba -&gt; n=ta liczba</p></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def random_data(self):
-        if self.last_value == &#39;&#39; or not self.last_value.isdigit():
-                n = 10
-        else:
-                n = int(self.last_value)
-        for i in range(n):
-                self.add_element(str(random.randint(-5, 10)))</code></pre>
-</details>
-</dd>
 </dl>
 </dd>
 </dl>
@@ -362,7 +326,6 @@ Jeżeli w pole tekstowe została wpisana liczba -&gt; n=ta liczba</p></div>
 <li><code><a title="WizualizacjaAlgorytmow.AlgorithmsLogic.CountingSort.CountingSort.counters_snapshot" href="#WizualizacjaAlgorytmow.AlgorithmsLogic.CountingSort.CountingSort.counters_snapshot">counters_snapshot</a></code></li>
 <li><code><a title="WizualizacjaAlgorytmow.AlgorithmsLogic.CountingSort.CountingSort.data_snapshot" href="#WizualizacjaAlgorytmow.AlgorithmsLogic.CountingSort.CountingSort.data_snapshot">data_snapshot</a></code></li>
 <li><code><a title="WizualizacjaAlgorytmow.AlgorithmsLogic.CountingSort.CountingSort.execute" href="#WizualizacjaAlgorytmow.AlgorithmsLogic.CountingSort.CountingSort.execute">execute</a></code></li>
-<li><code><a title="WizualizacjaAlgorytmow.AlgorithmsLogic.CountingSort.CountingSort.random_data" href="#WizualizacjaAlgorytmow.AlgorithmsLogic.CountingSort.CountingSort.random_data">random_data</a></code></li>
 </ul>
 </li>
 </ul>

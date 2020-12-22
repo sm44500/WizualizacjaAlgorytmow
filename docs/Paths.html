@@ -27,6 +27,7 @@
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">import os
+import sys
 
 
 class Paths:
@@ -34,7 +35,10 @@ class Paths:
         Klasa pomocnicza umożliwiająca łatwy dostęp do ścierzek plików i folderów.
         Każda ścieżka jest ścieżką bezwzględną.
         &#34;&#34;&#34;
-        program = os.path.dirname(os.path.abspath(__file__))
+        if getattr(sys, &#39;frozen&#39;, False):
+                program = os.path.dirname(sys.executable)
+        else:
+                program = os.path.dirname(os.path.abspath(__file__)) 
         resources = os.path.join(program, &#34;Resources&#34;)
         icons = os.path.join(resources, &#34;Icons&#34;)
         algorithms = os.path.join(program, &#34;Algorithms&#34;)
@@ -79,7 +83,7 @@ class Paths:
                         algorithm_name - nazwa algorytmu
                 &#34;&#34;&#34;
                 algorithm_path = Paths.algorithm(algorithm_name)
-                return os.path.join(algorithm_path, &#34;test.json&#34;)
+                return os.path.join(algorithm_path, &#34;questions/questions.json&#34;)
 
         @staticmethod
         def description(algorithm_name: str):
@@ -128,7 +132,10 @@ Każda ścieżka jest ścieżką bezwzględną.</p></div>
         Klasa pomocnicza umożliwiająca łatwy dostęp do ścierzek plików i folderów.
         Każda ścieżka jest ścieżką bezwzględną.
         &#34;&#34;&#34;
-        program = os.path.dirname(os.path.abspath(__file__))
+        if getattr(sys, &#39;frozen&#39;, False):
+                program = os.path.dirname(sys.executable)
+        else:
+                program = os.path.dirname(os.path.abspath(__file__)) 
         resources = os.path.join(program, &#34;Resources&#34;)
         icons = os.path.join(resources, &#34;Icons&#34;)
         algorithms = os.path.join(program, &#34;Algorithms&#34;)
@@ -173,7 +180,7 @@ Każda ścieżka jest ścieżką bezwzględną.</p></div>
                         algorithm_name - nazwa algorytmu
                 &#34;&#34;&#34;
                 algorithm_path = Paths.algorithm(algorithm_name)
-                return os.path.join(algorithm_path, &#34;test.json&#34;)
+                return os.path.join(algorithm_path, &#34;questions/questions.json&#34;)
 
         @staticmethod
         def description(algorithm_name: str):
@@ -351,7 +358,7 @@ def test(algorithm_name: str):
                 algorithm_name - nazwa algorytmu
         &#34;&#34;&#34;
         algorithm_path = Paths.algorithm(algorithm_name)
-        return os.path.join(algorithm_path, &#34;test.json&#34;)</code></pre>
+        return os.path.join(algorithm_path, &#34;questions/questions.json&#34;)</code></pre>
 </details>
 </dd>
 </dl>

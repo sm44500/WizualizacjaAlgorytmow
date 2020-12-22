@@ -50,16 +50,16 @@ class LinearSearch(BasicAlgorithm):
                 &#34;&#34;&#34;
                 for i in range(len(self.data)):
                         self.save_snapshot(
-                                &#34;Porównujemy %s. element z tablicy o wartości &#39;%s&#39; z wyszukiwanym elementem &#39;%s&#39;.&#34; % (i, self.data[i], self.last_value),
+                                &#34;Porównujemy %s. element z tablicy o wartości &#39;%s&#39; z wyszukiwanym elementem &#39;%s&#39;.&#34; % (i, self.data[i], self.textbox_value),
                                 {i: Snapshot.color_current})
-                        if self.data[i] == self.last_value:
+                        if self.data[i] == self.textbox_value:
                                 found_index = i
                                 found_value = self.data[i]
                                 self.save_snapshot(&#34;Znaleziono element o wartości &#39;%s&#39;&#34; % (self.data[i]), {i: Snapshot.color_current_final})
                                 self.found = True
                                 break
                         else:
-                                self.save_snapshot(&#34;&#39;%s&#39; nie jest równe &#39;%s&#39;, więc przechodzimy dalej.&#34; % (self.data[i], self.last_value),{i: Snapshot.color_current})
+                                self.save_snapshot(&#34;&#39;%s&#39; nie jest równe &#39;%s&#39;, więc przechodzimy dalej.&#34; % (self.data[i], self.textbox_value),{i: Snapshot.color_current})
                 if not self.found:
                         found_index = &#34;not_found&#34;
                         found_value = &#34;not_found&#34;
@@ -107,16 +107,16 @@ class LinearSearch(BasicAlgorithm):
                 &#34;&#34;&#34;
                 for i in range(len(self.data)):
                         self.save_snapshot(
-                                &#34;Porównujemy %s. element z tablicy o wartości &#39;%s&#39; z wyszukiwanym elementem &#39;%s&#39;.&#34; % (i, self.data[i], self.last_value),
+                                &#34;Porównujemy %s. element z tablicy o wartości &#39;%s&#39; z wyszukiwanym elementem &#39;%s&#39;.&#34; % (i, self.data[i], self.textbox_value),
                                 {i: Snapshot.color_current})
-                        if self.data[i] == self.last_value:
+                        if self.data[i] == self.textbox_value:
                                 found_index = i
                                 found_value = self.data[i]
                                 self.save_snapshot(&#34;Znaleziono element o wartości &#39;%s&#39;&#34; % (self.data[i]), {i: Snapshot.color_current_final})
                                 self.found = True
                                 break
                         else:
-                                self.save_snapshot(&#34;&#39;%s&#39; nie jest równe &#39;%s&#39;, więc przechodzimy dalej.&#34; % (self.data[i], self.last_value),{i: Snapshot.color_current})
+                                self.save_snapshot(&#34;&#39;%s&#39; nie jest równe &#39;%s&#39;, więc przechodzimy dalej.&#34; % (self.data[i], self.textbox_value),{i: Snapshot.color_current})
                 if not self.found:
                         found_index = &#34;not_found&#34;
                         found_value = &#34;not_found&#34;
@@ -145,16 +145,16 @@ class LinearSearch(BasicAlgorithm):
         &#34;&#34;&#34;
         for i in range(len(self.data)):
                 self.save_snapshot(
-                        &#34;Porównujemy %s. element z tablicy o wartości &#39;%s&#39; z wyszukiwanym elementem &#39;%s&#39;.&#34; % (i, self.data[i], self.last_value),
+                        &#34;Porównujemy %s. element z tablicy o wartości &#39;%s&#39; z wyszukiwanym elementem &#39;%s&#39;.&#34; % (i, self.data[i], self.textbox_value),
                         {i: Snapshot.color_current})
-                if self.data[i] == self.last_value:
+                if self.data[i] == self.textbox_value:
                         found_index = i
                         found_value = self.data[i]
                         self.save_snapshot(&#34;Znaleziono element o wartości &#39;%s&#39;&#34; % (self.data[i]), {i: Snapshot.color_current_final})
                         self.found = True
                         break
                 else:
-                        self.save_snapshot(&#34;&#39;%s&#39; nie jest równe &#39;%s&#39;, więc przechodzimy dalej.&#34; % (self.data[i], self.last_value),{i: Snapshot.color_current})
+                        self.save_snapshot(&#34;&#39;%s&#39; nie jest równe &#39;%s&#39;, więc przechodzimy dalej.&#34; % (self.data[i], self.textbox_value),{i: Snapshot.color_current})
         if not self.found:
                 found_index = &#34;not_found&#34;
                 found_value = &#34;not_found&#34;

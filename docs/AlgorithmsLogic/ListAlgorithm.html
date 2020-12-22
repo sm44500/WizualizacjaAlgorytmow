@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.9.2" />
-<title>WizualizacjaAlgorytmow.AlgorithmsLogic.AdvancedAlgorithm API documentation</title>
+<title>WizualizacjaAlgorytmow.AlgorithmsLogic.ListAlgorithm API documentation</title>
 <meta name="description" content="" />
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
@@ -19,7 +19,7 @@
 <main>
 <article id="content">
 <header>
-<h1 class="title">Module <code>WizualizacjaAlgorytmow.AlgorithmsLogic.AdvancedAlgorithm</code></h1>
+<h1 class="title">Module <code>WizualizacjaAlgorytmow.AlgorithmsLogic.ListAlgorithm</code></h1>
 </header>
 <section id="section-intro">
 <details class="source">
@@ -32,7 +32,7 @@ from Snapshot import Snapshot
 from Widgets.NodZWidget import NodZWidget
 
 
-class AdvancedAlgorithm(Algorithm):
+class ListAlgorithm(Algorithm):
         &#34;&#34;&#34;
         Klasa abstrakcyjna reprezentująca algorytm złożony.
         Jest to algorytm, który przechowuje elementy typu Node.
@@ -43,13 +43,13 @@ class AdvancedAlgorithm(Algorithm):
                 title - pełna nazwa algorytmu. Wyswietlana w aplikacji.
 
         Przykład:
-                &gt;&gt;&gt; singly_linked_list = AdvancedAlgorithm(&#34;SinglyLinkedList&#34;, &#34;Lista jednokierunkowa&#34;)
+                &gt;&gt;&gt; singly_linked_list = ListAlgorithm(&#34;SinglyLinkedList&#34;, &#34;Lista jednokierunkowa&#34;)
         &#34;&#34;&#34;
 
         def __init__(self, name: str = &#34;missing&#34;, title: str = &#34;missing&#34;):
                 super().__init__(name, title)
                 self.visualization_widget = NodZWidget
-                self.load_buttons()
+                self.load_controls()
                 self.data.clear()
                 self.snapshots.clear()
 
@@ -82,11 +82,15 @@ class AdvancedAlgorithm(Algorithm):
                 self.snapshots.clear()
                 self.save_snapshot(&#34;Usunięto wszystko elementy z tablicy danych i wszystkie kroki są ponownie puste.&#34;)
 
-        def load_buttons(self):
+        def on_value_change(self, new_value):
+                self.textbox_value = new_value
+
+        def load_controls(self):
                 &#34;&#34;&#34;
-                Metoda wczytująca klawisze odpowiedzialne za manipulację wizualizacją.
+                Metoda tworząca klawisze oraz pola tekstowe odpowiedzialne za manipulację wizualizacją.
                 &#34;&#34;&#34;
-                self.buttons = list()</code></pre>
+                self.add_textbox(&#34;Wartość elementu:&#34;, self.on_value_change, hint=&#34;Tutaj możesz wpisać dowolną wartość.&#34;)
+                self.add_button(&#34;Dodaj&#34;, self.push_back, icon=Paths.icon(&#34;plus.png&#34;), hint=&#34;Dodanie nowego elementu na koniec tablicy.&#34;)</code></pre>
 </details>
 </section>
 <section>
@@ -98,8 +102,8 @@ class AdvancedAlgorithm(Algorithm):
 <section>
 <h2 class="section-title" id="header-classes">Classes</h2>
 <dl>
-<dt id="WizualizacjaAlgorytmow.AlgorithmsLogic.AdvancedAlgorithm.AdvancedAlgorithm"><code class="flex name class">
-<span>class <span class="ident">AdvancedAlgorithm</span></span>
+<dt id="WizualizacjaAlgorytmow.AlgorithmsLogic.ListAlgorithm.ListAlgorithm"><code class="flex name class">
+<span>class <span class="ident">ListAlgorithm</span></span>
 <span>(</span><span>name: str = 'missing', title: str = 'missing')</span>
 </code></dt>
 <dd>
@@ -110,13 +114,13 @@ Algorytm dziedziczący po tej klasie będzie wykorzystywać bibliotekę NodZ.</p
 <p>name - skrótowa nazwa algorytmu. Tożsama z nazwą w folderze algorithm.
 title - pełna nazwa algorytmu. Wyswietlana w aplikacji.</p>
 <h2 id="przykad">Przykład</h2>
-<pre><code class="language-python-repl">&gt;&gt;&gt; singly_linked_list = AdvancedAlgorithm(&quot;SinglyLinkedList&quot;, &quot;Lista jednokierunkowa&quot;)
+<pre><code class="language-python-repl">&gt;&gt;&gt; singly_linked_list = ListAlgorithm(&quot;SinglyLinkedList&quot;, &quot;Lista jednokierunkowa&quot;)
 </code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">class AdvancedAlgorithm(Algorithm):
+<pre><code class="python">class ListAlgorithm(Algorithm):
         &#34;&#34;&#34;
         Klasa abstrakcyjna reprezentująca algorytm złożony.
         Jest to algorytm, który przechowuje elementy typu Node.
@@ -127,13 +131,13 @@ title - pełna nazwa algorytmu. Wyswietlana w aplikacji.</p>
                 title - pełna nazwa algorytmu. Wyswietlana w aplikacji.
 
         Przykład:
-                &gt;&gt;&gt; singly_linked_list = AdvancedAlgorithm(&#34;SinglyLinkedList&#34;, &#34;Lista jednokierunkowa&#34;)
+                &gt;&gt;&gt; singly_linked_list = ListAlgorithm(&#34;SinglyLinkedList&#34;, &#34;Lista jednokierunkowa&#34;)
         &#34;&#34;&#34;
 
         def __init__(self, name: str = &#34;missing&#34;, title: str = &#34;missing&#34;):
                 super().__init__(name, title)
                 self.visualization_widget = NodZWidget
-                self.load_buttons()
+                self.load_controls()
                 self.data.clear()
                 self.snapshots.clear()
 
@@ -166,11 +170,15 @@ title - pełna nazwa algorytmu. Wyswietlana w aplikacji.</p>
                 self.snapshots.clear()
                 self.save_snapshot(&#34;Usunięto wszystko elementy z tablicy danych i wszystkie kroki są ponownie puste.&#34;)
 
-        def load_buttons(self):
+        def on_value_change(self, new_value):
+                self.textbox_value = new_value
+
+        def load_controls(self):
                 &#34;&#34;&#34;
-                Metoda wczytująca klawisze odpowiedzialne za manipulację wizualizacją.
+                Metoda tworząca klawisze oraz pola tekstowe odpowiedzialne za manipulację wizualizacją.
                 &#34;&#34;&#34;
-                self.buttons = list()</code></pre>
+                self.add_textbox(&#34;Wartość elementu:&#34;, self.on_value_change, hint=&#34;Tutaj możesz wpisać dowolną wartość.&#34;)
+                self.add_button(&#34;Dodaj&#34;, self.push_back, icon=Paths.icon(&#34;plus.png&#34;), hint=&#34;Dodanie nowego elementu na koniec tablicy.&#34;)</code></pre>
 </details>
 <h3>Ancestors</h3>
 <ul class="hlist">
@@ -178,7 +186,7 @@ title - pełna nazwa algorytmu. Wyswietlana w aplikacji.</p>
 </ul>
 <h3>Methods</h3>
 <dl>
-<dt id="WizualizacjaAlgorytmow.AlgorithmsLogic.AdvancedAlgorithm.AdvancedAlgorithm.clear"><code class="name flex">
+<dt id="WizualizacjaAlgorytmow.AlgorithmsLogic.ListAlgorithm.ListAlgorithm.clear"><code class="name flex">
 <span>def <span class="ident">clear</span></span>(<span>self)</span>
 </code></dt>
 <dd>
@@ -196,7 +204,7 @@ title - pełna nazwa algorytmu. Wyswietlana w aplikacji.</p>
         self.save_snapshot(&#34;Usunięto wszystko elementy z tablicy danych i wszystkie kroki są ponownie puste.&#34;)</code></pre>
 </details>
 </dd>
-<dt id="WizualizacjaAlgorytmow.AlgorithmsLogic.AdvancedAlgorithm.AdvancedAlgorithm.head"><code class="name flex">
+<dt id="WizualizacjaAlgorytmow.AlgorithmsLogic.ListAlgorithm.ListAlgorithm.head"><code class="name flex">
 <span>def <span class="ident">head</span></span>(<span>self)</span>
 </code></dt>
 <dd>
@@ -209,23 +217,37 @@ title - pełna nazwa algorytmu. Wyswietlana w aplikacji.</p>
         pass</code></pre>
 </details>
 </dd>
-<dt id="WizualizacjaAlgorytmow.AlgorithmsLogic.AdvancedAlgorithm.AdvancedAlgorithm.load_buttons"><code class="name flex">
-<span>def <span class="ident">load_buttons</span></span>(<span>self)</span>
+<dt id="WizualizacjaAlgorytmow.AlgorithmsLogic.ListAlgorithm.ListAlgorithm.load_controls"><code class="name flex">
+<span>def <span class="ident">load_controls</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Metoda wczytująca klawisze odpowiedzialne za manipulację wizualizacją.</p></div>
+<div class="desc"><p>Metoda tworząca klawisze oraz pola tekstowe odpowiedzialne za manipulację wizualizacją.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def load_buttons(self):
+<pre><code class="python">def load_controls(self):
         &#34;&#34;&#34;
-        Metoda wczytująca klawisze odpowiedzialne za manipulację wizualizacją.
+        Metoda tworząca klawisze oraz pola tekstowe odpowiedzialne za manipulację wizualizacją.
         &#34;&#34;&#34;
-        self.buttons = list()</code></pre>
+        self.add_textbox(&#34;Wartość elementu:&#34;, self.on_value_change, hint=&#34;Tutaj możesz wpisać dowolną wartość.&#34;)
+        self.add_button(&#34;Dodaj&#34;, self.push_back, icon=Paths.icon(&#34;plus.png&#34;), hint=&#34;Dodanie nowego elementu na koniec tablicy.&#34;)</code></pre>
 </details>
 </dd>
-<dt id="WizualizacjaAlgorytmow.AlgorithmsLogic.AdvancedAlgorithm.AdvancedAlgorithm.pop_back"><code class="name flex">
+<dt id="WizualizacjaAlgorytmow.AlgorithmsLogic.ListAlgorithm.ListAlgorithm.on_value_change"><code class="name flex">
+<span>def <span class="ident">on_value_change</span></span>(<span>self, new_value)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def on_value_change(self, new_value):
+        self.textbox_value = new_value</code></pre>
+</details>
+</dd>
+<dt id="WizualizacjaAlgorytmow.AlgorithmsLogic.ListAlgorithm.ListAlgorithm.pop_back"><code class="name flex">
 <span>def <span class="ident">pop_back</span></span>(<span>self, value: str)</span>
 </code></dt>
 <dd>
@@ -238,7 +260,7 @@ title - pełna nazwa algorytmu. Wyswietlana w aplikacji.</p>
         pass</code></pre>
 </details>
 </dd>
-<dt id="WizualizacjaAlgorytmow.AlgorithmsLogic.AdvancedAlgorithm.AdvancedAlgorithm.pop_front"><code class="name flex">
+<dt id="WizualizacjaAlgorytmow.AlgorithmsLogic.ListAlgorithm.ListAlgorithm.pop_front"><code class="name flex">
 <span>def <span class="ident">pop_front</span></span>(<span>self, value: str)</span>
 </code></dt>
 <dd>
@@ -251,7 +273,7 @@ title - pełna nazwa algorytmu. Wyswietlana w aplikacji.</p>
         pass</code></pre>
 </details>
 </dd>
-<dt id="WizualizacjaAlgorytmow.AlgorithmsLogic.AdvancedAlgorithm.AdvancedAlgorithm.push_back"><code class="name flex">
+<dt id="WizualizacjaAlgorytmow.AlgorithmsLogic.ListAlgorithm.ListAlgorithm.push_back"><code class="name flex">
 <span>def <span class="ident">push_back</span></span>(<span>self, value: str)</span>
 </code></dt>
 <dd>
@@ -264,7 +286,7 @@ title - pełna nazwa algorytmu. Wyswietlana w aplikacji.</p>
         pass</code></pre>
 </details>
 </dd>
-<dt id="WizualizacjaAlgorytmow.AlgorithmsLogic.AdvancedAlgorithm.AdvancedAlgorithm.push_front"><code class="name flex">
+<dt id="WizualizacjaAlgorytmow.AlgorithmsLogic.ListAlgorithm.ListAlgorithm.push_front"><code class="name flex">
 <span>def <span class="ident">push_front</span></span>(<span>self, value: str)</span>
 </code></dt>
 <dd>
@@ -277,7 +299,7 @@ title - pełna nazwa algorytmu. Wyswietlana w aplikacji.</p>
         pass</code></pre>
 </details>
 </dd>
-<dt id="WizualizacjaAlgorytmow.AlgorithmsLogic.AdvancedAlgorithm.AdvancedAlgorithm.remove"><code class="name flex">
+<dt id="WizualizacjaAlgorytmow.AlgorithmsLogic.ListAlgorithm.ListAlgorithm.remove"><code class="name flex">
 <span>def <span class="ident">remove</span></span>(<span>self, value: str)</span>
 </code></dt>
 <dd>
@@ -290,7 +312,7 @@ title - pełna nazwa algorytmu. Wyswietlana w aplikacji.</p>
         pass</code></pre>
 </details>
 </dd>
-<dt id="WizualizacjaAlgorytmow.AlgorithmsLogic.AdvancedAlgorithm.AdvancedAlgorithm.tail"><code class="name flex">
+<dt id="WizualizacjaAlgorytmow.AlgorithmsLogic.ListAlgorithm.ListAlgorithm.tail"><code class="name flex">
 <span>def <span class="ident">tail</span></span>(<span>self)</span>
 </code></dt>
 <dd>
@@ -322,17 +344,18 @@ title - pełna nazwa algorytmu. Wyswietlana w aplikacji.</p>
 <li><h3><a href="#header-classes">Classes</a></h3>
 <ul>
 <li>
-<h4><code><a title="WizualizacjaAlgorytmow.AlgorithmsLogic.AdvancedAlgorithm.AdvancedAlgorithm" href="#WizualizacjaAlgorytmow.AlgorithmsLogic.AdvancedAlgorithm.AdvancedAlgorithm">AdvancedAlgorithm</a></code></h4>
+<h4><code><a title="WizualizacjaAlgorytmow.AlgorithmsLogic.ListAlgorithm.ListAlgorithm" href="#WizualizacjaAlgorytmow.AlgorithmsLogic.ListAlgorithm.ListAlgorithm">ListAlgorithm</a></code></h4>
 <ul class="two-column">
-<li><code><a title="WizualizacjaAlgorytmow.AlgorithmsLogic.AdvancedAlgorithm.AdvancedAlgorithm.clear" href="#WizualizacjaAlgorytmow.AlgorithmsLogic.AdvancedAlgorithm.AdvancedAlgorithm.clear">clear</a></code></li>
-<li><code><a title="WizualizacjaAlgorytmow.AlgorithmsLogic.AdvancedAlgorithm.AdvancedAlgorithm.head" href="#WizualizacjaAlgorytmow.AlgorithmsLogic.AdvancedAlgorithm.AdvancedAlgorithm.head">head</a></code></li>
-<li><code><a title="WizualizacjaAlgorytmow.AlgorithmsLogic.AdvancedAlgorithm.AdvancedAlgorithm.load_buttons" href="#WizualizacjaAlgorytmow.AlgorithmsLogic.AdvancedAlgorithm.AdvancedAlgorithm.load_buttons">load_buttons</a></code></li>
-<li><code><a title="WizualizacjaAlgorytmow.AlgorithmsLogic.AdvancedAlgorithm.AdvancedAlgorithm.pop_back" href="#WizualizacjaAlgorytmow.AlgorithmsLogic.AdvancedAlgorithm.AdvancedAlgorithm.pop_back">pop_back</a></code></li>
-<li><code><a title="WizualizacjaAlgorytmow.AlgorithmsLogic.AdvancedAlgorithm.AdvancedAlgorithm.pop_front" href="#WizualizacjaAlgorytmow.AlgorithmsLogic.AdvancedAlgorithm.AdvancedAlgorithm.pop_front">pop_front</a></code></li>
-<li><code><a title="WizualizacjaAlgorytmow.AlgorithmsLogic.AdvancedAlgorithm.AdvancedAlgorithm.push_back" href="#WizualizacjaAlgorytmow.AlgorithmsLogic.AdvancedAlgorithm.AdvancedAlgorithm.push_back">push_back</a></code></li>
-<li><code><a title="WizualizacjaAlgorytmow.AlgorithmsLogic.AdvancedAlgorithm.AdvancedAlgorithm.push_front" href="#WizualizacjaAlgorytmow.AlgorithmsLogic.AdvancedAlgorithm.AdvancedAlgorithm.push_front">push_front</a></code></li>
-<li><code><a title="WizualizacjaAlgorytmow.AlgorithmsLogic.AdvancedAlgorithm.AdvancedAlgorithm.remove" href="#WizualizacjaAlgorytmow.AlgorithmsLogic.AdvancedAlgorithm.AdvancedAlgorithm.remove">remove</a></code></li>
-<li><code><a title="WizualizacjaAlgorytmow.AlgorithmsLogic.AdvancedAlgorithm.AdvancedAlgorithm.tail" href="#WizualizacjaAlgorytmow.AlgorithmsLogic.AdvancedAlgorithm.AdvancedAlgorithm.tail">tail</a></code></li>
+<li><code><a title="WizualizacjaAlgorytmow.AlgorithmsLogic.ListAlgorithm.ListAlgorithm.clear" href="#WizualizacjaAlgorytmow.AlgorithmsLogic.ListAlgorithm.ListAlgorithm.clear">clear</a></code></li>
+<li><code><a title="WizualizacjaAlgorytmow.AlgorithmsLogic.ListAlgorithm.ListAlgorithm.head" href="#WizualizacjaAlgorytmow.AlgorithmsLogic.ListAlgorithm.ListAlgorithm.head">head</a></code></li>
+<li><code><a title="WizualizacjaAlgorytmow.AlgorithmsLogic.ListAlgorithm.ListAlgorithm.load_controls" href="#WizualizacjaAlgorytmow.AlgorithmsLogic.ListAlgorithm.ListAlgorithm.load_controls">load_controls</a></code></li>
+<li><code><a title="WizualizacjaAlgorytmow.AlgorithmsLogic.ListAlgorithm.ListAlgorithm.on_value_change" href="#WizualizacjaAlgorytmow.AlgorithmsLogic.ListAlgorithm.ListAlgorithm.on_value_change">on_value_change</a></code></li>
+<li><code><a title="WizualizacjaAlgorytmow.AlgorithmsLogic.ListAlgorithm.ListAlgorithm.pop_back" href="#WizualizacjaAlgorytmow.AlgorithmsLogic.ListAlgorithm.ListAlgorithm.pop_back">pop_back</a></code></li>
+<li><code><a title="WizualizacjaAlgorytmow.AlgorithmsLogic.ListAlgorithm.ListAlgorithm.pop_front" href="#WizualizacjaAlgorytmow.AlgorithmsLogic.ListAlgorithm.ListAlgorithm.pop_front">pop_front</a></code></li>
+<li><code><a title="WizualizacjaAlgorytmow.AlgorithmsLogic.ListAlgorithm.ListAlgorithm.push_back" href="#WizualizacjaAlgorytmow.AlgorithmsLogic.ListAlgorithm.ListAlgorithm.push_back">push_back</a></code></li>
+<li><code><a title="WizualizacjaAlgorytmow.AlgorithmsLogic.ListAlgorithm.ListAlgorithm.push_front" href="#WizualizacjaAlgorytmow.AlgorithmsLogic.ListAlgorithm.ListAlgorithm.push_front">push_front</a></code></li>
+<li><code><a title="WizualizacjaAlgorytmow.AlgorithmsLogic.ListAlgorithm.ListAlgorithm.remove" href="#WizualizacjaAlgorytmow.AlgorithmsLogic.ListAlgorithm.ListAlgorithm.remove">remove</a></code></li>
+<li><code><a title="WizualizacjaAlgorytmow.AlgorithmsLogic.ListAlgorithm.ListAlgorithm.tail" href="#WizualizacjaAlgorytmow.AlgorithmsLogic.ListAlgorithm.ListAlgorithm.tail">tail</a></code></li>
 </ul>
 </li>
 </ul>

@@ -30,6 +30,7 @@
 
 from Paths import Paths
 from AlgorithmsLogic.Algorithm import Algorithm
+from Settings import Settings
 from Snapshot import Snapshot
 from Widgets.NetworkXWidget import NetworkXWidget
 
@@ -53,6 +54,7 @@ class BasicAlgorithm(Algorithm):
                 self.visualization_widget = NetworkXWidget
                 self.load_controls()
                 self.data.clear()
+                self.textbox_value = &#34;&#34;
                 self.snapshots.clear()
 
         def add_element(self, value: str):
@@ -66,6 +68,10 @@ class BasicAlgorithm(Algorithm):
                         &gt;&gt;&gt; add_element(5)
                         &gt;&gt;&gt; add_element(&#34;Janek&#34;)
                 &#34;&#34;&#34;
+                if len(self.data) == Settings.input_limit[0]:
+                        self.save_snapshot(&#34;Nie można dodać więcej elementów! Musisz zwiększyć limit w ustawieniach.&#34;)
+                        return
+
                 self.data.append(value.strip())
                 self.save_snapshot(&#34;Dodanie elementu &#39;%s&#39;.&#34; % value, {len(self.data) - 1: Snapshot.color_selected})
 
@@ -118,7 +124,9 @@ class BasicAlgorithm(Algorithm):
                 Metoda odpowiedzialna za przemieszanie wszystkich elementów.
                 &#34;&#34;&#34;
                 if len(self.data) == 0:
+                        self.save_snapshot(&#34;Nie możesz przemieszać pustej tablicy!&#34;)
                         return
+
                 random.shuffle(self.data)
                 self.save_snapshot(&#34;Elementy zostały przemieszane!&#34;)
 
@@ -130,19 +138,19 @@ class BasicAlgorithm(Algorithm):
 
         def random_data(self):
                 &#34;&#34;&#34;
-                Metoda doająca n losowych wartości z przedziału &lt;0;100&gt;.
-                Jeżeli w pole tekstowe nie zostało wpisane nic lub tekst -&gt; n=10
-                Jeżeli w pole tekstowe została wpisana liczba -&gt; n=ta liczba
+                Metoda dodająca losowe wartości z ustalonego przedziału.
                 &#34;&#34;&#34;
-                if self.last_value == &#39;&#39; or not self.last_value.isdigit():
-                        n = 10
-                else:
-                        n = int(self.last_value)
-                for i in range(n):
-                        self.add_element(str(random.randint(0, 100)))
+                amount_of_elements = max(0, min(Settings.input_limit[0]-len(self.data), Settings.random_data_amount[0]))
+
+                if amount_of_elements == 0:
+                        self.save_snapshot(&#34;Nie można dodać więcej elementów! Musisz zwiększyć limit w ustawieniach.&#34;)
+                        return
+
+                for i in range(amount_of_elements):
+                        self.add_element(str(random.randint(Settings.random_data_minimum_value[0], Settings.random_data_maximum_value[0])))
 
         def on_value_change(self, new_value):
-                self.last_value = new_value
+                self.textbox_value = new_value
 
         def load_controls(self):
                 &#34;&#34;&#34;
@@ -150,9 +158,9 @@ class BasicAlgorithm(Algorithm):
                 &#34;&#34;&#34;
 
                 self.add_textbox(&#34;Wartość elementu:&#34;, self.on_value_change, hint=&#34;Tutaj możesz wpisać dowolną wartość.&#34;)
-                self.add_button(&#34;Dodaj&#34;, lambda: self.add_element(self.last_value), icon=Paths.icon(&#34;plus.png&#34;), hint=&#34;Dodanie nowego elementu na koniec tablicy.&#34;)
-                self.add_button(&#34;Usuń&#34;, lambda: self.remove_element(self.last_value), icon=Paths.icon(&#34;minus.png&#34;), hint=&#34;Usunięcie pierwszego napotkanego elementu o podanej wartości.&#34;)
-                self.add_button(&#34;Usuń wszystkie&#34;, lambda: self.remove_all_elements(self.last_value), icon=Paths.icon(&#34;minus.png&#34;), hint=&#34;Usunięcie wszystkich napotkanych elementów o podanej wartości.&#34;)
+                self.add_button(&#34;Dodaj&#34;, lambda: self.add_element(self.textbox_value), icon=Paths.icon(&#34;plus.png&#34;), hint=&#34;Dodanie nowego elementu na koniec tablicy.&#34;)
+                self.add_button(&#34;Usuń&#34;, lambda: self.remove_element(self.textbox_value), icon=Paths.icon(&#34;minus.png&#34;), hint=&#34;Usunięcie pierwszego napotkanego elementu o podanej wartości.&#34;)
+                self.add_button(&#34;Usuń wszystkie&#34;, lambda: self.remove_all_elements(self.textbox_value), icon=Paths.icon(&#34;minus.png&#34;), hint=&#34;Usunięcie wszystkich napotkanych elementów o podanej wartości.&#34;)
                 self.add_button(&#34;Wyczyść&#34;, self.clear, icon=Paths.icon(&#34;clear.png&#34;), hint=&#34;Usunięcie wszystkich elementów oraz przywrócenie stanu początkowego.&#34;)
                 self.add_button(&#34;Losowe dane&#34;, self.random_data, icon=Paths.icon(&#34;random.png&#34;), hint=&#34;Wylosowanie danych z ustawionego przedziału.&#34;)
                 self.add_button(&#34;Przemieszaj&#34;, self.shuffle, icon=Paths.icon(&#34;shuffle.png&#34;), hint=&#34;Zamiana kolejności wszystkich elementów w tablicy.&#34;)
@@ -205,6 +213,7 @@ title - pełna nazwa algorytmu. Wyswietlana w aplikacji.</p>
                 self.visualization_widget = NetworkXWidget
                 self.load_controls()
                 self.data.clear()
+                self.textbox_value = &#34;&#34;
                 self.snapshots.clear()
 
         def add_element(self, value: str):
@@ -218,6 +227,10 @@ title - pełna nazwa algorytmu. Wyswietlana w aplikacji.</p>
                         &gt;&gt;&gt; add_element(5)
                         &gt;&gt;&gt; add_element(&#34;Janek&#34;)
                 &#34;&#34;&#34;
+                if len(self.data) == Settings.input_limit[0]:
+                        self.save_snapshot(&#34;Nie można dodać więcej elementów! Musisz zwiększyć limit w ustawieniach.&#34;)
+                        return
+
                 self.data.append(value.strip())
                 self.save_snapshot(&#34;Dodanie elementu &#39;%s&#39;.&#34; % value, {len(self.data) - 1: Snapshot.color_selected})
 
@@ -270,7 +283,9 @@ title - pełna nazwa algorytmu. Wyswietlana w aplikacji.</p>
                 Metoda odpowiedzialna za przemieszanie wszystkich elementów.
                 &#34;&#34;&#34;
                 if len(self.data) == 0:
+                        self.save_snapshot(&#34;Nie możesz przemieszać pustej tablicy!&#34;)
                         return
+
                 random.shuffle(self.data)
                 self.save_snapshot(&#34;Elementy zostały przemieszane!&#34;)
 
@@ -282,19 +297,19 @@ title - pełna nazwa algorytmu. Wyswietlana w aplikacji.</p>
 
         def random_data(self):
                 &#34;&#34;&#34;
-                Metoda doająca n losowych wartości z przedziału &lt;0;100&gt;.
-                Jeżeli w pole tekstowe nie zostało wpisane nic lub tekst -&gt; n=10
-                Jeżeli w pole tekstowe została wpisana liczba -&gt; n=ta liczba
+                Metoda dodająca losowe wartości z ustalonego przedziału.
                 &#34;&#34;&#34;
-                if self.last_value == &#39;&#39; or not self.last_value.isdigit():
-                        n = 10
-                else:
-                        n = int(self.last_value)
-                for i in range(n):
-                        self.add_element(str(random.randint(0, 100)))
+                amount_of_elements = max(0, min(Settings.input_limit[0]-len(self.data), Settings.random_data_amount[0]))
+
+                if amount_of_elements == 0:
+                        self.save_snapshot(&#34;Nie można dodać więcej elementów! Musisz zwiększyć limit w ustawieniach.&#34;)
+                        return
+
+                for i in range(amount_of_elements):
+                        self.add_element(str(random.randint(Settings.random_data_minimum_value[0], Settings.random_data_maximum_value[0])))
 
         def on_value_change(self, new_value):
-                self.last_value = new_value
+                self.textbox_value = new_value
 
         def load_controls(self):
                 &#34;&#34;&#34;
@@ -302,9 +317,9 @@ title - pełna nazwa algorytmu. Wyswietlana w aplikacji.</p>
                 &#34;&#34;&#34;
 
                 self.add_textbox(&#34;Wartość elementu:&#34;, self.on_value_change, hint=&#34;Tutaj możesz wpisać dowolną wartość.&#34;)
-                self.add_button(&#34;Dodaj&#34;, lambda: self.add_element(self.last_value), icon=Paths.icon(&#34;plus.png&#34;), hint=&#34;Dodanie nowego elementu na koniec tablicy.&#34;)
-                self.add_button(&#34;Usuń&#34;, lambda: self.remove_element(self.last_value), icon=Paths.icon(&#34;minus.png&#34;), hint=&#34;Usunięcie pierwszego napotkanego elementu o podanej wartości.&#34;)
-                self.add_button(&#34;Usuń wszystkie&#34;, lambda: self.remove_all_elements(self.last_value), icon=Paths.icon(&#34;minus.png&#34;), hint=&#34;Usunięcie wszystkich napotkanych elementów o podanej wartości.&#34;)
+                self.add_button(&#34;Dodaj&#34;, lambda: self.add_element(self.textbox_value), icon=Paths.icon(&#34;plus.png&#34;), hint=&#34;Dodanie nowego elementu na koniec tablicy.&#34;)
+                self.add_button(&#34;Usuń&#34;, lambda: self.remove_element(self.textbox_value), icon=Paths.icon(&#34;minus.png&#34;), hint=&#34;Usunięcie pierwszego napotkanego elementu o podanej wartości.&#34;)
+                self.add_button(&#34;Usuń wszystkie&#34;, lambda: self.remove_all_elements(self.textbox_value), icon=Paths.icon(&#34;minus.png&#34;), hint=&#34;Usunięcie wszystkich napotkanych elementów o podanej wartości.&#34;)
                 self.add_button(&#34;Wyczyść&#34;, self.clear, icon=Paths.icon(&#34;clear.png&#34;), hint=&#34;Usunięcie wszystkich elementów oraz przywrócenie stanu początkowego.&#34;)
                 self.add_button(&#34;Losowe dane&#34;, self.random_data, icon=Paths.icon(&#34;random.png&#34;), hint=&#34;Wylosowanie danych z ustawionego przedziału.&#34;)
                 self.add_button(&#34;Przemieszaj&#34;, self.shuffle, icon=Paths.icon(&#34;shuffle.png&#34;), hint=&#34;Zamiana kolejności wszystkich elementów w tablicy.&#34;)
@@ -342,6 +357,10 @@ title - pełna nazwa algorytmu. Wyswietlana w aplikacji.</p>
                 &gt;&gt;&gt; add_element(5)
                 &gt;&gt;&gt; add_element(&#34;Janek&#34;)
         &#34;&#34;&#34;
+        if len(self.data) == Settings.input_limit[0]:
+                self.save_snapshot(&#34;Nie można dodać więcej elementów! Musisz zwiększyć limit w ustawieniach.&#34;)
+                return
+
         self.data.append(value.strip())
         self.save_snapshot(&#34;Dodanie elementu &#39;%s&#39;.&#34; % value, {len(self.data) - 1: Snapshot.color_selected})</code></pre>
 </details>
@@ -395,9 +414,9 @@ title - pełna nazwa algorytmu. Wyswietlana w aplikacji.</p>
         &#34;&#34;&#34;
 
         self.add_textbox(&#34;Wartość elementu:&#34;, self.on_value_change, hint=&#34;Tutaj możesz wpisać dowolną wartość.&#34;)
-        self.add_button(&#34;Dodaj&#34;, lambda: self.add_element(self.last_value), icon=Paths.icon(&#34;plus.png&#34;), hint=&#34;Dodanie nowego elementu na koniec tablicy.&#34;)
-        self.add_button(&#34;Usuń&#34;, lambda: self.remove_element(self.last_value), icon=Paths.icon(&#34;minus.png&#34;), hint=&#34;Usunięcie pierwszego napotkanego elementu o podanej wartości.&#34;)
-        self.add_button(&#34;Usuń wszystkie&#34;, lambda: self.remove_all_elements(self.last_value), icon=Paths.icon(&#34;minus.png&#34;), hint=&#34;Usunięcie wszystkich napotkanych elementów o podanej wartości.&#34;)
+        self.add_button(&#34;Dodaj&#34;, lambda: self.add_element(self.textbox_value), icon=Paths.icon(&#34;plus.png&#34;), hint=&#34;Dodanie nowego elementu na koniec tablicy.&#34;)
+        self.add_button(&#34;Usuń&#34;, lambda: self.remove_element(self.textbox_value), icon=Paths.icon(&#34;minus.png&#34;), hint=&#34;Usunięcie pierwszego napotkanego elementu o podanej wartości.&#34;)
+        self.add_button(&#34;Usuń wszystkie&#34;, lambda: self.remove_all_elements(self.textbox_value), icon=Paths.icon(&#34;minus.png&#34;), hint=&#34;Usunięcie wszystkich napotkanych elementów o podanej wartości.&#34;)
         self.add_button(&#34;Wyczyść&#34;, self.clear, icon=Paths.icon(&#34;clear.png&#34;), hint=&#34;Usunięcie wszystkich elementów oraz przywrócenie stanu początkowego.&#34;)
         self.add_button(&#34;Losowe dane&#34;, self.random_data, icon=Paths.icon(&#34;random.png&#34;), hint=&#34;Wylosowanie danych z ustawionego przedziału.&#34;)
         self.add_button(&#34;Przemieszaj&#34;, self.shuffle, icon=Paths.icon(&#34;shuffle.png&#34;), hint=&#34;Zamiana kolejności wszystkich elementów w tablicy.&#34;)
@@ -414,32 +433,30 @@ title - pełna nazwa algorytmu. Wyswietlana w aplikacji.</p>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def on_value_change(self, new_value):
-        self.last_value = new_value</code></pre>
+        self.textbox_value = new_value</code></pre>
 </details>
 </dd>
 <dt id="WizualizacjaAlgorytmow.AlgorithmsLogic.BasicAlgorithm.BasicAlgorithm.random_data"><code class="name flex">
 <span>def <span class="ident">random_data</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Metoda doająca n losowych wartości z przedziału &lt;0;100&gt;.
-Jeżeli w pole tekstowe nie zostało wpisane nic lub tekst -&gt; n=10
-Jeżeli w pole tekstowe została wpisana liczba -&gt; n=ta liczba</p></div>
+<div class="desc"><p>Metoda dodająca losowe wartości z ustalonego przedziału.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def random_data(self):
         &#34;&#34;&#34;
-        Metoda doająca n losowych wartości z przedziału &lt;0;100&gt;.
-        Jeżeli w pole tekstowe nie zostało wpisane nic lub tekst -&gt; n=10
-        Jeżeli w pole tekstowe została wpisana liczba -&gt; n=ta liczba
+        Metoda dodająca losowe wartości z ustalonego przedziału.
         &#34;&#34;&#34;
-        if self.last_value == &#39;&#39; or not self.last_value.isdigit():
-                n = 10
-        else:
-                n = int(self.last_value)
-        for i in range(n):
-                self.add_element(str(random.randint(0, 100)))</code></pre>
+        amount_of_elements = max(0, min(Settings.input_limit[0]-len(self.data), Settings.random_data_amount[0]))
+
+        if amount_of_elements == 0:
+                self.save_snapshot(&#34;Nie można dodać więcej elementów! Musisz zwiększyć limit w ustawieniach.&#34;)
+                return
+
+        for i in range(amount_of_elements):
+                self.add_element(str(random.randint(Settings.random_data_minimum_value[0], Settings.random_data_maximum_value[0])))</code></pre>
 </details>
 </dd>
 <dt id="WizualizacjaAlgorytmow.AlgorithmsLogic.BasicAlgorithm.BasicAlgorithm.remove_all_elements"><code class="name flex">
@@ -524,7 +541,9 @@ Jeżeli w pole tekstowe została wpisana liczba -&gt; n=ta liczba</p></div>
         Metoda odpowiedzialna za przemieszanie wszystkich elementów.
         &#34;&#34;&#34;
         if len(self.data) == 0:
+                self.save_snapshot(&#34;Nie możesz przemieszać pustej tablicy!&#34;)
                 return
+
         random.shuffle(self.data)
         self.save_snapshot(&#34;Elementy zostały przemieszane!&#34;)</code></pre>
 </details>

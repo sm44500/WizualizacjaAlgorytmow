@@ -34,6 +34,8 @@ from DescriptionManager import DescriptionManager
 from Paths import Paths
 
 import Algorithms
+from SettingsWindow import SettingsWindow
+
 
 class AlgorithmsManager:
         &#34;&#34;&#34;
@@ -57,6 +59,7 @@ class AlgorithmsManager:
                 self.visualisation_button = None
                 self.questions_button = None
                 self.codes_button = None
+                self.settings_window = None
                 self.setup_algorithms()
 
         def setup_algorithms(self):
@@ -97,6 +100,10 @@ class AlgorithmsManager:
                 self.questions_button = self.control_panel_top.add_button(&#34;Pytania&#34;, Paths.icon(&#34;question_mark.png&#34;))
                 self.questions_button.clicked.connect(self.show_questions)
                 self.questions_button.set_hint(&#34;Panel weryfikujący zdobytą przez użytkownika wiedzę.&#34;)
+
+                self.questions_button = self.control_panel_top.add_button(&#34;Ustawienia&#34;, Paths.icon(&#34;settings.png&#34;))
+                self.questions_button.clicked.connect(self.show_settings)
+                self.questions_button.set_hint(&#34;Panel pozwalający dostosować użytkowanie aplikacji.&#34;)
 
         def on_change_algorithm(self, index):
                 &#34;&#34;&#34;
@@ -142,6 +149,13 @@ class AlgorithmsManager:
                 if len(self.current_algorithm.test_questions) &gt; 0:
                         self.reset()
                         self.manager = QuestionsManager(self.main_widget, self.current_algorithm)
+
+        def show_settings(self):
+                &#34;&#34;&#34;
+                Uruchomienie panelu konfiguracyjnego.
+                &#34;&#34;&#34;
+                self.settings_window = SettingsWindow()
+                self.settings_window.show()
 
         def show_codes(self):
                 &#34;&#34;&#34;
@@ -205,6 +219,7 @@ class AlgorithmsManager:
                 self.visualisation_button = None
                 self.questions_button = None
                 self.codes_button = None
+                self.settings_window = None
                 self.setup_algorithms()
 
         def setup_algorithms(self):
@@ -245,6 +260,10 @@ class AlgorithmsManager:
                 self.questions_button = self.control_panel_top.add_button(&#34;Pytania&#34;, Paths.icon(&#34;question_mark.png&#34;))
                 self.questions_button.clicked.connect(self.show_questions)
                 self.questions_button.set_hint(&#34;Panel weryfikujący zdobytą przez użytkownika wiedzę.&#34;)
+
+                self.questions_button = self.control_panel_top.add_button(&#34;Ustawienia&#34;, Paths.icon(&#34;settings.png&#34;))
+                self.questions_button.clicked.connect(self.show_settings)
+                self.questions_button.set_hint(&#34;Panel pozwalający dostosować użytkowanie aplikacji.&#34;)
 
         def on_change_algorithm(self, index):
                 &#34;&#34;&#34;
@@ -290,6 +309,13 @@ class AlgorithmsManager:
                 if len(self.current_algorithm.test_questions) &gt; 0:
                         self.reset()
                         self.manager = QuestionsManager(self.main_widget, self.current_algorithm)
+
+        def show_settings(self):
+                &#34;&#34;&#34;
+                Uruchomienie panelu konfiguracyjnego.
+                &#34;&#34;&#34;
+                self.settings_window = SettingsWindow()
+                self.settings_window.show()
 
         def show_codes(self):
                 &#34;&#34;&#34;
@@ -435,7 +461,11 @@ Ustawia wybrany algorytm.</p>
 
         self.questions_button = self.control_panel_top.add_button(&#34;Pytania&#34;, Paths.icon(&#34;question_mark.png&#34;))
         self.questions_button.clicked.connect(self.show_questions)
-        self.questions_button.set_hint(&#34;Panel weryfikujący zdobytą przez użytkownika wiedzę.&#34;)</code></pre>
+        self.questions_button.set_hint(&#34;Panel weryfikujący zdobytą przez użytkownika wiedzę.&#34;)
+
+        self.questions_button = self.control_panel_top.add_button(&#34;Ustawienia&#34;, Paths.icon(&#34;settings.png&#34;))
+        self.questions_button.clicked.connect(self.show_settings)
+        self.questions_button.set_hint(&#34;Panel pozwalający dostosować użytkowanie aplikacji.&#34;)</code></pre>
 </details>
 </dd>
 <dt id="WizualizacjaAlgorytmow.AlgorithmsManager.AlgorithmsManager.show_codes"><code class="name flex">
@@ -491,6 +521,23 @@ Ustawia wybrany algorytm.</p>
                 self.manager = QuestionsManager(self.main_widget, self.current_algorithm)</code></pre>
 </details>
 </dd>
+<dt id="WizualizacjaAlgorytmow.AlgorithmsManager.AlgorithmsManager.show_settings"><code class="name flex">
+<span>def <span class="ident">show_settings</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Uruchomienie panelu konfiguracyjnego.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def show_settings(self):
+        &#34;&#34;&#34;
+        Uruchomienie panelu konfiguracyjnego.
+        &#34;&#34;&#34;
+        self.settings_window = SettingsWindow()
+        self.settings_window.show()</code></pre>
+</details>
+</dd>
 <dt id="WizualizacjaAlgorytmow.AlgorithmsManager.AlgorithmsManager.show_visualisation"><code class="name flex">
 <span>def <span class="ident">show_visualisation</span></span>(<span>self)</span>
 </code></dt>
@@ -537,6 +584,7 @@ Ustawia wybrany algorytm.</p>
 <li><code><a title="WizualizacjaAlgorytmow.AlgorithmsManager.AlgorithmsManager.show_codes" href="#WizualizacjaAlgorytmow.AlgorithmsManager.AlgorithmsManager.show_codes">show_codes</a></code></li>
 <li><code><a title="WizualizacjaAlgorytmow.AlgorithmsManager.AlgorithmsManager.show_description" href="#WizualizacjaAlgorytmow.AlgorithmsManager.AlgorithmsManager.show_description">show_description</a></code></li>
 <li><code><a title="WizualizacjaAlgorytmow.AlgorithmsManager.AlgorithmsManager.show_questions" href="#WizualizacjaAlgorytmow.AlgorithmsManager.AlgorithmsManager.show_questions">show_questions</a></code></li>
+<li><code><a title="WizualizacjaAlgorytmow.AlgorithmsManager.AlgorithmsManager.show_settings" href="#WizualizacjaAlgorytmow.AlgorithmsManager.AlgorithmsManager.show_settings">show_settings</a></code></li>
 <li><code><a title="WizualizacjaAlgorytmow.AlgorithmsManager.AlgorithmsManager.show_visualisation" href="#WizualizacjaAlgorytmow.AlgorithmsManager.AlgorithmsManager.show_visualisation">show_visualisation</a></code></li>
 </ul>
 </li>

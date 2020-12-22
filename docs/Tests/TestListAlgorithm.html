@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.9.2" />
-<title>WizualizacjaAlgorytmow.Tests.TestAdvancedAlgorithm API documentation</title>
+<title>WizualizacjaAlgorytmow.Tests.TestListAlgorithm API documentation</title>
 <meta name="description" content="" />
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
@@ -19,7 +19,7 @@
 <main>
 <article id="content">
 <header>
-<h1 class="title">Module <code>WizualizacjaAlgorytmow.Tests.TestAdvancedAlgorithm</code></h1>
+<h1 class="title">Module <code>WizualizacjaAlgorytmow.Tests.TestListAlgorithm</code></h1>
 </header>
 <section id="section-intro">
 <details class="source">
@@ -27,47 +27,46 @@
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">from unittest import TestCase
-from AlgorithmsLogic.AdvancedAlgorithm import AdvancedAlgorithm
+from AlgorithmsLogic.ListAlgorithm import ListAlgorithm
 from Widgets.NodZWidget import NodZWidget
 from Snapshot import Snapshot
 
 
-class TestAdvancedAlgorithm(TestCase):
+class TestListAlgorithm(TestCase):
         def setUp(self):
-                self.advanced_algorithm = AdvancedAlgorithm()
+                self.list_algorithm = ListAlgorithm()
 
-
-class TestInit(TestAdvancedAlgorithm):
+class TestInit(TestListAlgorithm):
         def test_visualization_widget(self):
-                self.assertEqual(self.advanced_algorithm.visualization_widget, NodZWidget)
+                self.assertEqual(self.list_algorithm.visualization_widget, NodZWidget)
 
         def test_load_buttons(self):
-                self.assertNotEqual(len(self.advanced_algorithm.buttons), 0)
+                self.assertNotEqual(len(self.list_algorithm.buttons), 0)
 
         def test_data_clear(self):
-                self.assertEqual(len(self.advanced_algorithm.data), 0)
+                self.assertEqual(len(self.list_algorithm.data), 0)
 
         def test_snapshots_clear(self):
-                self.assertEqual(len(self.advanced_algorithm.snapshots), 0)
+                self.assertEqual(len(self.list_algorithm.snapshots), 0)
 
 
-class TestClear(TestAdvancedAlgorithm):
+class TestClear(TestListAlgorithm):
         def test_clear_data(self):
-                #self.advanced_algorithm.add_element(&#39;1&#39;)
-                self.advanced_algorithm.clear()
-                self.assertEqual(len(self.advanced_algorithm.data), 0)
-                self.assertEqual(len(self.advanced_algorithm.snapshots), 1)
+                #self.list_algorithm.add_element(&#39;1&#39;)
+                self.list_algorithm.clear()
+                self.assertEqual(len(self.list_algorithm.data), 0)
+                self.assertEqual(len(self.list_algorithm.snapshots), 1)
 
         def test_clear_no_data(self):
-                self.advanced_algorithm.clear()
-                self.assertEqual(len(self.advanced_algorithm.data), 0)
-                self.assertEqual(len(self.advanced_algorithm.snapshots), 1)
+                self.list_algorithm.clear()
+                self.assertEqual(len(self.list_algorithm.data), 0)
+                self.assertEqual(len(self.list_algorithm.snapshots), 1)
 
 
-class TestLoadButtons(TestAdvancedAlgorithm):
+class TestLoadButtons(TestListAlgorithm):
         def test_load_buttons(self):
-                self.advanced_algorithm.load_buttons()
-                self.assertEqual(len(self.advanced_algorithm.buttons), 0)</code></pre>
+                self.list_algorithm.load_buttons()
+                self.assertEqual(len(self.list_algorithm.buttons), 0)</code></pre>
 </details>
 </section>
 <section>
@@ -79,75 +78,7 @@ class TestLoadButtons(TestAdvancedAlgorithm):
 <section>
 <h2 class="section-title" id="header-classes">Classes</h2>
 <dl>
-<dt id="WizualizacjaAlgorytmow.Tests.TestAdvancedAlgorithm.TestAdvancedAlgorithm"><code class="flex name class">
-<span>class <span class="ident">TestAdvancedAlgorithm</span></span>
-<span>(</span><span>methodName='runTest')</span>
-</code></dt>
-<dd>
-<div class="desc"><p>A class whose instances are single test cases.</p>
-<p>By default, the test code itself should be placed in a method named
-'runTest'.</p>
-<p>If the fixture may be used for many test cases, create as
-many test methods as are needed. When instantiating such a TestCase
-subclass, specify in the constructor arguments the name of the test method
-that the instance is to execute.</p>
-<p>Test authors should subclass TestCase for their own tests. Construction
-and deconstruction of the test's environment ('fixture') can be
-implemented by overriding the 'setUp' and 'tearDown' methods respectively.</p>
-<p>If it is necessary to override the <strong>init</strong> method, the base class
-<strong>init</strong> method must always be called. It is important that subclasses
-should not change the signature of their <strong>init</strong> method, since instances
-of the classes are instantiated automatically by parts of the framework
-in order to be run.</p>
-<p>When subclassing TestCase, you can set these attributes:
-* failureException: determines which exception will be raised when
-the instance's assertion methods fail; test methods raising this
-exception will be deemed to have 'failed' rather than 'errored'.
-* longMessage: determines whether long messages (including repr of
-objects used in assert methods) will be printed on failure in <em>addition</em>
-to any explicit message passed.
-* maxDiff: sets the maximum length of a diff in failure messages
-by assert methods using difflib. It is looked up as an instance
-attribute so can be configured by individual tests if required.</p>
-<p>Create an instance of the class that will use the named test
-method when executed. Raises a ValueError if the instance does
-not have a method with the specified name.</p></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">class TestAdvancedAlgorithm(TestCase):
-        def setUp(self):
-                self.advanced_algorithm = AdvancedAlgorithm()</code></pre>
-</details>
-<h3>Ancestors</h3>
-<ul class="hlist">
-<li>unittest.case.TestCase</li>
-</ul>
-<h3>Subclasses</h3>
-<ul class="hlist">
-<li><a title="WizualizacjaAlgorytmow.Tests.TestAdvancedAlgorithm.TestClear" href="#WizualizacjaAlgorytmow.Tests.TestAdvancedAlgorithm.TestClear">TestClear</a></li>
-<li><a title="WizualizacjaAlgorytmow.Tests.TestAdvancedAlgorithm.TestInit" href="#WizualizacjaAlgorytmow.Tests.TestAdvancedAlgorithm.TestInit">TestInit</a></li>
-<li><a title="WizualizacjaAlgorytmow.Tests.TestAdvancedAlgorithm.TestLoadButtons" href="#WizualizacjaAlgorytmow.Tests.TestAdvancedAlgorithm.TestLoadButtons">TestLoadButtons</a></li>
-</ul>
-<h3>Methods</h3>
-<dl>
-<dt id="WizualizacjaAlgorytmow.Tests.TestAdvancedAlgorithm.TestAdvancedAlgorithm.setUp"><code class="name flex">
-<span>def <span class="ident">setUp</span></span>(<span>self)</span>
-</code></dt>
-<dd>
-<div class="desc"><p>Hook method for setting up the test fixture before exercising it.</p></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def setUp(self):
-        self.advanced_algorithm = AdvancedAlgorithm()</code></pre>
-</details>
-</dd>
-</dl>
-</dd>
-<dt id="WizualizacjaAlgorytmow.Tests.TestAdvancedAlgorithm.TestClear"><code class="flex name class">
+<dt id="WizualizacjaAlgorytmow.Tests.TestListAlgorithm.TestClear"><code class="flex name class">
 <span>class <span class="ident">TestClear</span></span>
 <span>(</span><span>methodName='runTest')</span>
 </code></dt>
@@ -184,26 +115,26 @@ not have a method with the specified name.</p></div>
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">class TestClear(TestAdvancedAlgorithm):
+<pre><code class="python">class TestClear(TestListAlgorithm):
         def test_clear_data(self):
-                #self.advanced_algorithm.add_element(&#39;1&#39;)
-                self.advanced_algorithm.clear()
-                self.assertEqual(len(self.advanced_algorithm.data), 0)
-                self.assertEqual(len(self.advanced_algorithm.snapshots), 1)
+                #self.list_algorithm.add_element(&#39;1&#39;)
+                self.list_algorithm.clear()
+                self.assertEqual(len(self.list_algorithm.data), 0)
+                self.assertEqual(len(self.list_algorithm.snapshots), 1)
 
         def test_clear_no_data(self):
-                self.advanced_algorithm.clear()
-                self.assertEqual(len(self.advanced_algorithm.data), 0)
-                self.assertEqual(len(self.advanced_algorithm.snapshots), 1)</code></pre>
+                self.list_algorithm.clear()
+                self.assertEqual(len(self.list_algorithm.data), 0)
+                self.assertEqual(len(self.list_algorithm.snapshots), 1)</code></pre>
 </details>
 <h3>Ancestors</h3>
 <ul class="hlist">
-<li><a title="WizualizacjaAlgorytmow.Tests.TestAdvancedAlgorithm.TestAdvancedAlgorithm" href="#WizualizacjaAlgorytmow.Tests.TestAdvancedAlgorithm.TestAdvancedAlgorithm">TestAdvancedAlgorithm</a></li>
+<li><a title="WizualizacjaAlgorytmow.Tests.TestListAlgorithm.TestListAlgorithm" href="#WizualizacjaAlgorytmow.Tests.TestListAlgorithm.TestListAlgorithm">TestListAlgorithm</a></li>
 <li>unittest.case.TestCase</li>
 </ul>
 <h3>Methods</h3>
 <dl>
-<dt id="WizualizacjaAlgorytmow.Tests.TestAdvancedAlgorithm.TestClear.test_clear_data"><code class="name flex">
+<dt id="WizualizacjaAlgorytmow.Tests.TestListAlgorithm.TestClear.test_clear_data"><code class="name flex">
 <span>def <span class="ident">test_clear_data</span></span>(<span>self)</span>
 </code></dt>
 <dd>
@@ -213,13 +144,13 @@ not have a method with the specified name.</p></div>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def test_clear_data(self):
-        #self.advanced_algorithm.add_element(&#39;1&#39;)
-        self.advanced_algorithm.clear()
-        self.assertEqual(len(self.advanced_algorithm.data), 0)
-        self.assertEqual(len(self.advanced_algorithm.snapshots), 1)</code></pre>
+        #self.list_algorithm.add_element(&#39;1&#39;)
+        self.list_algorithm.clear()
+        self.assertEqual(len(self.list_algorithm.data), 0)
+        self.assertEqual(len(self.list_algorithm.snapshots), 1)</code></pre>
 </details>
 </dd>
-<dt id="WizualizacjaAlgorytmow.Tests.TestAdvancedAlgorithm.TestClear.test_clear_no_data"><code class="name flex">
+<dt id="WizualizacjaAlgorytmow.Tests.TestListAlgorithm.TestClear.test_clear_no_data"><code class="name flex">
 <span>def <span class="ident">test_clear_no_data</span></span>(<span>self)</span>
 </code></dt>
 <dd>
@@ -229,22 +160,22 @@ not have a method with the specified name.</p></div>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def test_clear_no_data(self):
-        self.advanced_algorithm.clear()
-        self.assertEqual(len(self.advanced_algorithm.data), 0)
-        self.assertEqual(len(self.advanced_algorithm.snapshots), 1)</code></pre>
+        self.list_algorithm.clear()
+        self.assertEqual(len(self.list_algorithm.data), 0)
+        self.assertEqual(len(self.list_algorithm.snapshots), 1)</code></pre>
 </details>
 </dd>
 </dl>
 <h3>Inherited members</h3>
 <ul class="hlist">
-<li><code><b><a title="WizualizacjaAlgorytmow.Tests.TestAdvancedAlgorithm.TestAdvancedAlgorithm" href="#WizualizacjaAlgorytmow.Tests.TestAdvancedAlgorithm.TestAdvancedAlgorithm">TestAdvancedAlgorithm</a></b></code>:
+<li><code><b><a title="WizualizacjaAlgorytmow.Tests.TestListAlgorithm.TestListAlgorithm" href="#WizualizacjaAlgorytmow.Tests.TestListAlgorithm.TestListAlgorithm">TestListAlgorithm</a></b></code>:
 <ul class="hlist">
-<li><code><a title="WizualizacjaAlgorytmow.Tests.TestAdvancedAlgorithm.TestAdvancedAlgorithm.setUp" href="#WizualizacjaAlgorytmow.Tests.TestAdvancedAlgorithm.TestAdvancedAlgorithm.setUp">setUp</a></code></li>
+<li><code><a title="WizualizacjaAlgorytmow.Tests.TestListAlgorithm.TestListAlgorithm.setUp" href="#WizualizacjaAlgorytmow.Tests.TestListAlgorithm.TestListAlgorithm.setUp">setUp</a></code></li>
 </ul>
 </li>
 </ul>
 </dd>
-<dt id="WizualizacjaAlgorytmow.Tests.TestAdvancedAlgorithm.TestInit"><code class="flex name class">
+<dt id="WizualizacjaAlgorytmow.Tests.TestListAlgorithm.TestInit"><code class="flex name class">
 <span>class <span class="ident">TestInit</span></span>
 <span>(</span><span>methodName='runTest')</span>
 </code></dt>
@@ -281,27 +212,27 @@ not have a method with the specified name.</p></div>
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">class TestInit(TestAdvancedAlgorithm):
+<pre><code class="python">class TestInit(TestListAlgorithm):
         def test_visualization_widget(self):
-                self.assertEqual(self.advanced_algorithm.visualization_widget, NodZWidget)
+                self.assertEqual(self.list_algorithm.visualization_widget, NodZWidget)
 
         def test_load_buttons(self):
-                self.assertNotEqual(len(self.advanced_algorithm.buttons), 0)
+                self.assertNotEqual(len(self.list_algorithm.buttons), 0)
 
         def test_data_clear(self):
-                self.assertEqual(len(self.advanced_algorithm.data), 0)
+                self.assertEqual(len(self.list_algorithm.data), 0)
 
         def test_snapshots_clear(self):
-                self.assertEqual(len(self.advanced_algorithm.snapshots), 0)</code></pre>
+                self.assertEqual(len(self.list_algorithm.snapshots), 0)</code></pre>
 </details>
 <h3>Ancestors</h3>
 <ul class="hlist">
-<li><a title="WizualizacjaAlgorytmow.Tests.TestAdvancedAlgorithm.TestAdvancedAlgorithm" href="#WizualizacjaAlgorytmow.Tests.TestAdvancedAlgorithm.TestAdvancedAlgorithm">TestAdvancedAlgorithm</a></li>
+<li><a title="WizualizacjaAlgorytmow.Tests.TestListAlgorithm.TestListAlgorithm" href="#WizualizacjaAlgorytmow.Tests.TestListAlgorithm.TestListAlgorithm">TestListAlgorithm</a></li>
 <li>unittest.case.TestCase</li>
 </ul>
 <h3>Methods</h3>
 <dl>
-<dt id="WizualizacjaAlgorytmow.Tests.TestAdvancedAlgorithm.TestInit.test_data_clear"><code class="name flex">
+<dt id="WizualizacjaAlgorytmow.Tests.TestListAlgorithm.TestInit.test_data_clear"><code class="name flex">
 <span>def <span class="ident">test_data_clear</span></span>(<span>self)</span>
 </code></dt>
 <dd>
@@ -311,10 +242,10 @@ not have a method with the specified name.</p></div>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def test_data_clear(self):
-        self.assertEqual(len(self.advanced_algorithm.data), 0)</code></pre>
+        self.assertEqual(len(self.list_algorithm.data), 0)</code></pre>
 </details>
 </dd>
-<dt id="WizualizacjaAlgorytmow.Tests.TestAdvancedAlgorithm.TestInit.test_load_buttons"><code class="name flex">
+<dt id="WizualizacjaAlgorytmow.Tests.TestListAlgorithm.TestInit.test_load_buttons"><code class="name flex">
 <span>def <span class="ident">test_load_buttons</span></span>(<span>self)</span>
 </code></dt>
 <dd>
@@ -324,10 +255,10 @@ not have a method with the specified name.</p></div>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def test_load_buttons(self):
-        self.assertNotEqual(len(self.advanced_algorithm.buttons), 0)</code></pre>
+        self.assertNotEqual(len(self.list_algorithm.buttons), 0)</code></pre>
 </details>
 </dd>
-<dt id="WizualizacjaAlgorytmow.Tests.TestAdvancedAlgorithm.TestInit.test_snapshots_clear"><code class="name flex">
+<dt id="WizualizacjaAlgorytmow.Tests.TestListAlgorithm.TestInit.test_snapshots_clear"><code class="name flex">
 <span>def <span class="ident">test_snapshots_clear</span></span>(<span>self)</span>
 </code></dt>
 <dd>
@@ -337,10 +268,10 @@ not have a method with the specified name.</p></div>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def test_snapshots_clear(self):
-        self.assertEqual(len(self.advanced_algorithm.snapshots), 0)</code></pre>
+        self.assertEqual(len(self.list_algorithm.snapshots), 0)</code></pre>
 </details>
 </dd>
-<dt id="WizualizacjaAlgorytmow.Tests.TestAdvancedAlgorithm.TestInit.test_visualization_widget"><code class="name flex">
+<dt id="WizualizacjaAlgorytmow.Tests.TestListAlgorithm.TestInit.test_visualization_widget"><code class="name flex">
 <span>def <span class="ident">test_visualization_widget</span></span>(<span>self)</span>
 </code></dt>
 <dd>
@@ -350,20 +281,88 @@ not have a method with the specified name.</p></div>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def test_visualization_widget(self):
-        self.assertEqual(self.advanced_algorithm.visualization_widget, NodZWidget)</code></pre>
+        self.assertEqual(self.list_algorithm.visualization_widget, NodZWidget)</code></pre>
 </details>
 </dd>
 </dl>
 <h3>Inherited members</h3>
 <ul class="hlist">
-<li><code><b><a title="WizualizacjaAlgorytmow.Tests.TestAdvancedAlgorithm.TestAdvancedAlgorithm" href="#WizualizacjaAlgorytmow.Tests.TestAdvancedAlgorithm.TestAdvancedAlgorithm">TestAdvancedAlgorithm</a></b></code>:
+<li><code><b><a title="WizualizacjaAlgorytmow.Tests.TestListAlgorithm.TestListAlgorithm" href="#WizualizacjaAlgorytmow.Tests.TestListAlgorithm.TestListAlgorithm">TestListAlgorithm</a></b></code>:
 <ul class="hlist">
-<li><code><a title="WizualizacjaAlgorytmow.Tests.TestAdvancedAlgorithm.TestAdvancedAlgorithm.setUp" href="#WizualizacjaAlgorytmow.Tests.TestAdvancedAlgorithm.TestAdvancedAlgorithm.setUp">setUp</a></code></li>
+<li><code><a title="WizualizacjaAlgorytmow.Tests.TestListAlgorithm.TestListAlgorithm.setUp" href="#WizualizacjaAlgorytmow.Tests.TestListAlgorithm.TestListAlgorithm.setUp">setUp</a></code></li>
 </ul>
 </li>
 </ul>
 </dd>
-<dt id="WizualizacjaAlgorytmow.Tests.TestAdvancedAlgorithm.TestLoadButtons"><code class="flex name class">
+<dt id="WizualizacjaAlgorytmow.Tests.TestListAlgorithm.TestListAlgorithm"><code class="flex name class">
+<span>class <span class="ident">TestListAlgorithm</span></span>
+<span>(</span><span>methodName='runTest')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A class whose instances are single test cases.</p>
+<p>By default, the test code itself should be placed in a method named
+'runTest'.</p>
+<p>If the fixture may be used for many test cases, create as
+many test methods as are needed. When instantiating such a TestCase
+subclass, specify in the constructor arguments the name of the test method
+that the instance is to execute.</p>
+<p>Test authors should subclass TestCase for their own tests. Construction
+and deconstruction of the test's environment ('fixture') can be
+implemented by overriding the 'setUp' and 'tearDown' methods respectively.</p>
+<p>If it is necessary to override the <strong>init</strong> method, the base class
+<strong>init</strong> method must always be called. It is important that subclasses
+should not change the signature of their <strong>init</strong> method, since instances
+of the classes are instantiated automatically by parts of the framework
+in order to be run.</p>
+<p>When subclassing TestCase, you can set these attributes:
+* failureException: determines which exception will be raised when
+the instance's assertion methods fail; test methods raising this
+exception will be deemed to have 'failed' rather than 'errored'.
+* longMessage: determines whether long messages (including repr of
+objects used in assert methods) will be printed on failure in <em>addition</em>
+to any explicit message passed.
+* maxDiff: sets the maximum length of a diff in failure messages
+by assert methods using difflib. It is looked up as an instance
+attribute so can be configured by individual tests if required.</p>
+<p>Create an instance of the class that will use the named test
+method when executed. Raises a ValueError if the instance does
+not have a method with the specified name.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class TestListAlgorithm(TestCase):
+        def setUp(self):
+                self.list_algorithm = ListAlgorithm()</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>unittest.case.TestCase</li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="WizualizacjaAlgorytmow.Tests.TestListAlgorithm.TestClear" href="#WizualizacjaAlgorytmow.Tests.TestListAlgorithm.TestClear">TestClear</a></li>
+<li><a title="WizualizacjaAlgorytmow.Tests.TestListAlgorithm.TestInit" href="#WizualizacjaAlgorytmow.Tests.TestListAlgorithm.TestInit">TestInit</a></li>
+<li><a title="WizualizacjaAlgorytmow.Tests.TestListAlgorithm.TestLoadButtons" href="#WizualizacjaAlgorytmow.Tests.TestListAlgorithm.TestLoadButtons">TestLoadButtons</a></li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="WizualizacjaAlgorytmow.Tests.TestListAlgorithm.TestListAlgorithm.setUp"><code class="name flex">
+<span>def <span class="ident">setUp</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Hook method for setting up the test fixture before exercising it.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def setUp(self):
+        self.list_algorithm = ListAlgorithm()</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="WizualizacjaAlgorytmow.Tests.TestListAlgorithm.TestLoadButtons"><code class="flex name class">
 <span>class <span class="ident">TestLoadButtons</span></span>
 <span>(</span><span>methodName='runTest')</span>
 </code></dt>
@@ -400,19 +399,19 @@ not have a method with the specified name.</p></div>
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">class TestLoadButtons(TestAdvancedAlgorithm):
+<pre><code class="python">class TestLoadButtons(TestListAlgorithm):
         def test_load_buttons(self):
-                self.advanced_algorithm.load_buttons()
-                self.assertEqual(len(self.advanced_algorithm.buttons), 0)</code></pre>
+                self.list_algorithm.load_buttons()
+                self.assertEqual(len(self.list_algorithm.buttons), 0)</code></pre>
 </details>
 <h3>Ancestors</h3>
 <ul class="hlist">
-<li><a title="WizualizacjaAlgorytmow.Tests.TestAdvancedAlgorithm.TestAdvancedAlgorithm" href="#WizualizacjaAlgorytmow.Tests.TestAdvancedAlgorithm.TestAdvancedAlgorithm">TestAdvancedAlgorithm</a></li>
+<li><a title="WizualizacjaAlgorytmow.Tests.TestListAlgorithm.TestListAlgorithm" href="#WizualizacjaAlgorytmow.Tests.TestListAlgorithm.TestListAlgorithm">TestListAlgorithm</a></li>
 <li>unittest.case.TestCase</li>
 </ul>
 <h3>Methods</h3>
 <dl>
-<dt id="WizualizacjaAlgorytmow.Tests.TestAdvancedAlgorithm.TestLoadButtons.test_load_buttons"><code class="name flex">
+<dt id="WizualizacjaAlgorytmow.Tests.TestListAlgorithm.TestLoadButtons.test_load_buttons"><code class="name flex">
 <span>def <span class="ident">test_load_buttons</span></span>(<span>self)</span>
 </code></dt>
 <dd>
@@ -422,16 +421,16 @@ not have a method with the specified name.</p></div>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def test_load_buttons(self):
-        self.advanced_algorithm.load_buttons()
-        self.assertEqual(len(self.advanced_algorithm.buttons), 0)</code></pre>
+        self.list_algorithm.load_buttons()
+        self.assertEqual(len(self.list_algorithm.buttons), 0)</code></pre>
 </details>
 </dd>
 </dl>
 <h3>Inherited members</h3>
 <ul class="hlist">
-<li><code><b><a title="WizualizacjaAlgorytmow.Tests.TestAdvancedAlgorithm.TestAdvancedAlgorithm" href="#WizualizacjaAlgorytmow.Tests.TestAdvancedAlgorithm.TestAdvancedAlgorithm">TestAdvancedAlgorithm</a></b></code>:
+<li><code><b><a title="WizualizacjaAlgorytmow.Tests.TestListAlgorithm.TestListAlgorithm" href="#WizualizacjaAlgorytmow.Tests.TestListAlgorithm.TestListAlgorithm">TestListAlgorithm</a></b></code>:
 <ul class="hlist">
-<li><code><a title="WizualizacjaAlgorytmow.Tests.TestAdvancedAlgorithm.TestAdvancedAlgorithm.setUp" href="#WizualizacjaAlgorytmow.Tests.TestAdvancedAlgorithm.TestAdvancedAlgorithm.setUp">setUp</a></code></li>
+<li><code><a title="WizualizacjaAlgorytmow.Tests.TestListAlgorithm.TestListAlgorithm.setUp" href="#WizualizacjaAlgorytmow.Tests.TestListAlgorithm.TestListAlgorithm.setUp">setUp</a></code></li>
 </ul>
 </li>
 </ul>
@@ -453,31 +452,31 @@ not have a method with the specified name.</p></div>
 <li><h3><a href="#header-classes">Classes</a></h3>
 <ul>
 <li>
-<h4><code><a title="WizualizacjaAlgorytmow.Tests.TestAdvancedAlgorithm.TestAdvancedAlgorithm" href="#WizualizacjaAlgorytmow.Tests.TestAdvancedAlgorithm.TestAdvancedAlgorithm">TestAdvancedAlgorithm</a></code></h4>
+<h4><code><a title="WizualizacjaAlgorytmow.Tests.TestListAlgorithm.TestClear" href="#WizualizacjaAlgorytmow.Tests.TestListAlgorithm.TestClear">TestClear</a></code></h4>
 <ul class="">
-<li><code><a title="WizualizacjaAlgorytmow.Tests.TestAdvancedAlgorithm.TestAdvancedAlgorithm.setUp" href="#WizualizacjaAlgorytmow.Tests.TestAdvancedAlgorithm.TestAdvancedAlgorithm.setUp">setUp</a></code></li>
+<li><code><a title="WizualizacjaAlgorytmow.Tests.TestListAlgorithm.TestClear.test_clear_data" href="#WizualizacjaAlgorytmow.Tests.TestListAlgorithm.TestClear.test_clear_data">test_clear_data</a></code></li>
+<li><code><a title="WizualizacjaAlgorytmow.Tests.TestListAlgorithm.TestClear.test_clear_no_data" href="#WizualizacjaAlgorytmow.Tests.TestListAlgorithm.TestClear.test_clear_no_data">test_clear_no_data</a></code></li>
 </ul>
 </li>
 <li>
-<h4><code><a title="WizualizacjaAlgorytmow.Tests.TestAdvancedAlgorithm.TestClear" href="#WizualizacjaAlgorytmow.Tests.TestAdvancedAlgorithm.TestClear">TestClear</a></code></h4>
+<h4><code><a title="WizualizacjaAlgorytmow.Tests.TestListAlgorithm.TestInit" href="#WizualizacjaAlgorytmow.Tests.TestListAlgorithm.TestInit">TestInit</a></code></h4>
 <ul class="">
-<li><code><a title="WizualizacjaAlgorytmow.Tests.TestAdvancedAlgorithm.TestClear.test_clear_data" href="#WizualizacjaAlgorytmow.Tests.TestAdvancedAlgorithm.TestClear.test_clear_data">test_clear_data</a></code></li>
-<li><code><a title="WizualizacjaAlgorytmow.Tests.TestAdvancedAlgorithm.TestClear.test_clear_no_data" href="#WizualizacjaAlgorytmow.Tests.TestAdvancedAlgorithm.TestClear.test_clear_no_data">test_clear_no_data</a></code></li>
+<li><code><a title="WizualizacjaAlgorytmow.Tests.TestListAlgorithm.TestInit.test_data_clear" href="#WizualizacjaAlgorytmow.Tests.TestListAlgorithm.TestInit.test_data_clear">test_data_clear</a></code></li>
+<li><code><a title="WizualizacjaAlgorytmow.Tests.TestListAlgorithm.TestInit.test_load_buttons" href="#WizualizacjaAlgorytmow.Tests.TestListAlgorithm.TestInit.test_load_buttons">test_load_buttons</a></code></li>
+<li><code><a title="WizualizacjaAlgorytmow.Tests.TestListAlgorithm.TestInit.test_snapshots_clear" href="#WizualizacjaAlgorytmow.Tests.TestListAlgorithm.TestInit.test_snapshots_clear">test_snapshots_clear</a></code></li>
+<li><code><a title="WizualizacjaAlgorytmow.Tests.TestListAlgorithm.TestInit.test_visualization_widget" href="#WizualizacjaAlgorytmow.Tests.TestListAlgorithm.TestInit.test_visualization_widget">test_visualization_widget</a></code></li>
 </ul>
 </li>
 <li>
-<h4><code><a title="WizualizacjaAlgorytmow.Tests.TestAdvancedAlgorithm.TestInit" href="#WizualizacjaAlgorytmow.Tests.TestAdvancedAlgorithm.TestInit">TestInit</a></code></h4>
+<h4><code><a title="WizualizacjaAlgorytmow.Tests.TestListAlgorithm.TestListAlgorithm" href="#WizualizacjaAlgorytmow.Tests.TestListAlgorithm.TestListAlgorithm">TestListAlgorithm</a></code></h4>
 <ul class="">
-<li><code><a title="WizualizacjaAlgorytmow.Tests.TestAdvancedAlgorithm.TestInit.test_data_clear" href="#WizualizacjaAlgorytmow.Tests.TestAdvancedAlgorithm.TestInit.test_data_clear">test_data_clear</a></code></li>
-<li><code><a title="WizualizacjaAlgorytmow.Tests.TestAdvancedAlgorithm.TestInit.test_load_buttons" href="#WizualizacjaAlgorytmow.Tests.TestAdvancedAlgorithm.TestInit.test_load_buttons">test_load_buttons</a></code></li>
-<li><code><a title="WizualizacjaAlgorytmow.Tests.TestAdvancedAlgorithm.TestInit.test_snapshots_clear" href="#WizualizacjaAlgorytmow.Tests.TestAdvancedAlgorithm.TestInit.test_snapshots_clear">test_snapshots_clear</a></code></li>
-<li><code><a title="WizualizacjaAlgorytmow.Tests.TestAdvancedAlgorithm.TestInit.test_visualization_widget" href="#WizualizacjaAlgorytmow.Tests.TestAdvancedAlgorithm.TestInit.test_visualization_widget">test_visualization_widget</a></code></li>
+<li><code><a title="WizualizacjaAlgorytmow.Tests.TestListAlgorithm.TestListAlgorithm.setUp" href="#WizualizacjaAlgorytmow.Tests.TestListAlgorithm.TestListAlgorithm.setUp">setUp</a></code></li>
 </ul>
 </li>
 <li>
-<h4><code><a title="WizualizacjaAlgorytmow.Tests.TestAdvancedAlgorithm.TestLoadButtons" href="#WizualizacjaAlgorytmow.Tests.TestAdvancedAlgorithm.TestLoadButtons">TestLoadButtons</a></code></h4>
+<h4><code><a title="WizualizacjaAlgorytmow.Tests.TestListAlgorithm.TestLoadButtons" href="#WizualizacjaAlgorytmow.Tests.TestListAlgorithm.TestLoadButtons">TestLoadButtons</a></code></h4>
 <ul class="">
-<li><code><a title="WizualizacjaAlgorytmow.Tests.TestAdvancedAlgorithm.TestLoadButtons.test_load_buttons" href="#WizualizacjaAlgorytmow.Tests.TestAdvancedAlgorithm.TestLoadButtons.test_load_buttons">test_load_buttons</a></code></li>
+<li><code><a title="WizualizacjaAlgorytmow.Tests.TestListAlgorithm.TestLoadButtons.test_load_buttons" href="#WizualizacjaAlgorytmow.Tests.TestListAlgorithm.TestLoadButtons.test_load_buttons">test_load_buttons</a></code></li>
 </ul>
 </li>
 </ul>

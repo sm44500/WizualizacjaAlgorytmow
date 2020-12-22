@@ -34,6 +34,7 @@ from Widgets.ControlPanelWidgets.ControlPanelButton import ControlPanelButton
 from Widgets.ControlPanelWidgets.ControlPanelLabel import ControlPanelLabel
 from Widgets.ControlPanelWidgets.ControlPanelTextBox import ControlPanelTextBox
 from Widgets.ControlPanelWidgets.ControlPanelIconPanel import ControlPanelIconPanel
+from Widgets.ControlPanelWidgets.ControlPanelTextBoxGroup import ControlPanelTextBoxGroup
 from Widgets.BaseWidget import BaseWidget
 
 
@@ -140,15 +141,28 @@ class ControlPanel(BaseWidget):
                 Powrót:
                         ControlPanelSlider - suwak
                 &#34;&#34;&#34;
-                slider = ControlPanelSlider(Qt.Horizontal)
+                slider = ControlPanelSlider(value, Qt.Horizontal)
                 slider.setMinimum(minimum)
                 slider.setMaximum(maximum)
-                slider.setValue(value)
                 slider.setSingleStep(step)
-                self.add_label(&#34;Prędkość animacji:&#34;)
+                self.add_label(&#34;Prędkość animacji:&#34;).setMinimumHeight(32)
                 self.widget_layout.addWidget(slider)
                 self.widgets.append(slider)
-                return slider</code></pre>
+                return slider
+
+        def add_button_group(self) -&gt; ControlPanelTextBoxGroup:
+                &#34;&#34;&#34;
+                Dodanie grupy klawiszy.
+
+                Typ zwracany:
+                ControlPanelButtonGroup
+                &#34;&#34;&#34;
+                buttons = ControlPanelTextBoxGroup()
+
+                self.widget_layout.addWidget(buttons)
+                self.widgets.append(buttons)
+
+                return buttons</code></pre>
 </details>
 </section>
 <section>
@@ -276,15 +290,28 @@ alignment - wyrównanie, domyślnie Qt.AlignTop</p></div>
                 Powrót:
                         ControlPanelSlider - suwak
                 &#34;&#34;&#34;
-                slider = ControlPanelSlider(Qt.Horizontal)
+                slider = ControlPanelSlider(value, Qt.Horizontal)
                 slider.setMinimum(minimum)
                 slider.setMaximum(maximum)
-                slider.setValue(value)
                 slider.setSingleStep(step)
-                self.add_label(&#34;Prędkość animacji:&#34;)
+                self.add_label(&#34;Prędkość animacji:&#34;).setMinimumHeight(32)
                 self.widget_layout.addWidget(slider)
                 self.widgets.append(slider)
-                return slider</code></pre>
+                return slider
+
+        def add_button_group(self) -&gt; ControlPanelTextBoxGroup:
+                &#34;&#34;&#34;
+                Dodanie grupy klawiszy.
+
+                Typ zwracany:
+                ControlPanelButtonGroup
+                &#34;&#34;&#34;
+                buttons = ControlPanelTextBoxGroup()
+
+                self.widget_layout.addWidget(buttons)
+                self.widgets.append(buttons)
+
+                return buttons</code></pre>
 </details>
 <h3>Ancestors</h3>
 <ul class="hlist">
@@ -331,6 +358,32 @@ hint - tekst po najechaniu kursowem (opcjonalnie)</p>
         self.widget_layout.addWidget(button)
         self.widgets.append(button)
         return button</code></pre>
+</details>
+</dd>
+<dt id="WizualizacjaAlgorytmow.Widgets.ControlPanel.ControlPanel.add_button_group"><code class="name flex">
+<span>def <span class="ident">add_button_group</span></span>(<span>self) ‑> Widgets.ControlPanelWidgets.ControlPanelTextBoxGroup.ControlPanelTextBoxGroup</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Dodanie grupy klawiszy.</p>
+<p>Typ zwracany:
+ControlPanelButtonGroup</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def add_button_group(self) -&gt; ControlPanelTextBoxGroup:
+        &#34;&#34;&#34;
+        Dodanie grupy klawiszy.
+
+        Typ zwracany:
+        ControlPanelButtonGroup
+        &#34;&#34;&#34;
+        buttons = ControlPanelTextBoxGroup()
+
+        self.widget_layout.addWidget(buttons)
+        self.widgets.append(buttons)
+
+        return buttons</code></pre>
 </details>
 </dd>
 <dt id="WizualizacjaAlgorytmow.Widgets.ControlPanel.ControlPanel.add_icon_panel"><code class="name flex">
@@ -416,12 +469,11 @@ step - krok zmiany wartości suwaka</p>
         Powrót:
                 ControlPanelSlider - suwak
         &#34;&#34;&#34;
-        slider = ControlPanelSlider(Qt.Horizontal)
+        slider = ControlPanelSlider(value, Qt.Horizontal)
         slider.setMinimum(minimum)
         slider.setMaximum(maximum)
-        slider.setValue(value)
         slider.setSingleStep(step)
-        self.add_label(&#34;Prędkość animacji:&#34;)
+        self.add_label(&#34;Prędkość animacji:&#34;).setMinimumHeight(32)
         self.widget_layout.addWidget(slider)
         self.widgets.append(slider)
         return slider</code></pre>
@@ -509,6 +561,7 @@ step - krok zmiany wartości suwaka</p>
 <h4><code><a title="WizualizacjaAlgorytmow.Widgets.ControlPanel.ControlPanel" href="#WizualizacjaAlgorytmow.Widgets.ControlPanel.ControlPanel">ControlPanel</a></code></h4>
 <ul class="two-column">
 <li><code><a title="WizualizacjaAlgorytmow.Widgets.ControlPanel.ControlPanel.add_button" href="#WizualizacjaAlgorytmow.Widgets.ControlPanel.ControlPanel.add_button">add_button</a></code></li>
+<li><code><a title="WizualizacjaAlgorytmow.Widgets.ControlPanel.ControlPanel.add_button_group" href="#WizualizacjaAlgorytmow.Widgets.ControlPanel.ControlPanel.add_button_group">add_button_group</a></code></li>
 <li><code><a title="WizualizacjaAlgorytmow.Widgets.ControlPanel.ControlPanel.add_icon_panel" href="#WizualizacjaAlgorytmow.Widgets.ControlPanel.ControlPanel.add_icon_panel">add_icon_panel</a></code></li>
 <li><code><a title="WizualizacjaAlgorytmow.Widgets.ControlPanel.ControlPanel.add_label" href="#WizualizacjaAlgorytmow.Widgets.ControlPanel.ControlPanel.add_label">add_label</a></code></li>
 <li><code><a title="WizualizacjaAlgorytmow.Widgets.ControlPanel.ControlPanel.add_slider" href="#WizualizacjaAlgorytmow.Widgets.ControlPanel.ControlPanel.add_slider">add_slider</a></code></li>
