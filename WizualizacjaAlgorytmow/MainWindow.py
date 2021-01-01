@@ -14,7 +14,7 @@ class MainWindow(QMainWindow):
 	Parametry:
 		parent - widget rodzic.
 	"""
-	window_title = "Wizualizacja Algorytmów"
+	window_title = "WAWI ZUT"
 
 	def __init__(self, parent=None):
 		super().__init__(parent)
