@@ -32,11 +32,15 @@ class WelcomeWindow(QMainWindow):
 		self.setCentralWidget(self.central_widget)
 		self.centralWidget().setLayout(self.grid)
 
-		self.grid.addWidget(add_label("WAWI ZUT", 14, True, Qt.AlignCenter), 0, 0)
+		self.logo = QLabel(self)
+		self.logo.setPixmap(QPixmap(Paths.icon("logo.png")))
+		self.logo.setAlignment(Qt.AlignCenter)
+		self.grid.addWidget(self.logo, 0, 0)
+
+		self.grid.addWidget(add_label("WAWI ZUT", 14, True, Qt.AlignCenter), 1, 0)
 		self.grid.addWidget(add_label("Wizualizacja Algorytmów", 12, False, Qt.AlignCenter), 1, 0)
-		self.grid.addWidget(add_label("Wydział Informatyki", 10, False, Qt.AlignCenter), 2, 0)
-		self.grid.addWidget(add_label("Zachodniopomorski Uniwersytet Technologiczny w Szczecinie", 10, False, Qt.AlignCenter), 3, 0)
-		self.grid.addWidget(add_label("2021", 10, False, Qt.AlignCenter), 4, 0)
+		self.grid.addWidget(add_label("Wydział Informatyki \nZachodniopomorski Uniwersytet Technologiczny w Szczecinie", 10, False, Qt.AlignCenter), 2, 0)
+		self.grid.addWidget(add_label("Autorzy: Marcin Jakubowski, Aliaksei Kavaliou, Piotr Podleżański, \nMateusz Smolarkiewicz, Łukasz Więckowski, Mykhailo Yelmikheiev", 10, False, Qt.AlignLeft))
 
 
 def add_label(text, size, bold, align):
@@ -45,7 +49,6 @@ def add_label(text, size, bold, align):
 	font.setBold(bold)
 	label = QLabel()
 	label.setFont(font)
-	label.setMinimumHeight(20)
 	label.setAlignment(align)
 	label.setText(text)
 	return label
