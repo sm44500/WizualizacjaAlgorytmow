@@ -16,9 +16,9 @@ class WelcomeWindow(QMainWindow):
 	def __init__(self, parent=None):
 		QMainWindow.__init__(self)
 		self.setObjectName("WelcomeWindow")
-		self.resize(400, 300)
-		self.setMinimumSize(QSize(400, 300))
-		self.setMaximumSize(QSize(400, 300))
+		self.resize(400, 350)
+		self.setMinimumSize(QSize(400, 350))
+		self.setMaximumSize(QSize(400, 350))
 		self.setWindowTitle("WAWI ZUT")
 
 		self.setStyleSheet(Styles.welcome_background)
@@ -26,8 +26,6 @@ class WelcomeWindow(QMainWindow):
 
 		self.central_widget = QWidget()
 		self.grid = QGridLayout()
-
-		self.grid.setRowStretch(0, 5)
 
 		self.setCentralWidget(self.central_widget)
 		self.centralWidget().setLayout(self.grid)
@@ -37,7 +35,7 @@ class WelcomeWindow(QMainWindow):
 		self.logo.setAlignment(Qt.AlignCenter)
 		self.grid.addWidget(self.logo, 0, 0)
 
-		self.grid.addWidget(add_label("Wizualizacja Algorytmów", 12, False, Qt.AlignCenter), 1, 0)
+		self.grid.addWidget(add_label("\nWizualizacja Algorytmów", 12, False, Qt.AlignCenter), 1, 0)
 		self.grid.addWidget(add_label("Wydział Informatyki \nZachodniopomorski Uniwersytet Technologiczny w Szczecinie\n", 10, False, Qt.AlignCenter), 2, 0)
 		self.grid.addWidget(add_label("Oprogramowanie zrealizowane w ramach przedmiotu \nInżynierski Projekt Zespołowy 1", 10, False, Qt.AlignCenter), 3, 0)
 		self.grid.addWidget(add_label("Autorzy: Marcin Jakubowski, Aliaksei Kavaliou, Piotr Podleżański, \nMateusz Smolarkiewicz, Łukasz Więckowski, Mykhailo Yelmikheiev", 10, False, Qt.AlignLeft), 4, 0)
