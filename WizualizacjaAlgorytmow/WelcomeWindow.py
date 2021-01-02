@@ -38,8 +38,8 @@ class WelcomeWindow(QMainWindow):
 		self.grid.addWidget(self.logo, 0, 0)
 
 		self.grid.addWidget(add_label("Wizualizacja Algorytmów", 12, False, Qt.AlignCenter), 1, 0)
-		self.grid.addWidget(add_label("Wydział Informatyki \nZachodniopomorski Uniwersytet Technologiczny w Szczecinie", 10, False, Qt.AlignCenter), 2, 0)
-		self.grid.addWidget(add_label("", 10, False, Qt.AlignCenter), 3, 0)
+		self.grid.addWidget(add_label("Wydział Informatyki \nZachodniopomorski Uniwersytet Technologiczny w Szczecinie\n", 10, False, Qt.AlignCenter), 2, 0)
+		self.grid.addWidget(add_label("Oprogramowanie zrealizowane w ramach przedmiotu \nInżynierski Projekt Zespołowy 1", 10, False, Qt.AlignCenter), 3, 0)
 		self.grid.addWidget(add_label("Autorzy: Marcin Jakubowski, Aliaksei Kavaliou, Piotr Podleżański, \nMateusz Smolarkiewicz, Łukasz Więckowski, Mykhailo Yelmikheiev", 10, False, Qt.AlignLeft), 4, 0)
 		self.grid.addWidget(add_label("Opiekun projektu: dr hab.inż. Imed El Fray", 10, False, Qt.AlignLeft), 5, 0)
 		self.grid.addWidget(add_label("Konsultacja merytoryczna: dr hab.inż. Imed El Fray, \nmgr inż. Włodzimierz Chocianowicz, mgr inż. Gerard Wawrzyniak", 10, False, Qt.AlignLeft), 6, 0)
