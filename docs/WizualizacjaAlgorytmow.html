@@ -28,15 +28,18 @@
 </summary>
 <pre><code class="python">import sys
 from PyQt5.QtWidgets import QApplication
-
 from MainWindow import MainWindow
+from WelcomeWindow import WelcomeWindow
 
 
 if __name__ == &#34;__main__&#34;:
         app = QApplication(sys.argv)
         app.setStyle(&#34;fusion&#34;)
-        window = MainWindow()
-        window.show()
+        main_window = MainWindow()
+        #main_window.show()
+        main_window.showMaximized()
+        welcome_window = WelcomeWindow()
+        welcome_window.show()
         sys.exit(app.exec_())</code></pre>
 </details>
 </section>

@@ -45,7 +45,7 @@ class QuestionsManager:
                 self.main_widget = main_widget
                 self.control_panel_bottom = self.main_widget.middle_widget.right_widget.bottom_control_panel
                 self.center = self.main_widget.middle_widget.left_widget
-                self.description_widget = self.main_widget.bottom_widget
+                #self.description_widget = self.main_widget.bottom_widget
                 self.answer_buttons = []
                 self.answers = [-1] * len(self.questions)
                 self.is_end = False
@@ -185,7 +185,7 @@ class QuestionsManager:
                 Parametry:
                         question - obiekt klasy TestQuestion
                 &#34;&#34;&#34;
-                self.description_widget.show_question(question, self.is_end)
+                #self.description_widget.show_question(question, self.is_end)
                 self.refresh()</code></pre>
 </details>
 </section>
@@ -225,7 +225,7 @@ algorithm - obiekt algorytmu.</p></div>
                 self.main_widget = main_widget
                 self.control_panel_bottom = self.main_widget.middle_widget.right_widget.bottom_control_panel
                 self.center = self.main_widget.middle_widget.left_widget
-                self.description_widget = self.main_widget.bottom_widget
+                #self.description_widget = self.main_widget.bottom_widget
                 self.answer_buttons = []
                 self.answers = [-1] * len(self.questions)
                 self.is_end = False
@@ -365,7 +365,7 @@ algorithm - obiekt algorytmu.</p></div>
                 Parametry:
                         question - obiekt klasy TestQuestion
                 &#34;&#34;&#34;
-                self.description_widget.show_question(question, self.is_end)
+                #self.description_widget.show_question(question, self.is_end)
                 self.refresh()</code></pre>
 </details>
 <h3>Methods</h3>
@@ -551,7 +551,7 @@ Zmienia pytanie na poprzednie.</p></div>
         Parametry:
                 question - obiekt klasy TestQuestion
         &#34;&#34;&#34;
-        self.description_widget.show_question(question, self.is_end)
+        #self.description_widget.show_question(question, self.is_end)
         self.refresh()</code></pre>
 </details>
 </dd>

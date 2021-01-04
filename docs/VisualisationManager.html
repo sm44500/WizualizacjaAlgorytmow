@@ -31,6 +31,7 @@ from PyQt5.QtWidgets import QWidget
 from PyQt5.QtGui import QColor, QIcon
 from Paths import Paths
 from AlgorithmsLogic import Algorithm
+from Widgets.DescriptionLabel import DescriptionLabel
 from Settings import Settings
 from Styles import Styles
 
@@ -49,7 +50,7 @@ class VisualisationManager:
                 self.main_widget = main_widget
                 self.control_panel_bottom = self.main_widget.middle_widget.right_widget.bottom_control_panel
                 self.center = self.main_widget.middle_widget.left_widget
-                self.description_widget = self.main_widget.bottom_widget
+                self.description_widget = None
                 self.internal_widgets = []
                 self.play_icon = Paths.icon(&#34;play.png&#34;)
                 self.pause_icon = Paths.icon(&#34;pause.png&#34;)
@@ -72,6 +73,8 @@ class VisualisationManager:
                 Inicjalizuje panel kontrolny.
                 &#34;&#34;&#34;
                 self.center.set_widget(self.algorithm.visualization_widget)
+                self.center.set_bottom_widget(DescriptionLabel)
+                self.description_widget = self.center.bottom_widget
 
                 for control in self.algorithm.controls:
                         control_type = control[0]
@@ -235,7 +238,7 @@ algorithm - obiekt algorytmu.</p></div>
                 self.main_widget = main_widget
                 self.control_panel_bottom = self.main_widget.middle_widget.right_widget.bottom_control_panel
                 self.center = self.main_widget.middle_widget.left_widget
-                self.description_widget = self.main_widget.bottom_widget
+                self.description_widget = None
                 self.internal_widgets = []
                 self.play_icon = Paths.icon(&#34;play.png&#34;)
                 self.pause_icon = Paths.icon(&#34;pause.png&#34;)
@@ -258,6 +261,8 @@ algorithm - obiekt algorytmu.</p></div>
                 Inicjalizuje panel kontrolny.
                 &#34;&#34;&#34;
                 self.center.set_widget(self.algorithm.visualization_widget)
+                self.center.set_bottom_widget(DescriptionLabel)
+                self.description_widget = self.center.bottom_widget
 
                 for control in self.algorithm.controls:
                         control_type = control[0]
@@ -531,6 +536,8 @@ Uruchomienie poprzedniego kroku, jeżeli istnieje.</p></div>
         Inicjalizuje panel kontrolny.
         &#34;&#34;&#34;
         self.center.set_widget(self.algorithm.visualization_widget)
+        self.center.set_bottom_widget(DescriptionLabel)
+        self.description_widget = self.center.bottom_widget
 
         for control in self.algorithm.controls:
                 control_type = control[0]

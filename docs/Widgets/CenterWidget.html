@@ -26,7 +26,7 @@
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">from PyQt5.QtWidgets import QHBoxLayout
+<pre><code class="python">from PyQt5.QtWidgets import QVBoxLayout
 
 from Styles import Styles
 from Widgets.BaseWidget import BaseWidget
@@ -40,8 +40,9 @@ class CenterWidget(BaseWidget):
                 parent - widget rodzic.
         &#34;&#34;&#34;
         def __init__(self, parent=None):
-                super().__init__(parent, QHBoxLayout)
+                super().__init__(parent, QVBoxLayout)
                 self.widget = None
+                self.bottom_widget = None
                 self.setup_ui()
 
         def setup_ui(self):
@@ -58,6 +59,10 @@ class CenterWidget(BaseWidget):
                         self.widget.setParent(None)
                         self.widget = None
 
+                if self.bottom_widget is not None:
+                        self.bottom_widget.setParent(None)
+                        self.bottom_widget = None
+
         def set_widget(self, widget_class):
                 &#34;&#34;&#34;
                 Tworzy widget o podanej klasie i ustawia na sobie.
@@ -65,8 +70,18 @@ class CenterWidget(BaseWidget):
                 Parametry:
                         widget_class - Typ klasy widget&#39;u
                 &#34;&#34;&#34;
-                self.widget = widget_class()
-                self.widget_layout.addWidget(self.widget)</code></pre>
+                self.widget = widget_class(self)
+                self.widget_layout.addWidget(self.widget)
+
+        def set_bottom_widget(self, widget_class):
+                &#34;&#34;&#34;
+                Tworzy widget o podanej klasie i ustawia na sobie.
+
+                Parametry:
+                        widget_class - Typ klasy widget&#39;u
+                &#34;&#34;&#34;
+                self.bottom_widget = widget_class(self)
+                self.widget_layout.addWidget(self.bottom_widget)</code></pre>
 </details>
 </section>
 <section>
@@ -98,8 +113,9 @@ class CenterWidget(BaseWidget):
                 parent - widget rodzic.
         &#34;&#34;&#34;
         def __init__(self, parent=None):
-                super().__init__(parent, QHBoxLayout)
+                super().__init__(parent, QVBoxLayout)
                 self.widget = None
+                self.bottom_widget = None
                 self.setup_ui()
 
         def setup_ui(self):
@@ -116,6 +132,10 @@ class CenterWidget(BaseWidget):
                         self.widget.setParent(None)
                         self.widget = None
 
+                if self.bottom_widget is not None:
+                        self.bottom_widget.setParent(None)
+                        self.bottom_widget = None
+
         def set_widget(self, widget_class):
                 &#34;&#34;&#34;
                 Tworzy widget o podanej klasie i ustawia na sobie.
@@ -123,8 +143,18 @@ class CenterWidget(BaseWidget):
                 Parametry:
                         widget_class - Typ klasy widget&#39;u
                 &#34;&#34;&#34;
-                self.widget = widget_class()
-                self.widget_layout.addWidget(self.widget)</code></pre>
+                self.widget = widget_class(self)
+                self.widget_layout.addWidget(self.widget)
+
+        def set_bottom_widget(self, widget_class):
+                &#34;&#34;&#34;
+                Tworzy widget o podanej klasie i ustawia na sobie.
+
+                Parametry:
+                        widget_class - Typ klasy widget&#39;u
+                &#34;&#34;&#34;
+                self.bottom_widget = widget_class(self)
+                self.widget_layout.addWidget(self.bottom_widget)</code></pre>
 </details>
 <h3>Ancestors</h3>
 <ul class="hlist">
@@ -152,7 +182,33 @@ class CenterWidget(BaseWidget):
         &#34;&#34;&#34;
         if self.widget is not None:
                 self.widget.setParent(None)
-                self.widget = None</code></pre>
+                self.widget = None
+
+        if self.bottom_widget is not None:
+                self.bottom_widget.setParent(None)
+                self.bottom_widget = None</code></pre>
+</details>
+</dd>
+<dt id="WizualizacjaAlgorytmow.Widgets.CenterWidget.CenterWidget.set_bottom_widget"><code class="name flex">
+<span>def <span class="ident">set_bottom_widget</span></span>(<span>self, widget_class)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Tworzy widget o podanej klasie i ustawia na sobie.</p>
+<h2 id="parametry">Parametry</h2>
+<p>widget_class - Typ klasy widget'u</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_bottom_widget(self, widget_class):
+        &#34;&#34;&#34;
+        Tworzy widget o podanej klasie i ustawia na sobie.
+
+        Parametry:
+                widget_class - Typ klasy widget&#39;u
+        &#34;&#34;&#34;
+        self.bottom_widget = widget_class(self)
+        self.widget_layout.addWidget(self.bottom_widget)</code></pre>
 </details>
 </dd>
 <dt id="WizualizacjaAlgorytmow.Widgets.CenterWidget.CenterWidget.set_widget"><code class="name flex">
@@ -173,7 +229,7 @@ class CenterWidget(BaseWidget):
         Parametry:
                 widget_class - Typ klasy widget&#39;u
         &#34;&#34;&#34;
-        self.widget = widget_class()
+        self.widget = widget_class(self)
         self.widget_layout.addWidget(self.widget)</code></pre>
 </details>
 </dd>
@@ -215,6 +271,7 @@ class CenterWidget(BaseWidget):
 <h4><code><a title="WizualizacjaAlgorytmow.Widgets.CenterWidget.CenterWidget" href="#WizualizacjaAlgorytmow.Widgets.CenterWidget.CenterWidget">CenterWidget</a></code></h4>
 <ul class="">
 <li><code><a title="WizualizacjaAlgorytmow.Widgets.CenterWidget.CenterWidget.clear_widget" href="#WizualizacjaAlgorytmow.Widgets.CenterWidget.CenterWidget.clear_widget">clear_widget</a></code></li>
+<li><code><a title="WizualizacjaAlgorytmow.Widgets.CenterWidget.CenterWidget.set_bottom_widget" href="#WizualizacjaAlgorytmow.Widgets.CenterWidget.CenterWidget.set_bottom_widget">set_bottom_widget</a></code></li>
 <li><code><a title="WizualizacjaAlgorytmow.Widgets.CenterWidget.CenterWidget.set_widget" href="#WizualizacjaAlgorytmow.Widgets.CenterWidget.CenterWidget.set_widget">set_widget</a></code></li>
 <li><code><a title="WizualizacjaAlgorytmow.Widgets.CenterWidget.CenterWidget.setup_ui" href="#WizualizacjaAlgorytmow.Widgets.CenterWidget.CenterWidget.setup_ui">setup_ui</a></code></li>
 </ul>
