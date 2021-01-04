@@ -6,9 +6,9 @@ from Styles import Styles
 from Widgets.BaseWidget import BaseWidget
 
 
-class BottomWidget(QLabel):
+class DescriptionLabel(QLabel):
 	"""
-	Klasa reprezentująca dolny panel.
+	Klasa reprezentująca tekstowy panel opisu.
 
 	Parametry:
 		parent - widget rodzic.

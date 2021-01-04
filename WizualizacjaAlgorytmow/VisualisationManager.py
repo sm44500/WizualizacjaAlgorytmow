@@ -3,6 +3,7 @@ from PyQt5.QtWidgets import QWidget
 from PyQt5.QtGui import QColor, QIcon
 from Paths import Paths
 from AlgorithmsLogic import Algorithm
+from Widgets.DescriptionLabel import DescriptionLabel
 from Settings import Settings
 from Styles import Styles
 
@@ -21,7 +22,7 @@ class VisualisationManager:
 		self.main_widget = main_widget
 		self.control_panel_bottom = self.main_widget.middle_widget.right_widget.bottom_control_panel
 		self.center = self.main_widget.middle_widget.left_widget
-		self.description_widget = self.main_widget.bottom_widget
+		self.description_widget = None
 		self.internal_widgets = []
 		self.play_icon = Paths.icon("play.png")
 		self.pause_icon = Paths.icon("pause.png")
@@ -44,6 +45,8 @@ class VisualisationManager:
 		Inicjalizuje panel kontrolny.
 		"""
 		self.center.set_widget(self.algorithm.visualization_widget)
+		self.center.set_bottom_widget(DescriptionLabel)
+		self.description_widget = self.center.bottom_widget
 
 		for control in self.algorithm.controls:
 			control_type = control[0]

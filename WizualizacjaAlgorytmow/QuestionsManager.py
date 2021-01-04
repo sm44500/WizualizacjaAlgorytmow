@@ -17,7 +17,7 @@ class QuestionsManager:
 		self.main_widget = main_widget
 		self.control_panel_bottom = self.main_widget.middle_widget.right_widget.bottom_control_panel
 		self.center = self.main_widget.middle_widget.left_widget
-		self.description_widget = self.main_widget.bottom_widget
+		#self.description_widget = self.main_widget.bottom_widget
 		self.answer_buttons = []
 		self.answers = [-1] * len(self.questions)
 		self.is_end = False
@@ -157,5 +157,5 @@ class QuestionsManager:
 		Parametry:
 			question - obiekt klasy TestQuestion
 		"""
-		self.description_widget.show_question(question, self.is_end)
+		#self.description_widget.show_question(question, self.is_end)
 		self.refresh()

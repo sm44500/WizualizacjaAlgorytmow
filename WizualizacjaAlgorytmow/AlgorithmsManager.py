@@ -23,7 +23,6 @@ class AlgorithmsManager:
 		self.control_panel_top = self.main_widget.middle_widget.right_widget.top_control_panel
 		self.control_panel_bottom = self.main_widget.middle_widget.right_widget.bottom_control_panel
 		self.center = self.main_widget.middle_widget.left_widget
-		self.bottom = self.main_widget.bottom_widget
 		self.manager = None
 		self.current_index = 0
 		self.current_algorithm = None
@@ -143,6 +142,5 @@ class AlgorithmsManager:
 		"""
 		self.setup_control_panel()
 		self.center.clear_widget()
-		self.bottom.set_text("")
 		self.manager = None
 		pass
