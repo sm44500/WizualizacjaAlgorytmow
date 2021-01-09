@@ -8,7 +8,7 @@ class Styles:
 
 	standard_tooltip = """
 	QToolTip { 
-		background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgb(230, 230, 230), stop:1 rgb(190, 190, 190));
+		background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgb(210, 210, 210), stop:1 rgb(190, 190, 190));
 		color: black;
 		font: bold;
 		font-size: 15px;
@@ -17,18 +17,32 @@ class Styles:
 	}
 	"""
 
+	top_panel_option_background = """
+		background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgb(150, 150, 150), stop:0.8 rgb(140, 140, 140), stop:1 rgb(130, 130, 130));
+		font-family:Arial;
+		font-size:24px;
+	"""
+
 	top_panel_background = """
 	QComboBox {
 		border: 0px solid black;
 		border-radius: 0px;
 		padding-left: 5px;
 		padding-right: 5px;
-		background-color: rgb(187, 187, 187)
+		background-color: rgb(187, 187, 187);
 	}
-
-	QComboBox:!editable:on, QComboBox::drop-down:editable:on {
-		background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #D3D3D3, stop: 0.4 #D8D8D8, stop: 0.5 #DDDDDD,
-		stop: 1.0 #E1E1E1);
+	
+	QComboBox:editable {
+		background: white;
+	}
+	
+	QComboBox:on {
+		background: gray;
+	}
+	
+	QComboBox QAbstractItemView {
+		border: 2px solid black;
+		selection-background-color: lightgray;
 	}
 	"""
 

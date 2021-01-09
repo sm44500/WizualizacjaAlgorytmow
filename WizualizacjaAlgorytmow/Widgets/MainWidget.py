@@ -1,5 +1,6 @@
 from PyQt5.QtWidgets import QWidget, QVBoxLayout
 
+from Styles import Styles
 from Widgets.TopWidget import TopWidget
 from Widgets.MiddleWidget import MiddleWidget
 #from Widgets.BottomWidget import BottomWidget
@@ -24,7 +25,8 @@ class MainWidget(BaseWidget):
 		Inicjalizacja interfejsu użytkownika.
 		"""
 		self.widget_layout.setContentsMargins(5, 5, 5, 5)
-		
+		self.setStyleSheet(Styles.top_panel_option_background)
+
 		self.top_widget = TopWidget(self)
 		self.middle_widget = MiddleWidget(self)
 
