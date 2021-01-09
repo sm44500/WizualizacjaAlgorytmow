@@ -10,6 +10,8 @@ class TestQuestion:
 	"""
 	def __init__(self):
 		self.question = ""
+		self.explanation = ""
+		self.image = ""
 		self.answers = []
 		self.correct = -1
 
@@ -66,7 +68,8 @@ class TestQuestion:
 			question.question = json_object["question"]
 			question.answers = json_object["answers"]
 			question.correct = json_object["correct"]
-			question.reason = "test uzasadnienie test" # json_object["explain"]
+			question.explanation = json_object["explanation"]
+			question.image =   json_object["image"]
 			questions.append(question)
 
 		file.close()
