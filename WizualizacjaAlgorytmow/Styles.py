@@ -8,7 +8,7 @@ class Styles:
 
 	standard_tooltip = """
 	QToolTip { 
-		background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgb(210, 210, 210), stop:1 rgb(190, 190, 190));
+		background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgb(210, 210, 210), stop:0.8 rgb(200, 200, 200), stop:1 rgb(190, 190, 190));
 		color: black;
 		font: bold;
 		font-size: 15px;
@@ -54,7 +54,7 @@ class Styles:
 	button_background = """
 	QPushButton {
 		padding-left: 5px; padding-right: 5px; text-align: left;
-		background:qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgb(160, 160, 160), stop:1 rgb(150, 150, 150));
+		background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgb(150, 150, 150), stop:0.8 rgb(140, 140, 140), stop:1 rgb(130, 130, 130));
 		border-radius: 0px;
 	}
 	QPushButton::hover {
@@ -94,13 +94,13 @@ class Styles:
 
 	label_background = """
 	QLabel {
-	background:qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgb(160, 160, 160), stop:1 rgb(150, 150, 150));
-	border-radius: 0px;
+		background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgb(150, 150, 150), stop:0.8 rgb(140, 140, 140), stop:1 rgb(130, 130, 130));
+		border-radius: 0px;
 	}""" + standard_tooltip
 
 	text_box_background = """
 	QLineEdit {
-		background:qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgb(180, 180, 180), stop:1 rgb(200, 200, 200));
+		background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgb(180, 180, 180), stop:0.8 rgb(190, 190, 190), stop:1 rgb(200, 200, 200));
 		border-radius: 0px;
 	}""" + standard_tooltip
 
