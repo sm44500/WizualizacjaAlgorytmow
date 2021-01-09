@@ -21,12 +21,11 @@ class DescriptionLabel(QLabel):
 		"""
 		Inicjalizacja interfejsu użytkownika.
 		"""
-		font = BaseWidget.generate_font()
 		self.setStyleSheet("""
 			padding: 10px;
 			%s
 		""" % Styles.description_background)
-		self.setFont(font)
+		self.setAlignment(Qt.AlignCenter)
 		self.setWordWrap(True)
 		self.setTextFormat(Qt.RichText)
 		self.setMaximumHeight(200)

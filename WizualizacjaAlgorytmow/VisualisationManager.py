@@ -45,7 +45,9 @@ class VisualisationManager:
 		Inicjalizuje panel kontrolny.
 		"""
 		self.center.set_widget(self.algorithm.visualization_widget)
-		self.center.set_bottom_widget(DescriptionLabel)
+		description = DescriptionLabel(self.center)
+		description.set_text("Skorzystaj z panelu po prawej stronie, aby rozpocząć wizualizację.")
+		self.center.set_bottom_widget(description)
 		self.description_widget = self.center.bottom_widget
 
 		for control in self.algorithm.controls:
@@ -68,7 +70,7 @@ class VisualisationManager:
 				self.internal_widgets.append(label)
 				self.internal_widgets.append(textbox)
 			else:
-			 	print("Unknown control type")
+				print("Unknown control type")
 
 		self.icon_panel = self.control_panel_bottom.add_icon_panel()
 

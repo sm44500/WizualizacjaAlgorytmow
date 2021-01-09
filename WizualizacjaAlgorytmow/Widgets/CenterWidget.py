@@ -52,6 +52,6 @@ class CenterWidget(BaseWidget):
 		Parametry:
 			widget_class - Typ klasy widget'u
 		"""
-		self.bottom_widget = widget_class(self)
+		self.bottom_widget = widget_class
 		self.widget_layout.addWidget(self.bottom_widget)
 

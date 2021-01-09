@@ -4,7 +4,13 @@ class Styles:
 
 	standard_background = """background-color: rgb(187, 187, 187)"""
 
-	description_background = """background-color: rgba(187, 187, 187, 200)"""
+	description_background = """
+		background-color: rgba(0, 0, 15, 255);
+		color: #cccccc;
+		font: bold;
+		font-size: 32px;
+		font-family: Arial;
+	"""
 
 	standard_tooltip = """
 	QToolTip { 
