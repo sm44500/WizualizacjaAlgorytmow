@@ -1,6 +1,7 @@
 import random
 from PyQt5.QtWidgets import QWidget, QMessageBox
 from Paths import Paths
+from Widgets.QuestionsWidget import QuestionsWidget
 from AlgorithmsLogic import Algorithm
 
 class QuestionsManager:
@@ -9,6 +10,7 @@ class QuestionsManager:
 
 	Parametry:
 		main_widget - referencja do głównego widget'u.
+
 		algorithm - obiekt algorytmu.
 	"""
 	def __init__(self, main_widget: QWidget, algorithm: Algorithm):
@@ -17,39 +19,27 @@ class QuestionsManager:
 		self.main_widget = main_widget
 		self.control_panel_bottom = self.main_widget.middle_widget.right_widget.bottom_control_panel
 		self.center = self.main_widget.middle_widget.left_widget
-		#self.description_widget = self.main_widget.bottom_widget
-		self.answer_buttons = []
+		self.questions_widget = None
 		self.answers = [-1] * len(self.questions)
 		self.is_end = False
-		self.setup_control_panel()
+		self.setup_ui()
 		self.current_question_index = 0
 		random.shuffle(self.questions)
 		self.set_question(self.questions[self.current_question_index])
 
-	def setup_control_panel(self):
+	def setup_ui(self):
 		"""
-		Inicjalizuje panel kontrolny.
+		Inicjalizuje interfejs użytkownika.
 		"""
-		self.check_button = self.control_panel_bottom.add_button("Sprawdź", Paths.icon("eye.png"), "Sprawdza test")
+
+		self.center.set_widget(QuestionsWidget)
+		self.questions_widget = self.center.widget
+
+		self.check_button = self.control_panel_bottom.add_button("Zakończ test", Paths.icon("eye.png"), "Sprawdza test")
 		self.check_button.clicked.connect(self.on_click_check)
 
-		self.answer_icon_panel = self.control_panel_bottom.add_icon_panel()
-
-		answer_button = self.answer_icon_panel.add_button(Paths.icon("letter_a.png"), "Odpowiedź A")
-		answer_button.clicked.connect(lambda: self.on_click_answer(0))
-		self.answer_buttons.append(answer_button)
-
-		answer_button = self.answer_icon_panel.add_button(Paths.icon("letter_b.png"), "Odpowiedź B")
-		answer_button.clicked.connect(lambda: self.on_click_answer(1))
-		self.answer_buttons.append(answer_button)
-
-		answer_button = self.answer_icon_panel.add_button(Paths.icon("letter_c.png"), "Odpowiedź C")
-		answer_button.clicked.connect(lambda: self.on_click_answer(2))
-		self.answer_buttons.append(answer_button)
-
-		answer_button = self.answer_icon_panel.add_button(Paths.icon("letter_d.png"), "Odpowiedź D")
-		answer_button.clicked.connect(lambda: self.on_click_answer(3))
-		self.answer_buttons.append(answer_button)
+		for index, answer_button in enumerate(self.questions_widget.answers):
+			answer_button.clicked.connect((lambda i: lambda: self.on_click_answer(i))(index))
 
 		self.control_icon_panel = self.control_panel_bottom.add_icon_panel()
 
@@ -144,11 +134,7 @@ class QuestionsManager:
 		Odświerza interfejs
 		"""
 		answer = self.answers[self.current_question_index]
-		for index, answer_button in enumerate(self.answer_buttons): 
-			if index == answer:
-				answer_button.set_highlight(True)
-			else:
-				answer_button.set_highlight(False)
+		self.questions_widget.set_highlight(answer)
 
 	def set_question(self, question):
 		"""
@@ -157,5 +143,5 @@ class QuestionsManager:
 		Parametry:
 			question - obiekt klasy TestQuestion
 		"""
-		#self.description_widget.show_question(question, self.is_end)
+		self.questions_widget.show_question(question, self.algorithm.name, self.is_end)
 		self.refresh()
