@@ -32,11 +32,17 @@
 
         standard_background = &#34;&#34;&#34;background-color: rgb(187, 187, 187)&#34;&#34;&#34;
 
-        description_background = &#34;&#34;&#34;background-color: rgba(187, 187, 187, 200)&#34;&#34;&#34;
+        description_background = &#34;&#34;&#34;
+                background-color: rgba(0, 0, 15, 255);
+                color: #cccccc;
+                font: bold;
+                font-size: 32px;
+                font-family: Arial;
+        &#34;&#34;&#34;
 
         standard_tooltip = &#34;&#34;&#34;
         QToolTip { 
-                background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgb(230, 230, 230), stop:1 rgb(190, 190, 190));
+                background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgb(210, 210, 210), stop:0.8 rgb(200, 200, 200), stop:1 rgb(190, 190, 190));
                 color: black;
                 font: bold;
                 font-size: 15px;
@@ -45,18 +51,32 @@
         }
         &#34;&#34;&#34;
 
+        top_panel_option_background = &#34;&#34;&#34;
+                background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgb(150, 150, 150), stop:0.8 rgb(140, 140, 140), stop:1 rgb(130, 130, 130));
+                font-family:Arial;
+                font-size:24px;
+        &#34;&#34;&#34;
+
         top_panel_background = &#34;&#34;&#34;
         QComboBox {
                 border: 0px solid black;
                 border-radius: 0px;
                 padding-left: 5px;
                 padding-right: 5px;
-                background-color: rgb(187, 187, 187)
+                background-color: rgb(187, 187, 187);
         }
-
-        QComboBox:!editable:on, QComboBox::drop-down:editable:on {
-                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #D3D3D3, stop: 0.4 #D8D8D8, stop: 0.5 #DDDDDD,
-                stop: 1.0 #E1E1E1);
+        
+        QComboBox:editable {
+                background: white;
+        }
+        
+        QComboBox:on {
+                background: gray;
+        }
+        
+        QComboBox QAbstractItemView {
+                border: 2px solid black;
+                selection-background-color: lightgray;
         }
         &#34;&#34;&#34;
 
@@ -68,7 +88,7 @@
         button_background = &#34;&#34;&#34;
         QPushButton {
                 padding-left: 5px; padding-right: 5px; text-align: left;
-                background:qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgb(160, 160, 160), stop:1 rgb(150, 150, 150));
+                background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgb(150, 150, 150), stop:0.8 rgb(140, 140, 140), stop:1 rgb(130, 130, 130));
                 border-radius: 0px;
         }
         QPushButton::hover {
@@ -108,13 +128,13 @@
 
         label_background = &#34;&#34;&#34;
         QLabel {
-        background:qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgb(160, 160, 160), stop:1 rgb(150, 150, 150));
-        border-radius: 0px;
+                background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgb(150, 150, 150), stop:0.8 rgb(140, 140, 140), stop:1 rgb(130, 130, 130));
+                border-radius: 0px;
         }&#34;&#34;&#34; + standard_tooltip
 
         text_box_background = &#34;&#34;&#34;
         QLineEdit {
-                background:qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgb(180, 180, 180), stop:1 rgb(200, 200, 200));
+                background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgb(180, 180, 180), stop:0.8 rgb(190, 190, 190), stop:1 rgb(200, 200, 200));
                 border-radius: 0px;
         }&#34;&#34;&#34; + standard_tooltip
 
@@ -155,11 +175,17 @@
 
         standard_background = &#34;&#34;&#34;background-color: rgb(187, 187, 187)&#34;&#34;&#34;
 
-        description_background = &#34;&#34;&#34;background-color: rgba(187, 187, 187, 200)&#34;&#34;&#34;
+        description_background = &#34;&#34;&#34;
+                background-color: rgba(0, 0, 15, 255);
+                color: #cccccc;
+                font: bold;
+                font-size: 32px;
+                font-family: Arial;
+        &#34;&#34;&#34;
 
         standard_tooltip = &#34;&#34;&#34;
         QToolTip { 
-                background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgb(230, 230, 230), stop:1 rgb(190, 190, 190));
+                background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgb(210, 210, 210), stop:0.8 rgb(200, 200, 200), stop:1 rgb(190, 190, 190));
                 color: black;
                 font: bold;
                 font-size: 15px;
@@ -168,18 +194,32 @@
         }
         &#34;&#34;&#34;
 
+        top_panel_option_background = &#34;&#34;&#34;
+                background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgb(150, 150, 150), stop:0.8 rgb(140, 140, 140), stop:1 rgb(130, 130, 130));
+                font-family:Arial;
+                font-size:24px;
+        &#34;&#34;&#34;
+
         top_panel_background = &#34;&#34;&#34;
         QComboBox {
                 border: 0px solid black;
                 border-radius: 0px;
                 padding-left: 5px;
                 padding-right: 5px;
-                background-color: rgb(187, 187, 187)
+                background-color: rgb(187, 187, 187);
         }
-
-        QComboBox:!editable:on, QComboBox::drop-down:editable:on {
-                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #D3D3D3, stop: 0.4 #D8D8D8, stop: 0.5 #DDDDDD,
-                stop: 1.0 #E1E1E1);
+        
+        QComboBox:editable {
+                background: white;
+        }
+        
+        QComboBox:on {
+                background: gray;
+        }
+        
+        QComboBox QAbstractItemView {
+                border: 2px solid black;
+                selection-background-color: lightgray;
         }
         &#34;&#34;&#34;
 
@@ -191,7 +231,7 @@
         button_background = &#34;&#34;&#34;
         QPushButton {
                 padding-left: 5px; padding-right: 5px; text-align: left;
-                background:qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgb(160, 160, 160), stop:1 rgb(150, 150, 150));
+                background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgb(150, 150, 150), stop:0.8 rgb(140, 140, 140), stop:1 rgb(130, 130, 130));
                 border-radius: 0px;
         }
         QPushButton::hover {
@@ -231,13 +271,13 @@
 
         label_background = &#34;&#34;&#34;
         QLabel {
-        background:qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgb(160, 160, 160), stop:1 rgb(150, 150, 150));
-        border-radius: 0px;
+                background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgb(150, 150, 150), stop:0.8 rgb(140, 140, 140), stop:1 rgb(130, 130, 130));
+                border-radius: 0px;
         }&#34;&#34;&#34; + standard_tooltip
 
         text_box_background = &#34;&#34;&#34;
         QLineEdit {
-                background:qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgb(180, 180, 180), stop:1 rgb(200, 200, 200));
+                background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgb(180, 180, 180), stop:0.8 rgb(190, 190, 190), stop:1 rgb(200, 200, 200));
                 border-radius: 0px;
         }&#34;&#34;&#34; + standard_tooltip
 
@@ -311,6 +351,10 @@
 <dd>
 <div class="desc"></div>
 </dd>
+<dt id="WizualizacjaAlgorytmow.Styles.Styles.top_panel_option_background"><code class="name">var <span class="ident">top_panel_option_background</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
 <dt id="WizualizacjaAlgorytmow.Styles.Styles.welcome_background"><code class="name">var <span class="ident">welcome_background</span></code></dt>
 <dd>
 <div class="desc"></div>
@@ -350,6 +394,7 @@
 <li><code><a title="WizualizacjaAlgorytmow.Styles.Styles.standard_tooltip" href="#WizualizacjaAlgorytmow.Styles.Styles.standard_tooltip">standard_tooltip</a></code></li>
 <li><code><a title="WizualizacjaAlgorytmow.Styles.Styles.text_box_background" href="#WizualizacjaAlgorytmow.Styles.Styles.text_box_background">text_box_background</a></code></li>
 <li><code><a title="WizualizacjaAlgorytmow.Styles.Styles.top_panel_background" href="#WizualizacjaAlgorytmow.Styles.Styles.top_panel_background">top_panel_background</a></code></li>
+<li><code><a title="WizualizacjaAlgorytmow.Styles.Styles.top_panel_option_background" href="#WizualizacjaAlgorytmow.Styles.Styles.top_panel_option_background">top_panel_option_background</a></code></li>
 <li><code><a title="WizualizacjaAlgorytmow.Styles.Styles.welcome_background" href="#WizualizacjaAlgorytmow.Styles.Styles.welcome_background">welcome_background</a></code></li>
 </ul>
 </li>

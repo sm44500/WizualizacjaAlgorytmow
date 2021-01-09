@@ -86,6 +86,20 @@ class Paths:
                 return os.path.join(algorithm_path, &#34;questions/questions.json&#34;)
 
         @staticmethod
+        def test_question_image(algorithm_name: str, image_name:str):
+                &#34;&#34;&#34;
+                Pobiera ścieżkę do obrazka pytania.
+                
+                Parametry:
+                        algorithm_name - nazwa algorytmu
+
+                        image_name - nazwa pliku grafiki
+                &#34;&#34;&#34;
+                algorithm_path = Paths.algorithm(algorithm_name)
+                question_resource = os.path.join(algorithm_path, &#34;questions/resources&#34;)
+                return os.path.join(question_resource, image_name)
+
+        @staticmethod
         def description(algorithm_name: str):
                 &#34;&#34;&#34;
                 Pobiera ścieżkę do pliku z opisem danego algorytmu.
@@ -181,6 +195,20 @@ Każda ścieżka jest ścieżką bezwzględną.</p></div>
                 &#34;&#34;&#34;
                 algorithm_path = Paths.algorithm(algorithm_name)
                 return os.path.join(algorithm_path, &#34;questions/questions.json&#34;)
+
+        @staticmethod
+        def test_question_image(algorithm_name: str, image_name:str):
+                &#34;&#34;&#34;
+                Pobiera ścieżkę do obrazka pytania.
+                
+                Parametry:
+                        algorithm_name - nazwa algorytmu
+
+                        image_name - nazwa pliku grafiki
+                &#34;&#34;&#34;
+                algorithm_path = Paths.algorithm(algorithm_name)
+                question_resource = os.path.join(algorithm_path, &#34;questions/resources&#34;)
+                return os.path.join(question_resource, image_name)
 
         @staticmethod
         def description(algorithm_name: str):
@@ -361,6 +389,33 @@ def test(algorithm_name: str):
         return os.path.join(algorithm_path, &#34;questions/questions.json&#34;)</code></pre>
 </details>
 </dd>
+<dt id="WizualizacjaAlgorytmow.Paths.Paths.test_question_image"><code class="name flex">
+<span>def <span class="ident">test_question_image</span></span>(<span>algorithm_name: str, image_name: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Pobiera ścieżkę do obrazka pytania.</p>
+<h2 id="parametry">Parametry</h2>
+<p>algorithm_name - nazwa algorytmu</p>
+<p>image_name - nazwa pliku grafiki</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def test_question_image(algorithm_name: str, image_name:str):
+        &#34;&#34;&#34;
+        Pobiera ścieżkę do obrazka pytania.
+        
+        Parametry:
+                algorithm_name - nazwa algorytmu
+
+                image_name - nazwa pliku grafiki
+        &#34;&#34;&#34;
+        algorithm_path = Paths.algorithm(algorithm_name)
+        question_resource = os.path.join(algorithm_path, &#34;questions/resources&#34;)
+        return os.path.join(question_resource, image_name)</code></pre>
+</details>
+</dd>
 </dl>
 </dd>
 </dl>
@@ -392,6 +447,7 @@ def test(algorithm_name: str):
 <li><code><a title="WizualizacjaAlgorytmow.Paths.Paths.program" href="#WizualizacjaAlgorytmow.Paths.Paths.program">program</a></code></li>
 <li><code><a title="WizualizacjaAlgorytmow.Paths.Paths.resources" href="#WizualizacjaAlgorytmow.Paths.Paths.resources">resources</a></code></li>
 <li><code><a title="WizualizacjaAlgorytmow.Paths.Paths.test" href="#WizualizacjaAlgorytmow.Paths.Paths.test">test</a></code></li>
+<li><code><a title="WizualizacjaAlgorytmow.Paths.Paths.test_question_image" href="#WizualizacjaAlgorytmow.Paths.Paths.test_question_image">test_question_image</a></code></li>
 </ul>
 </li>
 </ul>

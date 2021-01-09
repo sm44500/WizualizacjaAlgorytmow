@@ -29,6 +29,7 @@
 <pre><code class="python">import random
 from PyQt5.QtWidgets import QWidget, QMessageBox
 from Paths import Paths
+from Widgets.QuestionsWidget import QuestionsWidget
 from AlgorithmsLogic import Algorithm
 
 class QuestionsManager:
@@ -37,6 +38,7 @@ class QuestionsManager:
 
         Parametry:
                 main_widget - referencja do głównego widget&#39;u.
+
                 algorithm - obiekt algorytmu.
         &#34;&#34;&#34;
         def __init__(self, main_widget: QWidget, algorithm: Algorithm):
@@ -45,39 +47,27 @@ class QuestionsManager:
                 self.main_widget = main_widget
                 self.control_panel_bottom = self.main_widget.middle_widget.right_widget.bottom_control_panel
                 self.center = self.main_widget.middle_widget.left_widget
-                #self.description_widget = self.main_widget.bottom_widget
-                self.answer_buttons = []
+                self.questions_widget = None
                 self.answers = [-1] * len(self.questions)
                 self.is_end = False
-                self.setup_control_panel()
+                self.setup_ui()
                 self.current_question_index = 0
                 random.shuffle(self.questions)
                 self.set_question(self.questions[self.current_question_index])
 
-        def setup_control_panel(self):
+        def setup_ui(self):
                 &#34;&#34;&#34;
-                Inicjalizuje panel kontrolny.
+                Inicjalizuje interfejs użytkownika.
                 &#34;&#34;&#34;
-                self.check_button = self.control_panel_bottom.add_button(&#34;Sprawdź&#34;, Paths.icon(&#34;eye.png&#34;), &#34;Sprawdza test&#34;)
+
+                self.center.set_widget(QuestionsWidget)
+                self.questions_widget = self.center.widget
+
+                self.check_button = self.control_panel_bottom.add_button(&#34;Zakończ test&#34;, Paths.icon(&#34;eye.png&#34;), &#34;Sprawdza test&#34;)
                 self.check_button.clicked.connect(self.on_click_check)
 
-                self.answer_icon_panel = self.control_panel_bottom.add_icon_panel()
-
-                answer_button = self.answer_icon_panel.add_button(Paths.icon(&#34;letter_a.png&#34;), &#34;Odpowiedź A&#34;)
-                answer_button.clicked.connect(lambda: self.on_click_answer(0))
-                self.answer_buttons.append(answer_button)
-
-                answer_button = self.answer_icon_panel.add_button(Paths.icon(&#34;letter_b.png&#34;), &#34;Odpowiedź B&#34;)
-                answer_button.clicked.connect(lambda: self.on_click_answer(1))
-                self.answer_buttons.append(answer_button)
-
-                answer_button = self.answer_icon_panel.add_button(Paths.icon(&#34;letter_c.png&#34;), &#34;Odpowiedź C&#34;)
-                answer_button.clicked.connect(lambda: self.on_click_answer(2))
-                self.answer_buttons.append(answer_button)
-
-                answer_button = self.answer_icon_panel.add_button(Paths.icon(&#34;letter_d.png&#34;), &#34;Odpowiedź D&#34;)
-                answer_button.clicked.connect(lambda: self.on_click_answer(3))
-                self.answer_buttons.append(answer_button)
+                for index, answer_button in enumerate(self.questions_widget.answers):
+                        answer_button.clicked.connect((lambda i: lambda: self.on_click_answer(i))(index))
 
                 self.control_icon_panel = self.control_panel_bottom.add_icon_panel()
 
@@ -172,11 +162,7 @@ class QuestionsManager:
                 Odświerza interfejs
                 &#34;&#34;&#34;
                 answer = self.answers[self.current_question_index]
-                for index, answer_button in enumerate(self.answer_buttons): 
-                        if index == answer:
-                                answer_button.set_highlight(True)
-                        else:
-                                answer_button.set_highlight(False)
+                self.questions_widget.set_highlight(answer)
 
         def set_question(self, question):
                 &#34;&#34;&#34;
@@ -185,7 +171,7 @@ class QuestionsManager:
                 Parametry:
                         question - obiekt klasy TestQuestion
                 &#34;&#34;&#34;
-                #self.description_widget.show_question(question, self.is_end)
+                self.questions_widget.show_question(question, self.algorithm.name, self.is_end)
                 self.refresh()</code></pre>
 </details>
 </section>
@@ -205,8 +191,8 @@ class QuestionsManager:
 <dd>
 <div class="desc"><p>Kontroler odpowiadający za obsługę pytań.</p>
 <h2 id="parametry">Parametry</h2>
-<p>main_widget - referencja do głównego widget'u.
-algorithm - obiekt algorytmu.</p></div>
+<p>main_widget - referencja do głównego widget'u.</p>
+<p>algorithm - obiekt algorytmu.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -217,6 +203,7 @@ algorithm - obiekt algorytmu.</p></div>
 
         Parametry:
                 main_widget - referencja do głównego widget&#39;u.
+
                 algorithm - obiekt algorytmu.
         &#34;&#34;&#34;
         def __init__(self, main_widget: QWidget, algorithm: Algorithm):
@@ -225,39 +212,27 @@ algorithm - obiekt algorytmu.</p></div>
                 self.main_widget = main_widget
                 self.control_panel_bottom = self.main_widget.middle_widget.right_widget.bottom_control_panel
                 self.center = self.main_widget.middle_widget.left_widget
-                #self.description_widget = self.main_widget.bottom_widget
-                self.answer_buttons = []
+                self.questions_widget = None
                 self.answers = [-1] * len(self.questions)
                 self.is_end = False
-                self.setup_control_panel()
+                self.setup_ui()
                 self.current_question_index = 0
                 random.shuffle(self.questions)
                 self.set_question(self.questions[self.current_question_index])
 
-        def setup_control_panel(self):
+        def setup_ui(self):
                 &#34;&#34;&#34;
-                Inicjalizuje panel kontrolny.
+                Inicjalizuje interfejs użytkownika.
                 &#34;&#34;&#34;
-                self.check_button = self.control_panel_bottom.add_button(&#34;Sprawdź&#34;, Paths.icon(&#34;eye.png&#34;), &#34;Sprawdza test&#34;)
+
+                self.center.set_widget(QuestionsWidget)
+                self.questions_widget = self.center.widget
+
+                self.check_button = self.control_panel_bottom.add_button(&#34;Zakończ test&#34;, Paths.icon(&#34;eye.png&#34;), &#34;Sprawdza test&#34;)
                 self.check_button.clicked.connect(self.on_click_check)
 
-                self.answer_icon_panel = self.control_panel_bottom.add_icon_panel()
-
-                answer_button = self.answer_icon_panel.add_button(Paths.icon(&#34;letter_a.png&#34;), &#34;Odpowiedź A&#34;)
-                answer_button.clicked.connect(lambda: self.on_click_answer(0))
-                self.answer_buttons.append(answer_button)
-
-                answer_button = self.answer_icon_panel.add_button(Paths.icon(&#34;letter_b.png&#34;), &#34;Odpowiedź B&#34;)
-                answer_button.clicked.connect(lambda: self.on_click_answer(1))
-                self.answer_buttons.append(answer_button)
-
-                answer_button = self.answer_icon_panel.add_button(Paths.icon(&#34;letter_c.png&#34;), &#34;Odpowiedź C&#34;)
-                answer_button.clicked.connect(lambda: self.on_click_answer(2))
-                self.answer_buttons.append(answer_button)
-
-                answer_button = self.answer_icon_panel.add_button(Paths.icon(&#34;letter_d.png&#34;), &#34;Odpowiedź D&#34;)
-                answer_button.clicked.connect(lambda: self.on_click_answer(3))
-                self.answer_buttons.append(answer_button)
+                for index, answer_button in enumerate(self.questions_widget.answers):
+                        answer_button.clicked.connect((lambda i: lambda: self.on_click_answer(i))(index))
 
                 self.control_icon_panel = self.control_panel_bottom.add_icon_panel()
 
@@ -352,11 +327,7 @@ algorithm - obiekt algorytmu.</p></div>
                 Odświerza interfejs
                 &#34;&#34;&#34;
                 answer = self.answers[self.current_question_index]
-                for index, answer_button in enumerate(self.answer_buttons): 
-                        if index == answer:
-                                answer_button.set_highlight(True)
-                        else:
-                                answer_button.set_highlight(False)
+                self.questions_widget.set_highlight(answer)
 
         def set_question(self, question):
                 &#34;&#34;&#34;
@@ -365,7 +336,7 @@ algorithm - obiekt algorytmu.</p></div>
                 Parametry:
                         question - obiekt klasy TestQuestion
                 &#34;&#34;&#34;
-                #self.description_widget.show_question(question, self.is_end)
+                self.questions_widget.show_question(question, self.algorithm.name, self.is_end)
                 self.refresh()</code></pre>
 </details>
 <h3>Methods</h3>
@@ -526,11 +497,7 @@ Zmienia pytanie na poprzednie.</p></div>
         Odświerza interfejs
         &#34;&#34;&#34;
         answer = self.answers[self.current_question_index]
-        for index, answer_button in enumerate(self.answer_buttons): 
-                if index == answer:
-                        answer_button.set_highlight(True)
-                else:
-                        answer_button.set_highlight(False)</code></pre>
+        self.questions_widget.set_highlight(answer)</code></pre>
 </details>
 </dd>
 <dt id="WizualizacjaAlgorytmow.QuestionsManager.QuestionsManager.set_question"><code class="name flex">
@@ -551,43 +518,32 @@ Zmienia pytanie na poprzednie.</p></div>
         Parametry:
                 question - obiekt klasy TestQuestion
         &#34;&#34;&#34;
-        #self.description_widget.show_question(question, self.is_end)
+        self.questions_widget.show_question(question, self.algorithm.name, self.is_end)
         self.refresh()</code></pre>
 </details>
 </dd>
-<dt id="WizualizacjaAlgorytmow.QuestionsManager.QuestionsManager.setup_control_panel"><code class="name flex">
-<span>def <span class="ident">setup_control_panel</span></span>(<span>self)</span>
+<dt id="WizualizacjaAlgorytmow.QuestionsManager.QuestionsManager.setup_ui"><code class="name flex">
+<span>def <span class="ident">setup_ui</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Inicjalizuje panel kontrolny.</p></div>
+<div class="desc"><p>Inicjalizuje interfejs użytkownika.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def setup_control_panel(self):
+<pre><code class="python">def setup_ui(self):
         &#34;&#34;&#34;
-        Inicjalizuje panel kontrolny.
+        Inicjalizuje interfejs użytkownika.
         &#34;&#34;&#34;
-        self.check_button = self.control_panel_bottom.add_button(&#34;Sprawdź&#34;, Paths.icon(&#34;eye.png&#34;), &#34;Sprawdza test&#34;)
+
+        self.center.set_widget(QuestionsWidget)
+        self.questions_widget = self.center.widget
+
+        self.check_button = self.control_panel_bottom.add_button(&#34;Zakończ test&#34;, Paths.icon(&#34;eye.png&#34;), &#34;Sprawdza test&#34;)
         self.check_button.clicked.connect(self.on_click_check)
 
-        self.answer_icon_panel = self.control_panel_bottom.add_icon_panel()
-
-        answer_button = self.answer_icon_panel.add_button(Paths.icon(&#34;letter_a.png&#34;), &#34;Odpowiedź A&#34;)
-        answer_button.clicked.connect(lambda: self.on_click_answer(0))
-        self.answer_buttons.append(answer_button)
-
-        answer_button = self.answer_icon_panel.add_button(Paths.icon(&#34;letter_b.png&#34;), &#34;Odpowiedź B&#34;)
-        answer_button.clicked.connect(lambda: self.on_click_answer(1))
-        self.answer_buttons.append(answer_button)
-
-        answer_button = self.answer_icon_panel.add_button(Paths.icon(&#34;letter_c.png&#34;), &#34;Odpowiedź C&#34;)
-        answer_button.clicked.connect(lambda: self.on_click_answer(2))
-        self.answer_buttons.append(answer_button)
-
-        answer_button = self.answer_icon_panel.add_button(Paths.icon(&#34;letter_d.png&#34;), &#34;Odpowiedź D&#34;)
-        answer_button.clicked.connect(lambda: self.on_click_answer(3))
-        self.answer_buttons.append(answer_button)
+        for index, answer_button in enumerate(self.questions_widget.answers):
+                answer_button.clicked.connect((lambda i: lambda: self.on_click_answer(i))(index))
 
         self.control_icon_panel = self.control_panel_bottom.add_icon_panel()
 
@@ -633,7 +589,7 @@ Zmienia pytanie na poprzednie.</p></div>
 <li><code><a title="WizualizacjaAlgorytmow.QuestionsManager.QuestionsManager.on_click_previous" href="#WizualizacjaAlgorytmow.QuestionsManager.QuestionsManager.on_click_previous">on_click_previous</a></code></li>
 <li><code><a title="WizualizacjaAlgorytmow.QuestionsManager.QuestionsManager.refresh" href="#WizualizacjaAlgorytmow.QuestionsManager.QuestionsManager.refresh">refresh</a></code></li>
 <li><code><a title="WizualizacjaAlgorytmow.QuestionsManager.QuestionsManager.set_question" href="#WizualizacjaAlgorytmow.QuestionsManager.QuestionsManager.set_question">set_question</a></code></li>
-<li><code><a title="WizualizacjaAlgorytmow.QuestionsManager.QuestionsManager.setup_control_panel" href="#WizualizacjaAlgorytmow.QuestionsManager.QuestionsManager.setup_control_panel">setup_control_panel</a></code></li>
+<li><code><a title="WizualizacjaAlgorytmow.QuestionsManager.QuestionsManager.setup_ui" href="#WizualizacjaAlgorytmow.QuestionsManager.QuestionsManager.setup_ui">setup_ui</a></code></li>
 </ul>
 </li>
 </ul>

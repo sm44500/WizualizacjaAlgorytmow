@@ -49,12 +49,11 @@ class DescriptionLabel(QLabel):
                 &#34;&#34;&#34;
                 Inicjalizacja interfejsu użytkownika.
                 &#34;&#34;&#34;
-                font = BaseWidget.generate_font()
                 self.setStyleSheet(&#34;&#34;&#34;
                         padding: 10px;
                         %s
                 &#34;&#34;&#34; % Styles.description_background)
-                self.setFont(font)
+                self.setAlignment(Qt.AlignCenter)
                 self.setWordWrap(True)
                 self.setTextFormat(Qt.RichText)
                 self.setMaximumHeight(200)
@@ -132,12 +131,11 @@ class DescriptionLabel(QLabel):
                 &#34;&#34;&#34;
                 Inicjalizacja interfejsu użytkownika.
                 &#34;&#34;&#34;
-                font = BaseWidget.generate_font()
                 self.setStyleSheet(&#34;&#34;&#34;
                         padding: 10px;
                         %s
                 &#34;&#34;&#34; % Styles.description_background)
-                self.setFont(font)
+                self.setAlignment(Qt.AlignCenter)
                 self.setWordWrap(True)
                 self.setTextFormat(Qt.RichText)
                 self.setMaximumHeight(200)
@@ -224,12 +222,11 @@ content - Tekst do ustawienia</p></div>
         &#34;&#34;&#34;
         Inicjalizacja interfejsu użytkownika.
         &#34;&#34;&#34;
-        font = BaseWidget.generate_font()
         self.setStyleSheet(&#34;&#34;&#34;
                 padding: 10px;
                 %s
         &#34;&#34;&#34; % Styles.description_background)
-        self.setFont(font)
+        self.setAlignment(Qt.AlignCenter)
         self.setWordWrap(True)
         self.setTextFormat(Qt.RichText)
         self.setMaximumHeight(200)

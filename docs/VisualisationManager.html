@@ -73,7 +73,9 @@ class VisualisationManager:
                 Inicjalizuje panel kontrolny.
                 &#34;&#34;&#34;
                 self.center.set_widget(self.algorithm.visualization_widget)
-                self.center.set_bottom_widget(DescriptionLabel)
+                description = DescriptionLabel(self.center)
+                description.set_text(&#34;Skorzystaj z panelu po prawej stronie, aby rozpocząć wizualizację.&#34;)
+                self.center.set_bottom_widget(description)
                 self.description_widget = self.center.bottom_widget
 
                 for control in self.algorithm.controls:
@@ -261,7 +263,9 @@ algorithm - obiekt algorytmu.</p></div>
                 Inicjalizuje panel kontrolny.
                 &#34;&#34;&#34;
                 self.center.set_widget(self.algorithm.visualization_widget)
-                self.center.set_bottom_widget(DescriptionLabel)
+                description = DescriptionLabel(self.center)
+                description.set_text(&#34;Skorzystaj z panelu po prawej stronie, aby rozpocząć wizualizację.&#34;)
+                self.center.set_bottom_widget(description)
                 self.description_widget = self.center.bottom_widget
 
                 for control in self.algorithm.controls:
@@ -536,7 +540,9 @@ Uruchomienie poprzedniego kroku, jeżeli istnieje.</p></div>
         Inicjalizuje panel kontrolny.
         &#34;&#34;&#34;
         self.center.set_widget(self.algorithm.visualization_widget)
-        self.center.set_bottom_widget(DescriptionLabel)
+        description = DescriptionLabel(self.center)
+        description.set_text(&#34;Skorzystaj z panelu po prawej stronie, aby rozpocząć wizualizację.&#34;)
+        self.center.set_bottom_widget(description)
         self.description_widget = self.center.bottom_widget
 
         for control in self.algorithm.controls:
