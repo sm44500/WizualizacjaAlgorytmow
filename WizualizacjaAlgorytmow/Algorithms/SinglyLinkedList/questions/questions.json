@@ -3,10 +3,10 @@
         "question": "1. Z czego się składa lista jednokierunkowa?",
         "image": "test.png",
         "answers": [
-            "Example answer 1",
-            "Example answer 2",
-            "Example answer 3",
-            "Example answer 4"
+            "Z węzłów",
+            "Z liczb",
+            "Z napisów",
+            "Ze wskaźników"
         ],
         "correct": 0,
         "explanation": "Lista jednokierunkowa składa się z węzłow. Węzeł jest podstawową jednostka w liście jednokierunkowej"
@@ -27,10 +27,10 @@
         "question": "3. Z czego się składa węzeł listy jednokierunkowej?",
         "image": "test.png",
         "answers": [
-            "Example answer 1",
-            "Example answer 2",
-            "Example answer 3",
-            "Example answer 4"
+            "Z liczb",
+            "Ze wskaźnika na poprzedni węzeł, wskaźnika na kolejny węzeł oraz z danych",
+            "Ze wskaźnika na kolejny węzeł oraz z danych",
+            "Z danych"
         ],
         "correct": 2,
         "explanation": "Węzeł listy jednokierunkowej składa się ze wskaźnika na kolejny węzeł listy oraz z danych, które chcemy przechowywaźc w liście. Tymi danymi może być obiekt"

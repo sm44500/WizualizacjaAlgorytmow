@@ -3,10 +3,10 @@
         "question": "1. Z czego się składa cykliczna lista jednokierunkowa?",
         "image": "test.png",
         "answers": [
-            "Example answer 1",
-            "Example answer 2",
-            "Example answer 3",
-            "Example answer 4"
+            "Z liczb",
+            "Z węzłów",
+            "Z napisów",
+            "Ze wskaźników"
         ],
         "correct": 1,
         "explanation": "because yes"
@@ -15,10 +15,10 @@
         "question": "2. Ogon cyklicznej listy jednokierunkowej na wskaźnik na kolejny węzeł. Jaką on ma wartość?",
         "image": "test.png",
         "answers": [
-            "Example answer 1",
-            "Example answer 2",
-            "Example answer 3",
-            "Example answer 4"
+            "Adres głowy listy",
+            "NULL",
+            "Adres ogonu listy",
+            "Nie ma takiego wskaźnika"
         ],
         "correct": 0,
         "explanation": "Następnikiem ostatniego węzła cyklicznej listy jednokierunkowej jest głowa listy"
