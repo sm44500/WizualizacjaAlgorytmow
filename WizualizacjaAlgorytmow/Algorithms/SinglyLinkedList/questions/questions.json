@@ -1,18 +1,6 @@
 [
     {
-        "question": "Example question one",
-        "image": "test.png",
-        "answers": [
-            "Example answer 1",
-            "Example answer 2",
-            "Example answer 3",
-            "Example answer 4"
-        ],
-        "correct": 1,
-        "explanation": "because yes"
-    },
-    {
-        "question": "Example question two",
+        "question": "1. Z czego się składa lista jednokierunkowa?",
         "image": "test.png",
         "answers": [
             "Example answer 1",
@@ -21,6 +9,42 @@
             "Example answer 4"
         ],
         "correct": 0,
-        "explanation": "because yes"
+        "explanation": "Lista jednokierunkowa składa się z węzłow. Węzeł jest podstawową jednostka w liście jednokierunkowej"
+    },
+    {
+        "question": "2. Co jest głową listy jednokierunkowej?",
+        "image": "test.png",
+        "answers": [
+            "Węzeł dodany do listy jako pierwszy",
+            "Węzeł dodany do listy jako ostatni",
+            "Węzeł znajdujący się z przodu listy",
+            "Węzeł znajdujący się na końcu listy"
+        ],
+        "correct": 2,
+        "explanation": "Głową listy jest element znajdujący się z przodu listy, mówiąc w uproszczeniu jest to węzeł z indeksem 0 pod warunkiem że indeksację zaczynamy od wartości 0"
+    },
+    {
+        "question": "3. Z czego się składa węzeł listy jednokierunkowej?",
+        "image": "test.png",
+        "answers": [
+            "Example answer 1",
+            "Example answer 2",
+            "Example answer 3",
+            "Example answer 4"
+        ],
+        "correct": 2,
+        "explanation": "Węzeł listy jednokierunkowej składa się ze wskaźnika na kolejny węzeł listy oraz z danych, które chcemy przechowywaźc w liście. Tymi danymi może być obiekt"
+    },
+    {
+        "question": "4. Co jest ogonem listy jednokierunkowej?",
+        "image": "test.png",
+        "answers": [
+            "Węzeł dodany do listy jako pierwszy",
+            "Wszystkie węzły listy poza jej głową",
+            "Węzeł dodany do listy jako ostatni",
+            "Węzeł znajdujący się na końcu listy jednokierunkowej"
+        ],
+        "correct": 3,
+        "explanation": "Ogonem listy jest element znajdujący się na końcu listy, mówiąc w uproszczeniu jest to węzeł z indeksem o 1 mniejszym od ilości węzłów w lisćie pod warunkiem że indeksację zaczynamy od wartości 0"
     }
 ]
