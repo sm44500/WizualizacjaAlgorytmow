@@ -62,6 +62,7 @@ class TestQuestion:
 		"""
 		questions = []
 		file = open(path, "r", encoding="utf-8")
+
 		json_file = json.load(file)
 		for json_object in json_file:
 			question = TestQuestion()
