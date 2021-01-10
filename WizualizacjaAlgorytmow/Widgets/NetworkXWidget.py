@@ -144,7 +144,7 @@ class NetworkXWidget(BaseWidget):
 		"""
 		Wyświetlenie podpowiedzi dla użytkownika, gdy nie wprowadzono żadnych danych.
 		"""
-		self.label.setText("Skorzystaj z panelu po prawej stronie, aby rozpocząć wizualizację.")
+		self.label.setText("")
 		self.label.setAlignment(Qt.AlignCenter)
 		self.label.setStyleSheet("""background-color:%s; color:%s; font-family:Arial; font-size:20px; font-weight: bold;""" %
 								(self.background_color, self.index_text_color))

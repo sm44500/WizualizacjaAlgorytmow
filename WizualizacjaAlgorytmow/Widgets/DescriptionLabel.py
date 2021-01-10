@@ -6,9 +6,9 @@ from Styles import Styles
 from Widgets.BaseWidget import BaseWidget
 
 
-class BottomWidget(QLabel):
+class DescriptionLabel(QLabel):
 	"""
-	Klasa reprezentująca dolny panel.
+	Klasa reprezentująca tekstowy panel opisu.
 
 	Parametry:
 		parent - widget rodzic.
@@ -21,12 +21,11 @@ class BottomWidget(QLabel):
 		"""
 		Inicjalizacja interfejsu użytkownika.
 		"""
-		font = BaseWidget.generate_font()
 		self.setStyleSheet("""
 			padding: 10px;
 			%s
 		""" % Styles.description_background)
-		self.setFont(font)
+		self.setAlignment(Qt.AlignCenter)
 		self.setWordWrap(True)
 		self.setTextFormat(Qt.RichText)
 		self.setMaximumHeight(200)

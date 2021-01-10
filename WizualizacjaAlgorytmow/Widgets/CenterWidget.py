@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QHBoxLayout
+from PyQt5.QtWidgets import QVBoxLayout
 
 from Styles import Styles
 from Widgets.BaseWidget import BaseWidget
@@ -12,8 +12,9 @@ class CenterWidget(BaseWidget):
 		parent - widget rodzic.
 	"""
 	def __init__(self, parent=None):
-		super().__init__(parent, QHBoxLayout)
+		super().__init__(parent, QVBoxLayout)
 		self.widget = None
+		self.bottom_widget = None
 		self.setup_ui()
 
 	def setup_ui(self):
@@ -30,6 +31,10 @@ class CenterWidget(BaseWidget):
 			self.widget.setParent(None)
 			self.widget = None
 
+		if self.bottom_widget is not None:
+			self.bottom_widget.setParent(None)
+			self.bottom_widget = None
+
 	def set_widget(self, widget_class):
 		"""
 		Tworzy widget o podanej klasie i ustawia na sobie.
@@ -37,5 +42,16 @@ class CenterWidget(BaseWidget):
 		Parametry:
 			widget_class - Typ klasy widget'u
 		"""
-		self.widget = widget_class()
+		self.widget = widget_class(self)
 		self.widget_layout.addWidget(self.widget)
+
+	def set_bottom_widget(self, widget_class):
+		"""
+		Tworzy widget o podanej klasie i ustawia na sobie.
+
+		Parametry:
+			widget_class - Typ klasy widget'u
+		"""
+		self.bottom_widget = widget_class
+		self.widget_layout.addWidget(self.bottom_widget)
+

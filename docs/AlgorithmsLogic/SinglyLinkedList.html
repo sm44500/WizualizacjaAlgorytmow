@@ -31,6 +31,12 @@ from Widgets.NodZWidget import NodZWidget
 from Node import Node
 
 class SinglyListNode(Node):
+        &#34;&#34;&#34;
+        Klasa reprezuntująca węzeł listy jednokierunkowej
+
+        Przykład:
+                &gt;&gt;&gt; singly_linked_list_node = SinglyLinkedNode()
+        &#34;&#34;&#34;
         number = 0
         def __init__(self):
                 super().__init__(&#34;Node %s&#34; % SinglyListNode.number)
@@ -48,11 +54,14 @@ class SinglyLinkedList(ListAlgorithm):
         &#34;&#34;&#34;
 
         def __init__(self):
-                super().__init__(&#34;SinglyLinkedList&#34;, &#34;TODO: Lista jednokierunkowa&#34;)
+                super().__init__(&#34;SinglyLinkedList&#34;, &#34;Lista jednokierunkowa&#34;)
                 self.difficulty = 2
                 self.head = None
 
         def push_back(self):
+                &#34;&#34;&#34;
+                Metoda dodająca element na końcu listy
+                &#34;&#34;&#34;
                 value = self.textbox_value
                 node = SinglyListNode()
                 node.data_attr.name = &#34;Dane: &#34; + value
@@ -68,7 +77,97 @@ class SinglyLinkedList(ListAlgorithm):
                         last_node.next_attr.connection = node.next_attr
 
                 self.data.append(node)
-                self.save_snapshot(&#34;Zakończono dodawanie elementu&#34;)</code></pre>
+                self.save_snapshot(&#34;Zakończono dodawanie elementu&#34;)
+
+        def push_front(self):
+                &#34;&#34;&#34;
+                Metoda dodająca element na początku listy
+                &#34;&#34;&#34;
+                value = self.textbox_value
+                node = SinglyListNode()
+                node.data_attr.name = &#34;Dane: &#34; + value
+
+                if self.head is None:
+                        self.head = node
+                else:
+                        tmp = self.head
+                        self.head = node
+                        self.head.next = tmp
+                        self.head.next_attr.connection = tmp.next_attr
+                self.data.insert(0, node)
+                self.save_snapshot(&#34;Zakończono dodawanie elementu&#34;)
+
+        def pop_front(self):
+                &#34;&#34;&#34;
+                Metoda usuwająca element na początku listy
+                &#34;&#34;&#34;
+                if self.head != None:
+                        tmp = self.head
+                        self.head = self.head.next
+                        self.head.next_attr.connection = tmp.next.next_attr
+                        SinglyListNode.number -= 1
+                        self.data = self.data[1:]
+                        self.save_snapshot(&#34;Zakończono usunięcie elementu&#34;)
+                        return tmp
+
+        def pop_back(self):
+                &#34;&#34;&#34;
+                Metoda usuwająca element na końcu listy
+                &#34;&#34;&#34;
+                if self.head != None:
+                        current = self.head
+                        if len(self.data) &gt; 1:
+                                while current.next != None:
+                                        if current.next.next == None:
+                                                result = current.next
+                                                current.next = None
+                                                current.next_attr.connection = None
+                                                SinglyListNode.number -= 1
+                                                self.data = self.data[:-1]
+                                                return result
+                                        current = current.next
+                        else:
+                                result = self.head
+                                self.clear()
+                                return result
+                        self.save_snapshot(&#34;Zakończono usunięcie elementu&#34;)
+        
+        def remove(self):
+                &#34;&#34;&#34;
+                Metoda usuwająca element o wskazanej wartości
+                &#34;&#34;&#34;
+                value = self.textbox_value
+                node = SinglyListNode()
+                node.data_attr.name = &#34;Dane: &#34; + value
+
+                if self.head is None:
+                        self.save_snapshot(&#34;Usunięcie elementu nie powiodło się: lista jest pusta&#34;)
+                else:
+                        current = self.head
+                        while current.next != None:
+                                if current.next.data_attr == value:
+                                        current.next = current.next.next
+                                        current.next_attr.connection = current.next.next_attr
+                                        break
+                                current = current.next
+
+                        current.next_attr.connection = current.next_attr
+                
+                SinglyListNode.number -= 1
+                self.data.remove(node)
+                self.save_snapshot(&#34;Zakończono usunięcie elementu&#34;)
+
+        def head(self):
+                &#34;&#34;&#34;
+                Metoda zwracająca głowę listy jednokierunkowej
+                &#34;&#34;&#34;
+                return self.head
+
+        def tail(self):
+                &#34;&#34;&#34;
+                Metoda zwracająca ogon listy jednokierunkowej
+                &#34;&#34;&#34;
+                return self.data[-1]</code></pre>
 </details>
 </section>
 <section>
@@ -101,11 +200,14 @@ class SinglyLinkedList(ListAlgorithm):
         &#34;&#34;&#34;
 
         def __init__(self):
-                super().__init__(&#34;SinglyLinkedList&#34;, &#34;TODO: Lista jednokierunkowa&#34;)
+                super().__init__(&#34;SinglyLinkedList&#34;, &#34;Lista jednokierunkowa&#34;)
                 self.difficulty = 2
                 self.head = None
 
         def push_back(self):
+                &#34;&#34;&#34;
+                Metoda dodająca element na końcu listy
+                &#34;&#34;&#34;
                 value = self.textbox_value
                 node = SinglyListNode()
                 node.data_attr.name = &#34;Dane: &#34; + value
@@ -121,7 +223,97 @@ class SinglyLinkedList(ListAlgorithm):
                         last_node.next_attr.connection = node.next_attr
 
                 self.data.append(node)
-                self.save_snapshot(&#34;Zakończono dodawanie elementu&#34;)</code></pre>
+                self.save_snapshot(&#34;Zakończono dodawanie elementu&#34;)
+
+        def push_front(self):
+                &#34;&#34;&#34;
+                Metoda dodająca element na początku listy
+                &#34;&#34;&#34;
+                value = self.textbox_value
+                node = SinglyListNode()
+                node.data_attr.name = &#34;Dane: &#34; + value
+
+                if self.head is None:
+                        self.head = node
+                else:
+                        tmp = self.head
+                        self.head = node
+                        self.head.next = tmp
+                        self.head.next_attr.connection = tmp.next_attr
+                self.data.insert(0, node)
+                self.save_snapshot(&#34;Zakończono dodawanie elementu&#34;)
+
+        def pop_front(self):
+                &#34;&#34;&#34;
+                Metoda usuwająca element na początku listy
+                &#34;&#34;&#34;
+                if self.head != None:
+                        tmp = self.head
+                        self.head = self.head.next
+                        self.head.next_attr.connection = tmp.next.next_attr
+                        SinglyListNode.number -= 1
+                        self.data = self.data[1:]
+                        self.save_snapshot(&#34;Zakończono usunięcie elementu&#34;)
+                        return tmp
+
+        def pop_back(self):
+                &#34;&#34;&#34;
+                Metoda usuwająca element na końcu listy
+                &#34;&#34;&#34;
+                if self.head != None:
+                        current = self.head
+                        if len(self.data) &gt; 1:
+                                while current.next != None:
+                                        if current.next.next == None:
+                                                result = current.next
+                                                current.next = None
+                                                current.next_attr.connection = None
+                                                SinglyListNode.number -= 1
+                                                self.data = self.data[:-1]
+                                                return result
+                                        current = current.next
+                        else:
+                                result = self.head
+                                self.clear()
+                                return result
+                        self.save_snapshot(&#34;Zakończono usunięcie elementu&#34;)
+        
+        def remove(self):
+                &#34;&#34;&#34;
+                Metoda usuwająca element o wskazanej wartości
+                &#34;&#34;&#34;
+                value = self.textbox_value
+                node = SinglyListNode()
+                node.data_attr.name = &#34;Dane: &#34; + value
+
+                if self.head is None:
+                        self.save_snapshot(&#34;Usunięcie elementu nie powiodło się: lista jest pusta&#34;)
+                else:
+                        current = self.head
+                        while current.next != None:
+                                if current.next.data_attr == value:
+                                        current.next = current.next.next
+                                        current.next_attr.connection = current.next.next_attr
+                                        break
+                                current = current.next
+
+                        current.next_attr.connection = current.next_attr
+                
+                SinglyListNode.number -= 1
+                self.data.remove(node)
+                self.save_snapshot(&#34;Zakończono usunięcie elementu&#34;)
+
+        def head(self):
+                &#34;&#34;&#34;
+                Metoda zwracająca głowę listy jednokierunkowej
+                &#34;&#34;&#34;
+                return self.head
+
+        def tail(self):
+                &#34;&#34;&#34;
+                Metoda zwracająca ogon listy jednokierunkowej
+                &#34;&#34;&#34;
+                return self.data[-1]</code></pre>
 </details>
 <h3>Ancestors</h3>
 <ul class="hlist">
@@ -130,16 +322,90 @@ class SinglyLinkedList(ListAlgorithm):
 </ul>
 <h3>Methods</h3>
 <dl>
+<dt id="WizualizacjaAlgorytmow.AlgorithmsLogic.SinglyLinkedList.SinglyLinkedList.head"><code class="name flex">
+<span>def <span class="ident">head</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Metoda zwracająca głowę listy jednokierunkowej</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def head(self):
+        &#34;&#34;&#34;
+        Metoda zwracająca głowę listy jednokierunkowej
+        &#34;&#34;&#34;
+        return self.head</code></pre>
+</details>
+</dd>
+<dt id="WizualizacjaAlgorytmow.AlgorithmsLogic.SinglyLinkedList.SinglyLinkedList.pop_back"><code class="name flex">
+<span>def <span class="ident">pop_back</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Metoda usuwająca element na końcu listy</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def pop_back(self):
+        &#34;&#34;&#34;
+        Metoda usuwająca element na końcu listy
+        &#34;&#34;&#34;
+        if self.head != None:
+                current = self.head
+                if len(self.data) &gt; 1:
+                        while current.next != None:
+                                if current.next.next == None:
+                                        result = current.next
+                                        current.next = None
+                                        current.next_attr.connection = None
+                                        SinglyListNode.number -= 1
+                                        self.data = self.data[:-1]
+                                        return result
+                                current = current.next
+                else:
+                        result = self.head
+                        self.clear()
+                        return result
+                self.save_snapshot(&#34;Zakończono usunięcie elementu&#34;)</code></pre>
+</details>
+</dd>
+<dt id="WizualizacjaAlgorytmow.AlgorithmsLogic.SinglyLinkedList.SinglyLinkedList.pop_front"><code class="name flex">
+<span>def <span class="ident">pop_front</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Metoda usuwająca element na początku listy</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def pop_front(self):
+        &#34;&#34;&#34;
+        Metoda usuwająca element na początku listy
+        &#34;&#34;&#34;
+        if self.head != None:
+                tmp = self.head
+                self.head = self.head.next
+                self.head.next_attr.connection = tmp.next.next_attr
+                SinglyListNode.number -= 1
+                self.data = self.data[1:]
+                self.save_snapshot(&#34;Zakończono usunięcie elementu&#34;)
+                return tmp</code></pre>
+</details>
+</dd>
 <dt id="WizualizacjaAlgorytmow.AlgorithmsLogic.SinglyLinkedList.SinglyLinkedList.push_back"><code class="name flex">
 <span>def <span class="ident">push_back</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Metoda dodająca element na końcu listy</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def push_back(self):
+        &#34;&#34;&#34;
+        Metoda dodająca element na końcu listy
+        &#34;&#34;&#34;
         value = self.textbox_value
         node = SinglyListNode()
         node.data_attr.name = &#34;Dane: &#34; + value
@@ -158,38 +424,106 @@ class SinglyLinkedList(ListAlgorithm):
         self.save_snapshot(&#34;Zakończono dodawanie elementu&#34;)</code></pre>
 </details>
 </dd>
+<dt id="WizualizacjaAlgorytmow.AlgorithmsLogic.SinglyLinkedList.SinglyLinkedList.push_front"><code class="name flex">
+<span>def <span class="ident">push_front</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Metoda dodająca element na początku listy</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def push_front(self):
+        &#34;&#34;&#34;
+        Metoda dodająca element na początku listy
+        &#34;&#34;&#34;
+        value = self.textbox_value
+        node = SinglyListNode()
+        node.data_attr.name = &#34;Dane: &#34; + value
+
+        if self.head is None:
+                self.head = node
+        else:
+                tmp = self.head
+                self.head = node
+                self.head.next = tmp
+                self.head.next_attr.connection = tmp.next_attr
+        self.data.insert(0, node)
+        self.save_snapshot(&#34;Zakończono dodawanie elementu&#34;)</code></pre>
+</details>
+</dd>
+<dt id="WizualizacjaAlgorytmow.AlgorithmsLogic.SinglyLinkedList.SinglyLinkedList.remove"><code class="name flex">
+<span>def <span class="ident">remove</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Metoda usuwająca element o wskazanej wartości</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def remove(self):
+        &#34;&#34;&#34;
+        Metoda usuwająca element o wskazanej wartości
+        &#34;&#34;&#34;
+        value = self.textbox_value
+        node = SinglyListNode()
+        node.data_attr.name = &#34;Dane: &#34; + value
+
+        if self.head is None:
+                self.save_snapshot(&#34;Usunięcie elementu nie powiodło się: lista jest pusta&#34;)
+        else:
+                current = self.head
+                while current.next != None:
+                        if current.next.data_attr == value:
+                                current.next = current.next.next
+                                current.next_attr.connection = current.next.next_attr
+                                break
+                        current = current.next
+
+                current.next_attr.connection = current.next_attr
+        
+        SinglyListNode.number -= 1
+        self.data.remove(node)
+        self.save_snapshot(&#34;Zakończono usunięcie elementu&#34;)</code></pre>
+</details>
+</dd>
+<dt id="WizualizacjaAlgorytmow.AlgorithmsLogic.SinglyLinkedList.SinglyLinkedList.tail"><code class="name flex">
+<span>def <span class="ident">tail</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Metoda zwracająca ogon listy jednokierunkowej</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def tail(self):
+        &#34;&#34;&#34;
+        Metoda zwracająca ogon listy jednokierunkowej
+        &#34;&#34;&#34;
+        return self.data[-1]</code></pre>
+</details>
+</dd>
 </dl>
 </dd>
 <dt id="WizualizacjaAlgorytmow.AlgorithmsLogic.SinglyLinkedList.SinglyListNode"><code class="flex name class">
 <span>class <span class="ident">SinglyListNode</span></span>
 </code></dt>
 <dd>
-<div class="desc"><p>Obiekt reprezentujący węzeł wizualizacji nodz.</p>
-<h2 id="parametry">Parametry</h2>
-<p>name - nazwa węzła</p>
+<div class="desc"><p>Klasa reprezuntująca węzeł listy jednokierunkowej</p>
 <h2 id="przykad">Przykład</h2>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>node1 = Node("Node 1")
-attr1 = node1.add_attribute("Attr 1")
-attr2 = node1.add_attribute("Attr 2")
-attr3 = node1.add_attribute("Attr 3")
-node2 = Node("Node 2")
-attr4 = node2.add_attribute("Attr 4")
-attr5 = node2.add_attribute("Attr 5")
-attr6 = node2.add_attribute("Attr 6")
-attr1.connection = attr5
-attr2.connection = attr6
-attr3.connection = attr4</p>
-</blockquote>
-</blockquote>
-</blockquote></div>
+<pre><code class="language-python-repl">&gt;&gt;&gt; singly_linked_list_node = SinglyLinkedNode()
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">class SinglyListNode(Node):
+        &#34;&#34;&#34;
+        Klasa reprezuntująca węzeł listy jednokierunkowej
+
+        Przykład:
+                &gt;&gt;&gt; singly_linked_list_node = SinglyLinkedNode()
+        &#34;&#34;&#34;
         number = 0
         def __init__(self):
                 super().__init__(&#34;Node %s&#34; % SinglyListNode.number)
@@ -228,8 +562,14 @@ attr3.connection = attr4</p>
 <ul>
 <li>
 <h4><code><a title="WizualizacjaAlgorytmow.AlgorithmsLogic.SinglyLinkedList.SinglyLinkedList" href="#WizualizacjaAlgorytmow.AlgorithmsLogic.SinglyLinkedList.SinglyLinkedList">SinglyLinkedList</a></code></h4>
-<ul class="">
+<ul class="two-column">
+<li><code><a title="WizualizacjaAlgorytmow.AlgorithmsLogic.SinglyLinkedList.SinglyLinkedList.head" href="#WizualizacjaAlgorytmow.AlgorithmsLogic.SinglyLinkedList.SinglyLinkedList.head">head</a></code></li>
+<li><code><a title="WizualizacjaAlgorytmow.AlgorithmsLogic.SinglyLinkedList.SinglyLinkedList.pop_back" href="#WizualizacjaAlgorytmow.AlgorithmsLogic.SinglyLinkedList.SinglyLinkedList.pop_back">pop_back</a></code></li>
+<li><code><a title="WizualizacjaAlgorytmow.AlgorithmsLogic.SinglyLinkedList.SinglyLinkedList.pop_front" href="#WizualizacjaAlgorytmow.AlgorithmsLogic.SinglyLinkedList.SinglyLinkedList.pop_front">pop_front</a></code></li>
 <li><code><a title="WizualizacjaAlgorytmow.AlgorithmsLogic.SinglyLinkedList.SinglyLinkedList.push_back" href="#WizualizacjaAlgorytmow.AlgorithmsLogic.SinglyLinkedList.SinglyLinkedList.push_back">push_back</a></code></li>
+<li><code><a title="WizualizacjaAlgorytmow.AlgorithmsLogic.SinglyLinkedList.SinglyLinkedList.push_front" href="#WizualizacjaAlgorytmow.AlgorithmsLogic.SinglyLinkedList.SinglyLinkedList.push_front">push_front</a></code></li>
+<li><code><a title="WizualizacjaAlgorytmow.AlgorithmsLogic.SinglyLinkedList.SinglyLinkedList.remove" href="#WizualizacjaAlgorytmow.AlgorithmsLogic.SinglyLinkedList.SinglyLinkedList.remove">remove</a></code></li>
+<li><code><a title="WizualizacjaAlgorytmow.AlgorithmsLogic.SinglyLinkedList.SinglyLinkedList.tail" href="#WizualizacjaAlgorytmow.AlgorithmsLogic.SinglyLinkedList.SinglyLinkedList.tail">tail</a></code></li>
 </ul>
 </li>
 <li>

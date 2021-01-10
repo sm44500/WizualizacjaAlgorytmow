@@ -58,6 +58,20 @@ class Paths:
 		return os.path.join(algorithm_path, "questions/questions.json")
 
 	@staticmethod
+	def test_question_image(algorithm_name: str, image_name:str):
+		"""
+		Pobiera ścieżkę do obrazka pytania.
+		
+		Parametry:
+			algorithm_name - nazwa algorytmu
+
+			image_name - nazwa pliku grafiki
+		"""
+		algorithm_path = Paths.algorithm(algorithm_name)
+		question_resource = os.path.join(algorithm_path, "questions/resources")
+		return os.path.join(question_resource, image_name)
+
+	@staticmethod
 	def description(algorithm_name: str):
 		"""
 		Pobiera ścieżkę do pliku z opisem danego algorytmu.

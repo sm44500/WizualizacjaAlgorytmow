@@ -38,6 +38,8 @@ class TestQuestion:
         &#34;&#34;&#34;
         def __init__(self):
                 self.question = &#34;&#34;
+                self.explanation = &#34;&#34;
+                self.image = &#34;&#34;
                 self.answers = []
                 self.correct = -1
 
@@ -94,7 +96,8 @@ class TestQuestion:
                         question.question = json_object[&#34;question&#34;]
                         question.answers = json_object[&#34;answers&#34;]
                         question.correct = json_object[&#34;correct&#34;]
-                        question.reason = &#34;test uzasadnienie test&#34; # json_object[&#34;explain&#34;]
+                        question.explanation = json_object[&#34;explanation&#34;]
+                        question.image =   json_object[&#34;image&#34;]
                         questions.append(question)
 
                 file.close()
@@ -133,6 +136,8 @@ class TestQuestion:
         &#34;&#34;&#34;
         def __init__(self):
                 self.question = &#34;&#34;
+                self.explanation = &#34;&#34;
+                self.image = &#34;&#34;
                 self.answers = []
                 self.correct = -1
 
@@ -189,7 +194,8 @@ class TestQuestion:
                         question.question = json_object[&#34;question&#34;]
                         question.answers = json_object[&#34;answers&#34;]
                         question.correct = json_object[&#34;correct&#34;]
-                        question.reason = &#34;test uzasadnienie test&#34; # json_object[&#34;explain&#34;]
+                        question.explanation = json_object[&#34;explanation&#34;]
+                        question.image =   json_object[&#34;image&#34;]
                         questions.append(question)
 
                 file.close()
@@ -236,7 +242,8 @@ def from_file(path: str):
                 question.question = json_object[&#34;question&#34;]
                 question.answers = json_object[&#34;answers&#34;]
                 question.correct = json_object[&#34;correct&#34;]
-                question.reason = &#34;test uzasadnienie test&#34; # json_object[&#34;explain&#34;]
+                question.explanation = json_object[&#34;explanation&#34;]
+                question.image =   json_object[&#34;image&#34;]
                 questions.append(question)
 
         file.close()
