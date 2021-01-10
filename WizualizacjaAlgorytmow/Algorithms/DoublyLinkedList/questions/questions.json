@@ -1,50 +1,26 @@
 [
     {
-        "question": "1.	Z czego się składa lista dwukierunkowa?",
+        "question": "Example question one",
         "image": "test.png",
         "answers": [
-            "Z liczb",
-            "Z węzłów",
-            "Ze wskaźników",
-            "Z napisów"
+            "Example answer 1",
+            "Example answer 2",
+            "Example answer 3",
+            "Example answer 4"
         ],
         "correct": 1,
-        "explanation": "Lista dwukierunkowa składa się z węzłow. Węzeł jest podstawową jednostka w liście dwukierunkowej"
+        "explanation": "because yes"
     },
     {
-        "question": "2.	Co jest głową listy dwukierunkowej?",
+        "question": "Example question two",
         "image": "test.png",
         "answers": [
-            "Węzeł znajdujący się z przodu listy",
-            "Węzeł dodany do listy jako pierwszy",
-            "Węzeł dodany do listy jako ostatni",
-            "Węzeł znajdujący się na końcu listy"
+            "Example answer 1",
+            "Example answer 2",
+            "Example answer 3",
+            "Example answer 4"
         ],
         "correct": 0,
-        "explanation": "Głową listy jest element znajdujący się z przodu listy, mówiąc w uproszczeniu jest to węzeł z indeksem 0 pod warunkiem że indeksację zaczynamy od wartości 0"
-    },
-    {
-        "question": "3.	Z czego się składa węzeł listy dwukierunkowej?",
-        "image": "test.png",
-        "answers": [
-            "Ze wskaźnika na poprzedni węzeł listy, ze wskaźnika na kolejny węzeł listy i z przechowywanych danych",
-            "Z indeksu i z przechowywanych danych",
-            "Ze wskaźnika na kolejny węzeł listy i z przechowywanych danych",
-            "Z ciągu znaków"
-        ],
-        "correct": 0,
-        "explanation": "Węzeł listy dwukierunkowej składa się ze wskaźnika na kolejny węzeł listy oraz z danych, które chcemy przechowywać w liście. Tymi danymi może być obiekt"
-    },
-    {
-        "question": "4.	Ostatni węzeł listy dwukierunkowej ma wskaźnik na następny węzeł w liście. Jaką on ma wartość?",
-        "image": "test.png",
-        "answers": [
-            "Adres głowy listy",
-            "Nie ma takiego wskaźnika",
-            "NULL",
-            "Adres ostatniego węzła listy"
-        ],
-        "correct": 2,
-        "explanation": "Ten wskaźnik ma wartość NULL, ponieważ mimo tego, że w liście nie ma więcej węzłów, ten wskaźnik musi mieć przypisaną wartość (jeżeli nie chcemy żeby ten wskaźnik wskazywał na niepotrzebne lub niewłaściwe dane, przypisujemy mu wartość NULL)"
+        "explanation": "because yes"
     }
 ]
