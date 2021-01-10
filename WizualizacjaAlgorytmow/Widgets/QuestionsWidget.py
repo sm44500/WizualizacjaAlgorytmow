@@ -1,3 +1,4 @@
+import os
 from PyQt5.QtWidgets import QVBoxLayout, QLabel
 from PyQt5.QtGui import QPixmap
 from PyQt5.QtCore import Qt
@@ -31,12 +32,15 @@ class QuestionsWidget(BaseWidget):
 		self.image = QLabel(self)
 		self.image.setAlignment(Qt.AlignCenter)
 		self.widget_layout.addWidget(self.image)
+		
 
 		self.question = QLabel(self)
+		self.question.setWordWrap(True)
 		self.question.setAlignment(Qt.AlignCenter)
 		self.widget_layout.addWidget(self.question)
 
 		self.explanation = QLabel(self)
+		self.explanation.setWordWrap(True)
 		self.explanation.setAlignment(Qt.AlignCenter)
 		self.widget_layout.addWidget(self.explanation)
 
@@ -65,11 +69,13 @@ class QuestionsWidget(BaseWidget):
 
 		self.question.setText(question.question)
 
-		if question.image != "":
-			image_path = Paths.test_question_image(algorithm, question.image)
-			pixels = QPixmap(image_path)
-			self.image.setPixmap(pixels)
-			self.image.resize(pixels.width(), pixels.height())
+		image_path = Paths.test_question_image(algorithm, question.image)
+		if not os.path.isfile(image_path):
+			image_path = Paths.icon("question_mark.png")
+
+		pixels = QPixmap(image_path)
+		self.image.setPixmap(pixels)
+		self.image.resize(pixels.width(), pixels.height())
 
 		if show_explanation:
 			self.explanation.setText(question.explanation)
