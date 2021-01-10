@@ -1,26 +1,50 @@
 [
     {
-        "question": "Example question one",
+        "question": "1.	Z czego się składa cykliczna lista jednokierunkowa?",
         "image": "test.png",
         "answers": [
-            "Example answer 1",
-            "Example answer 2",
-            "Example answer 3",
-            "Example answer 4"
-        ],
-        "correct": 1,
-        "explanation": "because yes"
-    },
-    {
-        "question": "Example question two",
-        "image": "test.png",
-        "answers": [
-            "Example answer 1",
-            "Example answer 2",
-            "Example answer 3",
-            "Example answer 4"
+            "Z węzłów",
+            "Z liczb",
+            "Ze wskaźników",
+            "Z napisów"
         ],
         "correct": 0,
-        "explanation": "because yes"
+        "explanation": "Cykliczna ista jednokierunkowa składa się z węzłow. Węzeł jest podstawową jednostka w liście"
+    },
+    {
+        "question": "2.	Ogon cyklicznej listy jednokierunkowej na wskaźnik na kolejny węzeł. Jaką on ma wartość?",
+        "image": "test.png",
+        "answers": [
+            "Adres głowy listy",
+            "NULL",
+            "Aderes ogonu listy",
+            "Nie ma żadnej wartości"
+        ],
+        "correct": 0,
+        "explanation": "Następnikiem ostatniego węzła cyklicznej listy jednokierunkowej jest głowa listy"
+    },
+    {
+        "question": "3.	Z czego się składa węzeł listy jednokierunkowej?",
+        "image": "test.png",
+        "answers": [
+            "Ze wskaźnika na poprzedni węzeł listy i ze wskaźnika na kolejny węzeł listy",
+            "Z indeksu i z przechowywanych danych",
+            "Ze wskaźnika na kolejny węzeł listy i z przechowywanych danych",
+            "Z ciągu znaków"
+        ],
+        "correct": 2,
+        "explanation": "Węzeł cyklicznej listy jednokierunkowej składa się ze wskaźnika na kolejny węzeł listy oraz z danych, które chcemy przechowywaźc w liście. Tymi danymi może być obiekt"
+    },
+    {
+        "question": "4.	Co jest ogonem cyklicznej listy jednokierunkowej?",
+        "image": "test.png",
+        "answers": [
+            "Węzeł dodany do listy jako pierwszy",
+            "Wszystkie węzły listy poza jej głową",
+            "Węzeł dodany do listy jako ostatni",
+            "Węzeł znajdujący się na końcu listy jednokierunkowej"
+        ],
+        "correct": 3,
+        "explanation": "Ogonem listy jest element znajdujący się z przodu listy, mówiąc w uproszczeniu jest to węzeł z indeksem o 1 mniejszym od ilości węzłów w lisćie pod warunkiem że indeksację zaczynamy od wartości 0"
     }
 ]
