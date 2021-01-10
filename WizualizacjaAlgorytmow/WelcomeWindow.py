@@ -8,12 +8,9 @@ from Paths import Paths
 class WelcomeWindow(QMainWindow):
 	"""
 	Okno powitalne programu.
-
-	Parametry:
-	parent - widget rodzic.
 	"""
 
-	def __init__(self, parent=None):
+	def __init__(self):
 		QMainWindow.__init__(self)
 		self.setObjectName("WelcomeWindow")
 		self.resize(400, 350)
@@ -44,7 +41,7 @@ class WelcomeWindow(QMainWindow):
 
 
 def add_label(text, size, bold, align):
-	font = QFont()
+	font = QFont("Helvetica")
 	font.setPointSize(size)
 	font.setBold(bold)
 	label = QLabel()
