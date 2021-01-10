@@ -36,7 +36,7 @@ class SinglyLinkedList(ListAlgorithm):
 		"""
 		value = self.textbox_value
 		node = SinglyListNode()
-		node.data_attr.name = "Dane: " + value
+		node.data_attr.name = "Dane: " + str(value)
 
 		if self.head is None:
 			self.head = node
@@ -57,7 +57,7 @@ class SinglyLinkedList(ListAlgorithm):
 		"""
 		value = self.textbox_value
 		node = SinglyListNode()
-		node.data_attr.name = "Dane: " + value
+		node.data_attr.name = "Dane: " + str(value)
 
 		if self.head is None:
 			self.head = node
@@ -103,14 +103,14 @@ class SinglyLinkedList(ListAlgorithm):
 				self.clear()
 				return result
 			self.save_snapshot("Zakończono usunięcie elementu")
-	
+
 	def remove(self):
 		"""
 		Metoda usuwająca element o wskazanej wartości
 		"""
 		value = self.textbox_value
 		node = SinglyListNode()
-		node.data_attr.name = "Dane: " + value
+		node.data_attr.name = "Dane: " + str(value)
 
 		if self.head is None:
 			self.save_snapshot("Usunięcie elementu nie powiodło się: lista jest pusta")
@@ -124,7 +124,7 @@ class SinglyLinkedList(ListAlgorithm):
 				current = current.next
 
 			current.next_attr.connection = current.next_attr
-		
+
 		SinglyListNode.number -= 1
 		self.data.remove(node)
 		self.save_snapshot("Zakończono usunięcie elementu")

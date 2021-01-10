@@ -39,7 +39,7 @@ class DoublyLinkedList(ListAlgorithm):
 		"""
 		value = self.textbox_value
 		node = DoublyListNode()
-		node.data_attr.name = "Dane: " + value
+		node.data_attr.name = "Dane: " + str(value)
 
 		if self.head is None:
 			self.head = node
@@ -64,7 +64,7 @@ class DoublyLinkedList(ListAlgorithm):
 		"""
 		value = self.textbox_value
 		node = SinglyListNode()
-		node.data_attr.name = "Dane: " + value
+		node.data_attr.name = "Dane: " + str(value)
 
 		if self.head is None:
 			self.head = node
@@ -122,7 +122,7 @@ class DoublyLinkedList(ListAlgorithm):
 		"""
 		value = self.textbox_value
 		node = SinglyListNode()
-		node.data_attr.name = "Dane: " + value
+		node.data_attr.name = "Dane: " + str(value)
 
 		if self.head is None:
 			self.save_snapshot("Usunięcie elementu nie powiodło się: lista jest pusta")
