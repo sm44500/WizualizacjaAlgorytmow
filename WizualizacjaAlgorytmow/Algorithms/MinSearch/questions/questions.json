@@ -1,26 +1,62 @@
 [
     {
-        "question": "Example question one",
+        "question": "Złożoność obliczeniowa wyszukiwania min jest równa",
         "image": "python.png",
         "answers": [
-            "Example answer 1",
-            "Example answer 2",
-            "Example answer 3",
-            "Example answer 4"
+            "O(n * n)",
+            "O( n log n)",
+            "O(n)",
+            "O(n!)"
         ],
-        "correct": 1,
-        "explanation": "because yes"
+        "correct": 2,
+        "explanation": "algorytm wymaga tylko jednej pętli raz przechodzącej przez dane"
     },
     {
-        "question": "Example question two",
-        "image": "test.png",
+        "question": "która wartość jako przedostatnia będzie zapisana jako min",
+        "image": "question2.png",
         "answers": [
-            "Example answer 1",
-            "Example answer 2",
-            "Example answer 3",
-            "Example answer 4"
+            "3",
+            "2",
+            "1",
+            "4"
+        ],
+        "correct": 1,
+        "explanation": "jeżeli liczba jest większa od aktualnie zapisanej, nie jest uwzględniana"
+    },
+    {
+        "question": "co należy wstawić w miejsce linii, żeby algorytm wyszukiwał min",
+        "image": "question3.png",
+        "answers": [
+            "min == zbior[i]",
+            "min <= zbior[i] ",
+            "min < zbior[i]",
+            "min > zbior[i]"
+        ],
+        "correct": 3,
+        "explanation": "element jest zamieniany jeżeli znajdziemy mniejszy od niego"
+    },
+    {
+        "question": "ile razy podczas przebiegu programu wartość min zostanie zmieniona",
+        "image": "question4.png",
+        "answers": [
+            "3",
+            "2",
+            "4",
+            "5"
         ],
         "correct": 0,
-        "explanation": "because yes"
+        "explanation": "jeżeli wartość porównywana jest większa od min nie jest wliczana"
+    },
+    {
+        "question": "jakie wartości po kolei będzie przyjomwać algorytm wyszukiwania min",
+        "image": "question5.png",
+        "answers": [
+            "4, 3 5, 2, 3, 8, 1",
+            "1",
+            "4, 3, 2, 1",
+            "9, 4, 1"
+        ],
+        "correct": 2,
+        "explanation": ""
     }
 ]
