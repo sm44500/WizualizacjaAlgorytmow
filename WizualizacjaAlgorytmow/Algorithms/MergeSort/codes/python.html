@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pl"> 
 <head>
-    <title>Sortowanie przez scalanie - Python</title>
+    <title>Wyszukiwanie liniowe - Python</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -91,7 +91,49 @@ if (window.sidebar){
     </header>
     <div class="main-wrapper" onmousedown='return false;' onselectstart='return false;'>
 	    <section class="main-code">			
-		>>> TU WKLEJ KOD <<<
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #66d9ef">def</span> <span style="color: #a6e22e">merge</span><span style="color: #f8f8f2">(left,</span> <span style="color: #f8f8f2">right):</span>
+    <span style="color: #f8f8f2">result</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">[]</span>
+    <span style="color: #f8f8f2">i,</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">0</span>
+    <span style="color: #75715e"># merge two halfs</span>
+    <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">len(left)</span> <span style="color: #f92672">and</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">len(right):</span>
+        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">left[i]</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">right[j]:</span>
+            <span style="color: #f8f8f2">result</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">append(left[i])</span>
+            <span style="color: #f8f8f2">i</span> <span style="color: #f92672">+=</span> <span style="color: #ae81ff">1</span>
+        <span style="color: #66d9ef">else</span><span style="color: #f8f8f2">:</span>
+            <span style="color: #f8f8f2">result</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">append(right[j])</span>
+            <span style="color: #f8f8f2">j</span> <span style="color: #f92672">+=</span> <span style="color: #ae81ff">1</span>
+    
+    <span style="color: #75715e"># add node/nodes  which left (unused) in left or right part</span>
+    <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">len(left):</span>
+        <span style="color: #f8f8f2">result</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">append(left[i])</span>
+        <span style="color: #f8f8f2">i</span> <span style="color: #f92672">+=</span> <span style="color: #ae81ff">1</span>
+    <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">len(right):</span>
+        <span style="color: #f8f8f2">result</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">append(right[j])</span>
+        <span style="color: #f8f8f2">j</span> <span style="color: #f92672">+=</span> <span style="color: #ae81ff">1</span>
+
+    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">result</span>
+
+
+<span style="color: #66d9ef">def</span> <span style="color: #a6e22e">merge_sort</span><span style="color: #f8f8f2">(L):</span>
+    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">len(L)</span> <span style="color: #f92672">&lt;</span> <span style="color: #ae81ff">2</span><span style="color: #f8f8f2">:</span>
+        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">L[:]</span>
+    <span style="color: #66d9ef">else</span><span style="color: #f8f8f2">:</span>
+        <span style="color: #75715e"># Finding the middle of the array</span>
+        <span style="color: #f8f8f2">middle</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">int(len(L)</span> <span style="color: #f92672">/</span> <span style="color: #ae81ff">2</span><span style="color: #f8f8f2">)</span>
+        <span style="color: #75715e"># into 2 halves</span>
+        <span style="color: #f8f8f2">left</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">merge_sort(L[:middle])</span>
+        <span style="color: #f8f8f2">right</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">merge_sort(L[middle:])</span>
+        <span style="color: #75715e"># merging (sorting) of two halfs </span>
+        <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">merge(left,</span> <span style="color: #f8f8f2">right)</span>
+
+
+<span style="color: #f8f8f2">array</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">[</span><span style="color: #ae81ff">78</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">41</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">4</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">27</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">3</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">27</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">8</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">39</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">19</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">34</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">6</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">41</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">13</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">52</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">16</span><span style="color: #f8f8f2">]</span>
+<span style="color: #f8f8f2">print(array)</span>
+<span style="color: #f8f8f2">print(</span><span style="color: #e6db74">&quot;</span><span style="color: #ae81ff">\n</span><span style="color: #e6db74">Sorted list:</span><span style="color: #ae81ff">\n</span><span style="color: #e6db74">&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">merge_sort(array))</span>
+
+<span style="color: #75715e">#changed https://webdevblog.ru/sortirovka-sliyaniem-merge-sort-v-python/</span>
+</pre></div>
+
 	    </section>
     </div>
 </body>

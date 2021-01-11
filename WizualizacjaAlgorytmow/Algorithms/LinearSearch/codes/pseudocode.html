@@ -91,7 +91,65 @@ if (window.sidebar){
     </header>
     <div class="main-wrapper" onmousedown='return false;' onselectstart='return false;'>
 	    <section class="main-code">			
-		>>> TU WKLEJ KOD <<<
+		<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #f8f8f2">MergeSort(arr[],</span> <span style="color: #f8f8f2">l,</span>  <span style="color: #f8f8f2">r)</span>
+<span style="color: #f8f8f2">If</span> <span style="color: #f8f8f2">r</span> <span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">l</span>
+     <span style="color: #ae81ff">1.</span> <span style="color: #f8f8f2">Find</span> <span style="color: #f8f8f2">the</span> <span style="color: #f8f8f2">middle</span> <span style="color: #f8f8f2">point</span> <span style="color: #f8f8f2">to</span> <span style="color: #f8f8f2">divide</span> <span style="color: #f8f8f2">the</span> <span style="color: #f8f8f2">array</span> <span style="color: #f8f8f2">into</span> <span style="color: #f8f8f2">two</span> <span style="color: #f8f8f2">halves:</span>  
+             <span style="color: #f8f8f2">middle</span> <span style="color: #f8f8f2">m</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">(l</span><span style="color: #f92672">+</span><span style="color: #f8f8f2">r)</span><span style="color: #f92672">/</span><span style="color: #ae81ff">2</span>
+     <span style="color: #ae81ff">2.</span> <span style="color: #f8f8f2">Call</span> <span style="color: #f8f8f2">mergeSort</span> <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">first</span> <span style="color: #f8f8f2">half:</span>   
+             <span style="color: #f8f8f2">Call</span> <span style="color: #f8f8f2">mergeSort(arr,</span> <span style="color: #f8f8f2">l,</span> <span style="color: #f8f8f2">m)</span>
+     <span style="color: #ae81ff">3.</span> <span style="color: #f8f8f2">Call</span> <span style="color: #f8f8f2">mergeSort</span> <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">second</span> <span style="color: #f8f8f2">half:</span>
+             <span style="color: #f8f8f2">Call</span> <span style="color: #f8f8f2">mergeSort(arr,</span> <span style="color: #f8f8f2">m</span><span style="color: #f92672">+</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">r)</span>
+     <span style="color: #ae81ff">4.</span> <span style="color: #f8f8f2">Merge</span> <span style="color: #f8f8f2">the</span> <span style="color: #f8f8f2">two</span> <span style="color: #f8f8f2">halves</span> <span style="color: #f8f8f2">sorted</span> <span style="color: #f92672">in</span> <span style="color: #f8f8f2">step</span> <span style="color: #ae81ff">2</span> <span style="color: #f92672">and</span> <span style="color: #ae81ff">3</span><span style="color: #f8f8f2">:</span>
+             <span style="color: #f8f8f2">Call</span> <span style="color: #f8f8f2">merge(arr,</span> <span style="color: #f8f8f2">l,</span> <span style="color: #f8f8f2">r)</span>
+
+
+<span style="color: #f8f8f2">function</span> <span style="color: #f8f8f2">merge(left,right)</span>
+    <span style="color: #f8f8f2">var</span> <span style="color: #f8f8f2">list</span> <span style="color: #f8f8f2">result</span>
+    <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">length(left)</span> <span style="color: #f92672">&gt;</span> <span style="color: #ae81ff">0</span> <span style="color: #f92672">and</span> <span style="color: #f8f8f2">length(right)</span> <span style="color: #f92672">&gt;</span> <span style="color: #ae81ff">0</span>
+        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">first(left)</span> <span style="color: #960050; background-color: #1e0010">≤</span> <span style="color: #f8f8f2">first(right)</span>
+            <span style="color: #f8f8f2">append</span> <span style="color: #f8f8f2">first(left)</span> <span style="color: #f8f8f2">to</span> <span style="color: #f8f8f2">result</span>
+            <span style="color: #f8f8f2">left</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">rest(left)</span>
+        <span style="color: #66d9ef">else</span>
+            <span style="color: #f8f8f2">append</span> <span style="color: #f8f8f2">first(right)</span> <span style="color: #f8f8f2">to</span> <span style="color: #f8f8f2">result</span>
+            <span style="color: #f8f8f2">right</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">rest(right)</span>
+        <span style="color: #f8f8f2">end</span> <span style="color: #66d9ef">if</span>
+    <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">length(left)</span> <span style="color: #f92672">&gt;</span> <span style="color: #ae81ff">0</span> 
+        <span style="color: #f8f8f2">append</span> <span style="color: #f8f8f2">first(left)</span> <span style="color: #f8f8f2">to</span> <span style="color: #f8f8f2">result</span>
+        <span style="color: #f8f8f2">left</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">rest(left)</span>
+    <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">length(right)</span> <span style="color: #f92672">&gt;</span> <span style="color: #ae81ff">0</span> 
+        <span style="color: #f8f8f2">append</span> <span style="color: #f8f8f2">first(right)</span> <span style="color: #f8f8f2">to</span> <span style="color: #f8f8f2">result</span>
+        <span style="color: #f8f8f2">right</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">rest(right)</span>
+    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">result</span>
+</pre></td></tr></table></div>
+
 	    </section>
     </div>
 </body>

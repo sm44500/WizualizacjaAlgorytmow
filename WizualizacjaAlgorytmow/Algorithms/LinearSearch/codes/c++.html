@@ -91,7 +91,191 @@ if (window.sidebar){
     </header>
     <div class="main-wrapper" onmousedown='return false;' onselectstart='return false;'>
 	    <section class="main-code">			
-		>>> TU WKLEJ KOD <<<
+		<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">#include &lt;iostream&gt;</span>
+
+<span style="color: #66d9ef">using</span> <span style="color: #66d9ef">namespace</span> <span style="color: #f8f8f2">std;</span>
+
+
+<span style="color: #75715e">// Merges two subarrays of arr[].</span>
+<span style="color: #75715e">// First subarray is arr[l..m]</span>
+<span style="color: #75715e">// Second subarray is arr[m+1..r]</span>
+<span style="color: #66d9ef">void</span> <span style="color: #a6e22e">merge</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">arr[],</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">l,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">m,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">r)</span>
+<span style="color: #f8f8f2">{</span>
+    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n1</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">m</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">l</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
+    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n2</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">r</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">m;</span>
+ 
+    <span style="color: #75715e">// Create temp arrays</span>
+    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">L[n1],</span> <span style="color: #f8f8f2">R[n2];</span>
+ 
+    <span style="color: #75715e">// Copy data to temp arrays L[] and R[]</span>
+    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n1;</span> <span style="color: #f8f8f2">i</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">)</span>
+        <span style="color: #f8f8f2">L[i]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">arr[l</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">i];</span>
+    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n2;</span> <span style="color: #f8f8f2">j</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">)</span>
+        <span style="color: #f8f8f2">R[j]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">arr[m</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">j];</span>
+ 
+    <span style="color: #75715e">// Merge the temp arrays back into arr[l..r]</span>
+ 
+    <span style="color: #75715e">// Initial index of first subarray</span>
+    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+ 
+    <span style="color: #75715e">// Initial index of second subarray</span>
+    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+ 
+    <span style="color: #75715e">// Initial index of merged subarray</span>
+    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">k</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">l;</span>
+ 
+    <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n1</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n2)</span> <span style="color: #f8f8f2">{</span>
+        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(L[i]</span> <span style="color: #f92672">&lt;=</span> <span style="color: #f8f8f2">R[j])</span> <span style="color: #f8f8f2">{</span>
+            <span style="color: #f8f8f2">arr[k]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">L[i];</span>
+            <span style="color: #f8f8f2">i</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
+        <span style="color: #f8f8f2">}</span>
+        <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">{</span>
+            <span style="color: #f8f8f2">arr[k]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">R[j];</span>
+            <span style="color: #f8f8f2">j</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
+        <span style="color: #f8f8f2">}</span>
+        <span style="color: #f8f8f2">k</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
+    <span style="color: #f8f8f2">}</span>
+ 
+    <span style="color: #75715e">// Copy the remaining elements of</span>
+    <span style="color: #75715e">// L[], if there are any</span>
+    <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n1)</span> <span style="color: #f8f8f2">{</span>
+        <span style="color: #f8f8f2">arr[k]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">L[i];</span>
+        <span style="color: #f8f8f2">i</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
+        <span style="color: #f8f8f2">k</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
+    <span style="color: #f8f8f2">}</span>
+ 
+    <span style="color: #75715e">// Copy the remaining elements of</span>
+    <span style="color: #75715e">// R[], if there are any</span>
+    <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(j</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n2)</span> <span style="color: #f8f8f2">{</span>
+        <span style="color: #f8f8f2">arr[k]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">R[j];</span>
+        <span style="color: #f8f8f2">j</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
+        <span style="color: #f8f8f2">k</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
+    <span style="color: #f8f8f2">}</span>
+<span style="color: #f8f8f2">}</span>
+ 
+
+
+<span style="color: #66d9ef">void</span> <span style="color: #a6e22e">merge_sort</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">arr[],</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">start,</span> <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">end)</span> 
+<span style="color: #f8f8f2">{</span>
+    <span style="color: #75715e">// check if the array is not a unit array, then dont divide anymore</span>
+
+    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(start</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">end)</span> <span style="color: #f8f8f2">{</span>
+        <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">mid</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">(start</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">end)</span><span style="color: #f92672">/</span><span style="color: #ae81ff">2</span><span style="color: #f8f8f2">;</span>
+
+        <span style="color: #f8f8f2">merge_sort(arr,</span> <span style="color: #f8f8f2">start,</span> <span style="color: #f8f8f2">mid);</span>
+        <span style="color: #f8f8f2">merge_sort(arr,</span> <span style="color: #f8f8f2">mid</span><span style="color: #f92672">+</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">end);</span>
+        <span style="color: #f8f8f2">merge(arr,</span> <span style="color: #f8f8f2">start,</span> <span style="color: #f8f8f2">mid,</span> <span style="color: #f8f8f2">end);</span>
+    <span style="color: #f8f8f2">}</span>
+<span style="color: #f8f8f2">}</span>
+
+
+<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
+    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">data[]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">{</span><span style="color: #ae81ff">4</span><span style="color: #f8f8f2">,</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span><span style="color: #ae81ff">2</span><span style="color: #f8f8f2">,</span><span style="color: #ae81ff">3</span><span style="color: #f8f8f2">,</span><span style="color: #ae81ff">7</span><span style="color: #f8f8f2">,</span><span style="color: #ae81ff">8</span><span style="color: #f8f8f2">,</span><span style="color: #ae81ff">5</span><span style="color: #f8f8f2">,</span><span style="color: #ae81ff">6</span><span style="color: #f8f8f2">,</span><span style="color: #ae81ff">9</span><span style="color: #f8f8f2">};</span>
+    <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">sizeof</span><span style="color: #f8f8f2">(data)</span> <span style="color: #f92672">/</span> <span style="color: #66d9ef">sizeof</span><span style="color: #f8f8f2">(data[</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">]);</span>
+
+    <span style="color: #f8f8f2">merge_sort(data,</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">n</span><span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">);</span>
+
+    <span style="color: #f8f8f2">printf(</span><span style="color: #e6db74">&quot;Sorted tab:</span><span style="color: #ae81ff">\n</span><span style="color: #e6db74">&quot;</span><span style="color: #f8f8f2">);</span>
+    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">:</span> <span style="color: #f8f8f2">data)</span> 
+        <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&quot; &quot;</span><span style="color: #f8f8f2">;</span>
+
+    <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+<span style="color: #f8f8f2">}</span>
+<span style="color: #75715e">// https://stackoverflow.com/questions/20912274/recursive-merge-sort-in-c</span>
+<span style="color: #75715e">// https://www.geeksforgeeks.org/merge-sort/</span>
+</pre></td></tr></table></div>
+
 	    </section>
     </div>
 </body>

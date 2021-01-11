@@ -1,26 +1,50 @@
 [
     {
-        "question": "Example question one",
-        "image": "test.png",
+        "question": "Jaką złożoność obliczeniową ma algorytm Binary search ?",
+        "image": "",
         "answers": [
-            "Example answer 1",
-            "Example answer 2",
-            "Example answer 3",
-            "Example answer 4"
+            "O(n^2)",
+            "O(n*log(n))",
+            "O(n+k)",
+            "O(log(n))"
         ],
-        "correct": 1,
-        "explanation": "because yes"
+        "correct": 3,
+        "explanation": "Algorytm szuka danego elementu w tablicy posortowanej i stosuje metodę dziel i zwyciężaj. W każdej iteracji liczba elementów które trzeba przejrzeć zniejsza się o połowę od poprzedniej ilości."
     },
     {
-        "question": "Example question two",
-        "image": "test.png",
+        "question": "Które twierdzenie jest prawdziwe odnośnie algorytmu Binary search?",
+        "image": "",
         "answers": [
-            "Example answer 1",
-            "Example answer 2",
-            "Example answer 3",
-            "Example answer 4"
+            "Nie wolno korzystać się z tego algorytmu dla tablic jednowymiarowych",
+            "Ten algorytm dziła tylko na posortowanej tablice",
+            "Na posortowanej tablice algorytm działa szybciej",
+            "Działa jednakowo dla posorwanej i nieposortowanej tablicy"
         ],
-        "correct": 0,
-        "explanation": "because yes"
+        "correct": 2,
+        "explanation": "Algorytm działa poprawnie tylko na tablice posortowanej."
+    },
+    {
+        "question": "W ilu iteracjach algorytm Binary search wyszuka element o wartości 16?",
+        "image": "binary_search1.png",
+        "answers": [
+            "2",
+            "5",
+            "3",
+            "7"
+        ],
+        "correct": 2,
+        "explanation": "pośczególne elementy wyszukiwania: 13 → 30 → 16"
+    },
+    {
+        "question": "Jak jest liczona wartość mid w Binary search?",
+        "image": "binary_search2.png",
+        "answers": [
+            "r - l // 2",
+            "r + (r - l) // 2",
+            "l - (r - l) // 2",
+            "l + (r - l) // 2"
+        ],
+        "correct": 3,
+        "explanation": "Do tymczasowej lewej granicy dodajemy polowę różnicy prawej i lewej granic"
     }
 ]

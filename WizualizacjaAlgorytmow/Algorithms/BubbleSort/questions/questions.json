@@ -1,26 +1,50 @@
 [
     {
-        "question": "Example question one",
-        "image": "test.png",
+        "question": "Jaką złożoność obliczeniową ma algorytm Bubble sort ?",
+        "image": "",
         "answers": [
-            "Example answer 1",
-            "Example answer 2",
-            "Example answer 3",
-            "Example answer 4"
-        ],
-        "correct": 1,
-        "explanation": "because yes"
-    },
-    {
-        "question": "Example question two",
-        "image": "test.png",
-        "answers": [
-            "Example answer 1",
-            "Example answer 2",
-            "Example answer 3",
-            "Example answer 4"
+            "O(n^2)",
+            "O(n*log(n))",
+            "O(n+k)",
+            "O(n)"
         ],
         "correct": 0,
-        "explanation": "because yes"
+        "explanation": "Stosuje metodę dziel i zwyciężaj"
+    },
+    {
+        "question": "Co z tego jest opisem działania algorytmu Bubble sort ?",
+        "image": "",
+        "answers": [
+            "Rekurencyjny algorytm sortowania danych, stosujący metodę dziel i zwyciężaj",
+            "Sposób w jaki ludzie ustawiają karty – kolejne elementy wejściowe są ustawiane na odpowiednie miejsca docelowe",
+            "W jednym cyklu pętli zewnętrznej największa liczba będzie się przemieszczała na ostatnią pozycję",
+            "Metoda polega na sprawdzeniu ile wystąpień kluczy mniejszych od danego występuje w sortowanej tablicy"
+        ],
+        "correct": 2,
+        "explanation": "Największe liczby zachowują się jak bąbelki w napoju gazowanym"
+    },
+    {
+        "question": "Jak wygląda prawidłowy i najlepszy z przedstawionych wariantów wewnęsznej pętli algorytmu Bubble sort?",
+        "image": "bubble_sort1.png",
+        "answers": [
+            "for j = 0 to n",
+            "for j = 0 to n-2-i",
+            "for j = 0 to n-2",
+            "for j = 1 to n-2"
+        ],
+        "correct": 1,
+        "explanation": "Możem nie sprawdzać ostatnie i elemetów bo są już posortowane"
+    },
+    {
+        "question": "Który z poniższych algorytmów najbardziej podobny do Bubble sort?",
+        "image": "",
+        "answers": [
+            "Merge sort",
+            "Counting sort",
+            "Insertion sort",
+            "Cocktail sort"
+        ],
+        "correct": 3,
+        "explanation": "Jest jeszcze nazywany 'Bidirectional bubble sort' bo szuka na przemienno wartości maksymalne i minimalne."
     }
 ]

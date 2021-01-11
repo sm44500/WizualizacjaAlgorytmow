@@ -13,5 +13,3 @@ if __name__ == "__main__":
 	welcome_window = WelcomeWindow()
 	welcome_window.show()
 	sys.exit(app.exec_())		
-
-
