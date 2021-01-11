@@ -1,26 +1,62 @@
 [
     {
-        "question": "Example question one",
-        "image": "test.png",
+        "question": "Złożoność obliczeniowa wyszukiwania max jest równa",
+        "image": "",
         "answers": [
-            "Example answer 1",
-            "Example answer 2",
-            "Example answer 3",
-            "Example answer 4"
+            "O(n * n)",
+            "O( n log n)",
+            "O(n)",
+            "O(n!)"
         ],
-        "correct": 1,
-        "explanation": "because yes"
+        "correct": 2,
+        "explanation": "algorytm wymaga tylko jednej pętli raz przechodzącej przez dane"
     },
     {
-        "question": "Example question two",
-        "image": "test.png",
+        "question": "która wartość jako przedostatnia będzie zapisana jako max",
+        "image": "question2.png",
         "answers": [
-            "Example answer 1",
-            "Example answer 2",
-            "Example answer 3",
-            "Example answer 4"
+            "7",
+            "4",
+            "6",
+            "5"
+        ],
+        "correct": 2,
+        "explanation": "jeżeli liczba jest mniejsza od aktualnie zapisanej, nie jest uwzględniana"
+    },
+    {
+        "question": "co należy wstawić w miejsce linii, żeby algorytm wyszukiwał min",
+        "image": "question3.png",
+        "answers": [
+            "max == zbior[i]",
+            "max <= zbior[i] ",
+            "max < zbior[i]",
+            "max > zbior[i]"
+        ],
+        "correct": 2,
+        "explanation": "element jest zamieniany jeżeli znajdziemy większy od niego"
+    },
+    {
+        "question": "ile razy podczas przebiegu programu wartość max zostanie zmieniona",
+        "image": "question4.png",
+        "answers": [
+            "3",
+            "4",
+            "2",
+            "5"
+        ],
+        "correct": 1,
+        "explanation": "jeżeli wartość porównywana jest większa od min nie jest wliczana"
+    },
+    {
+        "question": "jakie wartości po kolei będzie przyjomwać algorytm wyszukiwania max",
+        "image": "question5.png",
+        "answers": [
+            "2, 4, 6, 8, 9",
+            "9",
+            "2, 2, 4, 6, 8, 9",
+            "2, 1, 2, 4, 3, 6, 5, 8, 9"
         ],
         "correct": 0,
-        "explanation": "because yes"
+        "explanation": ""
     }
 ]
