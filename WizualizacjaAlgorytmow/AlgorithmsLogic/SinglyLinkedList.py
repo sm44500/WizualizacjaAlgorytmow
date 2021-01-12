@@ -1,3 +1,4 @@
+from Snapshot import Snapshot
 from AlgorithmsLogic.ListAlgorithm import ListAlgorithm
 from Widgets.NodZWidget import NodZWidget
 from Node import Node
