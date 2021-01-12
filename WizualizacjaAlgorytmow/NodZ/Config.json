@@ -23,11 +23,11 @@
 
     // Default colors > Edit values BUT do not delete.
     "alternate_value": 20,
-    "bg_color": [40, 40,40, 255],
-    "grid_color": [50, 50, 50, 255],
+    "bg_color": [0, 0, 15, 255],
+    "grid_color": [0, 0, 15, 255],
     "slot_border": [50, 50, 50, 255],
     "non_connectable_color": [100, 100, 100, 255],
-    "connection_color": [255, 155, 0, 255],
+    "connection_color": [255, 255, 255, 255],
 
     "node_default": {
         "bg": [130, 130, 130, 255],
@@ -73,5 +73,61 @@
         "text": [220, 220, 220, 255],
         "plug": [255, 155, 0, 255],
         "socket": [255, 155, 0, 255]
+    },
+
+    "attr_color_idle": {
+        "bg": [135, 206, 235, 255],
+        "text": [0, 0, 0, 255],
+        "plug": [66, 156, 194, 255],
+        "socket": [66, 156, 194, 255]
+    },
+
+    "attr_color_selected":{
+        "bg": [208, 49, 45, 255],
+        "text": [0, 0, 0, 255],
+        "plug": [92, 5, 3, 255],
+        "socket": [92, 5, 3, 255]
+    },
+
+    "attr_color_current":{
+        "bg": [139, 195, 74, 255],
+        "text": [0, 0, 0, 255],
+        "plug": [91, 135, 38, 255],
+        "socket": [91, 135, 38, 255]
+    },
+
+    "attr_color_current_final":{
+        "bg": [255, 255, 102, 255],
+        "text": [0, 0, 0, 255],
+        "plug": [196, 196, 22, 255],
+        "socket": [196, 196, 22, 255]
+    },
+
+    "node_color_idle": {
+        "bg": [106, 188, 222, 255],
+        "border": [66, 156, 194, 255],
+        "border_sel": [25, 101, 133, 255],
+        "text": [220, 220, 220, 255]
+    },
+
+    "node_color_selected":{
+        "bg": [156, 16, 12, 255],
+        "border": [92, 5, 3, 255],
+        "border_sel": [46, 1, 0, 255],
+        "text": [220, 220, 220, 255]
+    },
+
+    "node_color_current":{
+        "bg": [113, 163, 54, 255],
+        "border": [91, 135, 38, 255],
+        "border_sel": [60, 92, 21, 255],
+        "text": [220, 220, 220, 255]
+    },
+
+    "node_color_current_final":{
+        "bg": [237, 237, 62, 255],
+        "border": [196, 196, 22, 255],
+        "border_sel": [166, 166, 3, 255],
+        "text": [220, 220, 220, 255]
     }
 }

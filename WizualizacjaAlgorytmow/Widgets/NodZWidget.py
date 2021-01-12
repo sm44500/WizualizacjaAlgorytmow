@@ -34,8 +34,8 @@ class NodZWidget(BaseWidget):
 		self.nodz.scale(0.6, 0.6)
 		pass
 
-	def create_node(self, name, position=None):
-		node = self.nodz.createNode(name=name, preset='node_preset_1', position=position)
+	def create_node(self, name, preset, position=None):
+		node = self.nodz.createNode(name=name, preset=preset, position=position)
 		return node
 
 	def create_attribute(self, node, name, preset):
@@ -62,15 +62,23 @@ class NodZWidget(BaseWidget):
 			#TODO calculate pos
 			node_pos = QPointF(center_position)
 			node_pos.setX(((center_position.x() * 2) / len(nodes)) * (index + 1) )
-			nodz_node = self.create_node(node.name, position=node_pos)
+
+			if highlights[index] == Snapshot.color_idle:
+				attr_preset = 'attr_color_idle'
+				node_preset = 'node_color_idle'
+			elif highlights[index] == Snapshot.color_selected:
+				attr_preset = 'attr_color_selected'
+				node_preset = 'node_color_selected'
+			elif highlights[index] == Snapshot.color_current:
+				attr_preset = 'attr_color_current'
+				node_preset = 'node_color_current'
+			elif highlights[index] == Snapshot.color_current_final:
+				attr_preset = 'attr_color_current_final'
+				node_preset = 'node_color_current_final'
+
+			nodz_node = self.create_node(node.name, preset=node_preset, position=node_pos)
 			for attr in node.attributes:
-				if highlights[index] == Snapshot.color_idle:
-					preset = 'attr_preset_1'
-				elif highlights[index] == Snapshot.color_selected:
-					preset = 'attr_preset_2'
-				elif highlights[index] == Snapshot.color_current:
-					preset = 'attr_preset_3'
-				nodz_attr = self.create_attribute(nodz_node, attr.name, preset)
+				nodz_attr = self.create_attribute(nodz_node, attr.name, attr_preset)
 			self.nodz_nodes.append(nodz_node)
 
 		for node in nodes:

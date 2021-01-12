@@ -50,7 +50,14 @@ class SinglyLinkedList(ListAlgorithm):
 			last_node.next_attr.connection = node.next_attr
 
 		self.data.append(node)
-		self.save_snapshot("Zakończono dodawanie elementu")
+
+		colors = dict()
+		colors[0] = Snapshot.color_idle
+		colors[1] = Snapshot.color_current
+		colors[2] = Snapshot.color_selected
+		colors[3] = Snapshot.color_current_final
+
+		self.save_snapshot("Zakończono dodawanie elementu", colors)
 
 	def push_front(self):
 		"""
