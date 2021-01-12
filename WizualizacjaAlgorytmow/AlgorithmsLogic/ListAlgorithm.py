@@ -31,19 +31,19 @@ class ListAlgorithm(Algorithm):
 	def tail(self):
 		pass
 
-	def push_front(self, value: str):
+	def push_front(self):
 		pass
 
-	def push_back(self, value: str):
+	def push_back(self):
 		pass
 
-	def pop_front(self, value: str):
+	def pop_front(self):
 		pass
 
-	def pop_back(self, value: str):
+	def pop_back(self):
 		pass
 
-	def remove(self, value: str):
+	def remove(self):
 		pass
 
 	def clear(self):
