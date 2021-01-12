@@ -61,7 +61,7 @@ class NodZWidget(BaseWidget):
 		for index, node in enumerate(nodes):
 			#TODO calculate pos
 			node_pos = QPointF(center_position)
-			node_pos.setX(((center_position.x() * 2) / len(nodes)) * (index + 1) )
+			node_pos.setX(((center_position.x() * 2) / len(nodes)) * (index + 1) - 200)
 
 			if highlights[index] == Snapshot.color_idle:
 				attr_preset = 'attr_color_idle'

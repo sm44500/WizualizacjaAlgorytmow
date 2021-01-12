@@ -14,12 +14,12 @@
     "mouse_bounding_box": 80,
 
     // Shapes > Edit values BUT do not delete.
-    "node_width": 200,
+    "node_width": 150,
     "node_height": 25,
     "node_radius": 10,
     "node_border": 2,
     "node_attr_height": 30,
-    "connection_width": 2,
+    "connection_width": 5,
 
     // Default colors > Edit values BUT do not delete.
     "alternate_value": 20,
