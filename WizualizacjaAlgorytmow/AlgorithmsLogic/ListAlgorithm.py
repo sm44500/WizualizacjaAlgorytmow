@@ -1,5 +1,8 @@
+import random
+
 from Paths import Paths
 from AlgorithmsLogic.Algorithm import Algorithm
+from Settings import Settings
 from Snapshot import Snapshot
 from Widgets.NodZWidget import NodZWidget
 
@@ -57,9 +60,29 @@ class ListAlgorithm(Algorithm):
 	def on_value_change(self, new_value):
 		self.textbox_value = new_value
 
+	def random_data(self):
+		"""
+		Metoda dodająca losowe wartości z ustalonego przedziału.
+		"""
+		amount_of_elements = max(0, min(Settings.input_limit[0]-len(self.data), Settings.random_data_amount[0]))
+
+		if amount_of_elements == 0:
+			self.save_snapshot("Nie można dodać więcej elementów! Musisz zwiększyć limit w ustawieniach.")
+			return
+
+		for i in range(amount_of_elements):
+			self.on_value_change(str(random.randint(Settings.random_data_minimum_value[0], Settings.random_data_maximum_value[0])))
+			self.push_back()
+
 	def load_controls(self):
 		"""
 		Metoda tworząca klawisze oraz pola tekstowe odpowiedzialne za manipulację wizualizacją.
 		"""
 		self.add_textbox("Wartość elementu:", self.on_value_change, hint="Tutaj możesz wpisać dowolną wartość.")
-		self.add_button("Dodaj", self.push_back, icon=Paths.icon("plus.png"), hint="Dodanie nowego elementu na koniec tablicy.")
+		self.add_button("Push back", self.push_back, icon=Paths.icon("plus.png"), hint="Dodanie nowego elementu na koniec tablicy.")
+		self.add_button("Push front", self.push_front, icon=Paths.icon("plus.png"), hint="Dodanie nowego elementu na początek tablicy.")
+		self.add_button("Pop back", self.pop_back, icon=Paths.icon("minus.png"), hint="Pobranie i usunięcie elementu z końca tablicy.")
+		self.add_button("Pop front", self.pop_front, icon=Paths.icon("minus.png"), hint="Pobranie i usunięcie elementu z początku tablicy.")
+		self.add_button("Usuń", self.remove, icon=Paths.icon("minus.png"), hint="Usunięcie pierwszego napotkanego elementu o podanej wartości.")
+		self.add_button("Wyczyść", self.clear, icon=Paths.icon("clear.png"), hint="Usunięcie wszystkich elementów oraz przywrócenie stanu początkowego.")
+		self.add_button("Losowe dane", self.random_data, icon=Paths.icon("random.png"), hint="Wylosowanie danych z ustawionego przedziału.")
