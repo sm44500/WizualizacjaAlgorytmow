@@ -39,8 +39,10 @@ class SinglyLinkedList(ListAlgorithm):
 		node = SinglyListNode()
 		node.data_attr.name = "Dane: " + str(value)
 
+		self.save_snapshot("Sprawdzamy czy lista posiada głowę (head).")
 		if self.head is None:
 			self.head = node
+			self.save_snapshot("Lista nie posiada głowy, więc dodawany element nią zostaje.")
 		else:
 			last_node = self.head
 			while not last_node.next is None:
@@ -50,14 +52,7 @@ class SinglyLinkedList(ListAlgorithm):
 			last_node.next_attr.connection = node.next_attr
 
 		self.data.append(node)
-
-		colors = dict()
-		colors[0] = Snapshot.color_idle
-		colors[1] = Snapshot.color_current
-		colors[2] = Snapshot.color_selected
-		colors[3] = Snapshot.color_current_final
-
-		self.save_snapshot("Zakończono dodawanie elementu", colors)
+		self.save_snapshot("Zakończono dodawanie elementu", {int(node.number)-1: Snapshot.color_current_final})
 
 	def push_front(self):
 		"""
