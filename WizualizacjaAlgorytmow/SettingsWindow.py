@@ -33,7 +33,7 @@ class SettingsWindow(QMainWindow):
 		Inicjalizacja interfejsu użytkownika.
 		"""
 		self.setObjectName("SettingsWindow")
-		self.resize(300, 265)
+		self.resize(400, 265)
 
 		size_policy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
 		size_policy.setHorizontalStretch(1)
@@ -41,7 +41,7 @@ class SettingsWindow(QMainWindow):
 		size_policy.setHeightForWidth(self.sizePolicy().hasHeightForWidth())
 
 		self.setSizePolicy(size_policy)
-		self.setMinimumSize(QSize(300, 265))
+		self.setMinimumSize(QSize(400, 265))
 		self.setWindowTitle(SettingsWindow.window_title)
 
 		self.control_panel = ControlPanel(self, Qt.AlignTop)
