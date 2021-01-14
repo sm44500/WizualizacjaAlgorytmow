@@ -102,6 +102,8 @@ class Styles:
 	QLabel {
 		background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgb(150, 150, 150), stop:0.8 rgb(140, 140, 140), stop:1 rgb(130, 130, 130));
 		border-radius: 0px;
+		font-family:Arial;
+		font-size:20px;
 	}""" + standard_tooltip
 
 	text_box_background = """

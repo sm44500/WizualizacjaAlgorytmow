@@ -38,7 +38,7 @@ class ControlPanelSingleRow(QWidget):
 		font.setPointSize(11)
 
 		self.label = QLabel(self)
-		self.label.setMinimumSize(150, self.minimumHeight())
+		self.label.setMinimumSize(200, self.minimumHeight())
 		self.label.setFont(font)
 		self.label.setStyleSheet(Styles.label_background)
 		self.label.setAlignment(Qt.AlignCenter)
