@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pl"> 
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="AlgoZUT 2020/2021">     
+        <link rel="stylesheet" href="resources/theme.css">
+    </head>
+    <script>
+        function disableCtrlKeyCombination(e) {
+            var forbiddenKeys = new Array('a', 'c', 'x', 'v', 'u', 'p');
+            var key;
+            var isCtrl;
+            if (window.event) {
+                key = window.event.keyCode;
+                if (window.event.ctrlKey)
+                    isCtrl = true;
+                else
+                    isCtrl = false;
+            }
+            else {
+                key = e.which;
+                if (e.ctrlKey)
+                    isCtrl = true;
+                else
+                    isCtrl = false;
+            }
+            if (isCtrl) {
+                for (i = 0; i < forbiddenKeys.length; i++) {
+                    if (forbiddenKeys[i].toLowerCase() == String.fromCharCode(key).toLowerCase()) {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+    
+        function ieClicked() {
+            if (document.all) {
+                return false;
+            }
+        }
+    
+        function firefoxClicked(e) {
+            if (document.layers || (document.getElementById && !document.all)) {
+                if (e.which == 2 || e.which == 3) {
+                    return false;
+                }
+            }
+        }
+    
+        if (document.layers) {
+            document.captureEvents(Event.MOUSEDOWN);
+            document.onmousedown = firefoxClicked;
+        } else {
+            document.onmouseup = firefoxClicked;
+            document.oncontextmenu = ieClicked;
+        }
+    
+        document.oncontextmenu = new Function("return false")
+        function disableselect(e) {
+            return false
+        }
+    
+        function reEnable() {
+            return true
+        }
+    
+        document.onselectstart = new Function("return false")
+        if (window.sidebar) {
+            document.onmousedown = disableselect
+            document.onclick = reEnable
+        }
+    </script>
+    <body onmousedown='return false;' onselectstart='return false;'> 
+        <div class="left">
+            <img src="resources/python.png">
+            <span>Przykładowy kod w języku Python.</span>
+        </div>
+        <div class="container">
+            <div class="main">
+                <h2>Przykładowa sekcja kodu</h1>			
+                <p>to jest opis przykładowej sekcji kodu</p>
+                <span class="code">
+                    >>> TU WKLEJ KOD <<<
+                </span>
+                <h2>Druga sekcja kodu</h1>			
+                <p>to jest opis przykładowej sekcji kodu</p>
+                <span class="code">
+                    >>> TU WKLEJ KOD <<<
+                </span>
+            </div>
+        </div>
+    </body>
+</html>

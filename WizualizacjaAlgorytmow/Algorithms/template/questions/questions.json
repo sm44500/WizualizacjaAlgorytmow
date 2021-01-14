@@ -1,0 +1,26 @@
+[
+    {
+        "question": "Przykładowe pytanie bez obrazka",
+        "image": "",
+        "answers": [
+            "Przykładowa odpowiedź 1",
+            "Przykładowa odpowiedź 2",
+            "Przykładowa odpowiedź 3",
+            "Przykładowa odpowiedź 4"
+        ],
+        "correct": 2,
+        "explanation": "Przykładowe wyjaśnienie"
+    },
+    {
+        "question": "Przykładowe pytanie 2",
+        "image": "python.png",
+        "answers": [
+            "Przykładowa odpowiedź 1",
+            "Przykładowa odpowiedź 2",
+            "Przykładowa odpowiedź 3",
+            "Przykładowa odpowiedź 4"
+        ],
+        "correct": 1,
+        "explanation": "Przykładowe wyjaśnienie"
+    }
+]
