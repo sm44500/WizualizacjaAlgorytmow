@@ -134,7 +134,10 @@ class QuestionsManager:
 		Odświerza interfejs
 		"""
 		answer = self.answers[self.current_question_index]
-		self.questions_widget.set_highlight(answer)
+		self.questions_widget.set_highlight(
+			answer,
+			self.questions[self.current_question_index].correct if self.is_end else -1
+		)
 
 	def set_question(self, question):
 		"""

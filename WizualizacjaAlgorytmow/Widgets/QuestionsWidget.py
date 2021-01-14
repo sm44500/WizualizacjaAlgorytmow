@@ -85,15 +85,21 @@ class QuestionsWidget(BaseWidget):
 			button.set_text(answer)
 			
 
-	def set_highlight(self, answer_index=-1):
+	def set_highlight(self, answer_index=-1, show_answer=-1):
 		"""
 		Wyróżnia odpowiedź.
 
 		Parametry:
 			answer_index - numer odpowiedzi.
 		"""
-		for index, answer_button in enumerate(self.answers): 
+		for index, answer_button in enumerate(self.answers):
+			color = ""
+			if show_answer != -1:
+				color = "#b82c2c"
+				if index == show_answer:
+					color = "#45de54"
+
 			if index == answer_index:
-				answer_button.set_highlight(True)
+				answer_button.set_highlight(True, color)
 			else:
-				answer_button.set_highlight(False)
+				answer_button.set_highlight(False, color)

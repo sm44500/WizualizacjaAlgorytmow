@@ -60,17 +60,21 @@ class AnswerButton(QPushButton):
 		"""
 		self.setToolTip(hint)
 
-	def set_highlight(self, enabled):
+	def set_highlight(self, enabled, color=""):
 		"""
 		Wyróżnia przycisk.
 
 		Parametry:
 			enabled - bool, wartość True jeśli wyróżnić, False jeśli nie.
 		"""
+		text = self.raw_text
 		if enabled:
-			self.label.setText("<b><u>" + self.raw_text + "</u></b>")
-		else:
-			self.label.setText(self.raw_text)
+			text = "<b><u>" + self.raw_text + "</u></b>"
+		
+		if color != "":
+			text = "<font color=\"" + color + "\">" + text + "</font>"
+
+		self.label.setText(text)
 
 	def set_text(self, text: str):
 		"""
