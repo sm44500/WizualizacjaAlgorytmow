@@ -1,26 +1,60 @@
 [
     {
-        "question": "Example question one",
-        "image": "test.png",
+        "question": "złożoność obliczeniowa sortowania przez zliczanie wynosi",
+        "image": "python.png",
         "answers": [
-            "Example answer 1",
-            "Example answer 2",
-            "Example answer 3",
-            "Example answer 4"
+            "O(n!)",
+            "O(n log n)",
+            "O(n + k)",
+            "O(n * n)"
         ],
-        "correct": 1,
-        "explanation": "because yes"
+        "correct": 2,
+        "explanation": "Algorytm ma złożoność liniową, jedna pętla wykonuje się n razy, k symbolizuje rozpiętość zbioru danych czyli ilość powtórzeń drugiej pętli zwracającej dane"
     },
     {
-        "question": "Example question two",
+        "question": "dla jakich danych algorytm będzie działał najlepiej?",
         "image": "test.png",
         "answers": [
-            "Example answer 1",
-            "Example answer 2",
-            "Example answer 3",
-            "Example answer 4"
+            "dla danych całkowitych o niewielkim rozkładzie",
+            "dla danych zmiennoprzecinkowych o niewielkim rozkładzie",
+            "dla danych zmiennoprzecinkowych o dużym rozkładzie",
+            "dla danych o dużym rozmiarze, typ nie ma znaczenia"
         ],
-        "correct": 0,
-        "explanation": "because yes"
+        "correct": 1,
+        "explanation": "dane całkowite wymagają dużo mniejszej tablicy, więc algorytm również szybciej przez nią przechodzi"
+    },
+    {
+        "question": "jak będzie wyglądała tablica zliczająca dla danych z obrazka",
+        "image": "question3.png",
+        "answers": [
+            "[1:1 2:1 3:2 4:2 5:1 6:0 7:0 8:1 9:0 10:1]",
+            "[0:1 1:1 2:2 3:2 4:1 7:1 9:1]",
+            "[0:1 1:1 2:2 3:2 4:1 7:1 9:1]",
+            "[0:1 1:1 2:2 3:2 4:1 5:0 6:0 7:1 8:0 9:1]"
+        ],
+        "correct": 3,
+        "explanation": "jeżeli dla danego indeksu nie ma odpowiadającej liczby, miejsce w tabeli pozostaje równe 0"
+    },
+    {
+        "question": "ile elementowa będzie tablica zliczająca dla poniższego zbioru",
+        "image": "question4.png",
+        "answers": [
+            "6",
+            "5",
+            "501",
+            "51"
+        ],
+        "correct": 2,
+        "explanation": "dla każdej setnej części z zakresu musi być zarezerwowane miejsce w tablicy zliczającej"
+    },
+    {
+        "question": "czy sortowanie przez zliczanie odbywa się w miejscu",
+        "image": "test.png",
+        "answers": [
+            "tak",
+            "nie"
+        ],
+        "correct": 1,
+        "explanation": "sortowane dane są przenoszone w trakcie do tablicy pomocniczej więc sortowanie nie odbywa się w miejscu"
     }
 ]
