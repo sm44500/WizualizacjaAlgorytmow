@@ -20,7 +20,7 @@ class NodZWidget(BaseWidget):
 		self.setup_ui()
 
 		self.render_snapshot(
-			Snapshot([],"Test",[])
+			Snapshot([],"Test",{})
 		)
 
 	def setup_ui(self):
