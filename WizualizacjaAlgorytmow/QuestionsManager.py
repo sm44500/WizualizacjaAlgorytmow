@@ -1,6 +1,10 @@
 import random
+
+from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QWidget, QMessageBox
 from Paths import Paths
+from Styles import Styles
+from TestScoreWindow import TestScoreWindow
 from Widgets.QuestionsWidget import QuestionsWidget
 from AlgorithmsLogic import Algorithm
 
@@ -117,14 +121,10 @@ class QuestionsManager:
 		for index, question in enumerate(self.questions):
 			answer = self.answers[index]
 			if question.check(answer):
-				correct+=1
+				correct += 1
 
-		question_count = len(self.questions)
-		msg_box = QMessageBox(self.main_widget)
-		msg_box.setWindowTitle("Wynik")
-		msg_box.setText("Uzyskałeś %s dobrych odpowiedzi na %s możliwych." % (correct, question_count))
-		msg_box.setStandardButtons(QMessageBox.Ok)
-		msg_box.show()
+		score_window = TestScoreWindow(self.main_widget, correct, len(self.questions))
+		score_window.show()
 
 		question = self.questions[self.current_question_index]
 		self.set_question(question)	
