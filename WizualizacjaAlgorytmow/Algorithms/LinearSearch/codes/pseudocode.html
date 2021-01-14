@@ -1,156 +1,95 @@
 <!DOCTYPE html>
 <html lang="pl"> 
-<head>
-    <title>Wyszukiwanie liniowe - Pseudokod</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="AlgoZUT 2020/2021">    
-    <link rel="shortcut icon" href="resources/pseudocode.png"> 
-    <link id="theme-style" rel="stylesheet" href="resources/theme.css">
-</head> 
-<script language=JavaScript>
-function disableCtrlKeyCombination(e)
-{
-	var forbiddenKeys = new Array('a', 'c', 'x', 'v', 'u', 'p');
-	var key;
-	var isCtrl;
-	if(window.event)
-	{
-		key = window.event.keyCode;
-		if(window.event.ctrlKey)
-			isCtrl = true;
-		else
-			isCtrl = false;
-	}
-	else
-	{
-		key = e.which;
-		if(e.ctrlKey)
-			isCtrl = true;
-		else
-			isCtrl = false;
-	}
-	if(isCtrl)
-	{
-		for(i=0; i<forbiddenKeys.length; i++)
-		{
-			if(forbiddenKeys[i].toLowerCase() == String.fromCharCode(key).toLowerCase())
-			{
-				return false;
-			}
-		}
-	}
-	return true;
-}
-function ieClicked() {
-    if (document.all) {
-        return false;
-    }
-}
-function firefoxClicked(e) {
-    if(document.layers||(document.getElementById&&!document.all)) {
-        if (e.which==2||e.which==3) {
-            return false;
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="AlgoZUT 2020/2021">     
+        <link rel="stylesheet" href="resources/theme.css">
+    </head>
+    <script>
+        function disableCtrlKeyCombination(e) {
+            var forbiddenKeys = new Array('a', 'c', 'x', 'v', 'u', 'p');
+            var key;
+            var isCtrl;
+            if (window.event) {
+                key = window.event.keyCode;
+                if (window.event.ctrlKey)
+                    isCtrl = true;
+                else
+                    isCtrl = false;
+            }
+            else {
+                key = e.which;
+                if (e.ctrlKey)
+                    isCtrl = true;
+                else
+                    isCtrl = false;
+            }
+            if (isCtrl) {
+                for (i = 0; i < forbiddenKeys.length; i++) {
+                    if (forbiddenKeys[i].toLowerCase() == String.fromCharCode(key).toLowerCase()) {
+                        return false;
+                    }
+                }
+            }
+            return true;
         }
-    }
-}
-if (document.layers){
-    document.captureEvents(Event.MOUSEDOWN);
-    document.onmousedown=firefoxClicked;
-}else{
-    document.onmouseup=firefoxClicked;
-    document.oncontextmenu=ieClicked;
-}
-document.oncontextmenu=new Function("return false")
-function disableselect(e){
-    return false
-}
-function reEnable(){
-    return true
-}
-document.onselectstart=new Function ("return false")
-if (window.sidebar){
-    document.onmousedown=disableselect
-    document.onclick=reEnable
-}
-</script>
-<body> 
-	<footer class="footer text-center py-2 theme-bg-dark"></footer>
-    <header class="header text-center" onmousedown='return false;' onselectstart='return false;'>	    
-	    <nav class="navbar navbar-expand-lg navbar-dark" >
-			<div id="navigation" class="collapse navbar-collapse flex-column" >
-				<div class="code-section pt-3 pt-lg-0">
-				    <img class="code-image mb-3 rounded-circle mx-auto" src="resources/pseudocode.png" alt="image" >			
-					<div class="bio mb-0">
-					Przykładowy pseudokod.
-					</div>
-				</div>
-			</div>
-		</nav>
-    </header>
-    <div class="main-wrapper" onmousedown='return false;' onselectstart='return false;'>
-	    <section class="main-code">			
-		<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #f8f8f2">MergeSort(arr[],</span> <span style="color: #f8f8f2">l,</span>  <span style="color: #f8f8f2">r)</span>
-<span style="color: #f8f8f2">If</span> <span style="color: #f8f8f2">r</span> <span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">l</span>
-     <span style="color: #ae81ff">1.</span> <span style="color: #f8f8f2">Find</span> <span style="color: #f8f8f2">the</span> <span style="color: #f8f8f2">middle</span> <span style="color: #f8f8f2">point</span> <span style="color: #f8f8f2">to</span> <span style="color: #f8f8f2">divide</span> <span style="color: #f8f8f2">the</span> <span style="color: #f8f8f2">array</span> <span style="color: #f8f8f2">into</span> <span style="color: #f8f8f2">two</span> <span style="color: #f8f8f2">halves:</span>  
-             <span style="color: #f8f8f2">middle</span> <span style="color: #f8f8f2">m</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">(l</span><span style="color: #f92672">+</span><span style="color: #f8f8f2">r)</span><span style="color: #f92672">/</span><span style="color: #ae81ff">2</span>
-     <span style="color: #ae81ff">2.</span> <span style="color: #f8f8f2">Call</span> <span style="color: #f8f8f2">mergeSort</span> <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">first</span> <span style="color: #f8f8f2">half:</span>   
-             <span style="color: #f8f8f2">Call</span> <span style="color: #f8f8f2">mergeSort(arr,</span> <span style="color: #f8f8f2">l,</span> <span style="color: #f8f8f2">m)</span>
-     <span style="color: #ae81ff">3.</span> <span style="color: #f8f8f2">Call</span> <span style="color: #f8f8f2">mergeSort</span> <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">second</span> <span style="color: #f8f8f2">half:</span>
-             <span style="color: #f8f8f2">Call</span> <span style="color: #f8f8f2">mergeSort(arr,</span> <span style="color: #f8f8f2">m</span><span style="color: #f92672">+</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">r)</span>
-     <span style="color: #ae81ff">4.</span> <span style="color: #f8f8f2">Merge</span> <span style="color: #f8f8f2">the</span> <span style="color: #f8f8f2">two</span> <span style="color: #f8f8f2">halves</span> <span style="color: #f8f8f2">sorted</span> <span style="color: #f92672">in</span> <span style="color: #f8f8f2">step</span> <span style="color: #ae81ff">2</span> <span style="color: #f92672">and</span> <span style="color: #ae81ff">3</span><span style="color: #f8f8f2">:</span>
-             <span style="color: #f8f8f2">Call</span> <span style="color: #f8f8f2">merge(arr,</span> <span style="color: #f8f8f2">l,</span> <span style="color: #f8f8f2">r)</span>
-
-
-<span style="color: #f8f8f2">function</span> <span style="color: #f8f8f2">merge(left,right)</span>
-    <span style="color: #f8f8f2">var</span> <span style="color: #f8f8f2">list</span> <span style="color: #f8f8f2">result</span>
-    <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">length(left)</span> <span style="color: #f92672">&gt;</span> <span style="color: #ae81ff">0</span> <span style="color: #f92672">and</span> <span style="color: #f8f8f2">length(right)</span> <span style="color: #f92672">&gt;</span> <span style="color: #ae81ff">0</span>
-        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">first(left)</span> <span style="color: #960050; background-color: #1e0010">≤</span> <span style="color: #f8f8f2">first(right)</span>
-            <span style="color: #f8f8f2">append</span> <span style="color: #f8f8f2">first(left)</span> <span style="color: #f8f8f2">to</span> <span style="color: #f8f8f2">result</span>
-            <span style="color: #f8f8f2">left</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">rest(left)</span>
-        <span style="color: #66d9ef">else</span>
-            <span style="color: #f8f8f2">append</span> <span style="color: #f8f8f2">first(right)</span> <span style="color: #f8f8f2">to</span> <span style="color: #f8f8f2">result</span>
-            <span style="color: #f8f8f2">right</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">rest(right)</span>
-        <span style="color: #f8f8f2">end</span> <span style="color: #66d9ef">if</span>
-    <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">length(left)</span> <span style="color: #f92672">&gt;</span> <span style="color: #ae81ff">0</span> 
-        <span style="color: #f8f8f2">append</span> <span style="color: #f8f8f2">first(left)</span> <span style="color: #f8f8f2">to</span> <span style="color: #f8f8f2">result</span>
-        <span style="color: #f8f8f2">left</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">rest(left)</span>
-    <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">length(right)</span> <span style="color: #f92672">&gt;</span> <span style="color: #ae81ff">0</span> 
-        <span style="color: #f8f8f2">append</span> <span style="color: #f8f8f2">first(right)</span> <span style="color: #f8f8f2">to</span> <span style="color: #f8f8f2">result</span>
-        <span style="color: #f8f8f2">right</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">rest(right)</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">result</span>
-</pre></td></tr></table></div>
-
-	    </section>
-    </div>
-</body>
+    
+        function ieClicked() {
+            if (document.all) {
+                return false;
+            }
+        }
+    
+        function firefoxClicked(e) {
+            if (document.layers || (document.getElementById && !document.all)) {
+                if (e.which == 2 || e.which == 3) {
+                    return false;
+                }
+            }
+        }
+    
+        if (document.layers) {
+            document.captureEvents(Event.MOUSEDOWN);
+            document.onmousedown = firefoxClicked;
+        } else {
+            document.onmouseup = firefoxClicked;
+            document.oncontextmenu = ieClicked;
+        }
+    
+        document.oncontextmenu = new Function("return false")
+        function disableselect(e) {
+            return false
+        }
+    
+        function reEnable() {
+            return true
+        }
+    
+        document.onselectstart = new Function("return false")
+        if (window.sidebar) {
+            document.onmousedown = disableselect
+            document.onclick = reEnable
+        }
+    </script>
+    <body onmousedown='return false;' onselectstart='return false;'> 
+        <div class="left">
+            <img src="resources/pseudocode.png">
+            <span>Przykładowy pseudokod.</span>
+        </div>
+        <div class="container">
+            <div class="main">
+                <h2>Przykładowa sekcja kodu</h1>			
+                <p>to jest opis przykładowej sekcji kodu</p>
+                <span class="code">
+                    >>> TU WKLEJ KOD <<<
+                </span>
+                <h2>Druga sekcja kodu</h1>			
+                <p>to jest opis przykładowej sekcji kodu</p>
+                <span class="code">
+                    >>> TU WKLEJ KOD <<<
+                </span>
+            </div>
+        </div>
+    </body>
 </html>
