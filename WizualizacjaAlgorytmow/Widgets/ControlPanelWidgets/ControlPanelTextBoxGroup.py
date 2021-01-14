@@ -16,8 +16,11 @@ class ControlPanelSingleRow(QWidget):
 		self.layout = None
 		self.label = None
 		self.input_box = None
-		self.validator = None
 		self.value = None
+		self.extra_value = None
+		self.extra_value_should_be_greater = True
+		self.minimum_value = 0
+		self.maximum_value = 1
 		self.setup_ui()
 
 	def setup_ui(self):
@@ -32,13 +35,11 @@ class ControlPanelSingleRow(QWidget):
 		shadow.setOffset(1.0, 1.0)
 		shadow.setColor(QColor(127, 127, 127, 255))
 
-		self.validator = QIntValidator()
-
 		font = QFont()
 		font.setPointSize(11)
 
 		self.label = QLabel(self)
-		self.label.setMinimumSize(150, self.minimumHeight())
+		self.label.setMinimumSize(200, self.minimumHeight())
 		self.label.setFont(font)
 		self.label.setStyleSheet(Styles.label_background)
 		self.label.setAlignment(Qt.AlignCenter)
@@ -68,7 +69,7 @@ class ControlPanelSingleRow(QWidget):
 		"""
 		self.label.setText(" " + text + " ")
 
-	def set_int_validator(self, minimum: int = 0, maximum: int = 1):
+	def set_int_validator(self, minimum: int = 0, maximum: int = 100):
 		"""
 		Ustawienie trybu przyjmowania jedynie liczb całkowitych z podanego przedziału.
 
@@ -76,8 +77,15 @@ class ControlPanelSingleRow(QWidget):
 		minimum - minimalna wartość jaka może wystąpić w polu tekstowym
 		maximum - maksymalna wartość jaka może wystąpić w polu tekstowym
 		"""
-		self.validator.setRange(minimum, maximum)
-		self.input_box.setValidator(self.validator)
+		self.minimum_value = minimum
+		self.maximum_value = maximum
+
+	def set_extra_validator(self, extra_value, extra_value_should_be_greater: bool):
+		"""
+		Dodanie dodatkowych walidacji danych.
+		"""
+		self.extra_value = extra_value
+		self.extra_value_should_be_greater = extra_value_should_be_greater
 
 	def set_value(self, value):
 		"""
@@ -94,7 +102,23 @@ class ControlPanelSingleRow(QWidget):
 		"""
 		Aktualizacja zmiennej po każdej zmianie.
 		"""
-		self.value[0] = int(self.input_box.text())
+		if self.input_box.text() == "-":
+			return
+		
+		try:
+			local_value = int(self.input_box.text())
+		except ValueError:
+			local_value = 0
+
+		if self.extra_value:
+			if self.extra_value_should_be_greater:
+				local_value = min(local_value, self.extra_value[0])
+			else:
+				local_value = max(local_value, self.extra_value[0])
+
+		local_value = min(max(local_value, self.minimum_value), self.maximum_value)
+		self.value[0] = local_value
+		self.input_box.setText(str(local_value))
 
 	def set_hint(self, hint: str):
 		"""

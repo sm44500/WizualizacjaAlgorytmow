@@ -33,7 +33,7 @@ class SettingsWindow(QMainWindow):
 		Inicjalizacja interfejsu użytkownika.
 		"""
 		self.setObjectName("SettingsWindow")
-		self.resize(300, 265)
+		self.resize(400, 265)
 
 		size_policy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
 		size_policy.setHorizontalStretch(1)
@@ -41,7 +41,7 @@ class SettingsWindow(QMainWindow):
 		size_policy.setHeightForWidth(self.sizePolicy().hasHeightForWidth())
 
 		self.setSizePolicy(size_policy)
-		self.setMinimumSize(QSize(300, 265))
+		self.setMinimumSize(QSize(400, 265))
 		self.setWindowTitle(SettingsWindow.window_title)
 
 		self.control_panel = ControlPanel(self, Qt.AlignTop)
@@ -67,14 +67,16 @@ class SettingsWindow(QMainWindow):
 		minimum_value = self.shuffle_data.add_row("Minimalna wartość")
 		minimum_value.set_hint("Ustawienie minimalnej wartości danego przedziału.")
 		minimum_value.set_int_validator(-100, 100)
+		minimum_value.set_extra_validator(Settings.random_data_maximum_value, True)
 		minimum_value.set_value(Settings.random_data_minimum_value)
 
 		maximum_value = self.shuffle_data.add_row("Maksymalna wartość")
 		maximum_value.set_hint("Ustawienie maksymalnej wartości danego przedziału.")
 		maximum_value.set_int_validator(-100, 100)
+		maximum_value.set_extra_validator(Settings.random_data_minimum_value, False)
 		maximum_value.set_value(Settings.random_data_maximum_value)
 
 		n_elements = self.shuffle_data.add_row("Liczba danych")
 		n_elements.set_hint("Liczba elementów, która zostanie wylosowana z przedziału.")
-		n_elements.set_int_validator(0, 20)
+		n_elements.set_int_validator(1, 20)
 		n_elements.set_value(Settings.random_data_amount)

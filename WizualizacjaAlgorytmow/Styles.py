@@ -102,6 +102,8 @@ class Styles:
 	QLabel {
 		background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgb(150, 150, 150), stop:0.8 rgb(140, 140, 140), stop:1 rgb(130, 130, 130));
 		border-radius: 0px;
+		font-family:Arial;
+		font-size:20px;
 	}""" + standard_tooltip
 
 	text_box_background = """
@@ -121,3 +123,23 @@ class Styles:
 		margin: 2px;
 	}
 	""" + standard_tooltip
+
+	test_score_window_style = """
+	background:qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgb(140, 140, 140), stop:0.8 rgb(130, 130, 130), stop:1 rgb(120, 120, 120));
+	"""
+
+	test_score_window_label_score_style = """
+	QLabel {
+		background: rgba(0, 0, 0, 0);
+		border-radius: 0px;
+		font-family:Arial;
+		font-size:64px;
+	}""" + standard_tooltip
+
+	test_score_window_label_hint_style = """
+	QLabel {
+		background: rgb(160, 160, 160);
+		border-radius: 0px;
+		font-family:Arial;
+		font-size:16px;
+	}""" + standard_tooltip
