@@ -95,9 +95,9 @@ class QuestionsWidget(BaseWidget):
 		for index, answer_button in enumerate(self.answers):
 			color = ""
 			if show_answer != -1:
-				color = "red"
+				color = "#b82c2c"
 				if index == show_answer:
-					color = "green"
+					color = "#45de54"
 
 			if index == answer_index:
 				answer_button.set_highlight(True, color)
