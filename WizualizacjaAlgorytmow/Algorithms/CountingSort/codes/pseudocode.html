@@ -79,15 +79,38 @@
         </div>
         <div class="container">
             <div class="main">
-                <h2>Przykładowa sekcja kodu</h1>			
-                <p>to jest opis przykładowej sekcji kodu</p>
+                <h2>countingSort</h1>			
+                <p>Funkcja wykonująca algorytm sortowania przez zliczanie.</p>
                 <span class="code">
-                    >>> TU WKLEJ KOD <<<
-                </span>
-                <h2>Druga sekcja kodu</h1>			
-                <p>to jest opis przykładowej sekcji kodu</p>
-                <span class="code">
-                    >>> TU WKLEJ KOD <<<
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">function</span> countingSort(array, min, max)<span style="color: #333333">:</span>
+    count<span style="color: #333333">:</span> array of (max <span style="color: #333333">-</span> min <span style="color: #333333">+</span> <span style="color: #6600EE; font-weight: bold">1</span>) elements
+    initialize count with <span style="color: #6600EE; font-weight: bold">0</span>
+    <span style="color: #008800; font-weight: bold">for</span> each number <span style="color: #008800; font-weight: bold">in</span> array do
+        count[number <span style="color: #333333">-</span> min] <span style="color: #333333">:=</span> count[number <span style="color: #333333">-</span> min] <span style="color: #333333">+</span> <span style="color: #6600EE; font-weight: bold">1</span>
+    done
+    z <span style="color: #333333">:=</span> <span style="color: #6600EE; font-weight: bold">0</span>
+    <span style="color: #008800; font-weight: bold">for</span> i from min to max do
+        <span style="color: #008800; font-weight: bold">while</span> ( count[i <span style="color: #333333">-</span> min] <span style="color: #333333">&gt;</span> <span style="color: #6600EE; font-weight: bold">0</span> ) do
+            array[z] <span style="color: #333333">:=</span> i
+            z <span style="color: #333333">:=</span> z<span style="color: #6600EE; font-weight: bold">+1</span>
+            count[i <span style="color: #333333">-</span> min] <span style="color: #333333">:=</span> count[i <span style="color: #333333">-</span> min] <span style="color: #333333">-</span> <span style="color: #6600EE; font-weight: bold">1</span>
+        done
+    done
+</pre></td></tr></table></div>
+
                 </span>
             </div>
         </div>

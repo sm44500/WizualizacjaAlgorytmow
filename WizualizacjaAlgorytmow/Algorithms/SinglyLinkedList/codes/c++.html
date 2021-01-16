@@ -79,16 +79,152 @@
         </div>
         <div class="container">
             <div class="main">
-                <h2>Przykładowa sekcja kodu</h1>			
-                <p>to jest opis przykładowej sekcji kodu</p>
+                <h2>Node</h1>			
+                <p>Struktura węzła listy.</p>
                 <span class="code">
-                    >>> TU WKLEJ KOD <<<
-                </span>
-                <h2>Druga sekcja kodu</h1>			
-                <p>to jest opis przykładowej sekcji kodu</p>
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">struct</span> Node{
+    <span style="color: #333399; font-weight: bold">int</span> num;
+    Node <span style="color: #333333">*</span>next;
+};
+<span style="color: #008800; font-weight: bold">struct</span> Node <span style="color: #333333">*</span>head <span style="color: #333333">=</span> nullptr;
+</pre></td></tr></table></div>
+
+                </span>	
+				
+                <h2>insertNode</h1>			
+                <p>Metoda dodawająca węzeł do listy.</p>
                 <span class="code">
-                    >>> TU WKLEJ KOD <<<
-                </span>
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">insertNode</span>(<span style="color: #333399; font-weight: bold">int</span> n){
+    <span style="color: #008800; font-weight: bold">struct</span> Node <span style="color: #333333">*</span>newNode <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> Node;
+    newNode<span style="color: #333333">-&gt;</span>num <span style="color: #333333">=</span> n;
+    newNode<span style="color: #333333">-&gt;</span>next <span style="color: #333333">=</span> head;
+    head <span style="color: #333333">=</span> newNode;
+}
+</pre></td></tr></table></div>
+
+                </span>	
+
+                <h2>display</h1>			
+                <p>Metoda wyświetlająca listę.</p>
+                <span class="code">
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">display</span>()
+{
+    <span style="color: #008800; font-weight: bold">if</span>(head <span style="color: #333333">==</span> nullptr)
+    {
+        cout<span style="color: #333333">&lt;&lt;</span><span style="background-color: #fff0f0">&quot;List is empty!&quot;</span><span style="color: #333333">&lt;&lt;</span>endl;
+        <span style="color: #008800; font-weight: bold">return</span>;
+    }
+    <span style="color: #008800; font-weight: bold">struct</span> Node <span style="color: #333333">*</span>temp <span style="color: #333333">=</span> head;
+    <span style="color: #008800; font-weight: bold">while</span>(temp <span style="color: #333333">!=</span> nullptr)
+    {
+        cout<span style="color: #333333">&lt;&lt;</span>temp<span style="color: #333333">-&gt;</span>num<span style="color: #333333">&lt;&lt;</span><span style="background-color: #fff0f0">&quot; &quot;</span>;
+        temp<span style="color: #333333">=</span>temp<span style="color: #333333">-&gt;</span>next;
+    }
+    cout<span style="color: #333333">&lt;&lt;</span>endl;
+}
+</pre></td></tr></table></div>
+
+                </span>	
+
+                <h2>deleteItem</h1>			
+                <p>Metoda usuwająca węzeł z listy.</p>
+                <span class="code">
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">deleteItem</span>()
+{
+    <span style="color: #008800; font-weight: bold">if</span>(head <span style="color: #333333">==</span> nullptr)
+    {
+        cout<span style="color: #333333">&lt;&lt;</span><span style="background-color: #fff0f0">&quot;List is empty!&quot;</span><span style="color: #333333">&lt;&lt;</span>endl;
+        <span style="color: #008800; font-weight: bold">return</span>;
+    }
+    cout<span style="color: #333333">&lt;&lt;</span>head<span style="color: #333333">-&gt;</span>num<span style="color: #333333">&lt;&lt;</span><span style="background-color: #fff0f0">&quot; is removed.&quot;</span><span style="color: #333333">&lt;&lt;</span>endl;
+
+    Node<span style="color: #333333">*</span> temp <span style="color: #333333">=</span> head;
+    head <span style="color: #333333">=</span> head<span style="color: #333333">-&gt;</span>next;
+    <span style="color: #008800; font-weight: bold">delete</span> temp;
+}
+</pre></td></tr></table></div>
+
+                </span>						
+                <h2>main</h1>			
+                <p>Fukcja prezentująca działanie listy.</p>
+                <span class="code">
+                   <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #333399; font-weight: bold">int</span> <span style="color: #0066BB; font-weight: bold">main</span>()
+{
+    cout<span style="color: #333333">&lt;&lt;</span><span style="background-color: #fff0f0">&quot;&lt;---- Singly Linked List -----&gt;&quot;</span> <span style="color: #333333">&lt;&lt;</span>endl; 
+    display();
+    insertNode(<span style="color: #0000DD; font-weight: bold">121</span>);
+    cout<span style="color: #333333">&lt;&lt;</span><span style="background-color: #fff0f0">&quot;&lt;-- Linked List after inserting a first node ---&gt;&quot;</span> <span style="color: #333333">&lt;&lt;</span>endl;
+    display();
+    insertNode(<span style="color: #0000DD; font-weight: bold">122</span>);
+    cout<span style="color: #333333">&lt;&lt;</span><span style="background-color: #fff0f0">&quot;&lt;-- Linked List after inserting a second node ---&gt;&quot;</span> <span style="color: #333333">&lt;&lt;</span>endl;
+    display();
+    insertNode(<span style="color: #0000DD; font-weight: bold">123</span>);
+    cout<span style="color: #333333">&lt;&lt;</span><span style="background-color: #fff0f0">&quot;&lt;-- Linked List after inserting a third node ---&gt;&quot;</span> <span style="color: #333333">&lt;&lt;</span>endl;
+    display();
+    cout<span style="color: #333333">&lt;&lt;</span><span style="background-color: #fff0f0">&quot;&lt;-- Deleting the node one by one from third node to first ---&gt;&quot;</span> <span style="color: #333333">&lt;&lt;</span>endl;
+    deleteItem(); 
+    deleteItem(); 
+    deleteItem(); 
+    display();
+    <span style="color: #008800; font-weight: bold">return</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+}
+</pre></td></tr></table></div>
+ 
+                </span>						
             </div>
         </div>
     </body>

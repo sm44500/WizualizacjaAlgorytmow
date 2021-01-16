@@ -79,16 +79,133 @@
         </div>
         <div class="container">
             <div class="main">
-                <h2>Przykładowa sekcja kodu</h1>			
-                <p>to jest opis przykładowej sekcji kodu</p>
+                <h2>Node</h1>			
+                <p>Struktura węzła listy.</p>
                 <span class="code">
-                    >>> TU WKLEJ KOD <<<
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6</pre></td><td><pre style="margin: 0; line-height: 125%">struct Node
+{
+    data
+    Node <span style="color: #333333">*</span><span style="color: #008800; font-weight: bold">next</span>
+}
+Node <span style="color: #333333">*</span>tail <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">NULL</span>
+</pre></td></tr></table></div>
+
+                </span>	
+                <h2>Circular_LinkedList</h1>			
+                <p>Klasa listy.</p>
+				<span class="code">
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6</pre></td><td><pre style="margin: 0; line-height: 125%">class Circular_LinkedList
+{
+    Insert_at_Front(n)
+    Insert_at_End(n)
+    Delete_at_Front()
+}
+</pre></td></tr></table></div>
+
                 </span>
-                <h2>Druga sekcja kodu</h1>			
-                <p>to jest opis przykładowej sekcji kodu</p>
+                <h2>Insert_at_Front</h1>			
+                <p>Metoda dodająca element na początku listy.</p>
                 <span class="code">
-                    >>> TU WKLEJ KOD <<<
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></td><td><pre style="margin: 0; line-height: 125%">Insert_at_Front(n)
+    Node <span style="color: #333333">*</span>temp <span style="color: #333333">=</span> new Node
+
+    temp<span style="color: #333333">-&gt;</span>data <span style="color: #333333">=</span> n
+    temp<span style="color: #333333">-&gt;</span><span style="color: #008800; font-weight: bold">next</span> <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">NULL</span>
+
+    <span style="color: #008800; font-weight: bold">if</span>(tail <span style="color: #333333">!=</span> <span style="color: #008800; font-weight: bold">NULL</span>)
+        temp<span style="color: #333333">-&gt;</span><span style="color: #008800; font-weight: bold">next</span> <span style="color: #333333">=</span> tail<span style="color: #333333">-&gt;</span><span style="color: #008800; font-weight: bold">next</span>
+        tail<span style="color: #333333">-&gt;</span><span style="color: #008800; font-weight: bold">next</span> <span style="color: #333333">=</span> temp
+    <span style="color: #008800; font-weight: bold">else</span>
+        tail <span style="color: #333333">=</span> temp 
+        tail<span style="color: #333333">-&gt;</span><span style="color: #008800; font-weight: bold">next</span> <span style="color: #333333">=</span> tail
+</pre></td></tr></table></div>
+
                 </span>
+                <h2>Insert_at_End</h1>			
+                <p>Metoda dodająca element na końcu listy.</p>
+				<span class="code">
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></td><td><pre style="margin: 0; line-height: 125%">Insert_at_End(n)
+    Node <span style="color: #333333">*</span>temp <span style="color: #333333">=</span> new Node
+
+    temp<span style="color: #333333">-&gt;</span>data<span style="color: #333333">=</span>n
+    temp<span style="color: #333333">-&gt;</span><span style="color: #008800; font-weight: bold">next</span><span style="color: #333333">=</span><span style="color: #008800; font-weight: bold">NULL</span>
+
+    <span style="color: #008800; font-weight: bold">if</span>(tail<span style="color: #333333">!=</span><span style="color: #008800; font-weight: bold">NULL</span>)
+        temp<span style="color: #333333">-&gt;</span><span style="color: #008800; font-weight: bold">next</span><span style="color: #333333">=</span>tail<span style="color: #333333">-&gt;</span><span style="color: #008800; font-weight: bold">next</span>
+        tail<span style="color: #333333">-&gt;</span><span style="color: #008800; font-weight: bold">next</span><span style="color: #333333">=</span>temp
+        tail<span style="color: #333333">=</span>temp
+    <span style="color: #008800; font-weight: bold">else</span>
+        temp<span style="color: #333333">-&gt;</span><span style="color: #008800; font-weight: bold">next</span><span style="color: #333333">=</span>temp
+        tail<span style="color: #333333">=</span>temp
+</pre></td></tr></table></div>
+
+                </span>				
+                <h2>Delete_at_Front</h1>			
+                <p>Metoda usuwająca element z początku listy.</p>
+				<span class="code">
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></td><td><pre style="margin: 0; line-height: 125%">Delete_at_Front()
+    Node <span style="color: #333333">*</span>temp
+    
+    <span style="color: #008800; font-weight: bold">if</span>(tail<span style="color: #333333">==</span><span style="color: #008800; font-weight: bold">NULL</span>)
+        delete temp
+        <span style="color: #008800; font-weight: bold">return</span>
+
+    temp<span style="color: #333333">=</span>tail<span style="color: #333333">-&gt;</span><span style="color: #008800; font-weight: bold">next</span>
+    <span style="color: #008800; font-weight: bold">if</span>(temp <span style="color: #333333">!=</span> tail)
+        tail<span style="color: #333333">-&gt;</span><span style="color: #008800; font-weight: bold">next</span><span style="color: #333333">=</span>temp<span style="color: #333333">-&gt;</span><span style="color: #008800; font-weight: bold">next</span>
+        delete temp    
+    <span style="color: #008800; font-weight: bold">else</span>
+        delete temp
+        tail <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">NULL</span>
+</pre></td></tr></table></div>
+
+                </span>					
             </div>
         </div>
     </body>

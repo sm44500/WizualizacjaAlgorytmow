@@ -79,15 +79,65 @@
         </div>
         <div class="container">
             <div class="main">
-                <h2>Przykładowa sekcja kodu</h1>			
-                <p>to jest opis przykładowej sekcji kodu</p>
+                <h2>linear_search</h1>			
+                <p>Funkcja wykonująca algorytm wyszukiwania liniowego.</p>
                 <span class="code">
-                    >>> TU WKLEJ KOD <<<
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6
+7</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #333399; font-weight: bold">int</span> <span style="color: #0066BB; font-weight: bold">linear_search</span> ( <span style="color: #333399; font-weight: bold">int</span> T [ ], <span style="color: #333399; font-weight: bold">int</span> n, <span style="color: #333399; font-weight: bold">int</span> k, <span style="color: #333399; font-weight: bold">int</span> p )
+{
+  <span style="color: #008800; font-weight: bold">for</span>( <span style="color: #333399; font-weight: bold">int</span> i <span style="color: #333333">=</span> p; i <span style="color: #333333">&lt;</span> n; i<span style="color: #333333">++</span> )
+    <span style="color: #008800; font-weight: bold">if</span>( T [ i ] <span style="color: #333333">==</span> k ) <span style="color: #008800; font-weight: bold">return</span> i;
+
+  <span style="color: #008800; font-weight: bold">return</span> <span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">1</span>;
+}
+</pre></td></tr></table></div>
+
                 </span>
-                <h2>Druga sekcja kodu</h1>			
-                <p>to jest opis przykładowej sekcji kodu</p>
+                <h2>main</h1>			
+                <p>Fukcja prezentująca wywołanie funkcji wyszukiwania liniowego.</p>
                 <span class="code">
-                    >>> TU WKLEJ KOD <<<
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #333399; font-weight: bold">int</span> <span style="color: #0066BB; font-weight: bold">main</span>( )
+{
+  <span style="color: #333399; font-weight: bold">int</span> <span style="color: #333333">*</span> Z, n, k, i;
+  
+  cin <span style="color: #333333">&gt;&gt;</span> n;
+
+  Z <span style="color: #333333">=</span> new <span style="color: #333399; font-weight: bold">int</span> [ n ];
+
+  <span style="color: #008800; font-weight: bold">for</span>( i <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>; i <span style="color: #333333">&lt;</span> n; i<span style="color: #333333">++</span> ) cin <span style="color: #333333">&gt;&gt;</span> Z [ i ];
+
+  cin <span style="color: #333333">&gt;&gt;</span> k;
+
+  cout <span style="color: #333333">&lt;&lt;</span> endl <span style="color: #333333">&lt;&lt;</span> Szukaj ( Z, n, k, <span style="color: #0000DD; font-weight: bold">0</span> ) <span style="color: #333333">&lt;&lt;</span> endl <span style="color: #333333">&lt;&lt;</span> endl;
+
+  delete [ ] Z;
+
+  <span style="color: #008800; font-weight: bold">return</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+} 
+</pre></td></tr></table></div>
+
                 </span>
             </div>
         </div>

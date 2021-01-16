@@ -79,16 +79,226 @@
         </div>
         <div class="container">
             <div class="main">
-                <h2>Przykładowa sekcja kodu</h1>			
-                <p>to jest opis przykładowej sekcji kodu</p>
+                <h2>Node</h1>			
+                <p>Klasa węzła listy.</p>
                 <span class="code">
-                    >>> TU WKLEJ KOD <<<
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6</pre></td><td><pre style="margin: 0; line-height: 125%">class Node
+{
+	int value
+	Node <span style="color: #333333">*</span>prev
+	Node <span style="color: #333333">*</span><span style="color: #008800; font-weight: bold">next</span>
+}
+</pre></td></tr></table></div>
+
+                </span>	
+                <h2>DLinkedList</h1>			
+                <p>Klasa listy.</p>
+				<span class="code">
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></td><td><pre style="margin: 0; line-height: 125%">class DLinkedList
+{
+	Node<span style="color: #333333">*</span> root <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">NULL</span>
+	Node<span style="color: #333333">*</span> end <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">NULL</span>
+	Node<span style="color: #333333">*</span> createNode(int)
+	Node<span style="color: #333333">*</span> getTail()
+	Node<span style="color: #333333">*</span> findNode(int)
+	Node<span style="color: #333333">*</span> removeNode(int)
+	Node<span style="color: #333333">*</span> deleteNodes()
+	Node<span style="color: #333333">*</span> addNode(int)
+}
+</pre></td></tr></table></div>
+
                 </span>
-                <h2>Druga sekcja kodu</h1>			
-                <p>to jest opis przykładowej sekcji kodu</p>
+                <h2>createNode</h1>			
+                <p>Metoda tworząca nowy węzeł.</p>
                 <span class="code">
-                    >>> TU WKLEJ KOD <<<
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6
+7</pre></td><td><pre style="margin: 0; line-height: 125%">createNode(value)
+    Node <span style="color: #333333">*</span>temp <span style="color: #333333">=</span> new Node
+
+	temp<span style="color: #333333">-&gt;</span>value <span style="color: #333333">=</span> value
+	temp<span style="color: #333333">-&gt;</span>prev <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">NULL</span>
+	temp<span style="color: #333333">-&gt;</span><span style="color: #008800; font-weight: bold">next</span> <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">NULL</span>
+	<span style="color: #008800; font-weight: bold">return</span> temp
+</pre></td></tr></table></div>
+
                 </span>
+                <h2>getTail</h1>			
+                <p>Metoda zwracająca ogon listy.</p>
+				<span class="code">
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6</pre></td><td><pre style="margin: 0; line-height: 125%">getTail()
+    Node <span style="color: #333333">*</span>temp <span style="color: #333333">=</span> root
+	<span style="color: #008800; font-weight: bold">if</span> (temp <span style="color: #333333">==</span> <span style="color: #008800; font-weight: bold">NULL</span>) <span style="color: #008800; font-weight: bold">return</span> <span style="color: #008800; font-weight: bold">NULL</span>
+	<span style="color: #008800; font-weight: bold">while</span>(temp<span style="color: #333333">-&gt;</span><span style="color: #008800; font-weight: bold">next</span> <span style="color: #333333">!=</span> <span style="color: #008800; font-weight: bold">NULL</span>)
+		temp <span style="color: #333333">=</span> temp<span style="color: #333333">-&gt;</span><span style="color: #008800; font-weight: bold">next</span>
+	<span style="color: #008800; font-weight: bold">return</span> temp
+</pre></td></tr></table></div>
+
+                </span>				
+                <h2>findNode</h1>			
+                <p>Metoda wyszukująca węzeł w liście.</p>
+                <span class="code">
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6
+7
+8
+9</pre></td><td><pre style="margin: 0; line-height: 125%">findNode(int value) 
+    Node<span style="color: #333333">*</span> temp <span style="color: #333333">=</span> root
+	<span style="color: #008800; font-weight: bold">while</span>(temp <span style="color: #333333">!=</span> <span style="color: #008800; font-weight: bold">NULL</span>)
+	
+		<span style="color: #008800; font-weight: bold">if</span> (temp<span style="color: #333333">-&gt;</span>value <span style="color: #333333">==</span> value)
+			<span style="color: #008800; font-weight: bold">return</span> temp
+		temp <span style="color: #333333">=</span> temp<span style="color: #333333">-&gt;</span><span style="color: #008800; font-weight: bold">next</span>
+	
+	<span style="color: #008800; font-weight: bold">return</span> <span style="color: #008800; font-weight: bold">NULL</span>
+</pre></td></tr></table></div>
+
+                </span>
+                <h2>removeNode</h1>			
+                <p>Metoda usuwająca węzeł z listy.</p>
+				<span class="code">
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28</pre></td><td><pre style="margin: 0; line-height: 125%">removeNode(value) 
+	Node <span style="color: #333333">*</span>temp <span style="color: #333333">=</span> findNode(value)
+	<span style="color: #008800; font-weight: bold">if</span> (temp <span style="color: #333333">==</span> <span style="color: #008800; font-weight: bold">NULL</span>)
+		printf(<span style="background-color: #fff0f0">&quot;Nie istnieje.&quot;</span>)
+		<span style="color: #008800; font-weight: bold">return</span> root
+	
+    <span style="color: #008800; font-weight: bold">else</span> <span style="color: #008800; font-weight: bold">if</span> (temp <span style="color: #333333">==</span> root <span style="color: #333333">&amp;&amp;</span> temp <span style="color: #333333">==</span> end)
+        delete root
+        root <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">NULL</span>
+        end <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">NULL</span>
+        <span style="color: #008800; font-weight: bold">return</span> root
+    
+	<span style="color: #008800; font-weight: bold">else</span> <span style="color: #008800; font-weight: bold">if</span> (temp <span style="color: #333333">==</span> root)
+		root <span style="color: #333333">=</span> root<span style="color: #333333">-&gt;</span><span style="color: #008800; font-weight: bold">next</span>
+		delete root<span style="color: #333333">-&gt;</span>prev
+		root<span style="color: #333333">-&gt;</span>prev <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">NULL</span>
+	
+	<span style="color: #008800; font-weight: bold">else</span> <span style="color: #008800; font-weight: bold">if</span> (temp <span style="color: #333333">==</span> end)
+		temp <span style="color: #333333">=</span> temp<span style="color: #333333">-&gt;</span>prev
+		delete temp<span style="color: #333333">-&gt;</span><span style="color: #008800; font-weight: bold">next</span>
+		temp<span style="color: #333333">-&gt;</span><span style="color: #008800; font-weight: bold">next</span> <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">NULL</span>
+        end <span style="color: #333333">=</span> temp
+	<span style="color: #008800; font-weight: bold">else</span>
+		(temp<span style="color: #333333">-&gt;</span>prev)<span style="color: #333333">-&gt;</span><span style="color: #008800; font-weight: bold">next</span> <span style="color: #333333">=</span> temp<span style="color: #333333">-&gt;</span><span style="color: #008800; font-weight: bold">next</span>
+		(temp<span style="color: #333333">-&gt;</span><span style="color: #008800; font-weight: bold">next</span>)<span style="color: #333333">-&gt;</span>prev <span style="color: #333333">=</span> temp<span style="color: #333333">-&gt;</span>prev
+		delete temp	
+	
+	<span style="color: #008800; font-weight: bold">return</span> root
+</pre></td></tr></table></div>
+
+                </span>				
+                <h2>deleteNodes</h1>			
+                <p>Metoda czyszcząca listę.</p>
+				<span class="code">
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></td><td><pre style="margin: 0; line-height: 125%">Node<span style="color: #333333">*</span> deleteNodes()
+
+	<span style="color: #008800; font-weight: bold">if</span> (root <span style="color: #333333">==</span> <span style="color: #008800; font-weight: bold">NULL</span>) 
+		<span style="color: #008800; font-weight: bold">return</span> root
+
+	<span style="color: #008800; font-weight: bold">while</span>(root<span style="color: #333333">-&gt;</span><span style="color: #008800; font-weight: bold">next</span> <span style="color: #333333">!=</span> <span style="color: #008800; font-weight: bold">NULL</span>)
+		root <span style="color: #333333">=</span> root<span style="color: #333333">-&gt;</span><span style="color: #008800; font-weight: bold">next</span>
+		delete root<span style="color: #333333">-&gt;</span>prev
+	
+	delete root
+    root <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">NULL</span>
+    end <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">NULL</span>
+	<span style="color: #008800; font-weight: bold">return</span> root
+</pre></td></tr></table></div>
+
+                </span>				
+                <h2>addNode</h1>			
+                <p>Metoda dodająca węzeł do listy.</p>
+				<span class="code">
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></td><td><pre style="margin: 0; line-height: 125%">addNode(value)
+    <span style="color: #008800; font-weight: bold">if</span>(root <span style="color: #333333">==</span> <span style="color: #008800; font-weight: bold">NULL</span>)
+        root <span style="color: #333333">=</span> createNode(value)
+        end <span style="color: #333333">=</span> root
+        <span style="color: #008800; font-weight: bold">return</span> end
+     
+	end<span style="color: #333333">-&gt;</span><span style="color: #008800; font-weight: bold">next</span> <span style="color: #333333">=</span> createNode(value)
+	(end<span style="color: #333333">-&gt;</span><span style="color: #008800; font-weight: bold">next</span>)<span style="color: #333333">-&gt;</span>prev <span style="color: #333333">=</span> end
+	end <span style="color: #333333">=</span> end<span style="color: #333333">-&gt;</span><span style="color: #008800; font-weight: bold">next</span>
+	<span style="color: #008800; font-weight: bold">return</span> end
+</pre></td></tr></table></div>
+
+                </span>	
             </div>
         </div>
     </body>

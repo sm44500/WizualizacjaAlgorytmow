@@ -79,16 +79,161 @@
         </div>
         <div class="container">
             <div class="main">
-                <h2>Przykładowa sekcja kodu</h1>			
-                <p>to jest opis przykładowej sekcji kodu</p>
+                <h2>Node</h1>			
+                <p>Klasa węzła listy.</p>
                 <span class="code">
-                    >>> TU WKLEJ KOD <<<
-                </span>
-                <h2>Druga sekcja kodu</h1>			
-                <p>to jest opis przykładowej sekcji kodu</p>
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">Node</span>:
+    <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">__init__</span>(<span style="color: #007020">self</span>, data<span style="color: #333333">=</span><span style="color: #008800; font-weight: bold">None</span>):
+        <span style="color: #007020">self</span><span style="color: #333333">.</span>data <span style="color: #333333">=</span> data
+        <span style="color: #007020">self</span><span style="color: #333333">.</span>next <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">None</span>
+</pre></td></tr></table></div>
+
+                </span>	
+				
+                <h2>SLinkedList</h1>			
+                <p>Klasa listy.</p>
                 <span class="code">
-                    >>> TU WKLEJ KOD <<<
-                </span>
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">SLinkedList</span>:
+
+    <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">__init__</span>(<span style="color: #007020">self</span>):
+        <span style="color: #007020">self</span><span style="color: #333333">.</span>head <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">None</span>
+
+    <span style="color: #333333">...</span>
+</pre></td></tr></table></div>
+
+                </span>	
+
+                <h2>insert_first</h1>			
+                <p>Metoda dodawająca węzeł do listy.</p>
+                <span class="code">
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">insert_first</span>(<span style="color: #007020">self</span>, insert_this):
+    new_node <span style="color: #333333">=</span> Node(insert_this)
+    new_node<span style="color: #333333">.</span>next <span style="color: #333333">=</span> <span style="color: #007020">self</span><span style="color: #333333">.</span>head
+    <span style="color: #007020">self</span><span style="color: #333333">.</span>head <span style="color: #333333">=</span> new_node
+</pre></td></tr></table></div>
+
+                </span>	
+
+                <h2>remove_node</h1>			
+                <p>Metoda usuwająca węzeł z listy.</p>
+                <span class="code">
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">remove_node</span>(<span style="color: #007020">self</span>, remove_this):
+
+    <span style="color: #888888"># declare the &quot;first&quot; in list</span>
+    head_val <span style="color: #333333">=</span> <span style="color: #007020">self</span><span style="color: #333333">.</span>head
+
+    <span style="color: #888888"># IF first in list isn&#39;t None, then...</span>
+    <span style="color: #888888"># IF first in list == value to be removed, then...</span>
+    <span style="color: #888888"># assign the NEXT node as the new &quot;first in list&quot;</span>
+    <span style="color: #008800; font-weight: bold">if</span> head_val <span style="color: #000000; font-weight: bold">is</span> <span style="color: #000000; font-weight: bold">not</span> <span style="color: #008800; font-weight: bold">None</span>:
+        <span style="color: #008800; font-weight: bold">if</span> head_val<span style="color: #333333">.</span>data <span style="color: #333333">==</span> remove_this:
+            <span style="color: #007020">self</span><span style="color: #333333">.</span>head <span style="color: #333333">=</span> head_val<span style="color: #333333">.</span>next
+            <span style="color: #008800; font-weight: bold">return</span>
+
+    <span style="color: #888888"># WHILE first in list is not None, then...</span>
+    <span style="color: #888888"># IF first in list == value to be removed, then...</span>
+    <span style="color: #888888"># BREAK</span>
+    <span style="color: #888888"># ELSE assign current first in list in &quot;prev&quot; (to preserve it&#39;s value) , and...</span>
+    <span style="color: #888888"># assign next value as first in list</span>
+    <span style="color: #008800; font-weight: bold">while</span> head_val <span style="color: #000000; font-weight: bold">is</span> <span style="color: #000000; font-weight: bold">not</span> <span style="color: #008800; font-weight: bold">None</span>:
+        <span style="color: #008800; font-weight: bold">if</span> head_val<span style="color: #333333">.</span>data <span style="color: #333333">==</span> remove_this:
+            <span style="color: #008800; font-weight: bold">break</span>
+        prev <span style="color: #333333">=</span> head_val
+        head_val <span style="color: #333333">=</span> head_val<span style="color: #333333">.</span>next
+
+    <span style="color: #888888"># if first in list is empty, exit function</span>
+    <span style="color: #008800; font-weight: bold">if</span> head_val <span style="color: #000000; font-weight: bold">is</span> <span style="color: #008800; font-weight: bold">None</span>:
+        <span style="color: #008800; font-weight: bold">return</span>
+
+    <span style="color: #888888"># this assignment removes the value to be deleted</span>
+    prev<span style="color: #333333">.</span>next <span style="color: #333333">=</span> head_val<span style="color: #333333">.</span>next
+</pre></td></tr></table></div>
+
+                </span>					
+				
+                <h2>print_list</h1>			
+                <p>Metoda wyświetlająca listę.</p>
+                <span class="code">
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">print_list</span>(<span style="color: #007020">self</span>):
+    print_node <span style="color: #333333">=</span> <span style="color: #007020">self</span><span style="color: #333333">.</span>head
+    <span style="color: #008800; font-weight: bold">while</span> print_node:
+        <span style="color: #007020">print</span>(print_node<span style="color: #333333">.</span>data),
+        print_node <span style="color: #333333">=</span> print_node<span style="color: #333333">.</span>next
+</pre></td></tr></table></div>
+
+                </span>	
+				
+                <h2>main</h1>			
+                <p>Funkcja prezentująca działanie listy.</p>
+                <span class="code">
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">main</span>():
+    mylist <span style="color: #333333">=</span> SLinkedList()
+    mylist<span style="color: #333333">.</span>insert_first(<span style="background-color: #fff0f0">&quot;red&quot;</span>)
+    mylist<span style="color: #333333">.</span>insert_first(<span style="background-color: #fff0f0">&quot;orange&quot;</span>)
+    mylist<span style="color: #333333">.</span>insert_first(<span style="background-color: #fff0f0">&quot;yellow&quot;</span>)
+    mylist<span style="color: #333333">.</span>insert_first(<span style="background-color: #fff0f0">&quot;green&quot;</span>)
+    <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;Original list:&quot;</span>)
+    mylist<span style="color: #333333">.</span>print_llist()
+    mylist<span style="color: #333333">.</span>remove_node(<span style="background-color: #fff0f0">&quot;orange&quot;</span>)
+    <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;</span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\n</span><span style="background-color: #fff0f0">After orange is removed:&quot;</span>)
+    mylist<span style="color: #333333">.</span>print_llist()
+</pre></td></tr></table></div>
+
+                </span>					
             </div>
         </div>
     </body>

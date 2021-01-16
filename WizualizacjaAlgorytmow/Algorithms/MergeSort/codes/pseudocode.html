@@ -79,15 +79,69 @@
         </div>
         <div class="container">
             <div class="main">
-                <h2>Przykładowa sekcja kodu</h1>			
-                <p>to jest opis przykładowej sekcji kodu</p>
+                <h2>merge_sort</h1>			
+                <p>Funkcja wykonująca algorytm sortowania przez scalanie.</p>
                 <span class="code">
-                    >>> TU WKLEJ KOD <<<
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></td><td><pre style="margin: 0; line-height: 125%">MergeSort(arr[], l,  r)
+If r <span style="color: #333333">&gt;</span> l
+     <span style="color: #6600EE; font-weight: bold">1</span>. Find the middle point to divide the array into two halves<span style="color: #333333">:</span>  
+             middle m <span style="color: #333333">=</span> (l<span style="color: #333333">+</span>r)<span style="color: #333333">/</span><span style="color: #6600EE; font-weight: bold">2</span>
+     <span style="color: #6600EE; font-weight: bold">2</span>. Call mergeSort <span style="color: #008800; font-weight: bold">for</span> first half<span style="color: #333333">:</span>   
+             Call mergeSort(arr, l, m)
+     <span style="color: #6600EE; font-weight: bold">3</span>. Call mergeSort <span style="color: #008800; font-weight: bold">for</span> second half<span style="color: #333333">:</span>
+             Call mergeSort(arr, m<span style="color: #6600EE; font-weight: bold">+1</span>, r)
+     <span style="color: #6600EE; font-weight: bold">4</span>. Merge the two halves sorted <span style="color: #008800; font-weight: bold">in</span> step <span style="color: #6600EE; font-weight: bold">2</span> and <span style="color: #6600EE; font-weight: bold">3</span><span style="color: #333333">:</span>
+             Call merge(arr, l, r)
+</pre></td></tr></table></div>
+
                 </span>
-                <h2>Druga sekcja kodu</h1>			
-                <p>to jest opis przykładowej sekcji kodu</p>
-                <span class="code">
-                    >>> TU WKLEJ KOD <<<
+                <h2>merge</h1>			
+                <p>Pomocnicza funkcja służąca do "sklejania" ze sobą fragmentów tablicy.</p>
+				<span class="code">
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">function</span> merge(left,right)
+    var list result
+    <span style="color: #008800; font-weight: bold">while</span> length(left) <span style="color: #333333">&gt;</span> <span style="color: #6600EE; font-weight: bold">0</span> and length(right) <span style="color: #333333">&gt;</span> <span style="color: #6600EE; font-weight: bold">0</span>
+        <span style="color: #008800; font-weight: bold">if</span> first(left) ≤ first(right)
+            append first(left) to result
+            left <span style="color: #333333">=</span> rest(left)
+        <span style="color: #008800; font-weight: bold">else</span>
+            append first(right) to result
+            right <span style="color: #333333">=</span> rest(right)
+        end <span style="color: #008800; font-weight: bold">if</span>
+    <span style="color: #008800; font-weight: bold">while</span> length(left) <span style="color: #333333">&gt;</span> <span style="color: #6600EE; font-weight: bold">0</span> 
+        append first(left) to result
+        left <span style="color: #333333">=</span> rest(left)
+    <span style="color: #008800; font-weight: bold">while</span> length(right) <span style="color: #333333">&gt;</span> <span style="color: #6600EE; font-weight: bold">0</span> 
+        append first(right) to result
+        right <span style="color: #333333">=</span> rest(right)
+    <span style="color: #008800; font-weight: bold">return</span> result
+</pre></td></tr></table></div>
+
                 </span>
             </div>
         </div>

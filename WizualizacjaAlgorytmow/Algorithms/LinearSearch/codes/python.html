@@ -79,15 +79,41 @@
         </div>
         <div class="container">
             <div class="main">
-                <h2>Przykładowa sekcja kodu</h1>			
-                <p>to jest opis przykładowej sekcji kodu</p>
+                <h2>linear_search</h1>			
+                <p>Funkcja wykonująca algorytm wyszukiwania liniowego.</p>
                 <span class="code">
-                    >>> TU WKLEJ KOD <<<
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6
+7
+8
+9</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">linear_search</span>(alist, item):
+     pos <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>
+     found <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">False</span>
+     <span style="color: #008800; font-weight: bold">while</span> pos <span style="color: #333333">&lt;</span> <span style="color: #007020">len</span>(alist) <span style="color: #000000; font-weight: bold">and</span> <span style="color: #000000; font-weight: bold">not</span> found:
+          <span style="color: #008800; font-weight: bold">if</span> alist[pos] <span style="color: #333333">==</span> item:
+              found <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">True</span>
+          <span style="color: #008800; font-weight: bold">else</span>:
+              pos <span style="color: #333333">=</span> pos<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>
+     <span style="color: #008800; font-weight: bold">return</span> found
+</pre></td></tr></table></div>
+
                 </span>
-                <h2>Druga sekcja kodu</h1>			
-                <p>to jest opis przykładowej sekcji kodu</p>
+                <h2>main</h1>			
+                <p>Fukcja prezentująca wywołanie funkcji wyszukiwania liniowego.</p>
                 <span class="code">
-                    >>> TU WKLEJ KOD <<<
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">main</span>():
+     testlist <span style="color: #333333">=</span> [<span style="color: #0000DD; font-weight: bold">1</span>, <span style="color: #0000DD; font-weight: bold">2</span>, <span style="color: #0000DD; font-weight: bold">32</span>, <span style="color: #0000DD; font-weight: bold">8</span>, <span style="color: #0000DD; font-weight: bold">17</span>, <span style="color: #0000DD; font-weight: bold">19</span>, <span style="color: #0000DD; font-weight: bold">42</span>, <span style="color: #0000DD; font-weight: bold">13</span>, <span style="color: #0000DD; font-weight: bold">0</span>]
+     <span style="color: #007020">print</span>(sequentialSearch(testlist, <span style="color: #0000DD; font-weight: bold">3</span>))
+     <span style="color: #007020">print</span>(sequentialSearch(testlist, <span style="color: #0000DD; font-weight: bold">13</span>))
+</pre></td></tr></table></div>
+
                 </span>
             </div>
         </div>

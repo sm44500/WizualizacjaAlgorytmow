@@ -79,15 +79,57 @@
         </div>
         <div class="container">
             <div class="main">
-                <h2>Przykładowa sekcja kodu</h1>			
-                <p>to jest opis przykładowej sekcji kodu</p>
+                <h2>maximum_search</h1>			
+                <p>Funkcja wykonująca algorytm wyszukiwania największego elementu.</p>
                 <span class="code">
-                    >>> TU WKLEJ KOD <<<
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #333399; font-weight: bold">int</span> <span style="color: #0066BB; font-weight: bold">maximum_search</span>(<span style="color: #333399; font-weight: bold">int</span> tab[], <span style="color: #333399; font-weight: bold">int</span> tab_size)
+{
+    <span style="color: #333399; font-weight: bold">int</span> max <span style="color: #333333">=</span> tab[<span style="color: #0000DD; font-weight: bold">0</span>];
+
+    <span style="color: #008800; font-weight: bold">for</span> (<span style="color: #333399; font-weight: bold">int</span> index <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>; index <span style="color: #333333">&lt;</span> tab_size; index<span style="color: #333333">++</span>)
+        <span style="color: #008800; font-weight: bold">if</span>(tab[index] <span style="color: #333333">&gt;</span> max)
+            max <span style="color: #333333">=</span> tab[index];
+
+    <span style="color: #008800; font-weight: bold">return</span> max;
+}
+</pre></td></tr></table></div>
+
                 </span>
-                <h2>Druga sekcja kodu</h1>			
-                <p>to jest opis przykładowej sekcji kodu</p>
+                <h2>main</h1>			
+                <p>Fukcja prezentująca wywołanie funkcji wyszukiwania największego elementu.</p>
                 <span class="code">
-                    >>> TU WKLEJ KOD <<<
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #333399; font-weight: bold">int</span> <span style="color: #0066BB; font-weight: bold">main</span>()
+{
+    <span style="color: #333399; font-weight: bold">int</span> tab[] <span style="color: #333333">=</span> {<span style="color: #0000DD; font-weight: bold">3</span>, <span style="color: #0000DD; font-weight: bold">5</span>, <span style="color: #0000DD; font-weight: bold">6</span>, <span style="color: #0000DD; font-weight: bold">8</span>, <span style="color: #0000DD; font-weight: bold">10</span>, <span style="color: #0000DD; font-weight: bold">15</span>, <span style="color: #0000DD; font-weight: bold">16</span>};
+    <span style="color: #333399; font-weight: bold">int</span> tab_size <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">sizeof</span>(tab) <span style="color: #333333">/</span> <span style="color: #008800; font-weight: bold">sizeof</span>(typeof(<span style="color: #333399; font-weight: bold">int</span>));
+
+    <span style="color: #008800; font-weight: bold">for</span> (<span style="color: #333399; font-weight: bold">int</span> i <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>; i <span style="color: #333333">&lt;</span> tab_size; i<span style="color: #333333">++</span>)
+        printf(<span style="background-color: #fff0f0">&quot;%d, &quot;</span>, tab[i]);
+
+    <span style="color: #333399; font-weight: bold">int</span> maximun_value <span style="color: #333333">=</span> maximum_search(tab, tab_size);
+    printf(<span style="background-color: #fff0f0">&quot;</span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\n</span><span style="background-color: #fff0f0"> Maximum value in table is:  %d&quot;</span>, maximun_value);
+}
+</pre></td></tr></table></div>
+
                 </span>
             </div>
         </div>

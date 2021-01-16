@@ -79,16 +79,283 @@
         </div>
         <div class="container">
             <div class="main">
-                <h2>Przykładowa sekcja kodu</h1>			
-                <p>to jest opis przykładowej sekcji kodu</p>
+                <h2>Node</h1>			
+                <p>Struktura węzła listy.</p>
                 <span class="code">
-                    >>> TU WKLEJ KOD <<<
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">struct</span> Node
+{
+    <span style="color: #333399; font-weight: bold">int</span> data;
+    Node <span style="color: #333333">*</span>next;
+}<span style="color: #333333">*</span>tail;
+</pre></td></tr></table></div>
+
+                </span>	
+                <h2>Circular_LinkedList</h1>			
+                <p>Klasa listy.</p>
+				<span class="code">
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6
+7
+8</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">Circular_LinkedList</span>
+{
+    <span style="color: #997700; font-weight: bold">public:</span>
+        <span style="color: #333399; font-weight: bold">void</span> Insert_at_Front(<span style="color: #333399; font-weight: bold">int</span> n);
+        <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">Insert_at_End</span>(<span style="color: #333399; font-weight: bold">int</span> n);
+        <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">Delete_at_Front</span>();
+        <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">Display</span>();
+};
+</pre></td></tr></table></div>
+
                 </span>
-                <h2>Druga sekcja kodu</h1>			
-                <p>to jest opis przykładowej sekcji kodu</p>
+                <h2>Insert_at_Front</h1>			
+                <p>Metoda dodająca element na początku listy.</p>
                 <span class="code">
-                    >>> TU WKLEJ KOD <<<
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #333399; font-weight: bold">void</span> Circular_LinkedList<span style="color: #333333">::</span>Insert_at_Front(<span style="color: #333399; font-weight: bold">int</span> n)
+{
+    Node <span style="color: #333333">*</span>temp;
+    temp <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> Node;
+    temp<span style="color: #333333">-&gt;</span>data <span style="color: #333333">=</span> n;
+    temp<span style="color: #333333">-&gt;</span>next <span style="color: #333333">=</span> nullptr;
+
+    <span style="color: #888888">// check is list empty ?</span>
+    <span style="color: #008800; font-weight: bold">if</span>(tail <span style="color: #333333">!=</span> nullptr)
+    {
+        temp<span style="color: #333333">-&gt;</span>next <span style="color: #333333">=</span> tail<span style="color: #333333">-&gt;</span>next;
+        tail<span style="color: #333333">-&gt;</span>next <span style="color: #333333">=</span> temp;
+    }
+    <span style="color: #008800; font-weight: bold">else</span>  
+    {
+        tail <span style="color: #333333">=</span> temp; 
+        tail<span style="color: #333333">-&gt;</span>next <span style="color: #333333">=</span> tail;
+    }
+}
+</pre></td></tr></table></div>
+
                 </span>
+                <h2>Insert_at_End</h1>			
+                <p>Metoda dodająca element na końcu listy.</p>
+				<span class="code">
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #333399; font-weight: bold">void</span> Circular_LinkedList<span style="color: #333333">::</span>Insert_at_End(<span style="color: #333399; font-weight: bold">int</span> n)
+{
+    Node <span style="color: #333333">*</span>temp;
+    temp<span style="color: #333333">=</span><span style="color: #008800; font-weight: bold">new</span> Node;
+    temp<span style="color: #333333">-&gt;</span>data<span style="color: #333333">=</span>n;
+    temp<span style="color: #333333">-&gt;</span>next<span style="color: #333333">=</span>nullptr;
+
+    <span style="color: #888888">// check is list empty ?</span>
+    <span style="color: #008800; font-weight: bold">if</span>(tail<span style="color: #333333">!=</span>nullptr)
+    {
+        temp<span style="color: #333333">-&gt;</span>next<span style="color: #333333">=</span>tail<span style="color: #333333">-&gt;</span>next;
+        tail<span style="color: #333333">-&gt;</span>next<span style="color: #333333">=</span>temp;
+        tail<span style="color: #333333">=</span>temp;
+    }
+    <span style="color: #008800; font-weight: bold">else</span>
+    {
+        temp<span style="color: #333333">-&gt;</span>next<span style="color: #333333">=</span>temp;
+        tail<span style="color: #333333">=</span>temp;
+    }
+}
+</pre></td></tr></table></div>
+
+                </span>				
+                <h2>Display</h1>			
+                <p>Metoda wyświetlająca listę.</p>
+                <span class="code">
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #333399; font-weight: bold">void</span> Circular_LinkedList<span style="color: #333333">::</span>Display()
+{
+    Node <span style="color: #333333">*</span>front;
+    <span style="color: #888888">// check is list empty ?</span>
+    <span style="color: #008800; font-weight: bold">if</span>(tail<span style="color: #333333">==</span>nullptr)
+    {
+        cout<span style="color: #333333">&lt;&lt;</span><span style="background-color: #fff0f0">&quot;Empty List: </span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\n</span><span style="background-color: #fff0f0">&quot;</span>;
+        <span style="color: #008800; font-weight: bold">return</span>;
+    }
+    front<span style="color: #333333">=</span>tail<span style="color: #333333">-&gt;</span>next;
+
+    cout<span style="color: #333333">&lt;&lt;</span><span style="background-color: #fff0f0">&quot;</span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\t</span><span style="background-color: #fff0f0">Nodes are:</span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\t</span><span style="background-color: #fff0f0">&quot;</span>;
+    <span style="color: #008800; font-weight: bold">while</span>(front<span style="color: #333333">!=</span>tail)
+    {
+        cout<span style="color: #333333">&lt;&lt;</span>front<span style="color: #333333">-&gt;</span>data<span style="color: #333333">&lt;&lt;</span><span style="background-color: #fff0f0">&quot; --&gt; &quot;</span>;
+        front<span style="color: #333333">=</span>front<span style="color: #333333">-&gt;</span>next;
+    }
+
+    <span style="color: #008800; font-weight: bold">if</span>(front<span style="color: #333333">==</span>tail)
+        cout<span style="color: #333333">&lt;&lt;</span>front<span style="color: #333333">-&gt;</span>data;
+    cout<span style="color: #333333">&lt;&lt;</span>endl;
+}
+</pre></td></tr></table></div>
+
+                </span>
+                <h2>Delete_at_Front</h1>			
+                <p>Metoda usuwająca element z początku listy.</p>
+				<span class="code">
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #333399; font-weight: bold">void</span> Circular_LinkedList<span style="color: #333333">::</span>Delete_at_Front()
+{
+    Node <span style="color: #333333">*</span>temp;
+    
+    <span style="color: #888888">// check is list empty ?</span>
+    <span style="color: #008800; font-weight: bold">if</span>(tail<span style="color: #333333">==</span>nullptr)
+        <span style="color: #008800; font-weight: bold">return</span>;
+    
+    temp<span style="color: #333333">=</span>tail<span style="color: #333333">-&gt;</span>next;
+
+    <span style="color: #888888">// is there only one element?</span>
+    <span style="color: #008800; font-weight: bold">if</span>(temp <span style="color: #333333">!=</span> tail)
+    {
+        tail<span style="color: #333333">-&gt;</span>next<span style="color: #333333">=</span>temp<span style="color: #333333">-&gt;</span>next;    
+        <span style="color: #008800; font-weight: bold">delete</span> temp;
+    }
+    <span style="color: #008800; font-weight: bold">else</span>
+    {
+        <span style="color: #008800; font-weight: bold">delete</span> temp;
+        tail <span style="color: #333333">=</span> nullptr;
+    }
+}
+</pre></td></tr></table></div>
+
+                </span>				
+                <h2>main</h1>			
+                <p>Fukcja prezentująca działanie listy.</p>
+				<span class="code">
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #333399; font-weight: bold">int</span> <span style="color: #0066BB; font-weight: bold">main</span>()
+{
+    <span style="color: #333399; font-weight: bold">int</span> choice;
+    Circular_LinkedList object;
+    tail<span style="color: #333333">=</span>nullptr;
+
+    object.Insert_at_Front(<span style="color: #0000DD; font-weight: bold">1</span>); 
+    object.Insert_at_Front(<span style="color: #0000DD; font-weight: bold">2</span>);
+    object.Insert_at_Front(<span style="color: #0000DD; font-weight: bold">3</span>);
+    object.Display();
+
+    object.Insert_at_End(<span style="color: #0000DD; font-weight: bold">4</span>);
+    object.Insert_at_End(<span style="color: #0000DD; font-weight: bold">5</span>);
+    object.Display();
+
+    object.Delete_at_Front();
+    object.Delete_at_Front();
+    object.Display();
+
+    object.Insert_at_Front(<span style="color: #0000DD; font-weight: bold">6</span>);
+    object.Insert_at_End(<span style="color: #0000DD; font-weight: bold">7</span>);
+    object.Display();
+
+    <span style="color: #008800; font-weight: bold">return</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+}
+</pre></td></tr></table></div>
+
+                </span>	
             </div>
         </div>
     </body>

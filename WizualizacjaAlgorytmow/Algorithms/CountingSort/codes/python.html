@@ -79,15 +79,57 @@
         </div>
         <div class="container">
             <div class="main">
-                <h2>Przykładowa sekcja kodu</h1>			
-                <p>to jest opis przykładowej sekcji kodu</p>
+                <h2>counting_sort</h1>			
+                <p>Funkcja wykonująca algorytm sortowania przez zliczanie.</p>
                 <span class="code">
-                    >>> TU WKLEJ KOD <<<
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">counting_sort</span>(alist, largest):
+    c <span style="color: #333333">=</span> [<span style="color: #0000DD; font-weight: bold">0</span>]<span style="color: #333333">*</span>(largest <span style="color: #333333">+</span> <span style="color: #0000DD; font-weight: bold">1</span>)
+    <span style="color: #008800; font-weight: bold">for</span> i <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span>(<span style="color: #007020">len</span>(alist)):
+        c[alist[i]] <span style="color: #333333">+=</span> <span style="color: #0000DD; font-weight: bold">1</span>
+ 
+    c[<span style="color: #0000DD; font-weight: bold">0</span>] <span style="color: #333333">=</span> c[<span style="color: #0000DD; font-weight: bold">0</span>] <span style="color: #333333">-</span> <span style="color: #0000DD; font-weight: bold">1</span>
+    <span style="color: #008800; font-weight: bold">for</span> i <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">range</span>(<span style="color: #0000DD; font-weight: bold">1</span>, largest <span style="color: #333333">+</span> <span style="color: #0000DD; font-weight: bold">1</span>):
+        c[i] <span style="color: #333333">+=</span> c[i <span style="color: #333333">-</span> <span style="color: #0000DD; font-weight: bold">1</span>]
+ 
+    result <span style="color: #333333">=</span> [<span style="color: #008800; font-weight: bold">None</span>]<span style="color: #333333">*</span><span style="color: #007020">len</span>(alist)
+ 
+    <span style="color: #008800; font-weight: bold">for</span> x <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">reversed</span>(alist):
+        result[c[x]] <span style="color: #333333">=</span> x
+        c[x] <span style="color: #333333">-=</span> <span style="color: #0000DD; font-weight: bold">1</span>
+ 
+    <span style="color: #008800; font-weight: bold">return</span> result
+</pre></td></tr></table></div>
+
                 </span>
-                <h2>Druga sekcja kodu</h1>			
-                <p>to jest opis przykładowej sekcji kodu</p>
+                <h2>main</h1>			
+                <p>Fukcja prezentująca wywołanie funkcji sortowania przez zliczanie.</p>
                 <span class="code">
-                    >>> TU WKLEJ KOD <<<
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">main</span>(): 
+    alist <span style="color: #333333">=</span> [<span style="color: #0000DD; font-weight: bold">10</span>, <span style="color: #0000DD; font-weight: bold">5</span>, <span style="color: #0000DD; font-weight: bold">8</span>, <span style="color: #0000DD; font-weight: bold">5</span>, <span style="color: #0000DD; font-weight: bold">3</span>, <span style="color: #0000DD; font-weight: bold">1</span>, <span style="color: #0000DD; font-weight: bold">5</span>, <span style="color: #0000DD; font-weight: bold">10</span>, <span style="color: #0000DD; font-weight: bold">6</span>, <span style="color: #0000DD; font-weight: bold">3</span>, <span style="color: #0000DD; font-weight: bold">2</span>]
+    k <span style="color: #333333">=</span> <span style="color: #007020">max</span>(alist)
+    sorted_list <span style="color: #333333">=</span> counting_sort(alist, k)
+    <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;Sorted list:</span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\n</span><span style="background-color: #fff0f0">&quot;</span>, sorted_list)
+</pre></td></tr></table></div>
+
                 </span>
             </div>
         </div>

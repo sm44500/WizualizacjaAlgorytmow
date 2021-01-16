@@ -79,15 +79,174 @@
         </div>
         <div class="container">
             <div class="main">
-                <h2>Przykładowa sekcja kodu</h1>			
-                <p>to jest opis przykładowej sekcji kodu</p>
+                <h2>merge_sort</h1>			
+                <p>Funkcja wykonująca algorytm sortowania przez scalanie.</p>
                 <span class="code">
-                    >>> TU WKLEJ KOD <<<
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">merge_sort</span>(<span style="color: #333399; font-weight: bold">int</span> arr[], <span style="color: #333399; font-weight: bold">int</span> start, <span style="color: #333399; font-weight: bold">int</span> end) 
+{
+    <span style="color: #888888">// check if the array is not a unit array, then dont divide anymore</span>
+
+    <span style="color: #008800; font-weight: bold">if</span> (start <span style="color: #333333">&lt;</span> end) {
+        <span style="color: #333399; font-weight: bold">int</span> mid <span style="color: #333333">=</span> (start <span style="color: #333333">+</span> end)<span style="color: #333333">/</span><span style="color: #0000DD; font-weight: bold">2</span>;
+
+        merge_sort(arr, start, mid);
+        merge_sort(arr, mid<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>, end);
+        merge(arr, start, mid, end);
+    }
+}
+</pre></td></tr></table></div>
+
                 </span>
-                <h2>Druga sekcja kodu</h1>			
-                <p>to jest opis przykładowej sekcji kodu</p>
+                <h2>merge</h1>			
+                <p>Pomocnicza funkcja służąca do "sklejania" ze sobą fragmentów tablicy.</p>
                 <span class="code">
-                    >>> TU WKLEJ KOD <<<
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">merge</span>(<span style="color: #333399; font-weight: bold">int</span> arr[], <span style="color: #333399; font-weight: bold">int</span> l, <span style="color: #333399; font-weight: bold">int</span> m, <span style="color: #333399; font-weight: bold">int</span> r)
+{
+    <span style="color: #333399; font-weight: bold">int</span> n1 <span style="color: #333333">=</span> m <span style="color: #333333">-</span> l <span style="color: #333333">+</span> <span style="color: #0000DD; font-weight: bold">1</span>;
+    <span style="color: #333399; font-weight: bold">int</span> n2 <span style="color: #333333">=</span> r <span style="color: #333333">-</span> m;
+ 
+    <span style="color: #888888">// Create temp arrays</span>
+    <span style="color: #333399; font-weight: bold">int</span> L[n1], R[n2];
+ 
+    <span style="color: #888888">// Copy data to temp arrays L[] and R[]</span>
+    <span style="color: #008800; font-weight: bold">for</span> (<span style="color: #333399; font-weight: bold">int</span> i <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>; i <span style="color: #333333">&lt;</span> n1; i<span style="color: #333333">++</span>)
+        L[i] <span style="color: #333333">=</span> arr[l <span style="color: #333333">+</span> i];
+    <span style="color: #008800; font-weight: bold">for</span> (<span style="color: #333399; font-weight: bold">int</span> j <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>; j <span style="color: #333333">&lt;</span> n2; j<span style="color: #333333">++</span>)
+        R[j] <span style="color: #333333">=</span> arr[m <span style="color: #333333">+</span> <span style="color: #0000DD; font-weight: bold">1</span> <span style="color: #333333">+</span> j];
+ 
+    <span style="color: #888888">// Merge the temp arrays back into arr[l..r]</span>
+ 
+    <span style="color: #888888">// Initial index of first subarray</span>
+    <span style="color: #333399; font-weight: bold">int</span> i <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+ 
+    <span style="color: #888888">// Initial index of second subarray</span>
+    <span style="color: #333399; font-weight: bold">int</span> j <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+ 
+    <span style="color: #888888">// Initial index of merged subarray</span>
+    <span style="color: #333399; font-weight: bold">int</span> k <span style="color: #333333">=</span> l;
+ 
+    <span style="color: #008800; font-weight: bold">while</span> (i <span style="color: #333333">&lt;</span> n1 <span style="color: #333333">&amp;&amp;</span> j <span style="color: #333333">&lt;</span> n2) {
+        <span style="color: #008800; font-weight: bold">if</span> (L[i] <span style="color: #333333">&lt;=</span> R[j]) {
+            arr[k] <span style="color: #333333">=</span> L[i];
+            i<span style="color: #333333">++</span>;
+        }
+        <span style="color: #008800; font-weight: bold">else</span> {
+            arr[k] <span style="color: #333333">=</span> R[j];
+            j<span style="color: #333333">++</span>;
+        }
+        k<span style="color: #333333">++</span>;
+    }
+ 
+    <span style="color: #888888">// Copy the remaining elements of</span>
+    <span style="color: #888888">// L[], if there are any</span>
+    <span style="color: #008800; font-weight: bold">while</span> (i <span style="color: #333333">&lt;</span> n1) {
+        arr[k] <span style="color: #333333">=</span> L[i];
+        i<span style="color: #333333">++</span>;
+        k<span style="color: #333333">++</span>;
+    }
+ 
+    <span style="color: #888888">// Copy the remaining elements of</span>
+    <span style="color: #888888">// R[], if there are any</span>
+    <span style="color: #008800; font-weight: bold">while</span> (j <span style="color: #333333">&lt;</span> n2) {
+        arr[k] <span style="color: #333333">=</span> R[j];
+        j<span style="color: #333333">++</span>;
+        k<span style="color: #333333">++</span>;
+    }
+}
+</pre></td></tr></table></div>
+
+                </span>						
+				<h2>main</h1>			
+                <p>Fukcja prezentująca wywołanie funkcji sortowania przez scalanie.</p>
+                <span class="code">
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #333399; font-weight: bold">int</span> <span style="color: #0066BB; font-weight: bold">main</span>() {
+    <span style="color: #333399; font-weight: bold">int</span> data[] <span style="color: #333333">=</span> {<span style="color: #0000DD; font-weight: bold">4</span>,<span style="color: #0000DD; font-weight: bold">1</span>,<span style="color: #0000DD; font-weight: bold">2</span>,<span style="color: #0000DD; font-weight: bold">3</span>,<span style="color: #0000DD; font-weight: bold">7</span>,<span style="color: #0000DD; font-weight: bold">8</span>,<span style="color: #0000DD; font-weight: bold">5</span>,<span style="color: #0000DD; font-weight: bold">6</span>,<span style="color: #0000DD; font-weight: bold">9</span>};
+    <span style="color: #333399; font-weight: bold">int</span> n <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">sizeof</span>(data) <span style="color: #333333">/</span> <span style="color: #008800; font-weight: bold">sizeof</span>(data[<span style="color: #0000DD; font-weight: bold">0</span>]);
+
+    merge_sort(data, <span style="color: #0000DD; font-weight: bold">0</span>, n<span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">1</span>);
+
+    printf(<span style="background-color: #fff0f0">&quot;Sorted tab:</span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\n</span><span style="background-color: #fff0f0">&quot;</span>);
+    <span style="color: #008800; font-weight: bold">for</span> (<span style="color: #333399; font-weight: bold">int</span> i <span style="color: #333333">:</span> data) 
+        cout <span style="color: #333333">&lt;&lt;</span> i <span style="color: #333333">&lt;&lt;</span> <span style="background-color: #fff0f0">&quot; &quot;</span>;
+
+    <span style="color: #008800; font-weight: bold">return</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+}
+</pre></td></tr></table></div>
+
                 </span>
             </div>
         </div>

@@ -79,16 +79,61 @@
         </div>
         <div class="container">
             <div class="main">
-                <h2>Przykładowa sekcja kodu</h1>			
-                <p>to jest opis przykładowej sekcji kodu</p>
+                <h2>Node</h1>			
+                <p>Struktura węzła listy.</p>
                 <span class="code">
-                    >>> TU WKLEJ KOD <<<
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6</pre></td><td><pre style="margin: 0; line-height: 125%">struct Node
+{
+    int num
+    Node <span style="color: #333333">*</span><span style="color: #008800; font-weight: bold">next</span>
+}
+Node <span style="color: #333333">*</span>head <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">NULL</span>
+</pre></td></tr></table></div>
+
                 </span>
-                <h2>Druga sekcja kodu</h1>			
-                <p>to jest opis przykładowej sekcji kodu</p>
+                <h2>insertNode</h1>			
+                <p>Metoda dodawająca węzeł do listy.</p>
                 <span class="code">
-                    >>> TU WKLEJ KOD <<<
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5</pre></td><td><pre style="margin: 0; line-height: 125%">insertNode(int n)
+    struct Node <span style="color: #333333">*</span>newNode <span style="color: #333333">=</span> new Node
+    newNode<span style="color: #333333">-&gt;</span>num <span style="color: #333333">=</span> n
+    newNode<span style="color: #333333">-&gt;</span><span style="color: #008800; font-weight: bold">next</span> <span style="color: #333333">=</span> head
+    head <span style="color: #333333">=</span> newNode
+</pre></td></tr></table></div>
+
                 </span>
+                <h2>deleteItem</h1>			
+                <p>Metoda usuwająca węzeł z listy.</p>
+                <span class="code">
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6
+7
+8
+9</pre></td><td><pre style="margin: 0; line-height: 125%">deleteItem()
+{
+    <span style="color: #008800; font-weight: bold">if</span>(head <span style="color: #333333">==</span> <span style="color: #008800; font-weight: bold">NULL</span>)
+        <span style="color: #008800; font-weight: bold">return</span> 
+
+    Node <span style="color: #333333">*</span>temp <span style="color: #333333">=</span> head
+    head <span style="color: #333333">=</span> head<span style="color: #333333">-&gt;</span><span style="color: #008800; font-weight: bold">next</span>
+    delete temp
+}
+</pre></td></tr></table></div>
+
+                </span>				
             </div>
         </div>
     </body>

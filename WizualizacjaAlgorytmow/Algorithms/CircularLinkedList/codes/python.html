@@ -79,16 +79,227 @@
         </div>
         <div class="container">
             <div class="main">
-                <h2>Przykładowa sekcja kodu</h1>			
-                <p>to jest opis przykładowej sekcji kodu</p>
+                <h2>Node</h1>			
+                <p>Klasa węzła listy.</p>
                 <span class="code">
-                    >>> TU WKLEJ KOD <<<
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">Node</span>(<span style="color: #007020">object</span>):
+
+	<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">__init__</span> (<span style="color: #007020">self</span>, d, n <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">None</span>):
+		<span style="color: #007020">self</span><span style="color: #333333">.</span>data <span style="color: #333333">=</span> d
+		<span style="color: #007020">self</span><span style="color: #333333">.</span>next_node <span style="color: #333333">=</span> n
+
+	<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">get_next</span> (<span style="color: #007020">self</span>):
+		<span style="color: #008800; font-weight: bold">return</span> <span style="color: #007020">self</span><span style="color: #333333">.</span>next_node
+
+	<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">set_next</span> (<span style="color: #007020">self</span>, n):
+		<span style="color: #007020">self</span><span style="color: #333333">.</span>next_node <span style="color: #333333">=</span> n
+		
+	<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">get_data</span> (<span style="color: #007020">self</span>):
+		<span style="color: #008800; font-weight: bold">return</span> <span style="color: #007020">self</span><span style="color: #333333">.</span>data
+
+	<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">set_data</span> (<span style="color: #007020">self</span>, d):
+		<span style="color: #007020">self</span><span style="color: #333333">.</span>data <span style="color: #333333">=</span> d
+		
+	<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">__str__</span>(<span style="color: #007020">self</span>):
+		<span style="color: #008800; font-weight: bold">return</span> <span style="background-color: #fff0f0">&quot;Node value: &quot;</span> <span style="color: #333333">+</span> <span style="color: #007020">str</span>(<span style="color: #007020">self</span><span style="color: #333333">.</span>data)
+</pre></td></tr></table></div>
+
+                </span>	
+                <h2>CircularLinkedList</h1>			
+                <p>Klasa listy.</p>
+				<span class="code">
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6
+7
+8
+9</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">CircularLinkedList</span> (<span style="color: #007020">object</span>):
+
+	<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">__init__</span> (<span style="color: #007020">self</span>, r <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">None</span>):
+		<span style="color: #007020">self</span><span style="color: #333333">.</span>root <span style="color: #333333">=</span> r
+		<span style="color: #007020">self</span><span style="color: #333333">.</span>size <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>
+
+	<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">get_size</span> (<span style="color: #007020">self</span>):
+		<span style="color: #008800; font-weight: bold">return</span> <span style="color: #007020">self</span><span style="color: #333333">.</span>size
+<span style="color: #333333">...</span>
+</pre></td></tr></table></div>
+
                 </span>
-                <h2>Druga sekcja kodu</h1>			
-                <p>to jest opis przykładowej sekcji kodu</p>
+                <h2>add</h1>			
+                <p>Metoda dodająca element.</p>
                 <span class="code">
-                    >>> TU WKLEJ KOD <<<
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6
+7
+8</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">add</span> (<span style="color: #007020">self</span>, d):
+    <span style="color: #008800; font-weight: bold">if</span> <span style="color: #007020">self</span><span style="color: #333333">.</span>get_size() <span style="color: #333333">==</span> <span style="color: #0000DD; font-weight: bold">0</span>:
+        <span style="color: #007020">self</span><span style="color: #333333">.</span>root <span style="color: #333333">=</span> Node(d)
+        <span style="color: #007020">self</span><span style="color: #333333">.</span>root<span style="color: #333333">.</span>set_next(<span style="color: #007020">self</span><span style="color: #333333">.</span>root)
+    <span style="color: #008800; font-weight: bold">else</span>:
+        new_node <span style="color: #333333">=</span> Node (d, <span style="color: #007020">self</span><span style="color: #333333">.</span>root<span style="color: #333333">.</span>get_next())
+        <span style="color: #007020">self</span><span style="color: #333333">.</span>root<span style="color: #333333">.</span>set_next(new_node)
+    <span style="color: #007020">self</span><span style="color: #333333">.</span>size <span style="color: #333333">+=</span> <span style="color: #0000DD; font-weight: bold">1</span>
+</pre></td></tr></table></div>
+
                 </span>
+                <h2>remove</h1>			
+                <p>Metoda usuwająca element.</p>
+				<span class="code">
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">remove</span> (<span style="color: #007020">self</span>, d):
+    this_node <span style="color: #333333">=</span> <span style="color: #007020">self</span><span style="color: #333333">.</span>root
+    prev_node <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">None</span>
+
+    <span style="color: #008800; font-weight: bold">while</span> <span style="color: #008800; font-weight: bold">True</span>:
+        <span style="color: #008800; font-weight: bold">if</span> this_node<span style="color: #333333">.</span>get_data() <span style="color: #333333">==</span> d:	<span style="color: #888888"># found</span>
+            <span style="color: #008800; font-weight: bold">if</span> prev_node <span style="color: #000000; font-weight: bold">is</span> <span style="color: #000000; font-weight: bold">not</span> <span style="color: #008800; font-weight: bold">None</span>:
+                prev_node<span style="color: #333333">.</span>set_next(this_node<span style="color: #333333">.</span>get_next())
+            <span style="color: #008800; font-weight: bold">else</span>:
+                <span style="color: #008800; font-weight: bold">while</span> this_node<span style="color: #333333">.</span>get_next() <span style="color: #333333">!=</span> <span style="color: #007020">self</span><span style="color: #333333">.</span>root:
+                    this_node <span style="color: #333333">=</span> this_node<span style="color: #333333">.</span>get_next()
+                this_node<span style="color: #333333">.</span>set_next(<span style="color: #007020">self</span><span style="color: #333333">.</span>root<span style="color: #333333">.</span>get_next())
+                <span style="color: #007020">self</span><span style="color: #333333">.</span>root <span style="color: #333333">=</span> <span style="color: #007020">self</span><span style="color: #333333">.</span>root<span style="color: #333333">.</span>get_next()
+            <span style="color: #007020">self</span><span style="color: #333333">.</span>size <span style="color: #333333">-=</span> <span style="color: #0000DD; font-weight: bold">1</span>
+            <span style="color: #008800; font-weight: bold">return</span> <span style="color: #008800; font-weight: bold">True</span>     <span style="color: #888888"># data removed</span>
+        <span style="color: #008800; font-weight: bold">elif</span> this_node<span style="color: #333333">.</span>get_next() <span style="color: #333333">==</span> <span style="color: #007020">self</span><span style="color: #333333">.</span>root:
+            <span style="color: #008800; font-weight: bold">return</span> <span style="color: #008800; font-weight: bold">False</span>	<span style="color: #888888"># data not found</span>
+        prev_node <span style="color: #333333">=</span> this_node
+        this_node <span style="color: #333333">=</span> this_node<span style="color: #333333">.</span>get_next()
+</pre></td></tr></table></div>
+
+                </span>		
+                <h2>find</h1>			
+                <p>Metoda wyszukująca dany węzeł w liście.</p>
+                <span class="code">
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6
+7
+8</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">find</span> (<span style="color: #007020">self</span>, d):
+    this_node <span style="color: #333333">=</span> <span style="color: #007020">self</span><span style="color: #333333">.</span>root
+    <span style="color: #008800; font-weight: bold">while</span> <span style="color: #008800; font-weight: bold">True</span>:
+        <span style="color: #008800; font-weight: bold">if</span> this_node<span style="color: #333333">.</span>get_data() <span style="color: #333333">==</span> d:
+            <span style="color: #008800; font-weight: bold">return</span> d
+        <span style="color: #008800; font-weight: bold">elif</span> this_node<span style="color: #333333">.</span>get_next() <span style="color: #333333">==</span> <span style="color: #007020">self</span><span style="color: #333333">.</span>root:
+            <span style="color: #008800; font-weight: bold">return</span> <span style="color: #008800; font-weight: bold">False</span>
+        this_node <span style="color: #333333">=</span> this_node<span style="color: #333333">.</span>get_next()
+</pre></td></tr></table></div>
+
+                </span>
+                <h2>print_list</h1>			
+                <p>Metoda wyświetlająca listę.</p>
+				<span class="code">
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6
+7
+8
+9</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">print_list</span> (<span style="color: #007020">self</span>):
+    <span style="color: #007020">print</span> (<span style="background-color: #fff0f0">&quot;Print List..........&quot;</span>)
+    <span style="color: #008800; font-weight: bold">if</span> <span style="color: #007020">self</span><span style="color: #333333">.</span>root <span style="color: #000000; font-weight: bold">is</span> <span style="color: #008800; font-weight: bold">None</span>:
+        <span style="color: #008800; font-weight: bold">return</span>
+    this_node <span style="color: #333333">=</span> <span style="color: #007020">self</span><span style="color: #333333">.</span>root
+    <span style="color: #007020">print</span> (this_node)
+    <span style="color: #008800; font-weight: bold">while</span> this_node<span style="color: #333333">.</span>get_next() <span style="color: #333333">!=</span> <span style="color: #007020">self</span><span style="color: #333333">.</span>root:
+        this_node <span style="color: #333333">=</span> this_node<span style="color: #333333">.</span>get_next()
+        <span style="color: #007020">print</span> (this_node)
+</pre></td></tr></table></div>
+
+                </span>				
+                <h2>main</h1>			
+                <p>Fukcja prezentująca działanie listy.</p>
+				<span class="code">
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">main</span>():
+	myList <span style="color: #333333">=</span> CircularLinkedList()
+	myList<span style="color: #333333">.</span>add(<span style="color: #0000DD; font-weight: bold">5</span>)
+	myList<span style="color: #333333">.</span>add(<span style="color: #0000DD; font-weight: bold">7</span>)
+	myList<span style="color: #333333">.</span>add(<span style="color: #0000DD; font-weight: bold">3</span>)
+	myList<span style="color: #333333">.</span>add(<span style="color: #0000DD; font-weight: bold">8</span>)
+	myList<span style="color: #333333">.</span>add(<span style="color: #0000DD; font-weight: bold">9</span>)
+
+	<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;Find 8&quot;</span>, myList<span style="color: #333333">.</span>find(<span style="color: #0000DD; font-weight: bold">8</span>))
+	<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;Find 12&quot;</span>, myList<span style="color: #333333">.</span>find(<span style="color: #0000DD; font-weight: bold">12</span>))
+
+	<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;size=&quot;</span><span style="color: #333333">+</span><span style="color: #007020">str</span>(myList<span style="color: #333333">.</span>get_size()))
+	
+	myList<span style="color: #333333">.</span>print_list()
+	myList<span style="color: #333333">.</span>remove(<span style="color: #0000DD; font-weight: bold">8</span>)
+	<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;size=&quot;</span><span style="color: #333333">+</span><span style="color: #007020">str</span>(myList<span style="color: #333333">.</span>get_size()))
+	<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;Remove 15&quot;</span>, myList<span style="color: #333333">.</span>remove(<span style="color: #0000DD; font-weight: bold">15</span>))
+	<span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;size=&quot;</span><span style="color: #333333">+</span><span style="color: #007020">str</span>(myList<span style="color: #333333">.</span>get_size()))
+	myList<span style="color: #333333">.</span>remove(<span style="color: #0000DD; font-weight: bold">5</span>)	<span style="color: #888888"># delete root node</span>
+	myList<span style="color: #333333">.</span>print_list()
+</pre></td></tr></table></div>
+
+                </span>	
             </div>
         </div>
     </body>

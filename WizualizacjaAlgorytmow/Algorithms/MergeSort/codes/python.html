@@ -79,15 +79,92 @@
         </div>
         <div class="container">
             <div class="main">
-                <h2>Przykładowa sekcja kodu</h1>			
-                <p>to jest opis przykładowej sekcji kodu</p>
+                <h2>merge_sort</h1>			
+                <p>Funkcja wykonująca algorytm sortowania przez scalanie.</p>
                 <span class="code">
-                    >>> TU WKLEJ KOD <<<
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">merge_sort</span>(L):
+    <span style="color: #008800; font-weight: bold">if</span> <span style="color: #007020">len</span>(L) <span style="color: #333333">&lt;</span> <span style="color: #0000DD; font-weight: bold">2</span>:
+        <span style="color: #008800; font-weight: bold">return</span> L[:]
+    <span style="color: #008800; font-weight: bold">else</span>:
+        <span style="color: #888888"># Finding the middle of the array</span>
+        middle <span style="color: #333333">=</span> <span style="color: #007020">int</span>(<span style="color: #007020">len</span>(L) <span style="color: #333333">/</span> <span style="color: #0000DD; font-weight: bold">2</span>)
+        <span style="color: #888888"># into 2 halves</span>
+        left <span style="color: #333333">=</span> merge_sort(L[:middle])
+        right <span style="color: #333333">=</span> merge_sort(L[middle:])
+        <span style="color: #888888"># merging (sorting) of two halfs </span>
+        <span style="color: #008800; font-weight: bold">return</span> merge(left, right)
+</pre></td></tr></table></div>
+
                 </span>
-                <h2>Druga sekcja kodu</h1>			
-                <p>to jest opis przykładowej sekcji kodu</p>
+                <h2>merge</h1>			
+                <p>Pomocnicza funkcja służąca do "sklejania" ze sobą fragmentów tablicy.</p>
                 <span class="code">
-                    >>> TU WKLEJ KOD <<<
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">merge</span>(left, right):
+    result <span style="color: #333333">=</span> []
+    i, j <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>, <span style="color: #0000DD; font-weight: bold">0</span>
+    <span style="color: #888888"># merge two halfs</span>
+    <span style="color: #008800; font-weight: bold">while</span> i <span style="color: #333333">&lt;</span> <span style="color: #007020">len</span>(left) <span style="color: #000000; font-weight: bold">and</span> j <span style="color: #333333">&lt;</span> <span style="color: #007020">len</span>(right):
+        <span style="color: #008800; font-weight: bold">if</span> left[i] <span style="color: #333333">&lt;=</span> right[j]:
+            result<span style="color: #333333">.</span>append(left[i])
+            i <span style="color: #333333">+=</span> <span style="color: #0000DD; font-weight: bold">1</span>
+        <span style="color: #008800; font-weight: bold">else</span>:
+            result<span style="color: #333333">.</span>append(right[j])
+            j <span style="color: #333333">+=</span> <span style="color: #0000DD; font-weight: bold">1</span>
+    
+    <span style="color: #888888"># add node/nodes  which left (unused) in left or right part</span>
+    <span style="color: #008800; font-weight: bold">while</span> i <span style="color: #333333">&lt;</span> <span style="color: #007020">len</span>(left):
+        result<span style="color: #333333">.</span>append(left[i])
+        i <span style="color: #333333">+=</span> <span style="color: #0000DD; font-weight: bold">1</span>
+    <span style="color: #008800; font-weight: bold">while</span> j <span style="color: #333333">&lt;</span> <span style="color: #007020">len</span>(right):
+        result<span style="color: #333333">.</span>append(right[j])
+        j <span style="color: #333333">+=</span> <span style="color: #0000DD; font-weight: bold">1</span>
+
+    <span style="color: #008800; font-weight: bold">return</span> result
+</pre></td></tr></table></div>
+
+                </span>
+				<h2>main</h1>			
+                <p>Fukcja prezentująca wywołanie funkcji sortowania przez scalanie.</p>
+                <span class="code">
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">main</span>():
+    array <span style="color: #333333">=</span> [<span style="color: #0000DD; font-weight: bold">78</span>, <span style="color: #0000DD; font-weight: bold">41</span>, <span style="color: #0000DD; font-weight: bold">4</span>, <span style="color: #0000DD; font-weight: bold">27</span>, <span style="color: #0000DD; font-weight: bold">3</span>, <span style="color: #0000DD; font-weight: bold">27</span>, <span style="color: #0000DD; font-weight: bold">8</span>, <span style="color: #0000DD; font-weight: bold">39</span>, <span style="color: #0000DD; font-weight: bold">19</span>, <span style="color: #0000DD; font-weight: bold">34</span>, <span style="color: #0000DD; font-weight: bold">6</span>, <span style="color: #0000DD; font-weight: bold">41</span>, <span style="color: #0000DD; font-weight: bold">13</span>, <span style="color: #0000DD; font-weight: bold">52</span>, <span style="color: #0000DD; font-weight: bold">16</span>]
+    <span style="color: #007020">print</span>(array)
+    <span style="color: #007020">print</span>(<span style="background-color: #fff0f0">&quot;</span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\n</span><span style="background-color: #fff0f0">Sorted list:</span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\n</span><span style="background-color: #fff0f0">&quot;</span>, merge_sort(array))
+</pre></td></tr></table></div>
+
                 </span>
             </div>
         </div>
