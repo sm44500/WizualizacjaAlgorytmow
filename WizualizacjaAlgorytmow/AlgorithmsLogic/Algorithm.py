@@ -1,4 +1,6 @@
 from PyQt5.QtWidgets import QWidget
+from copy import deepcopy
+
 import os
 import json
 
@@ -38,7 +40,7 @@ class Algorithm:
 		description - opis zmian dokonanych w zapisywanym stanie.
 		highlights - słownik z węzłami oznaczonymi innym kolorem.
 		"""
-		self.snapshots.append(Snapshot(self.data.copy(), description, highlights))
+		self.snapshots.append(Snapshot(deepcopy(self.data), description, highlights))
 
 	def add_button(self, title: str, callback, icon="", hint="" , update=True):
 		"""
