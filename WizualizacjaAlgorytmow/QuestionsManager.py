@@ -42,22 +42,28 @@ class QuestionsManager:
 		self.check_button = self.control_panel_bottom.add_button("Zakończ test", Paths.icon("eye.png"), "Sprawdza test")
 		self.check_button.clicked.connect(self.on_click_check)
 
+		self.previous_button = self.control_panel_bottom.add_button("Poprzednie", Paths.icon("backward.png"), "Poprzednie pytanie")
+		self.previous_button.clicked.connect(self.on_click_previous)
+
+		self.next_button = self.control_panel_bottom.add_button("Następne", Paths.icon("forward.png"), "Następne pytanie")
+		self.next_button.clicked.connect(self.on_click_next)
+
 		for index, answer_button in enumerate(self.questions_widget.answers):
 			answer_button.clicked.connect((lambda i: lambda: self.on_click_answer(i))(index))
 
 		self.control_icon_panel = self.control_panel_bottom.add_icon_panel()
 
-		self.first_button = self.control_icon_panel.add_button(Paths.icon("first.png"), "Pierwsze pytanie")
-		self.first_button.clicked.connect(self.on_click_first)
+		self.first_icon_button = self.control_icon_panel.add_button(Paths.icon("first.png"), "Pierwsze pytanie")
+		self.first_icon_button.clicked.connect(self.on_click_first)
 
-		self.previous_button = self.control_icon_panel.add_button(Paths.icon("backward.png"), "Poprzednie pytanie")
-		self.previous_button.clicked.connect(self.on_click_previous)
+		self.previous_icon_button = self.control_icon_panel.add_button(Paths.icon("backward.png"), "Poprzednie pytanie")
+		self.previous_icon_button.clicked.connect(self.on_click_previous)
 
-		self.next_button = self.control_icon_panel.add_button(Paths.icon("forward.png"), "Następne pytanie")
-		self.next_button.clicked.connect(self.on_click_next)
+		self.next_icon_button = self.control_icon_panel.add_button(Paths.icon("forward.png"), "Następne pytanie")
+		self.next_icon_button.clicked.connect(self.on_click_next)
 
-		self.last_button = self.control_icon_panel.add_button(Paths.icon("last.png"), "Ostatnie pytanie")
-		self.last_button.clicked.connect(self.on_click_last)
+		self.last_icon_button = self.control_icon_panel.add_button(Paths.icon("last.png"), "Ostatnie pytanie")
+		self.last_icon_button.clicked.connect(self.on_click_last)
 
 	def on_click_previous(self):
 		"""
