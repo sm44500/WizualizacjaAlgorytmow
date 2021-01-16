@@ -4,6 +4,7 @@ from PyQt5.QtGui import QColor, QIcon
 from Paths import Paths
 from AlgorithmsLogic import Algorithm
 from Widgets.DescriptionLabel import DescriptionLabel
+from Widgets.ControlPanelWidgets.ControlPanelTextBox import ControlPanelTextBox
 from Settings import Settings
 from Styles import Styles
 
@@ -58,6 +59,7 @@ class VisualisationManager:
 				button.clicked.connect(callback)
 				if update:
 					button.clicked.connect(self.on_click_last_snapshot)
+				button.clicked.connect(self.clear_textboxes)
 				button.set_hint(hint)
 				self.internal_widgets.append(button)
 			elif control_type == "TEXTBOX":
@@ -89,6 +91,10 @@ class VisualisationManager:
 		self.last_snapshot_button = self.icon_panel.add_button(Paths.icon("last.png"), "Uruchomienie ostatniego kroku.")
 		self.last_snapshot_button.clicked.connect(self.on_click_last_snapshot)
 
+	def clear_textboxes(self):
+		for control in self.internal_widgets:
+			if isinstance(control, ControlPanelTextBox):
+				control.setText("")
 
 	def on_click_first_step(self):
 		"""
