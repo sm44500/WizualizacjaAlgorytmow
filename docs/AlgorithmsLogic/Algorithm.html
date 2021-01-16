@@ -27,6 +27,8 @@
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">from PyQt5.QtWidgets import QWidget
+from copy import deepcopy
+
 import os
 import json
 
@@ -66,7 +68,7 @@ class Algorithm:
                 description - opis zmian dokonanych w zapisywanym stanie.
                 highlights - słownik z węzłami oznaczonymi innym kolorem.
                 &#34;&#34;&#34;
-                self.snapshots.append(Snapshot(self.data.copy(), description, highlights))
+                self.snapshots.append(Snapshot(deepcopy(self.data), description, highlights))
 
         def add_button(self, title: str, callback, icon=&#34;&#34;, hint=&#34;&#34; , update=True):
                 &#34;&#34;&#34;
@@ -167,7 +169,7 @@ title - pełna nazwa algorytmu. Wyswietlana w aplikacji.</p></div>
                 description - opis zmian dokonanych w zapisywanym stanie.
                 highlights - słownik z węzłami oznaczonymi innym kolorem.
                 &#34;&#34;&#34;
-                self.snapshots.append(Snapshot(self.data.copy(), description, highlights))
+                self.snapshots.append(Snapshot(deepcopy(self.data), description, highlights))
 
         def add_button(self, title: str, callback, icon=&#34;&#34;, hint=&#34;&#34; , update=True):
                 &#34;&#34;&#34;
@@ -293,7 +295,7 @@ highlights - słownik z węzłami oznaczonymi innym kolorem.</p></div>
         description - opis zmian dokonanych w zapisywanym stanie.
         highlights - słownik z węzłami oznaczonymi innym kolorem.
         &#34;&#34;&#34;
-        self.snapshots.append(Snapshot(self.data.copy(), description, highlights))</code></pre>
+        self.snapshots.append(Snapshot(deepcopy(self.data), description, highlights))</code></pre>
 </details>
 </dd>
 </dl>

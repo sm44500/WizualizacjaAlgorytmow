@@ -89,7 +89,7 @@ class TestQuestion:
                         &gt;&gt;&gt; questions = Code.fromFile(&#34;algorithm/example/test.cpp&#34;)
                 &#34;&#34;&#34;
                 questions = []
-                file = open(path, &#34;r&#34;)
+                file = open(path, &#34;r&#34;, encoding=&#34;utf-8&#34;)
                 json_file = json.load(file)
                 for json_object in json_file:
                         question = TestQuestion()
@@ -187,7 +187,7 @@ class TestQuestion:
                         &gt;&gt;&gt; questions = Code.fromFile(&#34;algorithm/example/test.cpp&#34;)
                 &#34;&#34;&#34;
                 questions = []
-                file = open(path, &#34;r&#34;)
+                file = open(path, &#34;r&#34;, encoding=&#34;utf-8&#34;)
                 json_file = json.load(file)
                 for json_object in json_file:
                         question = TestQuestion()
@@ -235,7 +235,7 @@ def from_file(path: str):
                 &gt;&gt;&gt; questions = Code.fromFile(&#34;algorithm/example/test.cpp&#34;)
         &#34;&#34;&#34;
         questions = []
-        file = open(path, &#34;r&#34;)
+        file = open(path, &#34;r&#34;, encoding=&#34;utf-8&#34;)
         json_file = json.load(file)
         for json_object in json_file:
                 question = TestQuestion()

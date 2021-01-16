@@ -44,8 +44,11 @@ class ControlPanelSingleRow(QWidget):
                 self.layout = None
                 self.label = None
                 self.input_box = None
-                self.validator = None
                 self.value = None
+                self.extra_value = None
+                self.extra_value_should_be_greater = True
+                self.minimum_value = 0
+                self.maximum_value = 1
                 self.setup_ui()
 
         def setup_ui(self):
@@ -60,13 +63,11 @@ class ControlPanelSingleRow(QWidget):
                 shadow.setOffset(1.0, 1.0)
                 shadow.setColor(QColor(127, 127, 127, 255))
 
-                self.validator = QIntValidator()
-
                 font = QFont()
                 font.setPointSize(11)
 
                 self.label = QLabel(self)
-                self.label.setMinimumSize(150, self.minimumHeight())
+                self.label.setMinimumSize(200, self.minimumHeight())
                 self.label.setFont(font)
                 self.label.setStyleSheet(Styles.label_background)
                 self.label.setAlignment(Qt.AlignCenter)
@@ -96,7 +97,7 @@ class ControlPanelSingleRow(QWidget):
                 &#34;&#34;&#34;
                 self.label.setText(&#34; &#34; + text + &#34; &#34;)
 
-        def set_int_validator(self, minimum: int = 0, maximum: int = 1):
+        def set_int_validator(self, minimum: int = 0, maximum: int = 100):
                 &#34;&#34;&#34;
                 Ustawienie trybu przyjmowania jedynie liczb całkowitych z podanego przedziału.
 
@@ -104,8 +105,15 @@ class ControlPanelSingleRow(QWidget):
                 minimum - minimalna wartość jaka może wystąpić w polu tekstowym
                 maximum - maksymalna wartość jaka może wystąpić w polu tekstowym
                 &#34;&#34;&#34;
-                self.validator.setRange(minimum, maximum)
-                self.input_box.setValidator(self.validator)
+                self.minimum_value = minimum
+                self.maximum_value = maximum
+
+        def set_extra_validator(self, extra_value, extra_value_should_be_greater: bool):
+                &#34;&#34;&#34;
+                Dodanie dodatkowych walidacji danych.
+                &#34;&#34;&#34;
+                self.extra_value = extra_value
+                self.extra_value_should_be_greater = extra_value_should_be_greater
 
         def set_value(self, value):
                 &#34;&#34;&#34;
@@ -122,7 +130,23 @@ class ControlPanelSingleRow(QWidget):
                 &#34;&#34;&#34;
                 Aktualizacja zmiennej po każdej zmianie.
                 &#34;&#34;&#34;
-                self.value[0] = int(self.input_box.text())
+                if self.input_box.text() == &#34;-&#34;:
+                        return
+                
+                try:
+                        local_value = int(self.input_box.text())
+                except ValueError:
+                        local_value = 0
+
+                if self.extra_value:
+                        if self.extra_value_should_be_greater:
+                                local_value = min(local_value, self.extra_value[0])
+                        else:
+                                local_value = max(local_value, self.extra_value[0])
+
+                local_value = min(max(local_value, self.minimum_value), self.maximum_value)
+                self.value[0] = local_value
+                self.input_box.setText(str(local_value))
 
         def set_hint(self, hint: str):
                 &#34;&#34;&#34;
@@ -238,8 +262,11 @@ parent - widget rodzic.</p></div>
                 self.layout = None
                 self.label = None
                 self.input_box = None
-                self.validator = None
                 self.value = None
+                self.extra_value = None
+                self.extra_value_should_be_greater = True
+                self.minimum_value = 0
+                self.maximum_value = 1
                 self.setup_ui()
 
         def setup_ui(self):
@@ -254,13 +281,11 @@ parent - widget rodzic.</p></div>
                 shadow.setOffset(1.0, 1.0)
                 shadow.setColor(QColor(127, 127, 127, 255))
 
-                self.validator = QIntValidator()
-
                 font = QFont()
                 font.setPointSize(11)
 
                 self.label = QLabel(self)
-                self.label.setMinimumSize(150, self.minimumHeight())
+                self.label.setMinimumSize(200, self.minimumHeight())
                 self.label.setFont(font)
                 self.label.setStyleSheet(Styles.label_background)
                 self.label.setAlignment(Qt.AlignCenter)
@@ -290,7 +315,7 @@ parent - widget rodzic.</p></div>
                 &#34;&#34;&#34;
                 self.label.setText(&#34; &#34; + text + &#34; &#34;)
 
-        def set_int_validator(self, minimum: int = 0, maximum: int = 1):
+        def set_int_validator(self, minimum: int = 0, maximum: int = 100):
                 &#34;&#34;&#34;
                 Ustawienie trybu przyjmowania jedynie liczb całkowitych z podanego przedziału.
 
@@ -298,8 +323,15 @@ parent - widget rodzic.</p></div>
                 minimum - minimalna wartość jaka może wystąpić w polu tekstowym
                 maximum - maksymalna wartość jaka może wystąpić w polu tekstowym
                 &#34;&#34;&#34;
-                self.validator.setRange(minimum, maximum)
-                self.input_box.setValidator(self.validator)
+                self.minimum_value = minimum
+                self.maximum_value = maximum
+
+        def set_extra_validator(self, extra_value, extra_value_should_be_greater: bool):
+                &#34;&#34;&#34;
+                Dodanie dodatkowych walidacji danych.
+                &#34;&#34;&#34;
+                self.extra_value = extra_value
+                self.extra_value_should_be_greater = extra_value_should_be_greater
 
         def set_value(self, value):
                 &#34;&#34;&#34;
@@ -316,7 +348,23 @@ parent - widget rodzic.</p></div>
                 &#34;&#34;&#34;
                 Aktualizacja zmiennej po każdej zmianie.
                 &#34;&#34;&#34;
-                self.value[0] = int(self.input_box.text())
+                if self.input_box.text() == &#34;-&#34;:
+                        return
+                
+                try:
+                        local_value = int(self.input_box.text())
+                except ValueError:
+                        local_value = 0
+
+                if self.extra_value:
+                        if self.extra_value_should_be_greater:
+                                local_value = min(local_value, self.extra_value[0])
+                        else:
+                                local_value = max(local_value, self.extra_value[0])
+
+                local_value = min(max(local_value, self.minimum_value), self.maximum_value)
+                self.value[0] = local_value
+                self.input_box.setText(str(local_value))
 
         def set_hint(self, hint: str):
                 &#34;&#34;&#34;
@@ -338,6 +386,23 @@ parent - widget rodzic.</p></div>
 </ul>
 <h3>Methods</h3>
 <dl>
+<dt id="WizualizacjaAlgorytmow.Widgets.ControlPanelWidgets.ControlPanelTextBoxGroup.ControlPanelSingleRow.set_extra_validator"><code class="name flex">
+<span>def <span class="ident">set_extra_validator</span></span>(<span>self, extra_value, extra_value_should_be_greater: bool)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Dodanie dodatkowych walidacji danych.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_extra_validator(self, extra_value, extra_value_should_be_greater: bool):
+        &#34;&#34;&#34;
+        Dodanie dodatkowych walidacji danych.
+        &#34;&#34;&#34;
+        self.extra_value = extra_value
+        self.extra_value_should_be_greater = extra_value_should_be_greater</code></pre>
+</details>
+</dd>
 <dt id="WizualizacjaAlgorytmow.Widgets.ControlPanelWidgets.ControlPanelTextBoxGroup.ControlPanelSingleRow.set_hint"><code class="name flex">
 <span>def <span class="ident">set_hint</span></span>(<span>self, hint: str)</span>
 </code></dt>
@@ -361,7 +426,7 @@ hint - tekst wyświetlany jako podpowiedź</p></div>
 </details>
 </dd>
 <dt id="WizualizacjaAlgorytmow.Widgets.ControlPanelWidgets.ControlPanelTextBoxGroup.ControlPanelSingleRow.set_int_validator"><code class="name flex">
-<span>def <span class="ident">set_int_validator</span></span>(<span>self, minimum: int = 0, maximum: int = 1)</span>
+<span>def <span class="ident">set_int_validator</span></span>(<span>self, minimum: int = 0, maximum: int = 100)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Ustawienie trybu przyjmowania jedynie liczb całkowitych z podanego przedziału.</p>
@@ -372,7 +437,7 @@ maximum - maksymalna wartość jaka może wystąpić w polu tekstowym</p></div>
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def set_int_validator(self, minimum: int = 0, maximum: int = 1):
+<pre><code class="python">def set_int_validator(self, minimum: int = 0, maximum: int = 100):
         &#34;&#34;&#34;
         Ustawienie trybu przyjmowania jedynie liczb całkowitych z podanego przedziału.
 
@@ -380,8 +445,8 @@ maximum - maksymalna wartość jaka może wystąpić w polu tekstowym</p></div>
         minimum - minimalna wartość jaka może wystąpić w polu tekstowym
         maximum - maksymalna wartość jaka może wystąpić w polu tekstowym
         &#34;&#34;&#34;
-        self.validator.setRange(minimum, maximum)
-        self.input_box.setValidator(self.validator)</code></pre>
+        self.minimum_value = minimum
+        self.maximum_value = maximum</code></pre>
 </details>
 </dd>
 <dt id="WizualizacjaAlgorytmow.Widgets.ControlPanelWidgets.ControlPanelTextBoxGroup.ControlPanelSingleRow.set_text"><code class="name flex">
@@ -449,13 +514,11 @@ value - tablica jednoelementowa z wartością przeznaczoną do zmiany</p></div>
         shadow.setOffset(1.0, 1.0)
         shadow.setColor(QColor(127, 127, 127, 255))
 
-        self.validator = QIntValidator()
-
         font = QFont()
         font.setPointSize(11)
 
         self.label = QLabel(self)
-        self.label.setMinimumSize(150, self.minimumHeight())
+        self.label.setMinimumSize(200, self.minimumHeight())
         self.label.setFont(font)
         self.label.setStyleSheet(Styles.label_background)
         self.label.setAlignment(Qt.AlignCenter)
@@ -490,7 +553,23 @@ value - tablica jednoelementowa z wartością przeznaczoną do zmiany</p></div>
         &#34;&#34;&#34;
         Aktualizacja zmiennej po każdej zmianie.
         &#34;&#34;&#34;
-        self.value[0] = int(self.input_box.text())</code></pre>
+        if self.input_box.text() == &#34;-&#34;:
+                return
+        
+        try:
+                local_value = int(self.input_box.text())
+        except ValueError:
+                local_value = 0
+
+        if self.extra_value:
+                if self.extra_value_should_be_greater:
+                        local_value = min(local_value, self.extra_value[0])
+                else:
+                        local_value = max(local_value, self.extra_value[0])
+
+        local_value = min(max(local_value, self.minimum_value), self.maximum_value)
+        self.value[0] = local_value
+        self.input_box.setText(str(local_value))</code></pre>
 </details>
 </dd>
 </dl>
@@ -698,6 +777,7 @@ text - treść nagłówka</p></div>
 <li>
 <h4><code><a title="WizualizacjaAlgorytmow.Widgets.ControlPanelWidgets.ControlPanelTextBoxGroup.ControlPanelSingleRow" href="#WizualizacjaAlgorytmow.Widgets.ControlPanelWidgets.ControlPanelTextBoxGroup.ControlPanelSingleRow">ControlPanelSingleRow</a></code></h4>
 <ul class="two-column">
+<li><code><a title="WizualizacjaAlgorytmow.Widgets.ControlPanelWidgets.ControlPanelTextBoxGroup.ControlPanelSingleRow.set_extra_validator" href="#WizualizacjaAlgorytmow.Widgets.ControlPanelWidgets.ControlPanelTextBoxGroup.ControlPanelSingleRow.set_extra_validator">set_extra_validator</a></code></li>
 <li><code><a title="WizualizacjaAlgorytmow.Widgets.ControlPanelWidgets.ControlPanelTextBoxGroup.ControlPanelSingleRow.set_hint" href="#WizualizacjaAlgorytmow.Widgets.ControlPanelWidgets.ControlPanelTextBoxGroup.ControlPanelSingleRow.set_hint">set_hint</a></code></li>
 <li><code><a title="WizualizacjaAlgorytmow.Widgets.ControlPanelWidgets.ControlPanelTextBoxGroup.ControlPanelSingleRow.set_int_validator" href="#WizualizacjaAlgorytmow.Widgets.ControlPanelWidgets.ControlPanelTextBoxGroup.ControlPanelSingleRow.set_int_validator">set_int_validator</a></code></li>
 <li><code><a title="WizualizacjaAlgorytmow.Widgets.ControlPanelWidgets.ControlPanelTextBoxGroup.ControlPanelSingleRow.set_text" href="#WizualizacjaAlgorytmow.Widgets.ControlPanelWidgets.ControlPanelTextBoxGroup.ControlPanelSingleRow.set_text">set_text</a></code></li>

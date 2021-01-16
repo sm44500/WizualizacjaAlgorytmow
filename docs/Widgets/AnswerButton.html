@@ -88,17 +88,21 @@ class AnswerButton(QPushButton):
                 &#34;&#34;&#34;
                 self.setToolTip(hint)
 
-        def set_highlight(self, enabled):
+        def set_highlight(self, enabled, color=&#34;&#34;):
                 &#34;&#34;&#34;
                 Wyróżnia przycisk.
 
                 Parametry:
                         enabled - bool, wartość True jeśli wyróżnić, False jeśli nie.
                 &#34;&#34;&#34;
+                text = self.raw_text
                 if enabled:
-                        self.label.setText(&#34;&lt;b&gt;&lt;u&gt;&#34; + self.raw_text + &#34;&lt;/u&gt;&lt;/b&gt;&#34;)
-                else:
-                        self.label.setText(self.raw_text)
+                        text = &#34;&lt;b&gt;&lt;u&gt;&#34; + self.raw_text + &#34;&lt;/u&gt;&lt;/b&gt;&#34;
+                
+                if color != &#34;&#34;:
+                        text = &#34;&lt;font color=\&#34;&#34; + color + &#34;\&#34;&gt;&#34; + text + &#34;&lt;/font&gt;&#34;
+
+                self.label.setText(text)
 
         def set_text(self, text: str):
                 &#34;&#34;&#34;
@@ -188,17 +192,21 @@ class AnswerButton(QPushButton):
                 &#34;&#34;&#34;
                 self.setToolTip(hint)
 
-        def set_highlight(self, enabled):
+        def set_highlight(self, enabled, color=&#34;&#34;):
                 &#34;&#34;&#34;
                 Wyróżnia przycisk.
 
                 Parametry:
                         enabled - bool, wartość True jeśli wyróżnić, False jeśli nie.
                 &#34;&#34;&#34;
+                text = self.raw_text
                 if enabled:
-                        self.label.setText(&#34;&lt;b&gt;&lt;u&gt;&#34; + self.raw_text + &#34;&lt;/u&gt;&lt;/b&gt;&#34;)
-                else:
-                        self.label.setText(self.raw_text)
+                        text = &#34;&lt;b&gt;&lt;u&gt;&#34; + self.raw_text + &#34;&lt;/u&gt;&lt;/b&gt;&#34;
+                
+                if color != &#34;&#34;:
+                        text = &#34;&lt;font color=\&#34;&#34; + color + &#34;\&#34;&gt;&#34; + text + &#34;&lt;/font&gt;&#34;
+
+                self.label.setText(text)
 
         def set_text(self, text: str):
                 &#34;&#34;&#34;
@@ -223,7 +231,7 @@ class AnswerButton(QPushButton):
 <h3>Methods</h3>
 <dl>
 <dt id="WizualizacjaAlgorytmow.Widgets.AnswerButton.AnswerButton.set_highlight"><code class="name flex">
-<span>def <span class="ident">set_highlight</span></span>(<span>self, enabled)</span>
+<span>def <span class="ident">set_highlight</span></span>(<span>self, enabled, color='')</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Wyróżnia przycisk.</p>
@@ -233,17 +241,21 @@ class AnswerButton(QPushButton):
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def set_highlight(self, enabled):
+<pre><code class="python">def set_highlight(self, enabled, color=&#34;&#34;):
         &#34;&#34;&#34;
         Wyróżnia przycisk.
 
         Parametry:
                 enabled - bool, wartość True jeśli wyróżnić, False jeśli nie.
         &#34;&#34;&#34;
+        text = self.raw_text
         if enabled:
-                self.label.setText(&#34;&lt;b&gt;&lt;u&gt;&#34; + self.raw_text + &#34;&lt;/u&gt;&lt;/b&gt;&#34;)
-        else:
-                self.label.setText(self.raw_text)</code></pre>
+                text = &#34;&lt;b&gt;&lt;u&gt;&#34; + self.raw_text + &#34;&lt;/u&gt;&lt;/b&gt;&#34;
+        
+        if color != &#34;&#34;:
+                text = &#34;&lt;font color=\&#34;&#34; + color + &#34;\&#34;&gt;&#34; + text + &#34;&lt;/font&gt;&#34;
+
+        self.label.setText(text)</code></pre>
 </details>
 </dd>
 <dt id="WizualizacjaAlgorytmow.Widgets.AnswerButton.AnswerButton.set_hint"><code class="name flex">

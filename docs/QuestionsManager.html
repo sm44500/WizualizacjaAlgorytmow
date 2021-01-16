@@ -27,8 +27,12 @@
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">import random
+
+from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QWidget, QMessageBox
 from Paths import Paths
+from Styles import Styles
+from TestScoreWindow import TestScoreWindow
 from Widgets.QuestionsWidget import QuestionsWidget
 from AlgorithmsLogic import Algorithm
 
@@ -66,22 +70,28 @@ class QuestionsManager:
                 self.check_button = self.control_panel_bottom.add_button(&#34;Zakończ test&#34;, Paths.icon(&#34;eye.png&#34;), &#34;Sprawdza test&#34;)
                 self.check_button.clicked.connect(self.on_click_check)
 
+                self.previous_button = self.control_panel_bottom.add_button(&#34;Poprzednie&#34;, Paths.icon(&#34;backward.png&#34;), &#34;Poprzednie pytanie&#34;)
+                self.previous_button.clicked.connect(self.on_click_previous)
+
+                self.next_button = self.control_panel_bottom.add_button(&#34;Następne&#34;, Paths.icon(&#34;forward.png&#34;), &#34;Następne pytanie&#34;)
+                self.next_button.clicked.connect(self.on_click_next)
+
                 for index, answer_button in enumerate(self.questions_widget.answers):
                         answer_button.clicked.connect((lambda i: lambda: self.on_click_answer(i))(index))
 
                 self.control_icon_panel = self.control_panel_bottom.add_icon_panel()
 
-                self.first_button = self.control_icon_panel.add_button(Paths.icon(&#34;first.png&#34;), &#34;Pierwsze pytanie&#34;)
-                self.first_button.clicked.connect(self.on_click_first)
+                self.first_icon_button = self.control_icon_panel.add_button(Paths.icon(&#34;first.png&#34;), &#34;Pierwsze pytanie&#34;)
+                self.first_icon_button.clicked.connect(self.on_click_first)
 
-                self.previous_button = self.control_icon_panel.add_button(Paths.icon(&#34;backward.png&#34;), &#34;Poprzednie pytanie&#34;)
-                self.previous_button.clicked.connect(self.on_click_previous)
+                self.previous_icon_button = self.control_icon_panel.add_button(Paths.icon(&#34;backward.png&#34;), &#34;Poprzednie pytanie&#34;)
+                self.previous_icon_button.clicked.connect(self.on_click_previous)
 
-                self.next_button = self.control_icon_panel.add_button(Paths.icon(&#34;forward.png&#34;), &#34;Następne pytanie&#34;)
-                self.next_button.clicked.connect(self.on_click_next)
+                self.next_icon_button = self.control_icon_panel.add_button(Paths.icon(&#34;forward.png&#34;), &#34;Następne pytanie&#34;)
+                self.next_icon_button.clicked.connect(self.on_click_next)
 
-                self.last_button = self.control_icon_panel.add_button(Paths.icon(&#34;last.png&#34;), &#34;Ostatnie pytanie&#34;)
-                self.last_button.clicked.connect(self.on_click_last)
+                self.last_icon_button = self.control_icon_panel.add_button(Paths.icon(&#34;last.png&#34;), &#34;Ostatnie pytanie&#34;)
+                self.last_icon_button.clicked.connect(self.on_click_last)
 
         def on_click_previous(self):
                 &#34;&#34;&#34;
@@ -145,14 +155,10 @@ class QuestionsManager:
                 for index, question in enumerate(self.questions):
                         answer = self.answers[index]
                         if question.check(answer):
-                                correct+=1
+                                correct += 1
 
-                question_count = len(self.questions)
-                msg_box = QMessageBox(self.main_widget)
-                msg_box.setWindowTitle(&#34;Wynik&#34;)
-                msg_box.setText(&#34;Uzyskałeś %s dobrych odpowiedzi na %s możliwych.&#34; % (correct, question_count))
-                msg_box.setStandardButtons(QMessageBox.Ok)
-                msg_box.show()
+                score_window = TestScoreWindow(self.main_widget, correct, len(self.questions))
+                score_window.show()
 
                 question = self.questions[self.current_question_index]
                 self.set_question(question)     
@@ -162,7 +168,10 @@ class QuestionsManager:
                 Odświerza interfejs
                 &#34;&#34;&#34;
                 answer = self.answers[self.current_question_index]
-                self.questions_widget.set_highlight(answer)
+                self.questions_widget.set_highlight(
+                        answer,
+                        self.questions[self.current_question_index].correct if self.is_end else -1
+                )
 
         def set_question(self, question):
                 &#34;&#34;&#34;
@@ -231,22 +240,28 @@ class QuestionsManager:
                 self.check_button = self.control_panel_bottom.add_button(&#34;Zakończ test&#34;, Paths.icon(&#34;eye.png&#34;), &#34;Sprawdza test&#34;)
                 self.check_button.clicked.connect(self.on_click_check)
 
+                self.previous_button = self.control_panel_bottom.add_button(&#34;Poprzednie&#34;, Paths.icon(&#34;backward.png&#34;), &#34;Poprzednie pytanie&#34;)
+                self.previous_button.clicked.connect(self.on_click_previous)
+
+                self.next_button = self.control_panel_bottom.add_button(&#34;Następne&#34;, Paths.icon(&#34;forward.png&#34;), &#34;Następne pytanie&#34;)
+                self.next_button.clicked.connect(self.on_click_next)
+
                 for index, answer_button in enumerate(self.questions_widget.answers):
                         answer_button.clicked.connect((lambda i: lambda: self.on_click_answer(i))(index))
 
                 self.control_icon_panel = self.control_panel_bottom.add_icon_panel()
 
-                self.first_button = self.control_icon_panel.add_button(Paths.icon(&#34;first.png&#34;), &#34;Pierwsze pytanie&#34;)
-                self.first_button.clicked.connect(self.on_click_first)
+                self.first_icon_button = self.control_icon_panel.add_button(Paths.icon(&#34;first.png&#34;), &#34;Pierwsze pytanie&#34;)
+                self.first_icon_button.clicked.connect(self.on_click_first)
 
-                self.previous_button = self.control_icon_panel.add_button(Paths.icon(&#34;backward.png&#34;), &#34;Poprzednie pytanie&#34;)
-                self.previous_button.clicked.connect(self.on_click_previous)
+                self.previous_icon_button = self.control_icon_panel.add_button(Paths.icon(&#34;backward.png&#34;), &#34;Poprzednie pytanie&#34;)
+                self.previous_icon_button.clicked.connect(self.on_click_previous)
 
-                self.next_button = self.control_icon_panel.add_button(Paths.icon(&#34;forward.png&#34;), &#34;Następne pytanie&#34;)
-                self.next_button.clicked.connect(self.on_click_next)
+                self.next_icon_button = self.control_icon_panel.add_button(Paths.icon(&#34;forward.png&#34;), &#34;Następne pytanie&#34;)
+                self.next_icon_button.clicked.connect(self.on_click_next)
 
-                self.last_button = self.control_icon_panel.add_button(Paths.icon(&#34;last.png&#34;), &#34;Ostatnie pytanie&#34;)
-                self.last_button.clicked.connect(self.on_click_last)
+                self.last_icon_button = self.control_icon_panel.add_button(Paths.icon(&#34;last.png&#34;), &#34;Ostatnie pytanie&#34;)
+                self.last_icon_button.clicked.connect(self.on_click_last)
 
         def on_click_previous(self):
                 &#34;&#34;&#34;
@@ -310,14 +325,10 @@ class QuestionsManager:
                 for index, question in enumerate(self.questions):
                         answer = self.answers[index]
                         if question.check(answer):
-                                correct+=1
+                                correct += 1
 
-                question_count = len(self.questions)
-                msg_box = QMessageBox(self.main_widget)
-                msg_box.setWindowTitle(&#34;Wynik&#34;)
-                msg_box.setText(&#34;Uzyskałeś %s dobrych odpowiedzi na %s możliwych.&#34; % (correct, question_count))
-                msg_box.setStandardButtons(QMessageBox.Ok)
-                msg_box.show()
+                score_window = TestScoreWindow(self.main_widget, correct, len(self.questions))
+                score_window.show()
 
                 question = self.questions[self.current_question_index]
                 self.set_question(question)     
@@ -327,7 +338,10 @@ class QuestionsManager:
                 Odświerza interfejs
                 &#34;&#34;&#34;
                 answer = self.answers[self.current_question_index]
-                self.questions_widget.set_highlight(answer)
+                self.questions_widget.set_highlight(
+                        answer,
+                        self.questions[self.current_question_index].correct if self.is_end else -1
+                )
 
         def set_question(self, question):
                 &#34;&#34;&#34;
@@ -390,14 +404,10 @@ Sprawdza poprawność odpowiedzi na wszystkie zadane pytania.</p></div>
         for index, question in enumerate(self.questions):
                 answer = self.answers[index]
                 if question.check(answer):
-                        correct+=1
+                        correct += 1
 
-        question_count = len(self.questions)
-        msg_box = QMessageBox(self.main_widget)
-        msg_box.setWindowTitle(&#34;Wynik&#34;)
-        msg_box.setText(&#34;Uzyskałeś %s dobrych odpowiedzi na %s możliwych.&#34; % (correct, question_count))
-        msg_box.setStandardButtons(QMessageBox.Ok)
-        msg_box.show()
+        score_window = TestScoreWindow(self.main_widget, correct, len(self.questions))
+        score_window.show()
 
         question = self.questions[self.current_question_index]
         self.set_question(question)     </code></pre>
@@ -497,7 +507,10 @@ Zmienia pytanie na poprzednie.</p></div>
         Odświerza interfejs
         &#34;&#34;&#34;
         answer = self.answers[self.current_question_index]
-        self.questions_widget.set_highlight(answer)</code></pre>
+        self.questions_widget.set_highlight(
+                answer,
+                self.questions[self.current_question_index].correct if self.is_end else -1
+        )</code></pre>
 </details>
 </dd>
 <dt id="WizualizacjaAlgorytmow.QuestionsManager.QuestionsManager.set_question"><code class="name flex">
@@ -542,22 +555,28 @@ Zmienia pytanie na poprzednie.</p></div>
         self.check_button = self.control_panel_bottom.add_button(&#34;Zakończ test&#34;, Paths.icon(&#34;eye.png&#34;), &#34;Sprawdza test&#34;)
         self.check_button.clicked.connect(self.on_click_check)
 
+        self.previous_button = self.control_panel_bottom.add_button(&#34;Poprzednie&#34;, Paths.icon(&#34;backward.png&#34;), &#34;Poprzednie pytanie&#34;)
+        self.previous_button.clicked.connect(self.on_click_previous)
+
+        self.next_button = self.control_panel_bottom.add_button(&#34;Następne&#34;, Paths.icon(&#34;forward.png&#34;), &#34;Następne pytanie&#34;)
+        self.next_button.clicked.connect(self.on_click_next)
+
         for index, answer_button in enumerate(self.questions_widget.answers):
                 answer_button.clicked.connect((lambda i: lambda: self.on_click_answer(i))(index))
 
         self.control_icon_panel = self.control_panel_bottom.add_icon_panel()
 
-        self.first_button = self.control_icon_panel.add_button(Paths.icon(&#34;first.png&#34;), &#34;Pierwsze pytanie&#34;)
-        self.first_button.clicked.connect(self.on_click_first)
+        self.first_icon_button = self.control_icon_panel.add_button(Paths.icon(&#34;first.png&#34;), &#34;Pierwsze pytanie&#34;)
+        self.first_icon_button.clicked.connect(self.on_click_first)
 
-        self.previous_button = self.control_icon_panel.add_button(Paths.icon(&#34;backward.png&#34;), &#34;Poprzednie pytanie&#34;)
-        self.previous_button.clicked.connect(self.on_click_previous)
+        self.previous_icon_button = self.control_icon_panel.add_button(Paths.icon(&#34;backward.png&#34;), &#34;Poprzednie pytanie&#34;)
+        self.previous_icon_button.clicked.connect(self.on_click_previous)
 
-        self.next_button = self.control_icon_panel.add_button(Paths.icon(&#34;forward.png&#34;), &#34;Następne pytanie&#34;)
-        self.next_button.clicked.connect(self.on_click_next)
+        self.next_icon_button = self.control_icon_panel.add_button(Paths.icon(&#34;forward.png&#34;), &#34;Następne pytanie&#34;)
+        self.next_icon_button.clicked.connect(self.on_click_next)
 
-        self.last_button = self.control_icon_panel.add_button(Paths.icon(&#34;last.png&#34;), &#34;Ostatnie pytanie&#34;)
-        self.last_button.clicked.connect(self.on_click_last)</code></pre>
+        self.last_icon_button = self.control_icon_panel.add_button(Paths.icon(&#34;last.png&#34;), &#34;Ostatnie pytanie&#34;)
+        self.last_icon_button.clicked.connect(self.on_click_last)</code></pre>
 </details>
 </dd>
 </dl>

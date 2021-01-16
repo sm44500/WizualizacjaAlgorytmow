@@ -28,51 +28,50 @@
 </summary>
 <pre><code class="python">from PyQt5.QtCore import QSize, Qt
 from PyQt5.QtGui import QIcon, QPixmap, QFont
-from PyQt5.QtWidgets import QMainWindow, QLabel, QWidget, QGridLayout
+from PyQt5.QtWidgets import QMainWindow, QLabel, QWidget, QGridLayout, QVBoxLayout
 from Styles import Styles
 from Paths import Paths
 
+WINDOW_SIZE_X = 415
+WINDOW_SIZE_Y = 400
 
 class WelcomeWindow(QMainWindow):
         &#34;&#34;&#34;
         Okno powitalne programu.
-
-        Parametry:
-        parent - widget rodzic.
         &#34;&#34;&#34;
 
-        def __init__(self, parent=None):
+        def __init__(self):
                 QMainWindow.__init__(self)
                 self.setObjectName(&#34;WelcomeWindow&#34;)
-                self.resize(400, 350)
-                self.setMinimumSize(QSize(400, 350))
-                self.setMaximumSize(QSize(400, 350))
+                self.resize(WINDOW_SIZE_X, WINDOW_SIZE_Y)
+                self.setMinimumSize(QSize(WINDOW_SIZE_X, WINDOW_SIZE_Y))
+                self.setMaximumSize(QSize(WINDOW_SIZE_X, WINDOW_SIZE_Y))
                 self.setWindowTitle(&#34;WAWI ZUT&#34;)
 
                 self.setStyleSheet(Styles.welcome_background)
                 self.setWindowIcon(QIcon(Paths.icon(&#34;window_icon.png&#34;)))
 
                 self.central_widget = QWidget()
-                self.grid = QGridLayout()
+                self.layout = QVBoxLayout()
 
                 self.setCentralWidget(self.central_widget)
-                self.centralWidget().setLayout(self.grid)
+                self.centralWidget().setLayout(self.layout)
 
                 self.logo = QLabel(self)
                 self.logo.setPixmap(QPixmap(Paths.icon(&#34;logo.png&#34;)))
                 self.logo.setAlignment(Qt.AlignCenter)
-                self.grid.addWidget(self.logo, 0, 0)
+                self.layout.addWidget(self.logo, 10)
 
-                self.grid.addWidget(add_label(&#34;\nWizualizacja Algorytmów&#34;, 12, False, Qt.AlignCenter), 1, 0)
-                self.grid.addWidget(add_label(&#34;Wydział Informatyki \nZachodniopomorski Uniwersytet Technologiczny w Szczecinie\n&#34;, 10, False, Qt.AlignCenter), 2, 0)
-                self.grid.addWidget(add_label(&#34;Oprogramowanie zrealizowane w ramach przedmiotu \nInżynierski Projekt Zespołowy 1&#34;, 10, False, Qt.AlignCenter), 3, 0)
-                self.grid.addWidget(add_label(&#34;Autorzy: Marcin Jakubowski, Aliaksei Kavaliou, Piotr Podleżański, \nMateusz Smolarkiewicz, Łukasz Więckowski, Mykhailo Yelmikheiev&#34;, 10, False, Qt.AlignLeft), 4, 0)
-                self.grid.addWidget(add_label(&#34;Opiekun projektu: dr hab.inż. Imed El Fray&#34;, 10, False, Qt.AlignLeft), 5, 0)
-                self.grid.addWidget(add_label(&#34;Konsultacja merytoryczna: dr hab.inż. Imed El Fray, \nmgr inż. Włodzimierz Chocianowicz, mgr inż. Gerard Wawrzyniak&#34;, 10, False, Qt.AlignLeft), 6, 0)
+                self.layout.addWidget(add_label(&#34;\nWizualizacja Algorytmów&#34;, 12, False, Qt.AlignCenter), 10)
+                self.layout.addWidget(add_label(&#34;Wydział Informatyki \nZachodniopomorski Uniwersytet Technologiczny w Szczecinie\n&#34;, 10, False, Qt.AlignCenter), 1)
+                self.layout.addWidget(add_label(&#34;Oprogramowanie zrealizowane w ramach przedmiotu \nInżynierski Projekt Zespołowy 1&#34;, 10, False, Qt.AlignCenter), 1)
+                self.layout.addWidget(add_label(&#34;Autorzy: Marcin Jakubowski, Aliaksei Kavaliou, Piotr Podleżański, \nMateusz Smolarkiewicz, Łukasz Więckowski, Mykhailo Yelmikheiev&#34;, 10, False, Qt.AlignLeft), 1)
+                self.layout.addWidget(add_label(&#34;Opiekun projektu: dr hab.inż. Imed El Fray&#34;, 10, False, Qt.AlignLeft), 1)
+                self.layout.addWidget(add_label(&#34;Konsultacja merytoryczna: dr hab.inż. Imed El Fray, \nmgr inż. Włodzimierz Chocianowicz, mgr inż. Gerard Wawrzyniak&#34;, 10, False, Qt.AlignLeft), 1)
 
 
 def add_label(text, size, bold, align):
-        font = QFont()
+        font = QFont(&#34;Helvetica&#34;)
         font.setPointSize(size)
         font.setBold(bold)
         label = QLabel()
@@ -99,7 +98,7 @@ def add_label(text, size, bold, align):
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def add_label(text, size, bold, align):
-        font = QFont()
+        font = QFont(&#34;Helvetica&#34;)
         font.setPointSize(size)
         font.setBold(bold)
         label = QLabel()
@@ -116,12 +115,9 @@ def add_label(text, size, bold, align):
 <dl>
 <dt id="WizualizacjaAlgorytmow.WelcomeWindow.WelcomeWindow"><code class="flex name class">
 <span>class <span class="ident">WelcomeWindow</span></span>
-<span>(</span><span>parent=None)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Okno powitalne programu.</p>
-<p>Parametry:
-parent - widget rodzic.</p></div>
+<div class="desc"><p>Okno powitalne programu.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -129,39 +125,36 @@ parent - widget rodzic.</p></div>
 <pre><code class="python">class WelcomeWindow(QMainWindow):
         &#34;&#34;&#34;
         Okno powitalne programu.
-
-        Parametry:
-        parent - widget rodzic.
         &#34;&#34;&#34;
 
-        def __init__(self, parent=None):
+        def __init__(self):
                 QMainWindow.__init__(self)
                 self.setObjectName(&#34;WelcomeWindow&#34;)
-                self.resize(400, 350)
-                self.setMinimumSize(QSize(400, 350))
-                self.setMaximumSize(QSize(400, 350))
+                self.resize(WINDOW_SIZE_X, WINDOW_SIZE_Y)
+                self.setMinimumSize(QSize(WINDOW_SIZE_X, WINDOW_SIZE_Y))
+                self.setMaximumSize(QSize(WINDOW_SIZE_X, WINDOW_SIZE_Y))
                 self.setWindowTitle(&#34;WAWI ZUT&#34;)
 
                 self.setStyleSheet(Styles.welcome_background)
                 self.setWindowIcon(QIcon(Paths.icon(&#34;window_icon.png&#34;)))
 
                 self.central_widget = QWidget()
-                self.grid = QGridLayout()
+                self.layout = QVBoxLayout()
 
                 self.setCentralWidget(self.central_widget)
-                self.centralWidget().setLayout(self.grid)
+                self.centralWidget().setLayout(self.layout)
 
                 self.logo = QLabel(self)
                 self.logo.setPixmap(QPixmap(Paths.icon(&#34;logo.png&#34;)))
                 self.logo.setAlignment(Qt.AlignCenter)
-                self.grid.addWidget(self.logo, 0, 0)
+                self.layout.addWidget(self.logo, 10)
 
-                self.grid.addWidget(add_label(&#34;\nWizualizacja Algorytmów&#34;, 12, False, Qt.AlignCenter), 1, 0)
-                self.grid.addWidget(add_label(&#34;Wydział Informatyki \nZachodniopomorski Uniwersytet Technologiczny w Szczecinie\n&#34;, 10, False, Qt.AlignCenter), 2, 0)
-                self.grid.addWidget(add_label(&#34;Oprogramowanie zrealizowane w ramach przedmiotu \nInżynierski Projekt Zespołowy 1&#34;, 10, False, Qt.AlignCenter), 3, 0)
-                self.grid.addWidget(add_label(&#34;Autorzy: Marcin Jakubowski, Aliaksei Kavaliou, Piotr Podleżański, \nMateusz Smolarkiewicz, Łukasz Więckowski, Mykhailo Yelmikheiev&#34;, 10, False, Qt.AlignLeft), 4, 0)
-                self.grid.addWidget(add_label(&#34;Opiekun projektu: dr hab.inż. Imed El Fray&#34;, 10, False, Qt.AlignLeft), 5, 0)
-                self.grid.addWidget(add_label(&#34;Konsultacja merytoryczna: dr hab.inż. Imed El Fray, \nmgr inż. Włodzimierz Chocianowicz, mgr inż. Gerard Wawrzyniak&#34;, 10, False, Qt.AlignLeft), 6, 0)</code></pre>
+                self.layout.addWidget(add_label(&#34;\nWizualizacja Algorytmów&#34;, 12, False, Qt.AlignCenter), 10)
+                self.layout.addWidget(add_label(&#34;Wydział Informatyki \nZachodniopomorski Uniwersytet Technologiczny w Szczecinie\n&#34;, 10, False, Qt.AlignCenter), 1)
+                self.layout.addWidget(add_label(&#34;Oprogramowanie zrealizowane w ramach przedmiotu \nInżynierski Projekt Zespołowy 1&#34;, 10, False, Qt.AlignCenter), 1)
+                self.layout.addWidget(add_label(&#34;Autorzy: Marcin Jakubowski, Aliaksei Kavaliou, Piotr Podleżański, \nMateusz Smolarkiewicz, Łukasz Więckowski, Mykhailo Yelmikheiev&#34;, 10, False, Qt.AlignLeft), 1)
+                self.layout.addWidget(add_label(&#34;Opiekun projektu: dr hab.inż. Imed El Fray&#34;, 10, False, Qt.AlignLeft), 1)
+                self.layout.addWidget(add_label(&#34;Konsultacja merytoryczna: dr hab.inż. Imed El Fray, \nmgr inż. Włodzimierz Chocianowicz, mgr inż. Gerard Wawrzyniak&#34;, 10, False, Qt.AlignLeft), 1)</code></pre>
 </details>
 <h3>Ancestors</h3>
 <ul class="hlist">

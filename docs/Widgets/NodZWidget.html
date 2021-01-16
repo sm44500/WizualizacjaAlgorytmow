@@ -48,7 +48,7 @@ class NodZWidget(BaseWidget):
                 self.setup_ui()
 
                 self.render_snapshot(
-                        Snapshot([],&#34;Test&#34;,[])
+                        Snapshot([],&#34;Test&#34;,{})
                 )
 
         def setup_ui(self):
@@ -62,16 +62,16 @@ class NodZWidget(BaseWidget):
                 self.nodz.scale(0.6, 0.6)
                 pass
 
-        def create_node(self, name, position=None):
-                node = self.nodz.createNode(name=name, preset=&#39;node_preset_1&#39;, position=position)
+        def create_node(self, name, preset, position=None):
+                node = self.nodz.createNode(name=name, preset=preset, position=position)
                 return node
 
-        def create_attribute(self, node, name):
+        def create_attribute(self, node, name, preset):
                 node_attr = self.nodz.createAttribute(
                         node=node,
                         name=name,
                         index=-1,
-                        preset=&#39;attr_preset_1&#39;,
+                        preset=preset,
                         plug=True,
                         socket=True,
                         dataType=str,
@@ -84,16 +84,31 @@ class NodZWidget(BaseWidget):
                 self.nodz.clearGraph()
                 nodes = snapshot.data
                 center_position = self.nodz.mapToScene(self.nodz.viewport().rect().center())
+                highlights = snapshot.highlights
 
                 for index, node in enumerate(nodes):
                         #TODO calculate pos
                         node_pos = QPointF(center_position)
-                        node_pos.setX( ((center_position.x() * 2) / len(nodes)) * (index + 1) )
-                        nodz_node = self.create_node(node.name, position=node_pos)
-                        for attr in node.attributes:
-                                nodz_attr = self.create_attribute(nodz_node, attr.name)
-                                #TODO highlight attr etc
+                        #node_pos.setX(((center_position.x() * 2) / len(nodes)) * (index + 1) - 200)
+                        node_pos.setX(center_position.x() + (index + 1) * 185 - 1000)
+                        node_pos.setY(center_position.y() + (50+ (index + 1) * 10) * (-1)**(index+1))
 
+                        if highlights[index] == Snapshot.color_idle:
+                                attr_preset = &#39;attr_color_idle&#39;
+                                node_preset = &#39;node_color_idle&#39;
+                        elif highlights[index] == Snapshot.color_selected:
+                                attr_preset = &#39;attr_color_selected&#39;
+                                node_preset = &#39;node_color_selected&#39;
+                        elif highlights[index] == Snapshot.color_current:
+                                attr_preset = &#39;attr_color_current&#39;
+                                node_preset = &#39;node_color_current&#39;
+                        elif highlights[index] == Snapshot.color_current_final:
+                                attr_preset = &#39;attr_color_current_final&#39;
+                                node_preset = &#39;node_color_current_final&#39;
+
+                        nodz_node = self.create_node(node.name, preset=node_preset, position=node_pos)
+                        for attr in node.attributes:
+                                nodz_attr = self.create_attribute(nodz_node, attr.name, attr_preset)
                         self.nodz_nodes.append(nodz_node)
 
                 for node in nodes:
@@ -144,7 +159,7 @@ class NodZWidget(BaseWidget):
                 self.setup_ui()
 
                 self.render_snapshot(
-                        Snapshot([],&#34;Test&#34;,[])
+                        Snapshot([],&#34;Test&#34;,{})
                 )
 
         def setup_ui(self):
@@ -158,16 +173,16 @@ class NodZWidget(BaseWidget):
                 self.nodz.scale(0.6, 0.6)
                 pass
 
-        def create_node(self, name, position=None):
-                node = self.nodz.createNode(name=name, preset=&#39;node_preset_1&#39;, position=position)
+        def create_node(self, name, preset, position=None):
+                node = self.nodz.createNode(name=name, preset=preset, position=position)
                 return node
 
-        def create_attribute(self, node, name):
+        def create_attribute(self, node, name, preset):
                 node_attr = self.nodz.createAttribute(
                         node=node,
                         name=name,
                         index=-1,
-                        preset=&#39;attr_preset_1&#39;,
+                        preset=preset,
                         plug=True,
                         socket=True,
                         dataType=str,
@@ -180,16 +195,31 @@ class NodZWidget(BaseWidget):
                 self.nodz.clearGraph()
                 nodes = snapshot.data
                 center_position = self.nodz.mapToScene(self.nodz.viewport().rect().center())
+                highlights = snapshot.highlights
 
                 for index, node in enumerate(nodes):
                         #TODO calculate pos
                         node_pos = QPointF(center_position)
-                        node_pos.setX( ((center_position.x() * 2) / len(nodes)) * (index + 1) )
-                        nodz_node = self.create_node(node.name, position=node_pos)
-                        for attr in node.attributes:
-                                nodz_attr = self.create_attribute(nodz_node, attr.name)
-                                #TODO highlight attr etc
+                        #node_pos.setX(((center_position.x() * 2) / len(nodes)) * (index + 1) - 200)
+                        node_pos.setX(center_position.x() + (index + 1) * 185 - 1000)
+                        node_pos.setY(center_position.y() + (50+ (index + 1) * 10) * (-1)**(index+1))
 
+                        if highlights[index] == Snapshot.color_idle:
+                                attr_preset = &#39;attr_color_idle&#39;
+                                node_preset = &#39;node_color_idle&#39;
+                        elif highlights[index] == Snapshot.color_selected:
+                                attr_preset = &#39;attr_color_selected&#39;
+                                node_preset = &#39;node_color_selected&#39;
+                        elif highlights[index] == Snapshot.color_current:
+                                attr_preset = &#39;attr_color_current&#39;
+                                node_preset = &#39;node_color_current&#39;
+                        elif highlights[index] == Snapshot.color_current_final:
+                                attr_preset = &#39;attr_color_current_final&#39;
+                                node_preset = &#39;node_color_current_final&#39;
+
+                        nodz_node = self.create_node(node.name, preset=node_preset, position=node_pos)
+                        for attr in node.attributes:
+                                nodz_attr = self.create_attribute(nodz_node, attr.name, attr_preset)
                         self.nodz_nodes.append(nodz_node)
 
                 for node in nodes:
@@ -215,7 +245,7 @@ class NodZWidget(BaseWidget):
 <h3>Methods</h3>
 <dl>
 <dt id="WizualizacjaAlgorytmow.Widgets.NodZWidget.NodZWidget.create_attribute"><code class="name flex">
-<span>def <span class="ident">create_attribute</span></span>(<span>self, node, name)</span>
+<span>def <span class="ident">create_attribute</span></span>(<span>self, node, name, preset)</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
@@ -223,12 +253,12 @@ class NodZWidget(BaseWidget):
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def create_attribute(self, node, name):
+<pre><code class="python">def create_attribute(self, node, name, preset):
         node_attr = self.nodz.createAttribute(
                 node=node,
                 name=name,
                 index=-1,
-                preset=&#39;attr_preset_1&#39;,
+                preset=preset,
                 plug=True,
                 socket=True,
                 dataType=str,
@@ -239,7 +269,7 @@ class NodZWidget(BaseWidget):
 </details>
 </dd>
 <dt id="WizualizacjaAlgorytmow.Widgets.NodZWidget.NodZWidget.create_node"><code class="name flex">
-<span>def <span class="ident">create_node</span></span>(<span>self, name, position=None)</span>
+<span>def <span class="ident">create_node</span></span>(<span>self, name, preset, position=None)</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
@@ -247,8 +277,8 @@ class NodZWidget(BaseWidget):
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def create_node(self, name, position=None):
-        node = self.nodz.createNode(name=name, preset=&#39;node_preset_1&#39;, position=position)
+<pre><code class="python">def create_node(self, name, preset, position=None):
+        node = self.nodz.createNode(name=name, preset=preset, position=position)
         return node</code></pre>
 </details>
 </dd>
@@ -265,16 +295,31 @@ class NodZWidget(BaseWidget):
         self.nodz.clearGraph()
         nodes = snapshot.data
         center_position = self.nodz.mapToScene(self.nodz.viewport().rect().center())
+        highlights = snapshot.highlights
 
         for index, node in enumerate(nodes):
                 #TODO calculate pos
                 node_pos = QPointF(center_position)
-                node_pos.setX( ((center_position.x() * 2) / len(nodes)) * (index + 1) )
-                nodz_node = self.create_node(node.name, position=node_pos)
-                for attr in node.attributes:
-                        nodz_attr = self.create_attribute(nodz_node, attr.name)
-                        #TODO highlight attr etc
+                #node_pos.setX(((center_position.x() * 2) / len(nodes)) * (index + 1) - 200)
+                node_pos.setX(center_position.x() + (index + 1) * 185 - 1000)
+                node_pos.setY(center_position.y() + (50+ (index + 1) * 10) * (-1)**(index+1))
 
+                if highlights[index] == Snapshot.color_idle:
+                        attr_preset = &#39;attr_color_idle&#39;
+                        node_preset = &#39;node_color_idle&#39;
+                elif highlights[index] == Snapshot.color_selected:
+                        attr_preset = &#39;attr_color_selected&#39;
+                        node_preset = &#39;node_color_selected&#39;
+                elif highlights[index] == Snapshot.color_current:
+                        attr_preset = &#39;attr_color_current&#39;
+                        node_preset = &#39;node_color_current&#39;
+                elif highlights[index] == Snapshot.color_current_final:
+                        attr_preset = &#39;attr_color_current_final&#39;
+                        node_preset = &#39;node_color_current_final&#39;
+
+                nodz_node = self.create_node(node.name, preset=node_preset, position=node_pos)
+                for attr in node.attributes:
+                        nodz_attr = self.create_attribute(nodz_node, attr.name, attr_preset)
                 self.nodz_nodes.append(nodz_node)
 
         for node in nodes:

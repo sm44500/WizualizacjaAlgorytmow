@@ -26,8 +26,11 @@
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">from Paths import Paths
+<pre><code class="python">import random
+
+from Paths import Paths
 from AlgorithmsLogic.Algorithm import Algorithm
+from Settings import Settings
 from Snapshot import Snapshot
 from Widgets.NodZWidget import NodZWidget
 
@@ -59,19 +62,19 @@ class ListAlgorithm(Algorithm):
         def tail(self):
                 pass
 
-        def push_front(self, value: str):
+        def push_front(self):
                 pass
 
-        def push_back(self, value: str):
+        def push_back(self):
                 pass
 
-        def pop_front(self, value: str):
+        def pop_front(self):
                 pass
 
-        def pop_back(self, value: str):
+        def pop_back(self):
                 pass
 
-        def remove(self, value: str):
+        def remove(self):
                 pass
 
         def clear(self):
@@ -85,12 +88,32 @@ class ListAlgorithm(Algorithm):
         def on_value_change(self, new_value):
                 self.textbox_value = new_value
 
+        def random_data(self):
+                &#34;&#34;&#34;
+                Metoda dodająca losowe wartości z ustalonego przedziału.
+                &#34;&#34;&#34;
+                amount_of_elements = max(0, min(Settings.input_limit[0]-len(self.data), Settings.random_data_amount[0]))
+
+                if amount_of_elements == 0:
+                        self.save_snapshot(&#34;Nie można dodać więcej elementów! Musisz zwiększyć limit w ustawieniach.&#34;)
+                        return
+
+                for i in range(amount_of_elements):
+                        self.on_value_change(str(random.randint(Settings.random_data_minimum_value[0], Settings.random_data_maximum_value[0])))
+                        self.push_back()
+
         def load_controls(self):
                 &#34;&#34;&#34;
                 Metoda tworząca klawisze oraz pola tekstowe odpowiedzialne za manipulację wizualizacją.
                 &#34;&#34;&#34;
                 self.add_textbox(&#34;Wartość elementu:&#34;, self.on_value_change, hint=&#34;Tutaj możesz wpisać dowolną wartość.&#34;)
-                self.add_button(&#34;Dodaj&#34;, self.push_back, icon=Paths.icon(&#34;plus.png&#34;), hint=&#34;Dodanie nowego elementu na koniec tablicy.&#34;)</code></pre>
+                self.add_button(&#34;Push back&#34;, self.push_back, icon=Paths.icon(&#34;plus.png&#34;), hint=&#34;Dodanie nowego elementu na koniec tablicy.&#34;)
+                self.add_button(&#34;Push front&#34;, self.push_front, icon=Paths.icon(&#34;plus.png&#34;), hint=&#34;Dodanie nowego elementu na początek tablicy.&#34;)
+                self.add_button(&#34;Pop back&#34;, self.pop_back, icon=Paths.icon(&#34;minus.png&#34;), hint=&#34;Pobranie i usunięcie elementu z końca tablicy.&#34;)
+                self.add_button(&#34;Pop front&#34;, self.pop_front, icon=Paths.icon(&#34;minus.png&#34;), hint=&#34;Pobranie i usunięcie elementu z początku tablicy.&#34;)
+                self.add_button(&#34;Usuń&#34;, self.remove, icon=Paths.icon(&#34;minus.png&#34;), hint=&#34;Usunięcie pierwszego napotkanego elementu o podanej wartości.&#34;)
+                self.add_button(&#34;Wyczyść&#34;, self.clear, icon=Paths.icon(&#34;clear.png&#34;), hint=&#34;Usunięcie wszystkich elementów oraz przywrócenie stanu początkowego.&#34;)
+                self.add_button(&#34;Losowe dane&#34;, self.random_data, icon=Paths.icon(&#34;random.png&#34;), hint=&#34;Wylosowanie danych z ustawionego przedziału.&#34;)</code></pre>
 </details>
 </section>
 <section>
@@ -147,19 +170,19 @@ title - pełna nazwa algorytmu. Wyswietlana w aplikacji.</p>
         def tail(self):
                 pass
 
-        def push_front(self, value: str):
+        def push_front(self):
                 pass
 
-        def push_back(self, value: str):
+        def push_back(self):
                 pass
 
-        def pop_front(self, value: str):
+        def pop_front(self):
                 pass
 
-        def pop_back(self, value: str):
+        def pop_back(self):
                 pass
 
-        def remove(self, value: str):
+        def remove(self):
                 pass
 
         def clear(self):
@@ -173,12 +196,32 @@ title - pełna nazwa algorytmu. Wyswietlana w aplikacji.</p>
         def on_value_change(self, new_value):
                 self.textbox_value = new_value
 
+        def random_data(self):
+                &#34;&#34;&#34;
+                Metoda dodająca losowe wartości z ustalonego przedziału.
+                &#34;&#34;&#34;
+                amount_of_elements = max(0, min(Settings.input_limit[0]-len(self.data), Settings.random_data_amount[0]))
+
+                if amount_of_elements == 0:
+                        self.save_snapshot(&#34;Nie można dodać więcej elementów! Musisz zwiększyć limit w ustawieniach.&#34;)
+                        return
+
+                for i in range(amount_of_elements):
+                        self.on_value_change(str(random.randint(Settings.random_data_minimum_value[0], Settings.random_data_maximum_value[0])))
+                        self.push_back()
+
         def load_controls(self):
                 &#34;&#34;&#34;
                 Metoda tworząca klawisze oraz pola tekstowe odpowiedzialne za manipulację wizualizacją.
                 &#34;&#34;&#34;
                 self.add_textbox(&#34;Wartość elementu:&#34;, self.on_value_change, hint=&#34;Tutaj możesz wpisać dowolną wartość.&#34;)
-                self.add_button(&#34;Dodaj&#34;, self.push_back, icon=Paths.icon(&#34;plus.png&#34;), hint=&#34;Dodanie nowego elementu na koniec tablicy.&#34;)</code></pre>
+                self.add_button(&#34;Push back&#34;, self.push_back, icon=Paths.icon(&#34;plus.png&#34;), hint=&#34;Dodanie nowego elementu na koniec tablicy.&#34;)
+                self.add_button(&#34;Push front&#34;, self.push_front, icon=Paths.icon(&#34;plus.png&#34;), hint=&#34;Dodanie nowego elementu na początek tablicy.&#34;)
+                self.add_button(&#34;Pop back&#34;, self.pop_back, icon=Paths.icon(&#34;minus.png&#34;), hint=&#34;Pobranie i usunięcie elementu z końca tablicy.&#34;)
+                self.add_button(&#34;Pop front&#34;, self.pop_front, icon=Paths.icon(&#34;minus.png&#34;), hint=&#34;Pobranie i usunięcie elementu z początku tablicy.&#34;)
+                self.add_button(&#34;Usuń&#34;, self.remove, icon=Paths.icon(&#34;minus.png&#34;), hint=&#34;Usunięcie pierwszego napotkanego elementu o podanej wartości.&#34;)
+                self.add_button(&#34;Wyczyść&#34;, self.clear, icon=Paths.icon(&#34;clear.png&#34;), hint=&#34;Usunięcie wszystkich elementów oraz przywrócenie stanu początkowego.&#34;)
+                self.add_button(&#34;Losowe dane&#34;, self.random_data, icon=Paths.icon(&#34;random.png&#34;), hint=&#34;Wylosowanie danych z ustawionego przedziału.&#34;)</code></pre>
 </details>
 <h3>Ancestors</h3>
 <ul class="hlist">
@@ -231,7 +274,13 @@ title - pełna nazwa algorytmu. Wyswietlana w aplikacji.</p>
         Metoda tworząca klawisze oraz pola tekstowe odpowiedzialne za manipulację wizualizacją.
         &#34;&#34;&#34;
         self.add_textbox(&#34;Wartość elementu:&#34;, self.on_value_change, hint=&#34;Tutaj możesz wpisać dowolną wartość.&#34;)
-        self.add_button(&#34;Dodaj&#34;, self.push_back, icon=Paths.icon(&#34;plus.png&#34;), hint=&#34;Dodanie nowego elementu na koniec tablicy.&#34;)</code></pre>
+        self.add_button(&#34;Push back&#34;, self.push_back, icon=Paths.icon(&#34;plus.png&#34;), hint=&#34;Dodanie nowego elementu na koniec tablicy.&#34;)
+        self.add_button(&#34;Push front&#34;, self.push_front, icon=Paths.icon(&#34;plus.png&#34;), hint=&#34;Dodanie nowego elementu na początek tablicy.&#34;)
+        self.add_button(&#34;Pop back&#34;, self.pop_back, icon=Paths.icon(&#34;minus.png&#34;), hint=&#34;Pobranie i usunięcie elementu z końca tablicy.&#34;)
+        self.add_button(&#34;Pop front&#34;, self.pop_front, icon=Paths.icon(&#34;minus.png&#34;), hint=&#34;Pobranie i usunięcie elementu z początku tablicy.&#34;)
+        self.add_button(&#34;Usuń&#34;, self.remove, icon=Paths.icon(&#34;minus.png&#34;), hint=&#34;Usunięcie pierwszego napotkanego elementu o podanej wartości.&#34;)
+        self.add_button(&#34;Wyczyść&#34;, self.clear, icon=Paths.icon(&#34;clear.png&#34;), hint=&#34;Usunięcie wszystkich elementów oraz przywrócenie stanu początkowego.&#34;)
+        self.add_button(&#34;Losowe dane&#34;, self.random_data, icon=Paths.icon(&#34;random.png&#34;), hint=&#34;Wylosowanie danych z ustawionego przedziału.&#34;)</code></pre>
 </details>
 </dd>
 <dt id="WizualizacjaAlgorytmow.AlgorithmsLogic.ListAlgorithm.ListAlgorithm.on_value_change"><code class="name flex">
@@ -248,7 +297,7 @@ title - pełna nazwa algorytmu. Wyswietlana w aplikacji.</p>
 </details>
 </dd>
 <dt id="WizualizacjaAlgorytmow.AlgorithmsLogic.ListAlgorithm.ListAlgorithm.pop_back"><code class="name flex">
-<span>def <span class="ident">pop_back</span></span>(<span>self, value: str)</span>
+<span>def <span class="ident">pop_back</span></span>(<span>self)</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
@@ -256,12 +305,12 @@ title - pełna nazwa algorytmu. Wyswietlana w aplikacji.</p>
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def pop_back(self, value: str):
+<pre><code class="python">def pop_back(self):
         pass</code></pre>
 </details>
 </dd>
 <dt id="WizualizacjaAlgorytmow.AlgorithmsLogic.ListAlgorithm.ListAlgorithm.pop_front"><code class="name flex">
-<span>def <span class="ident">pop_front</span></span>(<span>self, value: str)</span>
+<span>def <span class="ident">pop_front</span></span>(<span>self)</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
@@ -269,12 +318,12 @@ title - pełna nazwa algorytmu. Wyswietlana w aplikacji.</p>
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def pop_front(self, value: str):
+<pre><code class="python">def pop_front(self):
         pass</code></pre>
 </details>
 </dd>
 <dt id="WizualizacjaAlgorytmow.AlgorithmsLogic.ListAlgorithm.ListAlgorithm.push_back"><code class="name flex">
-<span>def <span class="ident">push_back</span></span>(<span>self, value: str)</span>
+<span>def <span class="ident">push_back</span></span>(<span>self)</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
@@ -282,12 +331,12 @@ title - pełna nazwa algorytmu. Wyswietlana w aplikacji.</p>
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def push_back(self, value: str):
+<pre><code class="python">def push_back(self):
         pass</code></pre>
 </details>
 </dd>
 <dt id="WizualizacjaAlgorytmow.AlgorithmsLogic.ListAlgorithm.ListAlgorithm.push_front"><code class="name flex">
-<span>def <span class="ident">push_front</span></span>(<span>self, value: str)</span>
+<span>def <span class="ident">push_front</span></span>(<span>self)</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
@@ -295,12 +344,36 @@ title - pełna nazwa algorytmu. Wyswietlana w aplikacji.</p>
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def push_front(self, value: str):
+<pre><code class="python">def push_front(self):
         pass</code></pre>
 </details>
 </dd>
+<dt id="WizualizacjaAlgorytmow.AlgorithmsLogic.ListAlgorithm.ListAlgorithm.random_data"><code class="name flex">
+<span>def <span class="ident">random_data</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Metoda dodająca losowe wartości z ustalonego przedziału.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def random_data(self):
+        &#34;&#34;&#34;
+        Metoda dodająca losowe wartości z ustalonego przedziału.
+        &#34;&#34;&#34;
+        amount_of_elements = max(0, min(Settings.input_limit[0]-len(self.data), Settings.random_data_amount[0]))
+
+        if amount_of_elements == 0:
+                self.save_snapshot(&#34;Nie można dodać więcej elementów! Musisz zwiększyć limit w ustawieniach.&#34;)
+                return
+
+        for i in range(amount_of_elements):
+                self.on_value_change(str(random.randint(Settings.random_data_minimum_value[0], Settings.random_data_maximum_value[0])))
+                self.push_back()</code></pre>
+</details>
+</dd>
 <dt id="WizualizacjaAlgorytmow.AlgorithmsLogic.ListAlgorithm.ListAlgorithm.remove"><code class="name flex">
-<span>def <span class="ident">remove</span></span>(<span>self, value: str)</span>
+<span>def <span class="ident">remove</span></span>(<span>self)</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
@@ -308,7 +381,7 @@ title - pełna nazwa algorytmu. Wyswietlana w aplikacji.</p>
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def remove(self, value: str):
+<pre><code class="python">def remove(self):
         pass</code></pre>
 </details>
 </dd>
@@ -354,6 +427,7 @@ title - pełna nazwa algorytmu. Wyswietlana w aplikacji.</p>
 <li><code><a title="WizualizacjaAlgorytmow.AlgorithmsLogic.ListAlgorithm.ListAlgorithm.pop_front" href="#WizualizacjaAlgorytmow.AlgorithmsLogic.ListAlgorithm.ListAlgorithm.pop_front">pop_front</a></code></li>
 <li><code><a title="WizualizacjaAlgorytmow.AlgorithmsLogic.ListAlgorithm.ListAlgorithm.push_back" href="#WizualizacjaAlgorytmow.AlgorithmsLogic.ListAlgorithm.ListAlgorithm.push_back">push_back</a></code></li>
 <li><code><a title="WizualizacjaAlgorytmow.AlgorithmsLogic.ListAlgorithm.ListAlgorithm.push_front" href="#WizualizacjaAlgorytmow.AlgorithmsLogic.ListAlgorithm.ListAlgorithm.push_front">push_front</a></code></li>
+<li><code><a title="WizualizacjaAlgorytmow.AlgorithmsLogic.ListAlgorithm.ListAlgorithm.random_data" href="#WizualizacjaAlgorytmow.AlgorithmsLogic.ListAlgorithm.ListAlgorithm.random_data">random_data</a></code></li>
 <li><code><a title="WizualizacjaAlgorytmow.AlgorithmsLogic.ListAlgorithm.ListAlgorithm.remove" href="#WizualizacjaAlgorytmow.AlgorithmsLogic.ListAlgorithm.ListAlgorithm.remove">remove</a></code></li>
 <li><code><a title="WizualizacjaAlgorytmow.AlgorithmsLogic.ListAlgorithm.ListAlgorithm.tail" href="#WizualizacjaAlgorytmow.AlgorithmsLogic.ListAlgorithm.ListAlgorithm.tail">tail</a></code></li>
 </ul>
