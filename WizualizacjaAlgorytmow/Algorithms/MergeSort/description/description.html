@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<link rel="stylesheet" type="text/css" href="styles.css" media="screen" />
 <html lang="pl"> 
 <head>
     <meta charset="utf-8">
@@ -11,18 +12,76 @@
 	<footer class="footer text-center py-2 theme-bg-dark"></footer>
     <header class="header text-center" onmousedown='return false;' onselectstart='return false;'></header>
     <div class="main-wrapper" onmousedown='return false;' onselectstart='return false;'>
-	    <section class="main-code">			
+	    <section class="main-code" style="background-color:#CBCBCB">			
 
+            <p>
+                <h4 class="center">
+                    Krótki opis:                    
+                </h4>
+            </p>
 
-            <p>Rekurencyjny algorytm sortowania danych, stosujący metodę dziel i zwyciężaj. Odkrycie algorytmu przypisuje się Johnowi von Neumannowi.</p>
+            <p>
+                <h5>
+                    Rekurencyjny algorytm sortowania danych, stosujący metodę dziel i zwyciężaj. Odkrycie algorytmu przypisuje się Johnowi von Neumannowi.<br>
+                    Złożoność algorytmu wynosi  n⋅log(n) , a więc jest on znacznie wydajniejszy niż sortowanie bąbelkowe,<br>
+                    przez wstawianie czy przez selekcję, gdzie złożoność jest kwadratowa.<br>
+                    Szczególnie jest przydatny zwłaszcza przy danych dostępnych sekwencyjnie (po kolei, jeden element naraz), na przykład w postaci listy jednokierunkowej
+                </h5>
+            </p>
 
-            <p>Złożoność algorytmu wynosi  n⋅log(n) , a więc jest on znacznie wydajniejszy niż sortowanie bąbelkowe, przez wstawianie czy przez selekcję, gdzie złożoność jest kwadratowa.</p> 
+            <p>&nbsp;</p> 
+            <hr>
+            <p>&nbsp;</p> 
+
+            <p>
+                <h4 class="center">
+                    Szczególny opis:                    
+                </h4>
+            </p>
+
             
-            <p>Szczególnie jest przydatny zwłaszcza przy danych dostępnych sekwencyjnie (po kolei, jeden element naraz), na przykład w postaci listy jednokierunkowej</p>
-            
+            <p>
+                <h5>
+                    Sortowanie wykorzystuje metodę „dziel i zwyciężaj”. Najważniejszym jej elementem jest<span style="color:#c90011"> scalanie</span>. 
+                </h5>
+            </p>
 
+            <p>
+                <h5>
+                    Danymi wejściowymi jest naturalnie tablica liczb (lub dowolnych elementów, które można sortować, porównując ze sobą) o rozmiarze n. <br>
+                    Dla takiej tablicy wykonywane są trzy poniższe kroki:
+                </h5>
+            </p>
 
+            <p>
+                <h5>
+                    <ul>
+                        <li>
+                            <b>Dziel:</b> tablica jest dzielona na pół, czyli na dwie podtablice o rozmiarze n/2
+                        </li>
+
+                        <li>
+                            <b>Zwyciężaj:</b> każda podtablica jest sortowana poprzez rekurencyjne wywołanie algorytmu z wyjątkiem tej o rozmiarze 1, którą siłą rzeczy jest od razu posortowana  
+                        </li>
+
+                        <li>
+                            <b>Połącz:</b> posortowane podtablice są następnie łączone w jedną posortowaną tablicę 
+                        </li>
+                    </ul>                
+                </h5>
+            </p>
+
+            <img src="resources/merge_sort1.png" alt="img3" class="center">
+            <p>&nbsp;</p> 
+            <img src="resources/merge_sort2.png" alt="img3" class="center">
+            <p>&nbsp;</p> 
+            <img src="resources/merge_sort3.png" alt="img3" class="center">
+
+            <p>&nbsp;</p> 
+            <hr>
+            <p>&nbsp;</p> 
             
+            <img src="resources/merge_sort4.png" alt="img3" class="center">
 	    </section>
     </div>
 </body>
