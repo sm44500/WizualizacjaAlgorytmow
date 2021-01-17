@@ -39,21 +39,17 @@ class CircularLinkedList(ListAlgorithm):
 		node = SinglyListNode()
 		node.data_attr.name = "Dane: " + str(value)
 
-		if self.head is None:
+		if not len(self.data):
 			self.head = node
 			self.tail = self.head
 			self.head.next = self.tail
 			self.head.next_attr.connection = self.tail.next_attr
 		else:
-			last_node = self.head
-			while last_node.next != self.head:
-				last_node = last_node.next
-
-			last_node.next = node
-			last_node.next_attr.connection = node.next_attr
-			node.next = self.head
-			node.next_attr.connection = self.head.next_attr
+			self.tail.next = node
+			self.tail.next_attr.connection = node.next_attr
 			self.tail = node
+			self.tail.next = self.head
+			self.tail.next_attr.connection = self.head.next_attr
 
 		self.data.append(node)
 		self.save_snapshot("Zakończono dodawanie elementu")
@@ -66,7 +62,7 @@ class CircularLinkedList(ListAlgorithm):
 		node = SinglyListNode()
 		node.data_attr.name = "Dane: " + str(value)
 
-		if self.head is None:
+		if not len(self.data):
 			self.head = node
 			self.tail = self.head
 			self.head.next = self.tail
@@ -86,39 +82,34 @@ class CircularLinkedList(ListAlgorithm):
 		"""
 		Metoda usuwająca element na początku listy
 		"""
-		if self.head != None:
-			tmp = self.head
-			self.head = self.head.next
-			self.head.next_attr.connection = tmp.next.next_attr
-			SinglyListNode.number -= 1
-
-			self.tail.next = self.head
-			self.tail.next_attr.connection = self.head.next_attr
-
-			self.data = self.data[1:]
-			self.save_snapshot("Zakończono usunięcie elementu")
-			return tmp
+		if len(self.data):
+			if len(self.data) > 1:
+				self.head = self.head.next
+				self.data = self.data[1:]
+				self.tail.next = self.head
+				self.tail.next_attr.connection = self.head.next_attr
+				self.save_snapshot("Zakończono usunięcie elementu")
+			else:
+				self.clear()
+		else:
+			self.save_snapshot("Usunięcie elementu nie powiodło się: lista jest pusta")
 
 	def pop_back(self):
 		"""
 		Metoda usuwająca element na końcu listy
 		"""
-		if self.head != None:
-			current = self.head
+		if len(self.data):
 			if len(self.data) > 1:
-				while current.next != self.tail:
-					current = current.next
-				self.tail = current
+				self.tail = self.data[-2]
 				self.tail.next = self.head
 				self.tail.next_attr.connection = self.head.next_attr
-
-				SinglyListNode.number -= 1
 				self.data = self.data[:-1]
+
+				self.save_snapshot("Zakończono usunięcie elementu")
 			else:
-				result = self.head
 				self.clear()
-				return result
-			self.save_snapshot("Zakończono usunięcie elementu")
+		else:
+			self.save_snapshot("Usunięcie elementu nie powiodło się: lista jest pusta")
 
 	def remove(self):
 		"""
@@ -127,23 +118,29 @@ class CircularLinkedList(ListAlgorithm):
 		value = self.textbox_value
 		node = SinglyListNode()
 		node.data_attr.name = "Dane: " + str(value)
-
-		if self.head is None:
+		if not len(self.data):
 			self.save_snapshot("Usunięcie elementu nie powiodło się: lista jest pusta")
 		else:
 			current = self.head
-			while current.next != self.head:
-				if current.next.data_attr == value:
-					current.next = current.next.next
-					current.next_attr.connection = current.next.next_attr
-					break
-				current = current.next
-
-			current.next_attr.connection = current.next_attr
-
-		SinglyListNode.number -= 1
-		self.data.remove(node)
-		self.save_snapshot("Zakończono usunięcie elementu")
+			if current.data_attr.name == node.data_attr.name:
+				self.pop_front()
+			else:
+				removed = False
+				for i in range(len(self.data)):
+					if self.data[i].data_attr.name == node.data_attr.name:
+						if i == 0:
+							self.clear()
+							break
+						self.data[i - 1].next = self.data[i + 1] if i + 1 < len(self.data) else self.head
+						self.data[i - 1].next_attr.connection = self.data[i + 1].next_attr if i + 1 < len(self.data) else self.head.next_attr
+						if i == len(self.data) - 1:
+							self.tail = self.data[i - 1]
+						self.data.remove(self.data[i])
+						removed = True
+						self.save_snapshot("Zakończono usunięcie elementu")
+						break
+					if i == len(self.data) - 1 and not removed:
+						self.save_snapshot("Usunięcie elementu nie powiodło się: nie ma węzła z takimi danymi")
 
 	def head(self):
 		"""
