@@ -45,6 +45,6 @@
             "Scalanie elemetów nie sprawdzonych w głównej części"  
         ],
         "correct": 3,
-        "explanation": "Elementy które nie zostały dodane do wynikowej tablicy w głównej pętli są uzwględnionie t tej części pseudokodu"
+        "explanation": "Elementy które nie zostały dodane do wynikowej tablicy w głównej pętli są uzwględnionie ц tej części pseudokodu"
     }    
 ]

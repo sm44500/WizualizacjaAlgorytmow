@@ -8,7 +8,7 @@
             "O(n+k)",
             "O(log(n))"
         ],
-        "correct": 3,
+        "correct": 2,
         "explanation": "Algorytm szuka danego elementu w tablicy posortowanej i stosuje metodę dziel i zwyciężaj. W każdej iteracji liczba elementów które trzeba przejrzeć zniejsza się o połowę od poprzedniej ilości."
     },
     {
@@ -20,7 +20,7 @@
             "Na posortowanej tablice algorytm działa szybciej",
             "Działa jednakowo dla posorwanej i nieposortowanej tablicy"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "Algorytm działa poprawnie tylko na tablice posortowanej."
     },
     {
