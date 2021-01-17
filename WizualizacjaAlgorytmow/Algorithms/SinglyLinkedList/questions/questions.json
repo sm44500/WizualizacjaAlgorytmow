@@ -1,6 +1,6 @@
 [
     {
-        "question": "1. Z czego się składa lista jednokierunkowa?",
+        "question": "Z czego się składa lista jednokierunkowa?",
         "image": "test.png",
         "answers": [
             "Z węzłów",
@@ -12,7 +12,7 @@
         "explanation": "Lista jednokierunkowa składa się z węzłow. Węzeł jest podstawową jednostka w liście jednokierunkowej"
     },
     {
-        "question": "2. Co jest głową listy jednokierunkowej?",
+        "question": "Co jest głową listy jednokierunkowej?",
         "image": "test.png",
         "answers": [
             "Węzeł dodany do listy jako pierwszy",
@@ -24,7 +24,7 @@
         "explanation": "Głową listy jest element znajdujący się z przodu listy, mówiąc w uproszczeniu jest to węzeł z indeksem 0 pod warunkiem że indeksację zaczynamy od wartości 0"
     },
     {
-        "question": "3. Z czego się składa węzeł listy jednokierunkowej?",
+        "question": "Z czego się składa węzeł listy jednokierunkowej?",
         "image": "test.png",
         "answers": [
             "Z liczb",
@@ -36,7 +36,7 @@
         "explanation": "Węzeł listy jednokierunkowej składa się ze wskaźnika na kolejny węzeł listy oraz z danych, które chcemy przechowywaźc w liście. Tymi danymi może być obiekt"
     },
     {
-        "question": "4. Co jest ogonem listy jednokierunkowej?",
+        "question": "Co jest ogonem listy jednokierunkowej?",
         "image": "test.png",
         "answers": [
             "Węzeł dodany do listy jako pierwszy",
