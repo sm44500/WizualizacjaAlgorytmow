@@ -1,6 +1,6 @@
 [
     {
-        "question": "1. Z czego się składa cykliczna lista jednokierunkowa?",
+        "question": "Z czego się składa cykliczna lista jednokierunkowa?",
         "image": "test.png",
         "answers": [
             "Z liczb",
@@ -12,7 +12,7 @@
         "explanation": "because yes"
     },
     {
-        "question": "2. Ogon cyklicznej listy jednokierunkowej na wskaźnik na kolejny węzeł. Jaką on ma wartość?",
+        "question": "Ogon cyklicznej listy jednokierunkowej na wskaźnik na kolejny węzeł. Jaką on ma wartość?",
         "image": "test.png",
         "answers": [
             "Adres głowy listy",
@@ -24,7 +24,7 @@
         "explanation": "Następnikiem ostatniego węzła cyklicznej listy jednokierunkowej jest głowa listy"
     },
     {
-        "question": "3. Z czego się składa węzeł listy jednokierunkowej?",
+        "question": "Z czego się składa węzeł listy jednokierunkowej?",
         "image": "test.png",
         "answers": [
             "Ze wskaźnika na poprzedni węzeł listy i ze wskaźnika na kolejny węzeł listy",
@@ -36,7 +36,7 @@
         "explanation": "Węzeł cyklicznej listy jednokierunkowej składa się ze wskaźnika na kolejny węzeł listy oraz z danych, które chcemy przechowywaźc w liście. Tymi danymi może być obiekt"
     },
     {
-        "question": "4. Co jest ogonem cyklicznej listy jednokierunkowej?",
+        "question": "Co jest ogonem cyklicznej listy jednokierunkowej?",
         "image": "test.png",
         "answers": [
             "Węzeł dodany do listy jako pierwszy",

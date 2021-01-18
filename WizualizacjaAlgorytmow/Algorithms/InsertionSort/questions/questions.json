@@ -1,6 +1,6 @@
 [
     {
-        "question": "Jaka jest złożoność obliczeniowa sortowamia przez wstawianie?",
+        "question": "Jaka jest złożoność obliczeniowa sortowania przez wstawianie?",
         "image": "",
         "answers": [
             "O(n)",
@@ -9,19 +9,19 @@
             "O(n!)"
         ],
         "correct": 1,
-        "explanation": "Algorytm opipera się na dwóch zagnieżdżonych pętlach, z których każda wykona się n razy czyli n * n"
+        "explanation": "Algorytm opiera się na dwóch zagnieżdżonych pętlach, z których każda wykona się n razy czyli n * n."
     },
     {
-        "question": "Jaki zbiór danych da najlepsze wyniki podczas sortowania przez wstawianie",
+        "question": "Jaki zbiór danych da najlepsze wyniki podczas sortowania przez wstawianie?",
         "image": "",
         "answers": [
             "z małą ilością elementów",
-            "z dużą ilością elementów, ale w niewielkim zakresie",
+            "z dowolną ilością elementów, ale w niewielkim zakresie",
             "dla dowolnego zbioru danych, algorytm będzie działał tak samo sprawnie",
             "żadna z powyższych odpowiedzi nie pasuje"
         ],
         "correct": 2,
-        "explanation": "dla małych zbiorów danych n będzie mniejsze, więc cały akgorytm będzie działał odpowiednio krócej"
+        "explanation": "Dla małych zbiorów danych n będzie mniejsze, więc cały algorytm będzie działał odpowiednio krócej."
     },
     {
         "question": "Jak należy uzupełnić brakujący fragment pseudokodu?",
@@ -33,23 +33,23 @@
             "x > d[i]"
         ],
         "correct": 3,
-        "explanation": "sprawdzamy czy wstawiany element x jest większy od aktualnie rozpatrywanego elementu"
+        "explanation": "Sprawdzamy czy wstawiany element x jest większy od aktualnie rozpatrywanego elementu."
     },
     {
         "question": "Tablice z obrazka zaczynamy sortować przez wstawianie zaczynając od 5 i idąc w dół, jak będzie wyglądać tablica po 2 przebiegach pętli zewnętrznej?",
         "image": "question4.png",
         "answers": [
-            "7 4 3 8 1 2 5",
+            "7 4 8 1 2 3 5",
             "7 4 3 1 2 5 8",
             "7 4 3 8 1 2 5",
             "3 8 1 5 2 4 7"
         ],
         "correct": 3,
-        "explanation": "po dwóch iteracjach pętli głównej, dwa następne elementy 5 i 1 trafią na swoje miejsce do posortowanej części"
+        "explanation": "Po dwóch iteracjach pętli głównej, dwa następne elementy 5 i 1 trafią na swoje miejsce do posortowanej części."
     },
     {
-        "question": "[ 8 2 3 9 1 4 5 3 ] zaczynając sortować elementy od 5 ile razy zostaną powtózone pętle wewnętrzne?",
-        "image": "test.png",
+        "question": "Zaczynając sortować elementy od 5 ile razy zostaną powtórzone pętle wewnętrzne?",
+        "image": "question5",
         "answers": [
             "14",
             "12",
@@ -57,6 +57,30 @@
             "8"
         ],
         "correct": 0,
-        "explanation": "pętla wewnętrzna jest przerywana jeżeli obiekt trafi na swoje miejsce, może się nie rozpocząć, jeżeli element od początku jest na swoim miejscu"
+        "explanation": "Pętla wewnętrzna jest przerywana jeżeli obiekt trafi na swoje miejsce, może się nie rozpocząć, jeżeli element od początku jest na swoim miejscu."
+    },
+    {
+        "question": "Które z poniższych twierdzeń jest fałszywe?",
+        "image": "",
+        "answers": [
+            "algorytm jest wydajny dla danych wstępnie posortowanych",
+            "algorytm jest stabilny",
+            "liczba wykonanych porównań nie jest zależna od liczby inwersji w permutacji",
+            "algorytm jest wydajny dla zbiorów o niewielkiej liczebności"
+        ],
+        "correct": 2,
+        "explanation":""
+    },
+    {
+        "question": "Zaczynając sortować elementy od 7 ile razy zostaną powtórzone pętle wewnętrzne?",
+        "image": "question6",
+        "answers": [
+            "14",
+            "12",
+            "64",
+            "8"
+        ],
+        "correct": 1,
+        "explanation": "Pętla wewnętrzna jest przerywana jeżeli obiekt trafi na swoje miejsce, może się nie rozpocząć, jeżeli element od początku jest na swoim miejscu."
     }
 ]

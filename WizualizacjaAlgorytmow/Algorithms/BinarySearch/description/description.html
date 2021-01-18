@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pl"> 
+<link rel="stylesheet" type="text/css" href="styles.css" media="screen" />
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,10 +12,61 @@
 	<footer class="footer text-center py-2 theme-bg-dark"></footer>
     <header class="header text-center" onmousedown='return false;' onselectstart='return false;'></header>
     <div class="main-wrapper" onmousedown='return false;' onselectstart='return false;'>
-	    <section class="main-code">			
-            <p>Algorytm szuka danego elementu w tablicy uporządkowanej (posortowanej). Złożoność obliczeniowa tego sposobu wyszukiwania jest rzędu O(log)</p>
-            <p>Algorytm jest realizowany metodą "dziel i zwyciężaj". Dzieli on tablicę na mniejsze podtablice do momentu wyszukania pozycji (lub nie w przypadku gdy taki element nie istnieje) elementu szukanego.</p>
-	    </section>
+        <section class="main-code" style="background-color:#CBCBCB">			
+            
+            <p>
+                <h4 class="center">
+                    Krótki opis:                    
+                </h4>
+            </p>
+            <p>
+                <h5>
+                    Algorytm szuka danego elementu w tablicy uporządkowanej (posortowanej). Złożoność obliczeniowa tego sposobu wyszukiwania jest rzędu O(log)
+                </h5>
+            </p>
+            <p>
+                <h5>
+                    Algorytm jest realizowany metodą "dziel i zwyciężaj". Dzieli on tablicę na mniejsze podtablice do momentu wyszukania pozycji (lub nie w przypadku gdy taki element nie istnieje) elementu szukanego.
+                </h5>
+            </p>
+
+            <p>&nbsp;</p> 
+            <hr>
+            <p>&nbsp;</p> 
+            
+            <p>
+                <h4 class="center">
+                    Szczególny opis:                    
+                </h4>
+            </p>
+
+            <img src="resources/binary_search1.png" alt="img3" class="center">
+
+            <p>&nbsp;</p> 
+            <hr>
+            <p>&nbsp;</p> 
+
+
+            <h4 class="center">
+                <b>C_best(n) = 1</b>
+            </h4>
+            <h5 class="center">
+                <span style="color:#007406">Przypadek optymistyczny: x = A[(1+N)//2] (w „środku” tablicy)</span> <br>
+                Czas wykonania w przypadku optymistycznym <u>nie zależy od N</u><br>
+            </h5>
+
+            <h4 class="center">
+                <b>C_worst(n) ≈ lg(N)</b>
+            </h4>
+            <h5 class="center">
+                <span style="color:#007406">Liczba pozostałych do zbadania wartości w każdej iteracji zmniejsza się dwukrotnie. <br>
+                Przed pierwszą iteracją wynosi N;<br>
+                w ostatniej (M-tej) iteracji wynosi 2.<br></span>
+            </h5>
+
+            <img src="resources/binary_search4.png" alt="img3" class="center2">
+            
+        </section>
     </div>
 </body>
 </html>

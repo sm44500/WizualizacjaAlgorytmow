@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<link rel="stylesheet" type="text/css" href="styles.css" media="screen" />
 <html lang="pl"> 
 <head>
     <meta charset="utf-8">
@@ -11,14 +12,121 @@
 	<footer class="footer text-center py-2 theme-bg-dark"></footer>
     <header class="header text-center" onmousedown='return false;' onselectstart='return false;'></header>
     <div class="main-wrapper" onmousedown='return false;' onselectstart='return false;'>
-	    <section class="main-code">			
+	    <section class="main-code" style="background-color:#CBCBCB">			
+            <p>
+                <h4 class="center">
+                    Krótki opis:                    
+                </h4>
+            </p>
 
+            <p>
+                <h5>
+                    Lista – struktura danych służąca do reprezentacji zbiorów dynamicznych, w której elementy ułożone są w liniowym porządku.<br>
+                    Rozróżniane są dwa podstawowe rodzaje list: lista jednokierunkowa w której z każdego elementu możliwe jest przejście do jego następnika <br>
+                    oraz lista dwukierunkowa w której z każdego elementu możliwe jest przejście do jego poprzednika i następnika.
+                </h5>
+            </p>
 
-            <p>Lista – struktura danych służąca do reprezentacji zbiorów dynamicznych, w której elementy ułożone są w liniowym porządku. Rozróżniane są dwa podstawowe rodzaje list: lista jednokierunkowa w której z każdego elementu możliwe jest przejście do jego następnika oraz lista dwukierunkowa w której z każdego elementu możliwe jest przejście do jego poprzednika i następnika.</p> 
+            <p>&nbsp;</p> 
+            <hr>
+            <p>&nbsp;</p> 
 
-            <p>Lista dwukierunkowa – w każdym elemencie listy jest przechowywane odniesienie zarówno do następnika, jak i poprzednika elementu w liście. Taka reprezentacja umożliwia swobodne przemieszczanie się po liście w obie strony.</p>
+            <p>
+                <h4 class="center">
+                    Szczególny opis:                    
+                </h4>
+            </p>
+
+            <p>
+                <h5>
+                    Lista wskaźnikowa jest strukturą dynamiczną, co w praktyce oznacza możliwość jej uzupełniania o kolejne węzły „do kresu możliwości pamięci fizycznej”.
+                </h5>
+            </p>
+
+            <img src="resources/singly_linked_list1.png" alt="img3" class="center">
+
+            <p>
+                <h5>
+                    Mechanizm wskazywania, iż pewien węzeł jest ostatnim węzłem listy,<br> 
+                    najczęściej wykorzystuje<b> NULL (nil, UNKNOWN)</b> jako umowną wartość wskaźnika do nieistniejącego następnika.
+                </h5>
+            </p>
+
+            <p>&nbsp;</p> 
+            <p>
+                <h4>
+                    Wstawienie nowego elementu:                  
+                </h4>
+            </p>
+            <p>
+                <h5>
+                    Mechanizm wskazywania, iż pewien węzeł jest ostatnim węzłem listy,<br> 
+                    najczęściej wykorzystuje<b> NULL (nil, UNKNOWN)</b> jako umowną wartość wskaźnika do nieistniejącego następnika.
+                </h5>
+            </p>
+
+            <h5>
+                <ul>
+                    <li>
+                        jeśli ma to nastąpić na początku listy, to wskaźnik <br> 
+                        do następnika w nowym węźle ustawia się na dotychczasowy początek listy (czoło),<br> 
+                        jednocześnie modyfikując informację o lokalizacji nowego czoła listy;
+                    </li>
+
+                    <li>
+                        jeśli ma to nastąpić na końcu listy, to wskaźnik w obiekcie ostatnim ustawia się na nowy element składowy (węzeł);
+                    </li>
+
+                    <li>
+                        jeśli ma to nastąpić wewnątrz listy, to wskaźnik ustawia się na następnik elementu,<br> 
+                        przed którym ma być wstawiany, zaś wskaźnik poprzednika przestawia się na ten nowy węzeł.
+                    </li>
+                </ul>                
+            </h5>
+
+            <img src="resources/singly_linked_list2.png" alt="img3" class="center">
+
+            <p>&nbsp;</p> 
+            <p>
+                <h4>
+                    Usunięcie elementu (o wskazanym kluczu):                 
+                </h4>
+            </p>
+
+            <h5>
+                <ul>
+                    <li>
+                        najpierw trzeba go odnaleźć, przemieszczając się od czoła listy kierunku jej końca, a jeśli wyszukiwanie zakończy się sukcesem to:
+                    </li>
+
+                    <li>
+                        jeśli jest to pierwszy węzeł listy (czoło), to należy zmodyfikować informację o lokalizacji nowego czoła listy;
+                    </li>
+
+                    <li>
+                        jeśli ma to nastąpić na końcu listy, to wskaźnik w przedostatnim (jeśli usuwany węzeł nie jest jedynym) ustawia się na NULL;
+                    </li>
+
+                    <li>
+                        jeśli ma to nastąpić wewnątrz listy, to należy przechować tymczasowo wskaźnik do usuwanego elementu (aby nie "zgubić" jego adresu), <br>
+                        a następnie wskaźnik wiążący poprzednika ustawić na następnik usuwanego elementu.
+                    </li>
+                </ul>                
+            </h5>
+
+            <img src="resources/singly_linked_list3.png" alt="img3" class="center">
+
+            <p>&nbsp;</p> 
+            <hr>
+            <p>&nbsp;</p> 
             
-
+            <p>
+                <h5>
+                    Lista dwukierunkowa – w każdym elemencie listy jest przechowywane odniesienie zarówno do następnika, jak i poprzednika elementu w liście.<br>
+                    Taka reprezentacja umożliwia swobodne przemieszczanie się po liście w obie strony.
+                </h5>
+            </p>
+            <img src="resources/bidirectional_list1.png" alt="img3" class="center">
 	    </section>
     </div>
 </body>

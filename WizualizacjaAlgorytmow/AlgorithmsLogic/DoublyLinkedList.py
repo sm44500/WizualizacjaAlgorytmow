@@ -41,7 +41,7 @@ class DoublyLinkedList(ListAlgorithm):
 		node = DoublyListNode()
 		node.data_attr.name = "Dane: " + str(value)
 
-		if self.head is None:
+		if not len(self.data):
 			self.head = node
 		else:
 			last_node = self.head
@@ -63,10 +63,10 @@ class DoublyLinkedList(ListAlgorithm):
 		Metoda dodająca element na początku listy
 		"""
 		value = self.textbox_value
-		node = SinglyListNode()
+		node = DoublyListNode()
 		node.data_attr.name = "Dane: " + str(value)
 
-		if self.head is None:
+		if not len(self.data):
 			self.head = node
 		else:
 			tmp = self.head
@@ -83,66 +83,68 @@ class DoublyLinkedList(ListAlgorithm):
 		"""
 		Metoda usuwająca element na początku listy
 		"""
-		if self.head != None:
-			tmp = self.head
-			self.head = self.head.next
-			self.head.next_attr.connection = tmp.next.next_attr
+		if len(self.data):
+			if len(self.data) > 1:
+				self.head = self.head.next
 
-			self.head.previous = None
-			self.head.previous_attr = None
+				self.head.previous = None
+				self.head.previous_attr.connection = None
 
-			DoublyListNode.number -= 1
-			self.data = self.data[1:]
-			self.save_snapshot("Zakończono usunięcie elementu")
-			return tmp
+				self.data = self.data[1:]
+				self.save_snapshot("Zakończono usunięcie elementu")
+			else:
+				self.clear()
+		else:
+			self.save_snapshot("Usunięcie elementu nie powiodło się: lista jest pusta")
 
 	def pop_back(self):
 		"""
 		Metoda usuwająca element na końcu listy
 		"""
-		if self.head != None:
+		if len(self.data):
 			current = self.head
 			if len(self.data) > 1:
-				while current.next != self.tail:
-					current = current.next
-				tmp = self.tail
-				self.tail = current
+				self.tail = self.data[-2]
 				self.tail.next = None
-				self.tail.next_attr = None
-				DoublyListNode.number -= 1
+				self.tail.next_attr.connection = None
+				self.data = self.data[:-1]
 			else:
-				result = self.head
 				self.clear()
-				return result
 			self.save_snapshot("Zakończono usunięcie elementu")
+		else:
+			self.save_snapshot("Usunięcie elementu nie powiodło się: lista jest pusta")
 
 	def remove(self):
 		"""
 		Metoda usuwająca element o wskazanej wartości
 		"""
 		value = self.textbox_value
-		node = SinglyListNode()
+		node = DoublyListNode()
 		node.data_attr.name = "Dane: " + str(value)
 
-		if self.head is None:
+		if not len(self.data):
 			self.save_snapshot("Usunięcie elementu nie powiodło się: lista jest pusta")
 		else:
+			removed = False
 			current = self.head
-			while current.next != None:
-				if current.next.data_attr == value:
-					current.next = current.next.next
-					current.next_attr.connection = current.next.next_attr
+			if current.data_attr.name == node.data_attr.name:
+				self.pop_front()
+			else:
+				for i in range(len(self.data)):
+					if self.data[i].data_attr.name == node.data_attr.name:
+						self.data[i - 1].next = self.data[i + 1] if i + 1 < len(self.data) else None
+						self.data[i - 1].next_attr.connection = self.data[i + 1].next_attr if i + 1 < len(self.data) else None
 
-					current.next.previous = current
-					current.next.previous_attr.connection = current.previous_attr
-					break
-				current = current.next
+						if i + 1 < len(self.data):
+							self.data[i + 1].previous = self.data[i - 1]
+							self.data[i + 1].previous_attr.connection = self.data[i - 1].previous_attr
+						self.data.remove(self.data[i])
+						removed = True
+						self.save_snapshot("Zakończono usunięcie elementu")
+						break
+					if i == len(self.data) - 1 and not removed:
+						self.save_snapshot("Usunięcie elementu nie powiodło się: nie ma węzła z takimi danymi")
 
-			current.next_attr.connection = current.next_attr
-
-		DoublyListNode.number -= 1
-		self.data.remove(node)
-		self.save_snapshot("Zakończono usunięcie elementu")
 
 	def head(self):
 		"""

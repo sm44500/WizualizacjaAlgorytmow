@@ -1,6 +1,6 @@
 [
     {
-        "question": "Złożoność obliczeniowa wyszukiwania min jest równa",
+        "question": "Ile jest równa złożoność obliczeniowa wyszukiwania min?",
         "image": "python.png",
         "answers": [
             "O(n * n)",
@@ -9,10 +9,10 @@
             "O(n!)"
         ],
         "correct": 2,
-        "explanation": "algorytm wymaga tylko jednej pętli raz przechodzącej przez dane"
+        "explanation": "Algorytm wymaga tylko jednej pętli raz przechodzącej przez dane."
     },
     {
-        "question": "która wartość jako przedostatnia będzie zapisana jako min",
+        "question": "Która wartość jako przedostatnia będzie zapisana jako min?",
         "image": "question2.png",
         "answers": [
             "3",
@@ -21,10 +21,10 @@
             "4"
         ],
         "correct": 1,
-        "explanation": "jeżeli liczba jest większa od aktualnie zapisanej, nie jest uwzględniana"
+        "explanation": "Jeżeli liczba jest większa od aktualnie zapisanej, nie jest uwzględniana."
     },
     {
-        "question": "co należy wstawić w miejsce linii, żeby algorytm wyszukiwał min",
+        "question": "Co należy wstawić w miejsce linii, żeby algorytm wyszukiwał min?",
         "image": "question3.png",
         "answers": [
             "min == zbior[i]",
@@ -33,10 +33,10 @@
             "min > zbior[i]"
         ],
         "correct": 3,
-        "explanation": "element jest zamieniany jeżeli znajdziemy mniejszy od niego"
+        "explanation": "Element jest zamieniany jeżeli znajdziemy mniejszy od niego."
     },
     {
-        "question": "ile razy podczas przebiegu programu wartość min zostanie zmieniona",
+        "question": "Ile razy podczas przebiegu programu wartość min zostanie zmieniona?",
         "image": "question4.png",
         "answers": [
             "3",
@@ -45,7 +45,7 @@
             "5"
         ],
         "correct": 0,
-        "explanation": "jeżeli wartość porównywana jest większa od min nie jest wliczana"
+        "explanation": "Jeżeli wartość porównywana jest większa lub równa od min, nie jest wliczana."
     },
     {
         "question": "jakie wartości po kolei będzie przyjomwać algorytm wyszukiwania min",
@@ -58,5 +58,17 @@
         ],
         "correct": 2,
         "explanation": ""
+    },
+    {
+        "question": "Ile razy podczas przebiegu programu wartość min zostanie zmieniona?",
+        "image": "question5.png",
+        "answers": [
+            "7",
+            "3",
+            "4",
+            "1"
+        ],
+        "correct": 2,
+        "explanation": "Jeżeli wartość porównywana jest większa lub równa od min, nie jest wliczana."
     }
 ]

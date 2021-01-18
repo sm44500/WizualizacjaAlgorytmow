@@ -1,6 +1,6 @@
 [
     {
-        "question": "1. Z czego się składa lista dwukierunkowa?",
+        "question": "Z czego się składa lista dwukierunkowa?",
         "image": "test.png",
         "answers": [
             "Z liczb",
@@ -12,7 +12,7 @@
         "explanation": "Lista dwukierunkowa składa się z węzłow. Węzeł jest podstawową jednostka w liście dwukierunkowej"
     },
     {
-        "question": "2. Co jest głową listy dwukierunkowej?",
+        "question": "Co jest głową listy dwukierunkowej?",
         "image": "test.png",
         "answers": [
             "Węzeł znajdujący się z przodu listy",
@@ -24,7 +24,7 @@
         "explanation": "Głową listy jest element znajdujący się z przodu listy, mówiąc w uproszczeniu jest to węzeł z indeksem 0 pod warunkiem że indeksację zaczynamy od wartości 0"
     },
     {
-        "question": "3. Z czego się składa węzeł listy dwukierunkowej?",
+        "question": "Z czego się składa węzeł listy dwukierunkowej?",
         "image": "test.png",
         "answers": [
             "Z napisów",
@@ -36,7 +36,7 @@
         "explanation": "Węzeł listy dwukierunkowej składa się ze wskaźnika na poprzedni element listy, ze wskaźnika na kolejny węzeł listy oraz z danych, które chcemy przechowywaźc w liście. Tymi danymi może być obiekt"
     },
     {
-        "question": "4. Co jest ogonem listy dwukierunkowej?",
+        "question": "Co jest ogonem listy dwukierunkowej?",
         "image": "test.png",
         "answers": [
             "Węzeł dodany do listy jako pierwszy",

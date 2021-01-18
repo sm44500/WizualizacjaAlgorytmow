@@ -85,7 +85,6 @@ class SinglyLinkedList(ListAlgorithm):
 				self.save_snapshot("Zakończono usunięcie elementu")
 			else:
 				self.clear()
-				self.head = 0
 		else:
 			self.save_snapshot("Usunięcie elementu nie powiodło się: lista jest pusta")
 
@@ -94,19 +93,14 @@ class SinglyLinkedList(ListAlgorithm):
 		Metoda usuwająca element na końcu listy
 		"""
 		if len(self.data):
-			current = self.head
 			if len(self.data) > 1:
-				while current.next != None:
-					if current.next.next == None:
-						current.next = None
-						current.next_attr.connection = None
-						self.data = self.data[:-1]
-					else:
-						current = current.next
+				self.data = self.data[:-1]
+				self.data[-1].next = None
+				self.data[-1].next_attr.connection = None
+
+				self.save_snapshot("Zakończono usunięcie elementu")
 			else:
 				self.clear()
-				self.head = None
-			self.save_snapshot("Zakończono usunięcie elementu")
 		else:
 			self.save_snapshot("Usunięcie elementu nie powiodło się: lista jest pusta")
 
