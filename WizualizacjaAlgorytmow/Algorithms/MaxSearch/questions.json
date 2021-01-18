@@ -1,0 +1,98 @@
+[
+    {
+        "question": "Ile jest równa złożoność obliczeniowa wyszukiwania max?",
+        "image": "",
+        "answers": [
+            "O(n * n)",
+            "O( n log n)",
+            "O(n)",
+            "O(n!)"
+        ],
+        "correct": 2,
+        "explanation": "Algorytm wymaga tylko jednej pętli raz przechodzącej przez dane."
+    },
+    {
+        "question": "Która wartość jako przedostatnia będzie zapisana jako max?",
+        "image": "question2.png",
+        "answers": [
+            "7",
+            "4",
+            "6",
+            "5"
+        ],
+        "correct": 2,
+        "explanation": "Jeżeli liczba jest mniejsza od aktualnie zapisanej, nie jest uwzględniana."
+    },
+    {
+        "question": "Co należy wstawić w miejsce linii, żeby algorytm wyszukiwał max?",
+        "image": "question3.png",
+        "answers": [
+            "max == zbior[i]",
+            "max <= zbior[i] ",
+            "max < zbior[i]",
+            "max > zbior[i]"
+        ],
+        "correct": 2,
+        "explanation": "Element jest zamieniany jeżeli znajdziemy większy od aktualnego max."
+    },
+    {
+        "question": "Ile razy podczas przebiegu programu wartość max zostanie zmieniona?",
+        "image": "question4.png",
+        "answers": [
+            "3",
+            "4",
+            "2",
+            "5"
+        ],
+        "correct": 1,
+        "explanation": "Jeżeli wartość porównywana jest mniejsza lub równa max nie jest wliczana."
+    },
+    {
+        "question": "Jakie wartości po kolei będzie przyjomwać algorytm wyszukiwania max?",
+        "image": "question5.png",
+        "answers": [
+            "2, 4, 6, 8, 9",
+            "9",
+            "2, 2, 4, 6, 8, 9",
+            "2, 1, 2, 4, 3, 6, 5, 8, 9"
+        ],
+        "correct": 0,
+        "explanation": ""
+    },
+    {
+        "question": "Jakie wartości po kolei będzie przyjomwać algorytm wyszukiwania max?",
+        "image": "question6.png",
+        "answers": [
+            "1  2  3  4  6  8  9",
+            "1  6  8  9",
+            "6  9",
+            "1  6  8  9  9"
+        ],
+        "correct": 1,
+        "explanation": "Max jest zmieniane tylko jeżeli jest większe od aktualnego, równe nie jest uwzględniane."
+    },
+    {
+        "question": "Ile razy podczas przebiegu programu wartość max zostanie zmieniona?",
+        "image": "question6.png",
+        "answers": [
+            "5",
+            "7",
+            "2",
+            "4"
+        ],
+        "correct": 3,
+        "explanation": "Jeżeli wartość porównywana jest mniejsza lub równa max nie jest wliczana."
+    },
+    {
+        "question": "Ile razy podczas przebiegu programu wartość max zostanie zmieniona?",
+        "image": "question4.png",
+        "answers": [
+            "1",
+            "5",
+            "9",
+            "6"
+        ],
+        "correct": 2,
+        "explanation": "Jeżeli wartość porównywana jest mniejsza lub równa max nie jest wliczana."
+    }
+]
