@@ -1,7 +1,7 @@
 [
     {
         "question": "Z czego się składa lista jednokierunkowa?",
-        "image": "test.png",
+        "image": "Single_linked_list.png",
         "answers": [
             "Z węzłów",
             "Z liczb",
@@ -13,7 +13,7 @@
     },
     {
         "question": "Co jest głową listy jednokierunkowej?",
-        "image": "test.png",
+        "image": "Single_linked_list.png",
         "answers": [
             "Węzeł dodany do listy jako pierwszy",
             "Węzeł dodany do listy jako ostatni",
@@ -21,11 +21,11 @@
             "Węzeł znajdujący się na końcu listy"
         ],
         "correct": 2,
-        "explanation": "Głową listy jest element znajdujący się z przodu listy, mówiąc w uproszczeniu jest to węzeł z indeksem 0 pod warunkiem że indeksację zaczynamy od wartości 0"
+        "explanation": "Głową listy jest węzeł znajdujący się z przodu listy, mówiąc w uproszczeniu jest to węzeł z indeksem 0 pod warunkiem że indeksację zaczynamy od wartości 0"
     },
     {
         "question": "Z czego się składa węzeł listy jednokierunkowej?",
-        "image": "test.png",
+        "image": "Single_linked_list.png",
         "answers": [
             "Z liczb",
             "Ze wskaźnika na poprzedni węzeł, wskaźnika na kolejny węzeł oraz z danych",
@@ -37,7 +37,7 @@
     },
     {
         "question": "Co jest ogonem listy jednokierunkowej?",
-        "image": "test.png",
+        "image": "Single_linked_list.png",
         "answers": [
             "Węzeł dodany do listy jako pierwszy",
             "Wszystkie węzły listy poza jej głową",
@@ -45,6 +45,6 @@
             "Węzeł znajdujący się na końcu listy jednokierunkowej"
         ],
         "correct": 3,
-        "explanation": "Ogonem listy jest element znajdujący się na końcu listy, mówiąc w uproszczeniu jest to węzeł z indeksem o 1 mniejszym od ilości węzłów w lisćie pod warunkiem że indeksację zaczynamy od wartości 0"
+        "explanation": "Ogonem listy jest węzeł znajdujący się na końcu listy, mówiąc w uproszczeniu jest to węzeł z indeksem o 1 mniejszym od ilości węzłów w lisćie pod warunkiem że indeksację zaczynamy od wartości 0"
     }
 ]
