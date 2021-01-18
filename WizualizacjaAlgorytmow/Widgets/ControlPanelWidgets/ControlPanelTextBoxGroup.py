@@ -104,7 +104,7 @@ class ControlPanelSingleRow(QWidget):
 		"""
 		if self.input_box.text() == "-":
 			return
-		
+
 		try:
 			local_value = int(self.input_box.text())
 		except ValueError:

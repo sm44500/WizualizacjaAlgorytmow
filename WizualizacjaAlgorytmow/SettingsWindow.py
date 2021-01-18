@@ -55,7 +55,7 @@ class SettingsWindow(QMainWindow):
 
 		input_limit = self.input.add_row("Liczba elementów")
 		input_limit.set_hint("Ustawienie maksymalnej liczby elementów.")
-		input_limit.set_int_validator(10, 50)
+		input_limit.set_int_validator(1, 50)
 		input_limit.set_value(Settings.input_limit)
 
 		self.animation_speed_slider = self.control_panel.add_slider(1, 100, Settings.visualisation_speed, 1)
