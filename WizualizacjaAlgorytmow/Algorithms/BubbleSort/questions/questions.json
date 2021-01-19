@@ -9,7 +9,7 @@
             "O(n)"
         ],
         "correct": 0,
-        "explanation": "Stosuje metodę dziel i zwyciężaj"
+        "explanation": "Algorytm składa się z dwuch pętli: jedna zewnętszna, a druga - wewnętszna. Za każdą iteracją pętli zewnętsznej wykonuje n (w przybliżeniu) operacij porównania. Dla tego należy do klasy n^2."
     },
     {
         "question": "Co z tego jest opisem działania algorytmu Bubble sort ?",

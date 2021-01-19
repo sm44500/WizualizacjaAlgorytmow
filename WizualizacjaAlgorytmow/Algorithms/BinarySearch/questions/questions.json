@@ -8,7 +8,7 @@
             "O(n+k)",
             "O(log(n))"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "Algorytm szuka danego elementu w tablicy posortowanej i stosuje metodę dziel i zwyciężaj. W każdej iteracji liczba elementów które trzeba przejrzeć zniejsza się o połowę od poprzedniej ilości."
     },
     {
