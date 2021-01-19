@@ -48,7 +48,7 @@
         "explanation": "Jeżeli wartość porównywana jest większa lub równa od min, nie jest wliczana."
     },
     {
-        "question": "jakie wartości po kolei będzie przyjomwać algorytm wyszukiwania min",
+        "question": "Jakie wartości po kolei będzie przyjomwać algorytm wyszukiwania min?",
         "image": "question5.png",
         "answers": [
             "4, 3 5, 2, 3, 8, 1",
