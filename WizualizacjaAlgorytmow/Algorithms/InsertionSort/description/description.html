@@ -1,101 +1,97 @@
 <!DOCTYPE html>
-<link rel="stylesheet" type="text/css" href="styles.css" media="screen" />
 <html lang="pl"> 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="AlgoZUT 2020/2021">     
-    <link id="theme-style" rel="stylesheet" href="resources/theme.css">
-</head> 
-<body> 
-	<footer class="footer text-center py-2 theme-bg-dark"></footer>
-    <header class="header text-center" onmousedown='return false;' onselectstart='return false;'></header>
-    <div class="main-wrapper" onmousedown='return false;' onselectstart='return false;'>
-	    <section class="main-code" style="background-color:#CBCBCB">			
-
-            <p>
-                <h4 class="center">
-                    Krótki opis:                    
-                </h4>
-            </p>
-
-            <p>
-                <h5>
-                    Jeden z najprostszych algorytmów sortowania, którego zasada działania odzwierciedla sposób w jaki ludzie ustawiają karty – kolejne elementy wejściowe są ustawiane na odpowiednie miejsca docelowe.
-                    Jest efektywny dla niewielkiej liczby elementów, jego złożoność wynosi O(n2). Pomimo tego, że jest znacznie mniej wydajny od algorytmów takich jak quicksort czy heapsort, posiada pewne zalety:
-                </h5>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="AlgoZUT 2020/2021">     
+        <link rel="stylesheet" href="resources/theme.css">
+    </head> 
+    <body onmousedown='return false;' onselectstart='return false;'> 
+        <div class="container" style="background-color:#CBCBCB">
+            <div class="main" style="background-color:#CBCBCB">
+                <p>
+                    <h1>
+                        Krótki opis:                    
+                    </h1>
+                </p>
+    
+                <p>
+                    <h3>
+                        Jeden z najprostszych algorytmów sortowania, którego zasada działania odzwierciedla sposób w jaki ludzie ustawiają karty – kolejne elementy wejściowe są ustawiane na odpowiednie miejsca docelowe.
+                        Jest efektywny dla niewielkiej liczby elementów, jego złożoność wynosi O(n2). Pomimo tego, że jest znacznie mniej wydajny od algorytmów takich jak quicksort czy heapsort, posiada pewne zalety:
+                    </h3>
+                    
+                </p>
+                    <h3>
+                        <ul>
+                            <li>
+                                liczba wykonanych porównań jest zależna od liczby inwersji w permutacji, dlatego algorytm jest wydajny dla danych wstępnie posortowanych,
+                            </li>
+                            <li>
+                                jest wydajny dla zbiorów o niewielkiej liczebności,
+                            </li>
+                            <li>
+                                jest stabilny.  
+                            </li>
+                        </ul>                
+                    </h3>
+                <p>
+                    <h3>
+                        Istnieje modyfikacja algorytmu, pozwalająca zmniejszyć liczbę porównań.
+                        Zamiast za każdym razem iterować po już posortowanym fragmencie (etap wstawiania elementu), można posłużyć się wyszukiwaniem binarnym.
+                        Pozwala to zmniejszyć liczbę porównań do O(nlogn), nie zmienia się jednak złożoność algorytmu, ponieważ liczba przesunięć elementów to nadal O(n2).
+                    </h3>
+                </p>
+    
+                <p>&nbsp;</p> 
+                <hr>
+                <p>&nbsp;</p> 
+    
+    
                 
-            </p>
-                <h5>
-                    <ul>
-                        <li>
-                            liczba wykonanych porównań jest zależna od liczby inwersji w permutacji, dlatego algorytm jest wydajny dla danych wstępnie posortowanych,
-                        </li>
-                        <li>
-                            jest wydajny dla zbiorów o niewielkiej liczebności,
-                        </li>
-                        <li>
-                            jest stabilny.  
-                        </li>
-                    </ul>                
-                </h5>
-            <p>
-                <h5>
-                    Istnieje modyfikacja algorytmu, pozwalająca zmniejszyć liczbę porównań.
-                    Zamiast za każdym razem iterować po już posortowanym fragmencie (etap wstawiania elementu), można posłużyć się wyszukiwaniem binarnym.
-                    Pozwala to zmniejszyć liczbę porównań do O(nlogn), nie zmienia się jednak złożoność algorytmu, ponieważ liczba przesunięć elementów to nadal O(n2).
-                </h5>
-            </p>
-
-            <p>&nbsp;</p> 
-            <hr>
-            <p>&nbsp;</p> 
-
-
-            
-            <p>
-                <h4 class="center">
-                    Szczególny opis:                    
-                </h4>
-            </p>
-
-            <p>
-                <h5>
-                    Założenie:                    
-                </h5>
-                <h5>
-                    Uczyń element drugi elementem <span style="color:#193ac9">„bieżącym”</span>.<br>
-                     Dopóki nie umieścisz na <span style="color:#6900cc">„właściwym”</span> miejscu elementu ostatniego postępuj następująco:                
-                </h5>
-                <h5>
-                    <ul>
-                        <li>
-                            Znajdź <span style="color:#6900cc">„właściwe”</span> miejsce dla elementu <span style="color:#193ac9">„bieżącego”</span>
-                             porównując go z elementami poprzedzającymi i przesuń wszystkie większe<br> od niego o jedną pozycję w kierunku końca tablicy;
-                        </li>
-
-                        <li>
-                            Uczyń elementem <span style="color:#193ac9">„bieżącym”</span> kolejny element tablicy.  
-                        </li>
-                    </ul>                
-                </h5>
-            </p>
-
-            <p>&nbsp;</p> 
-            <p>
-                <h5>
-                    Algorytm:                    
-                </h5>
-                <h5>
-                    Sortowane elementy/obiekty są dostępne w tablicy jednowymiarowej liczącej N pozycji.<br>
-                    Po zakończenius ortowania elementy te nadal znajdują się w tej samej tablicy, lecz w odpowiedniej kolejności.                 
-                </h5>
-            </p>
-
-            <p>&nbsp;</p> 
-            <img src="resources/insertion_sort1.png" alt="img3" class="center">
-	    </section>
-    </div>
-</body>
+                <p>
+                    <h1>
+                        Szczególny opis:                    
+                    </h1>
+                </p>
+    
+                <p>
+                    <h3>
+                        Założenie:                    
+                    </h3>
+                    <h3>
+                        Uczyń element drugi elementem <span style="color:#193ac9">„bieżącym”</span>.<br>
+                         Dopóki nie umieścisz na <span style="color:#6900cc">„właściwym”</span> miejscu elementu ostatniego postępuj następująco:                
+                    </h3>
+                    <h3>
+                        <ul>
+                            <li>
+                                Znajdź <span style="color:#6900cc">„właściwe”</span> miejsce dla elementu <span style="color:#193ac9">„bieżącego”</span>
+                                 porównując go z elementami poprzedzającymi i przesuń wszystkie większe<br> od niego o jedną pozycję w kierunku końca tablicy;
+                            </li>
+    
+                            <li>
+                                Uczyń elementem <span style="color:#193ac9">„bieżącym”</span> kolejny element tablicy.  
+                            </li>
+                        </ul>                
+                    </h3>
+                </p>
+    
+                <p>&nbsp;</p> 
+                <p>
+                    <h3>
+                        Algorytm:                    
+                    </h3>
+                    <h3>
+                        Sortowane elementy/obiekty są dostępne w tablicy jednowymiarowej liczącej N pozycji.<br>
+                        Po zakończenius ortowania elementy te nadal znajdują się w tej samej tablicy, lecz w odpowiedniej kolejności.                 
+                    </h3>
+                </p>
+    
+                <p>&nbsp;</p> 
+                <img src="resources/insertion_sort1.png" alt="img3">
+                <p>&nbsp;</p> 
+            </div>
+        </div>
+    </body>
 </html>

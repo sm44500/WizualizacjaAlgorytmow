@@ -1,110 +1,107 @@
 <!DOCTYPE html>
 <html lang="pl"> 
-<link rel="stylesheet" type="text/css" href="styles.css" media="screen" />
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="AlgoZUT 2020/2021">     
-    <link id="theme-style" rel="stylesheet" href="resources/theme.css">
-</head> 
-<body> 
-	<footer class="footer text-center py-2 theme-bg-dark"></footer>
-    <header class="header text-center" onmousedown='return false;' onselectstart='return false;'></header>
-    <div class="main-wrapper" onmousedown='return false;' onselectstart='return false;'>
-	    <section class="main-code" style="background-color:#CBCBCB">		
-            <p>
-                <h4 class="center">
-                    Krótki opis:                    
-                </h4>
-            </p>
-            <p>
-                <h5>
-                    Algorytm wyszukiwania wśród elementów listy elementu o najmniejszej wartości.
-                    Przechodzimy po liście i porównujemy wartości poszczególnych elementów ze zmienną, do której na początku przypisujemy wartość pierwszego elementu. 
-                    Jeżeli nowy element jest mniejszy od zmiennej, to zmieniamy wartość, w innym przypadku przechodzimy do kolejnej komórki listy.
-                </h5>
-            </p>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="AlgoZUT 2020/2021">     
+        <link rel="stylesheet" href="resources/theme.css">
+    </head> 
+    <body onmousedown='return false;' onselectstart='return false;'> 
+        <div class="container" style="background-color:#CBCBCB">
+            <div class="main" style="background-color:#CBCBCB">
+                <p>
+                    <h1>
+                        Krótki opis:                    
+                    </h1>
+                </p>
+                <p>
+                    <h3>
+                        Algorytm wyszukiwania wśród elementów listy elementu o najmniejszej wartości.
+                        Przechodzimy po liście i porównujemy wartości poszczególnych elementów ze zmienną, do której na początku przypisujemy wartość pierwszego elementu. 
+                        Jeżeli nowy element jest mniejszy od zmiennej, to zmieniamy wartość, w innym przypadku przechodzimy do kolejnej komórki listy.
+                    </h3>
+                </p>
+    
+                <p>&nbsp;</p> 
+                <hr>
+                <p>&nbsp;</p> 
+    
+                <p>
+                    <h1>
+                        Szczególny opis:                    
+                    </h1>
+                </p>
+    
+                <p>
+                    <h3>
+                        Algorytm:
+                    </h3>
+                </p>
+    
+                <ul>
+                    <li>
+                        <h3>
+                            Początkowe założenia: Zapisujemy do zmiennej min wartość pierwszego elementu listy i ustawiamy się na drugi element tablicy
+                        </h3>
+                    </li>
+    
+                    <li>
+                        <h3>
+                            Dopóki nie dotrzesz do ostatniego elementu, postępuj następująco:
+                        </h3>
+                        <ul>
+                            <li>
+                                <h3>
+                                    Czy jest dany element mniejszy od wartości min?
+                                </h3>
+                            </li>
+    
+                            <li>
+                                <h3>
+                                    Jeżeli tak - zmieniamy wartość min na wartość danego elementa, jeżeli nie - nic nie robimy.
+                                </h3>
+                            </li>
+                            <li>
+                                <h3>
+                                    Przechodzimy do następnego elemetu.
+                                </h3>
+                            </li>
+                        </ul>
+                    </li>
+    
+                    <li>
+                        <h3>
+                            Koniec. (Minimalna wartość tablicy znajduje się w zmiennej min)
+                        </h3>
+                    </li>
+                </ul> 
 
-            <p>&nbsp;</p> 
-            <hr>
-            <p>&nbsp;</p> 
-
-            <p>
-                <h4 class="center">
-                    Szczególny opis:                    
-                </h4>
-            </p>
-
-            <p>
-                <h5>
-                    Algorytm:
-                </h5>
-            </p>
-
-            <ul>
-                <li>
-                    <h5>
-                        Początkowe założenia: Zapisujemy do zmiennej min wartość pierwszego elementu listy i ustawiamy się na drugi element tablicy
-                    </h5>
-                </li>
-
-                <li>
-                    <h5>
-                        Dopóki nie dotrzesz do ostatniego elementu, postępuj następująco:
-                    </h5>
-                    <ul>
-                        <li>
-                            <h5>
-                                Czy jest dany element mniejszy od wartości min?
-                            </h5>
-                        </li>
-
-                        <li>
-                            <h5>
-                                Jeżeli tak - zmieniamy wartość min na wartość danego elementa, jeżeli nie - nic nie robimy.
-                            </h5>
-                        </li>
-                        <li>
-                            <h5>
-                                Przechodzimy do następnego elemetu.
-                            </h5>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <h5>
-                        Koniec. (Minimalna wartość tablicy znajduje się w zmiennej min)
-                    </h5>
-                </li>
-              </ul> 
-
-              <img src="resources/min_search1.png" alt="img3" class="center">
-              <p>&nbsp;</p> 
-              <hr>
-              <p>&nbsp;</p> 
+                <img src="resources/min_search1.png" alt="img3">
+                <p>&nbsp;</p> 
+                <hr>
+                <p>&nbsp;</p> 
 
                 <p>
-                    <h5>
+                    <h2>
                         W tablice posortowanej:
-                    </h5>
+                    </h2>
                 </p>
                 <ul>
                     <li>
-                        <h5>
+                        <h3>
                             Minimalna wartość znajduje się na pierwszej pozycji.
-                        </h5>
+                        </h3>
                     </li>
                     <li>
-                        <h5>
+                        <h3>
                             Maksymalna wartość znajduje się na ostatniej pozycji.
-                        </h5>
+                        </h3>
                     </li>
                 </ul>
                 
-                <img src="resources/min_search2.png" alt="img3" class="center">
-	    </section>
-    </div>
-</body>
+                <img src="resources/min_search2.png" alt="img3">
+                <p>&nbsp;</p> 
+            </div>
+        </div>
+    </body>
 </html>

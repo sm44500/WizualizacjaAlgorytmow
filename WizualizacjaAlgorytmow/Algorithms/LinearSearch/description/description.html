@@ -1,104 +1,101 @@
 <!DOCTYPE html>
 <html lang="pl"> 
-<link rel="stylesheet" type="text/css" href="styles.css" media="screen" />
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="AlgoZUT 2020/2021">     
-    <link id="theme-style" rel="stylesheet" href="resources/theme.css">
-</head> 
-<body > 
-	<footer class="footer text-center py-2 theme-bg-dark"></footer>
-    <header class="header text-center" onmousedown='return false;' onselectstart='return false;'></header>
-    <div class="main-wrapper" onmousedown='return false;' onselectstart='return false;'>
-	    <section class="main-code" style="background-color:#CBCBCB">	
-            <p>
-                <h4 class="center">
-                    Krótki opis:                    
-                </h4>
-            </p>
-            <p>
-                <h5>
-                    Przeszukiwanie liniowe (Linear search) – najprostszy algorytm wyszukiwania informacji w ciągu danych, np. zapisanych w tablicy lub na liście.<br> 
-                    Polega na porównywaniu żądanego klucza z kolejnymi kluczami z sekwencji danych – wyszukiwanie kończy się powodzeniem,gdy zostanie znaleziony klucz,<br> 
-                    albo niepowodzeniem, gdy zostaną przejrzane wszystkie klucze.
-                </h5>
-            </p>
-            <p>
-                <h5>
-                    Liczba koniecznych porównań zależy wprost od położenia szukanego elementu w sekwencji danych – wynosi od 1 do n, <br>
-                    gdzie n to całkowita liczba elementów. Algorytm ma złożoność O(n) .                    
-                </h5>
-            </p>
-            <p>
-                <h5>
-                    Wyszukiwanie liniowe może być jedynym sposobem wyszukiwania, gdy nie wiadomo niczego na temat kolejności kluczy.
-                </h5>
-            </p>
-            <p>
-                <h5>
-                    Dla dużej liczby danych algorytm jest bardzo nieefektywny, jednak gdy danych jest względnie mało, jest z powodzeniem stosowany
-                </h5>
-            </p>
-
-            <p>&nbsp;</p> 
-            <hr>
-            <p>&nbsp;</p> 
-
-            <p>
-                <h4 class="center">
-                    Szczególny opis:                    
-                </h4>
-            </p>
-            <p>
-                <h5>
-                    Tablica A[ ] zawiera elementy o wartościach należących do pewnego skończonego zbioru o mocy mniejszej, większej albo równej liczbie pozycji w tej tablicy.
-                </h5>
-            </p>
-            <p>
-                <h5 style="color:#CD1919">
-                    Dla dwóch elementów o różnych wartościach możliwe jest wyłącznie stwierdzenie, że są one <u>identyczne</u> albo <u>różne</u>.                
-                </h5>
-            </p>
-            <p>
-                <h5>
-                    Tablica A[ ] zawiera elementy o wartościach należących do pewnego skończonego zbioru o mocy mniejszej, większej albo równej liczbie pozycji w tej tablicy.
-                </h5>
-            </p>
-            <p>
-                <h5>
-                    Zadanie polega na odnalezieniu  w tej tablicy  elementu zgodnego co do wartości z przedstawionym wzorcem.
-                </h5>
-            </p>
-
-            <p>&nbsp;</p> 
-            <img src="resources/linear_search1.png" alt="img1" class="center">
-
-            <p>
-                <h6 class="center" style="color:#2bbb1b">
-                    Operacja dominująca: porównanie elementu w tablicy z poszukiwanym wzorcem.
-                </h6>
-            </p>
-
-            <img src="resources/linear_search2.png" alt="img2" class="center">
-
-            <p>
-                <h6 class="center" style="color:#CD1919">
-                    Załóżmy, że prawdopodobieństwo porażki jest pomijalne, zaś prawdopodobieństwo odnalezienia poszukiwanego wzorca na każdej z N pozycji jest jednakowe
-                </h6>
-            </p>
-
-            <img src="resources/linear_search3.png" alt="img3" class="center">
-
-            <p>&nbsp;</p> 
-            <hr>
-            <p>&nbsp;</p> 
-
-            <img src="resources/linear_search4.png" alt="img4" class="center">
-            <p>&nbsp;</p> 
-            <img src="resources/linear_search5.png" alt="img5" class="center2" >
-	    </section>
-    </div>
-</body>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="AlgoZUT 2020/2021">     
+        <link rel="stylesheet" href="resources/theme.css">
+    </head> 
+    <body onmousedown='return false;' onselectstart='return false;'> 
+        <div class="container" style="background-color:#CBCBCB">
+            <div class="main" style="background-color:#CBCBCB">
+                <p>
+                    <h1 class="center">
+                        Krótki opis:                    
+                    </h1>
+                </p>
+                <p>
+                    <h3>
+                        Przeszukiwanie liniowe (Linear search) – najprostszy algorytm wyszukiwania informacji w ciągu danych, np. zapisanych w tablicy lub na liście.<br> 
+                        Polega na porównywaniu żądanego klucza z kolejnymi kluczami z sekwencji danych – wyszukiwanie kończy się powodzeniem,gdy zostanie znaleziony klucz,<br> 
+                        albo niepowodzeniem, gdy zostaną przejrzane wszystkie klucze.
+                    </h3>
+                </p>
+                <p>
+                    <h3>
+                        Liczba koniecznych porównań zależy wprost od położenia szukanego elementu w sekwencji danych – wynosi od 1 do n, <br>
+                        gdzie n to całkowita liczba elementów. Algorytm ma złożoność O(n) .                    
+                    </h3>
+                </p>
+                <p>
+                    <h3>
+                        Wyszukiwanie liniowe może być jedynym sposobem wyszukiwania, gdy nie wiadomo niczego na temat kolejności kluczy.
+                    </h3>
+                </p>
+                <p>
+                    <h3>
+                        Dla dużej liczby danych algorytm jest bardzo nieefektywny, jednak gdy danych jest względnie mało, jest z powodzeniem stosowany
+                    </h3>
+                </p>
+    
+                <p>&nbsp;</p> 
+                <hr>
+                <p>&nbsp;</p> 
+    
+                <p>
+                    <h1 class="center">
+                        Szczególny opis:                    
+                    </h1>
+                </p>
+                <p>
+                    <h3>
+                        Tablica A[ ] zawiera elementy o wartościach należących do pewnego skończonego zbioru o mocy mniejszej, większej albo równej liczbie pozycji w tej tablicy.
+                    </h3>
+                </p>
+                <p>
+                    <h3 style="color:#CD1919">
+                        Dla dwóch elementów o różnych wartościach możliwe jest wyłącznie stwierdzenie, że są one <u>identyczne</u> albo <u>różne</u>.                
+                    </h3>
+                </p>
+                <p>
+                    <h3>
+                        Tablica A[ ] zawiera elementy o wartościach należących do pewnego skończonego zbioru o mocy mniejszej, większej albo równej liczbie pozycji w tej tablicy.
+                    </h3>
+                </p>
+                <p>
+                    <h3>
+                        Zadanie polega na odnalezieniu  w tej tablicy  elementu zgodnego co do wartości z przedstawionym wzorcem.
+                    </h3>
+                </p>
+    
+                <p>&nbsp;</p> 
+                <img src="resources/linear_search1.png" alt="img1" class="center">
+    
+                <p>
+                    <h3 style="color:#2bbb1b">
+                        Operacja dominująca: porównanie elementu w tablicy z poszukiwanym wzorcem.
+                    </h3>
+                </p>
+    
+                <img src="resources/linear_search2.png" alt="img2" class="center">
+    
+                <p>
+                    <h3 style="color:#CD1919">
+                        Załóżmy, że prawdopodobieństwo porażki jest pomijalne, zaś prawdopodobieństwo odnalezienia poszukiwanego wzorca na każdej z N pozycji jest jednakowe
+                    </h3>
+                </p>
+    
+                <img src="resources/linear_search3.png" alt="img3" class="center">
+    
+                <p>&nbsp;</p> 
+                <hr>
+                <p>&nbsp;</p> 
+    
+                <img src="resources/linear_search1.png" alt="img4" class="center">
+                <p>&nbsp;</p> 
+                <img src="resources/linear_search3.png" alt="img5" class="center2" >
+                <p>&nbsp;</p> 
+            </div>
+        </div>
+    </body>
 </html>

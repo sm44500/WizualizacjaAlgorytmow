@@ -1,67 +1,63 @@
 <!DOCTYPE html>
 <html lang="pl"> 
-<link rel="stylesheet" type="text/css" href="styles.css" media="screen" />
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="AlgoZUT 2020/2021">     
-    <link id="theme-style" rel="stylesheet" href="resources/theme.css">
-</head> 
-<body> 
-	<footer class="footer text-center py-2 theme-bg-dark"></footer>
-    <header class="header text-center" onmousedown='return false;' onselectstart='return false;'></header>
-    <div class="main-wrapper" onmousedown='return false;' onselectstart='return false;'>
-	    <section class="main-code" style="background-color:#CBCBCB">			
-
-            <p>
-                <h4 class="center">
-                    Krótki opis:                    
-                </h4>
-            </p>
-
-            <p>
-                <h5>
-                    Metoda sortowania danych, która polega na sprawdzeniu ile wystąpień kluczy mniejszych od danego występuje w sortowanej tablicy.<br>
-                    Algorytm zakłada, że klucze elementów należą do skończonego zbioru (np. są to liczby całkowite z przedziału 0..100), co ogranicza możliwości jego zastosowania.<br>
-                    Główną zaletą tej metody jest liniowa złożoność obliczeniowa algorytmu – O(n+k) (n – oznacza liczebność zbioru,<br>
-                     k – rozpiętość danych, czyli w przypadku liczb całkowitych: powiększoną o 1 różnicę między maksymalną a minimalną wartością.<br>
-                    Największymi ograniczeniami algorytmu są konieczność uprzedniej znajomości zakresu danych i złożoność pamięciowa (wymaga dodatkowo O(k) lub O(n+k) pamięci).<br>
-                </h5>                
-            </p>
-
-            <p>&nbsp;</p> 
-            <hr>
-            <p>&nbsp;</p> 
-
-            <p>
-                <h4 class="center">
-                    Szczególny opis:                    
-                </h4>
-            </p>
-
-            <p>
-                <h5>
-                    Na początku działania algorytmu ustalany jest przedział wartości, które zależą od wartości wszystkich elementów w sekwencji, która ma być posortowana.<br>
-                    Dla przykładu, sekwencja v liczb całkowitych [100, 2, 0, 150, 2, 3, 0] tworzy przedział [min(v), max(v)] = [0, 150] wynoszący łącznie 151 elementów;<br>
-                    z kolei v' o wartościach [15, 6, 11, 10] tworzy przedział [6, 15] z dziesięcioma elementami. <br>
-                    W momencie, gdy przedział nie jest znany, można posłużyć się minimalnymi i maksymalnymi wartościami typów elementów w v.        
-                </h5>                
-            </p>
-
-            <p>
-                <h5>
-                    Dla każdego elementu z utworzonego przedziału obliczana jest ilość jego wystąpień w wejściowej sekwencji v, tzn. tworzony jest histogram dla elementów sekwencji wejściowej. <br>
-                    Na podstawie utworzonego histogramu generowana jest sekwencja wyjściowa, czyli posortowane elementy. <br>
-                    Generowanie polega na iteracji po kolejnym elemencie w histogramie (który również jest sekwencją)<br>
-                    oraz konkatenacji do sekwencji wynikowej tymczasowej, sekwencji tylu elementów o danej wartości, ile wskazuje histogram dla danego elementu.<br>
-                    Początkowa sekwencja wynikowa jest pusta.       
-                </h5>                
-            </p>
-
-            <p>&nbsp;</p> 
-            <img src="resources/counting_sort1.png" alt="img3" class="center">
-	    </section>
-    </div>
-</body>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="AlgoZUT 2020/2021">     
+        <link rel="stylesheet" href="resources/theme.css">
+    </head> 
+    <body onmousedown='return false;' onselectstart='return false;'> 
+        <div class="container" style="background-color:#CBCBCB">
+            <div class="main" style="background-color:#CBCBCB">
+                <p>
+                    <h1 class="center">
+                        Krótki opis:                    
+                    </h1>
+                </p>
+    
+                <p>
+                    <h3>
+                        Metoda sortowania danych, która polega na sprawdzeniu ile wystąpień kluczy mniejszych od danego występuje w sortowanej tablicy.<br>
+                        Algorytm zakłada, że klucze elementów należą do skończonego zbioru (np. są to liczby całkowite z przedziału 0..100), co ogranicza możliwości jego zastosowania.<br>
+                        Główną zaletą tej metody jest liniowa złożoność obliczeniowa algorytmu – O(n+k) (n – oznacza liczebność zbioru,<br>
+                         k – rozpiętość danych, czyli w przypadku liczb całkowitych: powiększoną o 1 różnicę między maksymalną a minimalną wartością.<br>
+                        Największymi ograniczeniami algorytmu są konieczność uprzedniej znajomości zakresu danych i złożoność pamięciowa (wymaga dodatkowo O(k) lub O(n+k) pamięci).<br>
+                    </h3>                
+                </p>
+    
+                <p>&nbsp;</p> 
+                <hr>
+                <p>&nbsp;</p> 
+    
+                <p>
+                    <h1 class="center">
+                        Szczególny opis:                    
+                    </h1>
+                </p>
+    
+                <p>
+                    <h3>
+                        Na początku działania algorytmu ustalany jest przedział wartości, które zależą od wartości wszystkich elementów w sekwencji, która ma być posortowana.<br>
+                        Dla przykładu, sekwencja v liczb całkowitych [100, 2, 0, 150, 2, 3, 0] tworzy przedział [min(v), max(v)] = [0, 150] wynoszący łącznie 151 elementów;<br>
+                        z kolei v' o wartościach [15, 6, 11, 10] tworzy przedział [6, 15] z dziesięcioma elementami. <br>
+                        W momencie, gdy przedział nie jest znany, można posłużyć się minimalnymi i maksymalnymi wartościami typów elementów w v.        
+                    </h3>                
+                </p>
+    
+                <p>
+                    <h3>
+                        Dla każdego elementu z utworzonego przedziału obliczana jest ilość jego wystąpień w wejściowej sekwencji v, tzn. tworzony jest histogram dla elementów sekwencji wejściowej. <br>
+                        Na podstawie utworzonego histogramu generowana jest sekwencja wyjściowa, czyli posortowane elementy. <br>
+                        Generowanie polega na iteracji po kolejnym elemencie w histogramie (który również jest sekwencją)<br>
+                        oraz konkatenacji do sekwencji wynikowej tymczasowej, sekwencji tylu elementów o danej wartości, ile wskazuje histogram dla danego elementu.<br>
+                        Początkowa sekwencja wynikowa jest pusta.       
+                    </h3>                
+                </p>
+    
+                <p>&nbsp;</p> 
+                <img src="resources/counting_sort1.png" alt="img3" class="center">
+                <p>&nbsp;</p> 
+            </div>
+        </div>
+    </body>
 </html>
