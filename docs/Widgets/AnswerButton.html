@@ -26,11 +26,13 @@
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">from PyQt5.QtCore import Qt, QSize
+<pre><code class="python">from PyQt5.QtCore import Qt, QSize 
 from PyQt5.QtWidgets import QPushButton, QGraphicsDropShadowEffect, QLabel, QVBoxLayout
 from PyQt5.QtGui import QColor, QIcon
 from Styles import Styles
+from Widgets.ClickableLabel import ClickableLabel
 
+import html
 
 class AnswerButton(QPushButton):
         &#34;&#34;&#34;
@@ -59,7 +61,7 @@ class AnswerButton(QPushButton):
                 shadow.setOffset(1.0, 1.0)
                 shadow.setColor(QColor(127, 127, 127, 255))
 
-                self.label = QLabel()
+                self.label = ClickableLabel(self)
                 self.label.setStyleSheet(Styles.button_label)
                 self.label.setGraphicsEffect(shadow)
                 self.label.setAlignment(Qt.AlignVCenter)
@@ -97,8 +99,10 @@ class AnswerButton(QPushButton):
                 &#34;&#34;&#34;
                 text = self.raw_text
                 if enabled:
-                        text = &#34;&lt;b&gt;&lt;u&gt;&#34; + self.raw_text + &#34;&lt;/u&gt;&lt;/b&gt;&#34;
-                
+                        text = &#34;&lt;b&gt;&lt;u&gt;&#34; + text + &#34;&lt;/u&gt;&lt;/b&gt;&#34;
+                else:
+                        text = &#34;&lt;span&gt;&#34; + text + &#34;&lt;/span&gt;&#34;
+
                 if color != &#34;&#34;:
                         text = &#34;&lt;font color=\&#34;&#34; + color + &#34;\&#34;&gt;&#34; + text + &#34;&lt;/font&gt;&#34;
 
@@ -111,8 +115,8 @@ class AnswerButton(QPushButton):
                 Parametry:
                         text - tekst do wyświetlenia.
                 &#34;&#34;&#34;
-                self.raw_text = text
-                self.label.setText(text)</code></pre>
+                self.raw_text = html.escape(text)
+                self.label.setText(self.raw_text)</code></pre>
 </details>
 </section>
 <section>
@@ -163,7 +167,7 @@ class AnswerButton(QPushButton):
                 shadow.setOffset(1.0, 1.0)
                 shadow.setColor(QColor(127, 127, 127, 255))
 
-                self.label = QLabel()
+                self.label = ClickableLabel(self)
                 self.label.setStyleSheet(Styles.button_label)
                 self.label.setGraphicsEffect(shadow)
                 self.label.setAlignment(Qt.AlignVCenter)
@@ -201,8 +205,10 @@ class AnswerButton(QPushButton):
                 &#34;&#34;&#34;
                 text = self.raw_text
                 if enabled:
-                        text = &#34;&lt;b&gt;&lt;u&gt;&#34; + self.raw_text + &#34;&lt;/u&gt;&lt;/b&gt;&#34;
-                
+                        text = &#34;&lt;b&gt;&lt;u&gt;&#34; + text + &#34;&lt;/u&gt;&lt;/b&gt;&#34;
+                else:
+                        text = &#34;&lt;span&gt;&#34; + text + &#34;&lt;/span&gt;&#34;
+
                 if color != &#34;&#34;:
                         text = &#34;&lt;font color=\&#34;&#34; + color + &#34;\&#34;&gt;&#34; + text + &#34;&lt;/font&gt;&#34;
 
@@ -215,8 +221,8 @@ class AnswerButton(QPushButton):
                 Parametry:
                         text - tekst do wyświetlenia.
                 &#34;&#34;&#34;
-                self.raw_text = text
-                self.label.setText(text)</code></pre>
+                self.raw_text = html.escape(text)
+                self.label.setText(self.raw_text)</code></pre>
 </details>
 <h3>Ancestors</h3>
 <ul class="hlist">
@@ -250,8 +256,10 @@ class AnswerButton(QPushButton):
         &#34;&#34;&#34;
         text = self.raw_text
         if enabled:
-                text = &#34;&lt;b&gt;&lt;u&gt;&#34; + self.raw_text + &#34;&lt;/u&gt;&lt;/b&gt;&#34;
-        
+                text = &#34;&lt;b&gt;&lt;u&gt;&#34; + text + &#34;&lt;/u&gt;&lt;/b&gt;&#34;
+        else:
+                text = &#34;&lt;span&gt;&#34; + text + &#34;&lt;/span&gt;&#34;
+
         if color != &#34;&#34;:
                 text = &#34;&lt;font color=\&#34;&#34; + color + &#34;\&#34;&gt;&#34; + text + &#34;&lt;/font&gt;&#34;
 
@@ -319,8 +327,8 @@ class AnswerButton(QPushButton):
         Parametry:
                 text - tekst do wyświetlenia.
         &#34;&#34;&#34;
-        self.raw_text = text
-        self.label.setText(text)</code></pre>
+        self.raw_text = html.escape(text)
+        self.label.setText(self.raw_text)</code></pre>
 </details>
 </dd>
 <dt id="WizualizacjaAlgorytmow.Widgets.AnswerButton.AnswerButton.setup_ui"><code class="name flex">
@@ -346,7 +354,7 @@ class AnswerButton(QPushButton):
         shadow.setOffset(1.0, 1.0)
         shadow.setColor(QColor(127, 127, 127, 255))
 
-        self.label = QLabel()
+        self.label = ClickableLabel(self)
         self.label.setStyleSheet(Styles.button_label)
         self.label.setGraphicsEffect(shadow)
         self.label.setAlignment(Qt.AlignVCenter)
