@@ -50,6 +50,7 @@ class QuestionsManager:
 
 		for index, answer_button in enumerate(self.questions_widget.answers):
 			answer_button.clicked.connect((lambda i: lambda: self.on_click_answer(i))(index))
+			answer_button.label.clicked.connect((lambda i: lambda: self.on_click_answer(i))(index))
 
 		self.control_icon_panel = self.control_panel_bottom.add_icon_panel()
 

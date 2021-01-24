@@ -1,8 +1,10 @@
-from PyQt5.QtCore import Qt, QSize
+from PyQt5.QtCore import Qt, QSize 
 from PyQt5.QtWidgets import QPushButton, QGraphicsDropShadowEffect, QLabel, QVBoxLayout
 from PyQt5.QtGui import QColor, QIcon
 from Styles import Styles
+from Widgets.ClickableLabel import ClickableLabel
 
+import html
 
 class AnswerButton(QPushButton):
 	"""
@@ -31,7 +33,7 @@ class AnswerButton(QPushButton):
 		shadow.setOffset(1.0, 1.0)
 		shadow.setColor(QColor(127, 127, 127, 255))
 
-		self.label = QLabel()
+		self.label = ClickableLabel(self)
 		self.label.setStyleSheet(Styles.button_label)
 		self.label.setGraphicsEffect(shadow)
 		self.label.setAlignment(Qt.AlignVCenter)
@@ -69,8 +71,10 @@ class AnswerButton(QPushButton):
 		"""
 		text = self.raw_text
 		if enabled:
-			text = "<b><u>" + self.raw_text + "</u></b>"
-		
+			text = "<b><u>" + text + "</u></b>"
+		else:
+			text = "<span>" + text + "</span>"
+
 		if color != "":
 			text = "<font color=\"" + color + "\">" + text + "</font>"
 
@@ -83,5 +87,5 @@ class AnswerButton(QPushButton):
 		Parametry:
 			text - tekst do wyświetlenia.
 		"""
-		self.raw_text = text
-		self.label.setText(text)
+		self.raw_text = html.escape(text)
+		self.label.setText(self.raw_text)
