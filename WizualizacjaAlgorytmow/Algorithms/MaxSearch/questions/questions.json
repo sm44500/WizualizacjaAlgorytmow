@@ -1,10 +1,10 @@
 [
     {
-        "question": "Ile jest równa złożoność obliczeniowa wyszukiwania max?",
+        "question": "Ile jest równa złożoność obliczeniowa wyszukiwania maksimum?",
         "image": "",
         "answers": [
             "O(n * n)",
-            "O( n log n)",
+            "O(n log n)",
             "O(n)",
             "O(n!)"
         ],
@@ -12,7 +12,7 @@
         "explanation": "Algorytm wymaga tylko jednej pętli raz przechodzącej przez dane."
     },
     {
-        "question": "Która wartość jako przedostatnia będzie zapisana jako max?",
+        "question": "Która wartość jako przedostatnia będzie zapisana jako maksimum?",
         "image": "question2.png",
         "answers": [
             "7",
@@ -21,10 +21,10 @@
             "5"
         ],
         "correct": 2,
-        "explanation": "Jeżeli liczba jest mniejsza od aktualnie zapisanej, nie jest uwzględniana."
+        "explanation": "Jeżeli liczba jest mniejsza od aktualnie zapisanej to nie jest uwzględniana."
     },
     {
-        "question": "Co należy wstawić w miejsce linii, żeby algorytm wyszukiwał max?",
+        "question": "Co należy wstawić w miejsce linii, żeby algorytm wyszukiwał maksimum?",
         "image": "question3.png",
         "answers": [
             "max == zbior[i]",
@@ -33,10 +33,10 @@
             "max > zbior[i]"
         ],
         "correct": 2,
-        "explanation": "Element jest zamieniany jeżeli znajdziemy większy od aktualnego max."
+        "explanation": "Element jest zamieniany jeżeli znajdziemy element większy od aktualnego maksimum."
     },
     {
-        "question": "Ile razy podczas przebiegu programu wartość max zostanie zmieniona?",
+        "question": "Ile razy podczas przebiegu programu wartość maksimum zostanie zmieniona?",
         "image": "question4.png",
         "answers": [
             "3",
@@ -45,10 +45,10 @@
             "5"
         ],
         "correct": 1,
-        "explanation": "Jeżeli wartość porównywana jest mniejsza lub równa max nie jest wliczana."
+        "explanation": "Jeżeli wartość porównywana jest mniejsza lub równa maksimum to wartość nie jest wliczana."
     },
     {
-        "question": "Jakie wartości po kolei będzie przyjomwać algorytm wyszukiwania max?",
+        "question": "Jakie wartości po kolei będzie przyjomować algorytm wyszukiwania maksimum?",
         "image": "question5.png",
         "answers": [
             "2, 4, 6, 8, 9",
@@ -60,19 +60,19 @@
         "explanation": ""
     },
     {
-        "question": "Jakie wartości po kolei będzie przyjomwać algorytm wyszukiwania max?",
+        "question": "Jakie wartości po kolei będzie przyjomować algorytm wyszukiwania maksimum?",
         "image": "question6.png",
         "answers": [
-            "1  2  3  4  6  8  9",
-            "1  6  8  9",
-            "6  9",
-            "1  6  8  9  9"
+            "1, 2, 3, 4, 6, 8, 9",
+            "1, 6, 8, 9",
+            "6, 9",
+            "1, 6, 8, 9, 9"
         ],
         "correct": 1,
-        "explanation": "Max jest zmieniane tylko jeżeli jest większe od aktualnego, równe nie jest uwzględniane."
+        "explanation": "Maksimum jest zmieniane tylko jeżeli jest większe od aktualnego elementu, równe nie jest uwzględniane."
     },
     {
-        "question": "Ile razy podczas przebiegu programu wartość max zostanie zmieniona?",
+        "question": "Ile razy podczas przebiegu programu wartość maksimum zostanie zmieniona?",
         "image": "question6.png",
         "answers": [
             "5",
@@ -81,10 +81,10 @@
             "4"
         ],
         "correct": 3,
-        "explanation": "Jeżeli wartość porównywana jest mniejsza lub równa max nie jest wliczana."
+        "explanation": "Jeżeli wartość porównywana jest mniejsza lub równa maksimum to nie jest wliczana."
     },
     {
-        "question": "Ile razy podczas przebiegu programu wartość max zostanie zmieniona?",
+        "question": "Ile razy podczas przebiegu programu wartość maksimum zostanie zmieniona?",
         "image": "question4.png",
         "answers": [
             "1",
@@ -93,6 +93,6 @@
             "6"
         ],
         "correct": 2,
-        "explanation": "Jeżeli wartość porównywana jest mniejsza lub równa max nie jest wliczana."
+        "explanation": "Jeżeli wartość porównywana jest mniejsza lub równa maksimum to nie jest wliczana."
     }
 ]
