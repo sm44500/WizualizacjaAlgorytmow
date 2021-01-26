@@ -1,6 +1,6 @@
 [
     {
-        "question": "Jaką złożoność obliczeniową ma algorytm Binary search ?",
+        "question": "Jaką złożoność obliczeniową ma algorytm wyszukiwania binarnego?",
         "image": "",
         "answers": [
             "O(n^2)",
@@ -9,22 +9,22 @@
             "O(log(n))"
         ],
         "correct": 1,
-        "explanation": "Algorytm szuka danego elementu w tablicy posortowanej i stosuje metodę dziel i zwyciężaj. W każdej iteracji liczba elementów które trzeba przejrzeć zniejsza się o połowę od poprzedniej ilości."
+        "explanation": "Algorytm szuka danego elementu w tablicy posortowanej stosując metodę dziel i zwyciężaj. W każdej iteracji liczba elementów które trzeba przejrzeć zmniejsza się o około połowę."
     },
     {
-        "question": "Które twierdzenie jest prawdziwe odnośnie algorytmu Binary search?",
+        "question": "Które twierdzenie jest prawdziwe odnośnie algorytmu wyszukiwania binarnego?",
         "image": "",
         "answers": [
-            "Nie wolno korzystać się z tego algorytmu dla tablic jednowymiarowych",
-            "Ten algorytm dziła tylko na posortowanej tablice",
-            "Na posortowanej tablice algorytm działa szybciej",
-            "Działa jednakowo dla posorwanej i nieposortowanej tablicy"
+            "Nie wolno korzystać z tego algorytmu dla tablic jednowymiarowych.",
+            "Ten algorytm działa tylko na posortowanej tablicy.",
+            "Na posortowanej tablicy algorytm działa szybciej.",
+            "Działa jednakowo dla posortowanej i nieposortowanej tablicy."
         ],
         "correct": 1,
-        "explanation": "Algorytm działa poprawnie tylko na tablice posortowanej."
+        "explanation": "Algorytm działa poprawnie tylko na tablicy posortowanej."
     },
     {
-        "question": "W ilu iteracjach algorytm Binary search wyszuka element o wartości 16?",
+        "question": "W ilu iteracjach algorytm wyszukiwania binarnego wyszuka element o wartości 16? (patrz zdjęcie powyżej)",
         "image": "binary_search1.png",
         "answers": [
             "2",
@@ -33,10 +33,10 @@
             "7"
         ],
         "correct": 2,
-        "explanation": "pośczególne elementy wyszukiwania: 13 → 30 → 16"
+        "explanation": "Poszczególne iteracje: 13 → 30 → 16."
     },
     {
-        "question": "Jak jest liczona wartość mid w Binary search?",
+        "question": "Jak jest liczona wartość środkowa w wyszukiwaniu binarnym?",
         "image": "binary_search2.png",
         "answers": [
             "r - l // 2",
@@ -45,6 +45,6 @@
             "l + (r - l) // 2"
         ],
         "correct": 3,
-        "explanation": "Do tymczasowej lewej granicy dodajemy polowę różnicy prawej i lewej granic"
+        "explanation": "Do aktualnej lewej granicy dodajemy połowę różnicy prawej i lewej granicy."
     }
 ]
