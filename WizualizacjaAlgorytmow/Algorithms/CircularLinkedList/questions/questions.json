@@ -33,7 +33,7 @@
             "Z ciągu znaków"
         ],
         "correct": 2,
-        "explanation": "Węzeł cyklicznej listy jednokierunkowej składa się ze wskaźnika na kolejny węzeł listy oraz z danych, które chcemy przechowywaźc w liście. Tymi danymi może być obiekt"
+        "explanation": "Węzeł cyklicznej listy jednokierunkowej składa się ze wskaźnika na kolejny węzeł listy oraz z danych, które chcemy przechowywać w liście. Tymi danymi może być obiekt"
     },
     {
         "question": "Co jest ogonem cyklicznej listy jednokierunkowej?",
