@@ -1,6 +1,6 @@
 [
     {
-        "question": "Jaką złożoność obliczeniową ma algorytm Bubble sort ?",
+        "question": "Jaką złożoność obliczeniową ma algorytm sortowania bąbelkowego?",
         "image": "",
         "answers": [
             "O(n^2)",
@@ -9,22 +9,22 @@
             "O(n)"
         ],
         "correct": 0,
-        "explanation": "Algorytm składa się z dwuch pętli: jedna zewnętszna, a druga - wewnętszna. Za każdą iteracją pętli zewnętsznej wykonuje n (w przybliżeniu) operacij porównania. Dla tego należy do klasy n^2."
+        "explanation": "Algorytm składa się z dwóch pętli: jednej zewnętrznej, a drugiej wewnętrznej. Z każdą iteracją pętli zewnętrznej wykonuje maksymalnie N operacji porównania. Dla tego należy do klasy n^2."
     },
     {
-        "question": "Co z tego jest opisem działania algorytmu Bubble sort ?",
+        "question": "Co z tego jest opisem działania algorytmu sortowania bąbelkowego?",
         "image": "",
         "answers": [
-            "Rekurencyjny algorytm sortowania danych, stosujący metodę dziel i zwyciężaj",
-            "Sposób w jaki ludzie ustawiają karty – kolejne elementy wejściowe są ustawiane na odpowiednie miejsca docelowe",
-            "W jednym cyklu pętli zewnętrznej największa liczba będzie się przemieszczała na ostatnią pozycję",
-            "Metoda polega na sprawdzeniu ile wystąpień kluczy mniejszych od danego występuje w sortowanej tablicy"
+            "Rekurencyjny algorytm sortowania danych, stosujący metodę dziel i zwyciężaj.",
+            "Sposób w jaki ludzie ustawiają karty – kolejne elementy wejściowe są ustawiane na odpowiednie miejsca docelowe.",
+            "W jednym cyklu pętli zewnętrznej największa liczba będzie się przemieszczała na ostatnią pozycję.",
+            "Metoda polega na sprawdzeniu ile wystąpień kluczy mniejszych od danego występuje w sortowanej tablicy."
         ],
         "correct": 2,
-        "explanation": "Największe liczby zachowują się jak bąbelki w napoju gazowanym"
+        "explanation": "Największe liczby zachowują się jak bąbelki w napoju gazowanym."
     },
     {
-        "question": "Jak wygląda prawidłowy i najlepszy z przedstawionych wariantów wewnęsznej pętli algorytmu Bubble sort?",
+        "question": "Jak wygląda prawidłowy i najlepszy z przedstawionych wariantów wewnętrznej pętli algorytmu sortowania bąbelkowego?",
         "image": "bubble_sort1.png",
         "answers": [
             "for j = 0 to n",
@@ -33,10 +33,10 @@
             "for j = 1 to n-2"
         ],
         "correct": 1,
-        "explanation": "Możem nie sprawdzać ostatnie i elemetów bo są już posortowane"
+        "explanation": "Możemy nie sprawdzać ostatnich elemetów bo są już posortowane."
     },
     {
-        "question": "Który z poniższych algorytmów najbardziej podobny do Bubble sort?",
+        "question": "Który z poniższych algorytmów najbardziej podobny do sortowania bąbelkowego?",
         "image": "",
         "answers": [
             "Merge sort",
@@ -45,6 +45,6 @@
             "Cocktail sort"
         ],
         "correct": 3,
-        "explanation": "Jest jeszcze nazywany 'Bidirectional bubble sort' bo szuka na przemienno wartości maksymalne i minimalne."
+        "explanation": "Jest jeszcze nazywany 'Bidirectional bubble sort' bo szuka na zmianę wartości maksymalnej i minimalnej."
     }
 ]
