@@ -15,10 +15,10 @@
         "question": "Jaki zbiór danych da najlepsze wyniki podczas sortowania przez wstawianie?",
         "image": "",
         "answers": [
-            "z małą ilością elementów",
-            "z dowolną ilością elementów, ale w niewielkim zakresie",
-            "dla dowolnego zbioru danych, algorytm będzie działał tak samo sprawnie",
-            "żadna z powyższych odpowiedzi nie pasuje"
+            "Z małą ilością elementów.",
+            "Z dowolną ilością elementów, ale w niewielkim zakresie.",
+            "Dla dowolnego zbioru danych, algorytm będzie działał tak samo sprawnie.",
+            "Żadna z powyższych odpowiedzi nie pasuje."
         ],
         "correct": 2,
         "explanation": "Dla małych zbiorów danych n będzie mniejsze, więc cały algorytm będzie działał odpowiednio krócej."
@@ -63,10 +63,10 @@
         "question": "Które z poniższych twierdzeń jest fałszywe?",
         "image": "",
         "answers": [
-            "algorytm jest wydajny dla danych wstępnie posortowanych",
-            "algorytm jest stabilny",
-            "liczba wykonanych porównań nie jest zależna od liczby inwersji w permutacji",
-            "algorytm jest wydajny dla zbiorów o niewielkiej liczebności"
+            "Algorytm jest wydajny dla danych wstępnie posortowanych.",
+            "Algorytm jest stabilny.",
+            "Liczba wykonanych porównań nie jest zależna od liczby inwersji w permutacji.",
+            "Algorytm jest wydajny dla zbiorów o niewielkiej liczebności."
         ],
         "correct": 2,
         "explanation":""
