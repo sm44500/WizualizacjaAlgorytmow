@@ -3,48 +3,48 @@
         "question": "Z czego się składa lista dwukierunkowa?",
         "image": "Doubly_linked_list.png",
         "answers": [
-            "Z liczb",
-            "Z napisów",
-            "Z węzłów",
-            "Ze wskaźników"
+            "Z liczb.",
+            "Z napisów.",
+            "Z węzłów.",
+            "Ze wskaźników."
         ],
         "correct": 2,
-        "explanation": "Lista dwukierunkowa składa się z węzłow. Węzeł jest podstawową jednostka w liście dwukierunkowej"
+        "explanation": "Lista dwukierunkowa składa się z węzłów. Węzeł jest podstawową jednostka w liście dwukierunkowej."
     },
     {
         "question": "Co jest głową listy dwukierunkowej?",
         "image": "Doubly_linked_list.png",
         "answers": [
-            "Węzeł znajdujący się z przodu listy",
-            "Węzeł dodany do listy jako pierwszy",
-            "Węzeł dodany do listy jako ostatni",
-            "Węzeł znajdujący się na końcu listy"
+            "Węzeł znajdujący się z przodu listy.",
+            "Węzeł dodany do listy jako pierwszy.",
+            "Węzeł dodany do listy jako ostatni.",
+            "Węzeł znajdujący się na końcu listy."
         ],
         "correct": 0,
-        "explanation": "Głową listy jest węzeł znajdujący się z przodu listy, mówiąc w uproszczeniu jest to węzeł z indeksem 0 pod warunkiem że indeksację zaczynamy od wartości 0"
+        "explanation": "Głową listy jest węzeł znajdujący się z przodu listy, mówiąc w uproszczeniu jest to węzeł z indeksem 0 pod warunkiem że indeksowanie zaczynamy od wartości 0."
     },
     {
         "question": "Z czego się składa węzeł listy dwukierunkowej?",
         "image": "Doubly_linked_list.png",
         "answers": [
-            "Z napisów",
-            "Ze wskaźnika na poprzedni węzeł, wskaźnika na kolejny węzeł oraz z danych",
-            "Ze wskaźnika na kolejny węzeł w liście i z danych",
-            "Ze wskaźnika na poprzedni węzeł w liście i z danych"
+            "Z napisów.",
+            "Ze wskaźnika na poprzedni węzeł, wskaźnika na kolejny węzeł oraz z danych.",
+            "Ze wskaźnika na kolejny węzeł w liście i z danych.",
+            "Ze wskaźnika na poprzedni węzeł w liście i z danych."
         ],
         "correct": 1,
-        "explanation": "Węzeł listy dwukierunkowej składa się ze wskaźnika na poprzedni węzeł listy, ze wskaźnika na kolejny węzeł listy oraz z danych, które chcemy przechowywać w liście. Tymi danymi może być obiekt"
+        "explanation": "Węzeł listy dwukierunkowej składa się ze wskaźnika na poprzedni węzeł listy, ze wskaźnika na kolejny węzeł listy oraz z danych, które chcemy przechowywać w liście. Tymi danymi może być obiekt."
     },
     {
         "question": "Co jest ogonem listy dwukierunkowej?",
         "image": "Doubly_linked_list.png",
         "answers": [
-            "Węzeł dodany do listy jako pierwszy",
-            "Wszystkie węzły listy poza jej głową",
-            "Węzeł dodany do listy jako ostatni",
-            "Węzeł znajdujący się na końcu listy dwukierunkowej"
+            "Węzeł dodany do listy jako pierwszy.",
+            "Wszystkie węzły listy poza jej głową.",
+            "Węzeł dodany do listy jako ostatni.",
+            "Węzeł znajdujący się na końcu listy dwukierunkowej."
         ],
         "correct": 3,
-        "explanation": "Ogonem listy jest węzeł znajdujący się na końcu listy, mówiąc w uproszczeniu jest to węzeł z indeksem o 1 mniejszym od ilości węzłów w lisćie pod warunkiem że indeksację zaczynamy od wartości 0"
+        "explanation": "Ogonem listy jest węzeł znajdujący się na końcu listy, mówiąc w uproszczeniu jest to węzeł z indeksem o 1 mniejszym od ilości węzłów w lisćie pod warunkiem że indeksację zaczynamy od wartości 0."
     }
 ]
