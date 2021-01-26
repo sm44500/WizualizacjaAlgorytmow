@@ -3,48 +3,48 @@
         "question": "Z czego się składa cykliczna lista jednokierunkowa?",
         "image": "Circurlar_linked_list.png",
         "answers": [
-            "Z liczb",
-            "Z węzłów",
-            "Z napisów",
-            "Ze wskaźników"
+            "Z liczb.",
+            "Z węzłów.",
+            "Z napisów.",
+            "Ze wskaźników."
         ],
         "correct": 1,
-        "explanation": "Cykliczna lista jednokierunkowa składa się z węzłów. Węzeł jest podstawową składową cyklicznej listy jednokierunkowej"
+        "explanation": "Cykliczna lista jednokierunkowa składa się z węzłów. Węzeł jest podstawową składową cyklicznej listy jednokierunkowej."
     },
     {
-        "question": "Ogon cyklicznej listy jednokierunkowej na wskaźnik na kolejny węzeł. Jaką on ma wartość?",
+        "question": "Ogon cyklicznej listy jednokierunkowej ma wskaźnik na kolejny węzeł. Jaką on ma wartość?",
         "image": "Circurlar_linked_list.png",
         "answers": [
-            "Adres głowy listy",
+            "Adres głowy (ang. head) listy.",
             "NULL",
-            "Adres ogonu listy",
-            "Nie ma takiego wskaźnika"
+            "Adres ogonu (ang. tail) listy.",
+            "Nie ma takiego wskaźnika."
         ],
         "correct": 0,
-        "explanation": "Następnikiem ostatniego węzła cyklicznej listy jednokierunkowej jest głowa listy"
+        "explanation": "Następnikiem ostatniego węzła cyklicznej listy jednokierunkowej jest głowa listy."
     },
     {
         "question": "Z czego się składa węzeł cyklicznej listy jednokierunkowej?",
         "image": "Circurlar_linked_list.png",
         "answers": [
-            "Ze wskaźnika na poprzedni węzeł listy i ze wskaźnika na kolejny węzeł listy",
-            "Z indeksu i z przechowywanych danych",
-            "Ze wskaźnika na kolejny węzeł listy i z przechowywanych danych",
-            "Z ciągu znaków"
+            "Ze wskaźnika na poprzedni węzeł listy i ze wskaźnika na kolejny węzeł listy.",
+            "Z indeksu i z przechowywanych danych.",
+            "Ze wskaźnika na kolejny węzeł listy i z przechowywanych danych.",
+            "Z ciągu znaków."
         ],
         "correct": 2,
-        "explanation": "Węzeł cyklicznej listy jednokierunkowej składa się ze wskaźnika na kolejny węzeł listy oraz z danych, które chcemy przechowywać w liście. Tymi danymi może być obiekt"
+        "explanation": "Węzeł cyklicznej listy jednokierunkowej składa się ze wskaźnika na kolejny węzeł listy oraz z danych, które chcemy przechowywać w liście. Tymi danymi może być obiekt."
     },
     {
         "question": "Co jest ogonem cyklicznej listy jednokierunkowej?",
         "image": "Circurlar_linked_list.png",
         "answers": [
-            "Węzeł dodany do listy jako pierwszy",
-            "Wszystkie węzły listy poza jej głową",
-            "Węzeł dodany do listy jako ostatni",
-            "Węzeł znajdujący się na końcu listy jednokierunkowej"
+            "Węzeł dodany do listy jako pierwszy.",
+            "Wszystkie węzły listy poza jej głową.",
+            "Węzeł dodany do listy jako ostatni.",
+            "Węzeł znajdujący się na końcu listy jednokierunkowej."
         ],
         "correct": 3,
-        "explanation": "Ogonem listy jest węzeł znajdujący się z przodu listy, mówiąc w uproszczeniu jest to węzeł z indeksem o 1 mniejszym od ilości węzłów w lisćie pod warunkiem że indeksację zaczynamy od wartości 0"
+        "explanation": "Ogonem listy jest węzeł znajdujący się z przodu listy, mówiąc w uproszczeniu jest to węzeł z indeksem o 1 mniejszym od ilości węzłów w lisćie pod warunkiem że indeksację zaczynamy od wartości 0."
     }
 ]
