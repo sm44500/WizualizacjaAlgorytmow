@@ -150,11 +150,14 @@ class VisualisationManager:
 		self.update_playing_button()
 		for i in range(len(self.algorithm.snapshots) - self.current_snapshot_index - 1):
 			if self.is_playing:
-				self.current_snapshot_index = max(0, min(self.current_snapshot_index+1, len(self.algorithm.snapshots)-1))
-				snapshot = self.algorithm.snapshots[self.current_snapshot_index]
-				self.description_widget.set_text(snapshot.description)
-				self.center.widget.render_snapshot(snapshot)
-				QTest.qWait((100 - Settings.visualisation_speed[0]) * len(snapshot.description))
+				try:
+					self.current_snapshot_index = max(0, min(self.current_snapshot_index+1, len(self.algorithm.snapshots)-1))
+					snapshot = self.algorithm.snapshots[self.current_snapshot_index]
+					self.description_widget.set_text(snapshot.description)
+					self.center.widget.render_snapshot(snapshot)
+					QTest.qWait((100 - Settings.visualisation_speed[0]) * len(snapshot.description))
+				except AttributeError:
+					pass
 		self.stop_changing_snapshots()
 
 	def stop_changing_snapshots(self):
