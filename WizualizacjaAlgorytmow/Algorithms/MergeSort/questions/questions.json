@@ -1,6 +1,6 @@
 [
     {
-        "question": "Jaką złożoność obliczeniową ma algorytm Merge sort ?",
+        "question": "Jaką złożoność obliczeniową ma algorytm sortowania przez scalanie?",
         "image": "",
         "answers": [
             "O(n^2)",
@@ -9,42 +9,42 @@
             "O(n)"
         ],
         "correct": 1,
-        "explanation": "Stosuje metodę dziel i zwyciężaj"
+        "explanation": "Stosuje metodę dziel i zwyciężaj."
     },
     {
-        "question": "Co z tego jest opisem działania algorytmu Merge sort ?",
+        "question": "Co z tego jest opisem działania algorytmu sortowania przez scalanie?",
         "image": "",
         "answers": [
             "Rekurencyjny algorytm sortowania danych, stosujący metodę dziel i zwyciężaj",
-            "Sposób w jaki ludzie ustawiają karty – kolejne elementy wejściowe są ustawiane na odpowiednie miejsca docelowe",
-            "W jednym cyklu pętli wewnętrznej największa liczba będzie się przemieszczała na ostatnią pozycję",
-            "Metoda polega na sprawdzeniu ile wystąpień kluczy mniejszych od danego występuje w sortowanej tablicy"
+            "Sposób w jaki ludzie ustawiają karty – kolejne elementy wejściowe są ustawiane na odpowiednie miejsca docelowe.",
+            "W jednym cyklu pętli wewnętrznej największa liczba będzie się przemieszczała na ostatnią pozycję.",
+            "Metoda polega na sprawdzeniu ile wystąpień kluczy mniejszych od danego występuje w sortowanej tablicy."
         ],
         "correct": 0,
-        "explanation": "Elementy tablicy są dzielone na grupy po 2 albo 1, a potem są scalane w posortowaną kolejność"
+        "explanation": "Elementy tablicy są dzielone na grupy po 2 albo 1, a potem są scalane w posortowaną kolejność."
     },
     {
         "question": "Na jakim etapie algorytmu jest wykorzystywana funkcja 'merge'?",
         "image": "merge_sort1.png",
         "answers": [
-            "Jest wykorzystywana na wszystkich etapach",
-            "Jest wykorzystywana na pierwszym etapie",
-            "Jest wykorzystywana na drugim etapie",
-            "Funkcja 'merge' jest opcjonalna bo tylko nieznacznie przyspiewsza algorytm"
+            "Jest wykorzystywana na wszystkich etapach.",
+            "Jest wykorzystywana na pierwszym etapie.",
+            "Jest wykorzystywana na drugim etapie.",
+            "Funkcja 'merge' jest opcjonalna bo tylko nieznacznie przyspiesza algorytm."
         ],
         "correct": 2,
-        "explanation": "Pierwszy etap - rekurencyjne dzielenie elemntów na grupy po 2 albo 1, drugi etap - scalanie w posortowaną kolejność"
+        "explanation": "Pierwszy etap - rekurencyjne dzielenie elementów na grupy po 2 albo 1, drugi etap - scalanie w posortowaną kolejność."
     },
     {
         "question": "Za co odpowiada zaznaczona część pseudokodu?",
         "image": "merge_sort2.png",
         "answers": [
-            "Sortowanie większej części elementów",
-            "Odpowiada za wszystkie opercji związane z scalaniem",
-            "Główna część scalania elementów",
-            "Scalanie elemetów nie sprawdzonych w głównej części"  
+            "Sortowanie większej części elementów.",
+            "Odpowiada za wszystkie operacje związane ze scalaniem.",
+            "Główna część scalania elementów.",
+            "Scalanie elementów niesprawdzonych w głównej części."
         ],
         "correct": 3,
-        "explanation": "Elementy które nie zostały dodane do wynikowej tablicy w głównej pętli są uzwględnionie w tej części pseudokodu"
+        "explanation": "Elementy które nie zostały dodane do wynikowej tablicy w głównej pętli są uzwględnione w tej części pseudokodu."
     }    
 ]
