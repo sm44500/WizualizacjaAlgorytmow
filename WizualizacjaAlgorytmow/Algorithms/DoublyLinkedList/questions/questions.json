@@ -32,8 +32,8 @@
             "Ze wskaźnika na kolejny węzeł w liście i z danych",
             "Ze wskaźnika na poprzedni węzeł w liście i z danych"
         ],
-        "correct": 2,
-        "explanation": "Węzeł listy dwukierunkowej składa się ze wskaźnika na poprzedni węzeł listy, ze wskaźnika na kolejny węzeł listy oraz z danych, które chcemy przechowywaźc w liście. Tymi danymi może być obiekt"
+        "correct": 1,
+        "explanation": "Węzeł listy dwukierunkowej składa się ze wskaźnika na poprzedni węzeł listy, ze wskaźnika na kolejny węzeł listy oraz z danych, które chcemy przechowywać w liście. Tymi danymi może być obiekt"
     },
     {
         "question": "Co jest ogonem listy dwukierunkowej?",
