@@ -79,10 +79,10 @@ class ListAlgorithm(Algorithm):
 		Metoda tworząca klawisze oraz pola tekstowe odpowiedzialne za manipulację wizualizacją.
 		"""
 		self.add_textbox("Wartość elementu:", self.on_value_change, hint="Tutaj możesz wpisać dowolną wartość.")
-		self.add_button("Push back", self.push_back, icon=Paths.icon("plus.png"), hint="Dodanie nowego elementu na koniec tablicy.")
-		self.add_button("Push front", self.push_front, icon=Paths.icon("plus.png"), hint="Dodanie nowego elementu na początek tablicy.")
-		self.add_button("Pop back", self.pop_back, icon=Paths.icon("minus.png"), hint="Pobranie i usunięcie elementu z końca tablicy.")
-		self.add_button("Pop front", self.pop_front, icon=Paths.icon("minus.png"), hint="Pobranie i usunięcie elementu z początku tablicy.")
+		self.add_button("Push back", self.push_back, icon=Paths.icon("plus.png"), hint="Dodanie nowego elementu na koniec listy.")
+		self.add_button("Push front", self.push_front, icon=Paths.icon("plus.png"), hint="Dodanie nowego elementu na początek listy.")
+		self.add_button("Pop back", self.pop_back, icon=Paths.icon("minus.png"), hint="Pobranie i usunięcie elementu z końca listy.")
+		self.add_button("Pop front", self.pop_front, icon=Paths.icon("minus.png"), hint="Pobranie i usunięcie elementu z początku listyy.")
 		self.add_button("Usuń", self.remove, icon=Paths.icon("minus.png"), hint="Usunięcie pierwszego napotkanego elementu o podanej wartości.")
 		self.add_button("Wyczyść", self.clear, icon=Paths.icon("clear.png"), hint="Usunięcie wszystkich elementów oraz przywrócenie stanu początkowego.")
 		self.add_button("Losowe dane", self.random_data, icon=Paths.icon("random.png"), hint="Wylosowanie danych z ustawionego przedziału.")

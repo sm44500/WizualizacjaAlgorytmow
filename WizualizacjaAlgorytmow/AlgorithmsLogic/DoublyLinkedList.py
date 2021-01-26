@@ -56,7 +56,7 @@ class DoublyLinkedList(ListAlgorithm):
 
 		self.tail = node
 		self.data.append(node)
-		self.save_snapshot("Zakończono dodawanie elementu")
+		self.save_snapshot("Zakończono dodawanie elementu.")
 
 	def push_front(self):
 		"""
@@ -77,7 +77,7 @@ class DoublyLinkedList(ListAlgorithm):
 			tmp.previous_attr.connection = self.head.previous_attr
 
 		self.data.insert(0, node)
-		self.save_snapshot("Zakończono dodawanie elementu")
+		self.save_snapshot("Zakończono dodawanie elementu.")
 
 	def pop_front(self):
 		"""
@@ -91,11 +91,11 @@ class DoublyLinkedList(ListAlgorithm):
 				self.head.previous_attr.connection = None
 
 				self.data = self.data[1:]
-				self.save_snapshot("Zakończono usunięcie elementu")
+				self.save_snapshot("Zakończono usunięcie elementu.")
 			else:
 				self.clear()
 		else:
-			self.save_snapshot("Usunięcie elementu nie powiodło się: lista jest pusta")
+			self.save_snapshot("Usuwanie elementu nie powiodło się, ponieważ lista jest pusta.")
 
 	def pop_back(self):
 		"""
@@ -110,9 +110,9 @@ class DoublyLinkedList(ListAlgorithm):
 				self.data = self.data[:-1]
 			else:
 				self.clear()
-			self.save_snapshot("Zakończono usunięcie elementu")
+			self.save_snapshot("Zakończono usuwanie elementu.")
 		else:
-			self.save_snapshot("Usunięcie elementu nie powiodło się: lista jest pusta")
+			self.save_snapshot("Usuwanie elementu nie powiodło się, ponieważ lista jest pusta.")
 
 	def remove(self):
 		"""
@@ -123,7 +123,7 @@ class DoublyLinkedList(ListAlgorithm):
 		node.data_attr.name = "Dane: " + str(value)
 
 		if not len(self.data):
-			self.save_snapshot("Usunięcie elementu nie powiodło się: lista jest pusta")
+			self.save_snapshot("Usuwanie elementu nie powiodło się, ponieważ lista jest pusta.")
 		else:
 			removed = False
 			current = self.head
@@ -140,10 +140,10 @@ class DoublyLinkedList(ListAlgorithm):
 							self.data[i + 1].previous_attr.connection = self.data[i - 1].previous_attr
 						self.data.remove(self.data[i])
 						removed = True
-						self.save_snapshot("Zakończono usunięcie elementu")
+						self.save_snapshot("Zakończono usunięcie elementu.")
 						break
 					if i == len(self.data) - 1 and not removed:
-						self.save_snapshot("Usunięcie elementu nie powiodło się: nie ma węzła z takimi danymi")
+						self.save_snapshot("Usunięcie elementu nie powiodło się, ponieważ nie ma węzła z takimi danymi.")
 
 
 	def head(self):

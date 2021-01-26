@@ -39,7 +39,7 @@ class SinglyLinkedList(ListAlgorithm):
 		node = SinglyListNode()
 		node.data_attr.name = "Dane: " + str(value)
 
-		self.save_snapshot("Sprawdzamy czy lista posiada głowę (head).")
+		self.save_snapshot("Sprawdzamy czy lista posiada głowę (ang. head).")
 		if not len(self.data):
 			self.head = node
 			self.save_snapshot("Lista nie posiada głowy, więc dodawany element nią zostaje.")
@@ -52,7 +52,7 @@ class SinglyLinkedList(ListAlgorithm):
 			last_node.next_attr.connection = node.next_attr
 
 		self.data.append(node)
-		self.save_snapshot("Zakończono dodawanie elementu", {int(node.number)-1: Snapshot.color_current_final})
+		self.save_snapshot("Zakończono dodawanie elementu.", {int(node.number)-1: Snapshot.color_current_final})
 
 	def push_front(self):
 		"""
@@ -72,7 +72,7 @@ class SinglyLinkedList(ListAlgorithm):
 			self.head.next = tmp
 			self.head.next_attr.connection = tmp.next_attr
 		self.data.insert(0, node)
-		self.save_snapshot("Zakończono dodawanie elementu", {int(node.number)-1: Snapshot.color_current_final})
+		self.save_snapshot("Zakończono dodawanie elementu.", {int(node.number)-1: Snapshot.color_current_final})
 
 	def pop_front(self):
 		"""
@@ -82,11 +82,11 @@ class SinglyLinkedList(ListAlgorithm):
 			if len(self.data) > 1:
 				self.head = self.head.next
 				self.data = self.data[1:]
-				self.save_snapshot("Zakończono usunięcie elementu")
+				self.save_snapshot("Zakończono usunięcie elementu.")
 			else:
 				self.clear()
 		else:
-			self.save_snapshot("Usunięcie elementu nie powiodło się: lista jest pusta")
+			self.save_snapshot("Usuwanie elementu nie powiodło się, ponieważ lista jest pusta.")
 
 	def pop_back(self):
 		"""
@@ -98,11 +98,11 @@ class SinglyLinkedList(ListAlgorithm):
 				self.data[-1].next = None
 				self.data[-1].next_attr.connection = None
 
-				self.save_snapshot("Zakończono usunięcie elementu")
+				self.save_snapshot("Zakończono usunięcie elementu.")
 			else:
 				self.clear()
 		else:
-			self.save_snapshot("Usunięcie elementu nie powiodło się: lista jest pusta")
+			self.save_snapshot("Usuwanie elementu nie powiodło się, ponieważ lista jest pusta.")
 
 	def remove(self):
 		"""
@@ -113,7 +113,7 @@ class SinglyLinkedList(ListAlgorithm):
 		node.data_attr.name = "Dane: " + str(value)
 
 		if not len(self.data):
-			self.save_snapshot("Usunięcie elementu nie powiodło się: lista jest pusta")
+			self.save_snapshot("Usuwanie elementu nie powiodło się, ponieważ lista jest pusta.")
 		else:
 			current = self.head
 			if current.data_attr.name == node.data_attr.name:
@@ -129,10 +129,10 @@ class SinglyLinkedList(ListAlgorithm):
 						self.data[i - 1].next_attr.connection = self.data[i + 1].next_attr if i + 1 < len(self.data) else None
 						self.data.remove(self.data[i])
 						removed = True
-						self.save_snapshot("Zakończono usunięcie elementu")
+						self.save_snapshot("Zakończono usuwanie elementu.")
 						break
 					if i == len(self.data) - 1 and not removed:
-						self.save_snapshot("Usunięcie elementu nie powiodło się: nie ma węzła z takimi danymi")
+						self.save_snapshot("Usuwanie elementu nie powiodło się, ponieważ nie ma węzła z takimi danymi.")
 
 	def head(self):
 		"""

@@ -52,7 +52,7 @@ class CircularLinkedList(ListAlgorithm):
 			self.tail.next_attr.connection = self.head.next_attr
 
 		self.data.append(node)
-		self.save_snapshot("Zakończono dodawanie elementu")
+		self.save_snapshot("Zakończono dodawanie elementu.")
 
 	def push_front(self):
 		"""
@@ -76,7 +76,7 @@ class CircularLinkedList(ListAlgorithm):
 			self.tail.next = self.head
 			self.tail.next_attr.connection = self.head.next_attr
 		self.data.insert(0, node)
-		self.save_snapshot("Zakończono dodawanie elementu")
+		self.save_snapshot("Zakończono dodawanie elementu.")
 
 	def pop_front(self):
 		"""
@@ -88,11 +88,11 @@ class CircularLinkedList(ListAlgorithm):
 				self.data = self.data[1:]
 				self.tail.next = self.head
 				self.tail.next_attr.connection = self.head.next_attr
-				self.save_snapshot("Zakończono usunięcie elementu")
+				self.save_snapshot("Zakończono usunięcie elementu.")
 			else:
 				self.clear()
 		else:
-			self.save_snapshot("Usunięcie elementu nie powiodło się: lista jest pusta")
+			self.save_snapshot("Usuwanie elementu nie powiodło się, ponieważ lista jest pusta.")
 
 	def pop_back(self):
 		"""
@@ -105,11 +105,11 @@ class CircularLinkedList(ListAlgorithm):
 				self.tail.next_attr.connection = self.head.next_attr
 				self.data = self.data[:-1]
 
-				self.save_snapshot("Zakończono usunięcie elementu")
+				self.save_snapshot("Zakończono usuwanie elementu.")
 			else:
 				self.clear()
 		else:
-			self.save_snapshot("Usunięcie elementu nie powiodło się: lista jest pusta")
+			self.save_snapshot("Usunięcie elementu nie powiodło się, ponieważ lista jest pusta.")
 
 	def remove(self):
 		"""
@@ -119,7 +119,7 @@ class CircularLinkedList(ListAlgorithm):
 		node = SinglyListNode()
 		node.data_attr.name = "Dane: " + str(value)
 		if not len(self.data):
-			self.save_snapshot("Usunięcie elementu nie powiodło się: lista jest pusta")
+			self.save_snapshot("Usunięcie elementu nie powiodło się, ponieważ lista jest pusta.")
 		else:
 			current = self.head
 			if current.data_attr.name == node.data_attr.name:
@@ -137,10 +137,10 @@ class CircularLinkedList(ListAlgorithm):
 							self.tail = self.data[i - 1]
 						self.data.remove(self.data[i])
 						removed = True
-						self.save_snapshot("Zakończono usunięcie elementu")
+						self.save_snapshot("Zakończono usuwanie elementu.")
 						break
 					if i == len(self.data) - 1 and not removed:
-						self.save_snapshot("Usunięcie elementu nie powiodło się: nie ma węzła z takimi danymi")
+						self.save_snapshot("Usunięcie elementu nie powiodło się, ponieważ nie ma węzła z takimi danymi.")
 
 	def head(self):
 		"""

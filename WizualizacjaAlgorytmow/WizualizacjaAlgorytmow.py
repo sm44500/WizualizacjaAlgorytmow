@@ -12,4 +12,4 @@ if __name__ == "__main__":
 	main_window.showMaximized()
 	welcome_window = WelcomeWindow()
 	welcome_window.show()
-	sys.exit(app.exec_())		
+	sys.exit(app.exec_())
