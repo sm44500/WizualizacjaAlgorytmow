@@ -1,26 +1,38 @@
 [
     {
-        "question": "Example question one",
+        "question": "Czemu się równa złożoność optymistyczna [C(n)best] wyszukiwania liniowego?",
         "image": "test.png",
         "answers": [
-            "Example answer 1",
-            "Example answer 2",
-            "Example answer 3",
-            "Example answer 4"
-        ],
-        "correct": 1,
-        "explanation": "because yes"
-    },
-    {
-        "question": "Example question two",
-        "image": "test.png",
-        "answers": [
-            "Example answer 1",
-            "Example answer 2",
-            "Example answer 3",
-            "Example answer 4"
+            "1",
+            "N",
+            "0",
+            "Żadne z powyższych"
         ],
         "correct": 0,
-        "explanation": "because yes"
+        "explanation": "C(n)best = 1"
+    },
+    {
+        "question": "Czemu się równa złożoność pesymistyczna [C(n)worst] wyszukiwania liniowego?",
+        "image": "test.png",
+        "answers": [
+            "1",
+            "-N",
+            "N",
+            "Żadne z powyższych"
+        ],
+        "correct": 2,
+        "explanation": "C(n)worst = N"
+    },
+    {
+        "question": "Czemu się równa złożoność średnia [C(n)avg] wyszukiwania liniowego?",
+        "image": "test.png",
+        "answers": [
+            "1/N",
+            "2*N",
+            "N",
+            "N/2"
+        ],
+        "correct": 3,
+        "explanation": "C(n)avg = N/2"
     }
 ]
