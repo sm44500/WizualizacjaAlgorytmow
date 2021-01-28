@@ -107,10 +107,10 @@ class ListAlgorithm(Algorithm):
                 Metoda tworząca klawisze oraz pola tekstowe odpowiedzialne za manipulację wizualizacją.
                 &#34;&#34;&#34;
                 self.add_textbox(&#34;Wartość elementu:&#34;, self.on_value_change, hint=&#34;Tutaj możesz wpisać dowolną wartość.&#34;)
-                self.add_button(&#34;Push back&#34;, self.push_back, icon=Paths.icon(&#34;plus.png&#34;), hint=&#34;Dodanie nowego elementu na koniec tablicy.&#34;)
-                self.add_button(&#34;Push front&#34;, self.push_front, icon=Paths.icon(&#34;plus.png&#34;), hint=&#34;Dodanie nowego elementu na początek tablicy.&#34;)
-                self.add_button(&#34;Pop back&#34;, self.pop_back, icon=Paths.icon(&#34;minus.png&#34;), hint=&#34;Pobranie i usunięcie elementu z końca tablicy.&#34;)
-                self.add_button(&#34;Pop front&#34;, self.pop_front, icon=Paths.icon(&#34;minus.png&#34;), hint=&#34;Pobranie i usunięcie elementu z początku tablicy.&#34;)
+                self.add_button(&#34;Push back&#34;, self.push_back, icon=Paths.icon(&#34;plus.png&#34;), hint=&#34;Dodanie nowego elementu na koniec listy.&#34;)
+                self.add_button(&#34;Push front&#34;, self.push_front, icon=Paths.icon(&#34;plus.png&#34;), hint=&#34;Dodanie nowego elementu na początek listy.&#34;)
+                self.add_button(&#34;Pop back&#34;, self.pop_back, icon=Paths.icon(&#34;minus.png&#34;), hint=&#34;Pobranie i usunięcie elementu z końca listy.&#34;)
+                self.add_button(&#34;Pop front&#34;, self.pop_front, icon=Paths.icon(&#34;minus.png&#34;), hint=&#34;Pobranie i usunięcie elementu z początku listyy.&#34;)
                 self.add_button(&#34;Usuń&#34;, self.remove, icon=Paths.icon(&#34;minus.png&#34;), hint=&#34;Usunięcie pierwszego napotkanego elementu o podanej wartości.&#34;)
                 self.add_button(&#34;Wyczyść&#34;, self.clear, icon=Paths.icon(&#34;clear.png&#34;), hint=&#34;Usunięcie wszystkich elementów oraz przywrócenie stanu początkowego.&#34;)
                 self.add_button(&#34;Losowe dane&#34;, self.random_data, icon=Paths.icon(&#34;random.png&#34;), hint=&#34;Wylosowanie danych z ustawionego przedziału.&#34;)</code></pre>
@@ -215,10 +215,10 @@ title - pełna nazwa algorytmu. Wyswietlana w aplikacji.</p>
                 Metoda tworząca klawisze oraz pola tekstowe odpowiedzialne za manipulację wizualizacją.
                 &#34;&#34;&#34;
                 self.add_textbox(&#34;Wartość elementu:&#34;, self.on_value_change, hint=&#34;Tutaj możesz wpisać dowolną wartość.&#34;)
-                self.add_button(&#34;Push back&#34;, self.push_back, icon=Paths.icon(&#34;plus.png&#34;), hint=&#34;Dodanie nowego elementu na koniec tablicy.&#34;)
-                self.add_button(&#34;Push front&#34;, self.push_front, icon=Paths.icon(&#34;plus.png&#34;), hint=&#34;Dodanie nowego elementu na początek tablicy.&#34;)
-                self.add_button(&#34;Pop back&#34;, self.pop_back, icon=Paths.icon(&#34;minus.png&#34;), hint=&#34;Pobranie i usunięcie elementu z końca tablicy.&#34;)
-                self.add_button(&#34;Pop front&#34;, self.pop_front, icon=Paths.icon(&#34;minus.png&#34;), hint=&#34;Pobranie i usunięcie elementu z początku tablicy.&#34;)
+                self.add_button(&#34;Push back&#34;, self.push_back, icon=Paths.icon(&#34;plus.png&#34;), hint=&#34;Dodanie nowego elementu na koniec listy.&#34;)
+                self.add_button(&#34;Push front&#34;, self.push_front, icon=Paths.icon(&#34;plus.png&#34;), hint=&#34;Dodanie nowego elementu na początek listy.&#34;)
+                self.add_button(&#34;Pop back&#34;, self.pop_back, icon=Paths.icon(&#34;minus.png&#34;), hint=&#34;Pobranie i usunięcie elementu z końca listy.&#34;)
+                self.add_button(&#34;Pop front&#34;, self.pop_front, icon=Paths.icon(&#34;minus.png&#34;), hint=&#34;Pobranie i usunięcie elementu z początku listyy.&#34;)
                 self.add_button(&#34;Usuń&#34;, self.remove, icon=Paths.icon(&#34;minus.png&#34;), hint=&#34;Usunięcie pierwszego napotkanego elementu o podanej wartości.&#34;)
                 self.add_button(&#34;Wyczyść&#34;, self.clear, icon=Paths.icon(&#34;clear.png&#34;), hint=&#34;Usunięcie wszystkich elementów oraz przywrócenie stanu początkowego.&#34;)
                 self.add_button(&#34;Losowe dane&#34;, self.random_data, icon=Paths.icon(&#34;random.png&#34;), hint=&#34;Wylosowanie danych z ustawionego przedziału.&#34;)</code></pre>
@@ -274,10 +274,10 @@ title - pełna nazwa algorytmu. Wyswietlana w aplikacji.</p>
         Metoda tworząca klawisze oraz pola tekstowe odpowiedzialne za manipulację wizualizacją.
         &#34;&#34;&#34;
         self.add_textbox(&#34;Wartość elementu:&#34;, self.on_value_change, hint=&#34;Tutaj możesz wpisać dowolną wartość.&#34;)
-        self.add_button(&#34;Push back&#34;, self.push_back, icon=Paths.icon(&#34;plus.png&#34;), hint=&#34;Dodanie nowego elementu na koniec tablicy.&#34;)
-        self.add_button(&#34;Push front&#34;, self.push_front, icon=Paths.icon(&#34;plus.png&#34;), hint=&#34;Dodanie nowego elementu na początek tablicy.&#34;)
-        self.add_button(&#34;Pop back&#34;, self.pop_back, icon=Paths.icon(&#34;minus.png&#34;), hint=&#34;Pobranie i usunięcie elementu z końca tablicy.&#34;)
-        self.add_button(&#34;Pop front&#34;, self.pop_front, icon=Paths.icon(&#34;minus.png&#34;), hint=&#34;Pobranie i usunięcie elementu z początku tablicy.&#34;)
+        self.add_button(&#34;Push back&#34;, self.push_back, icon=Paths.icon(&#34;plus.png&#34;), hint=&#34;Dodanie nowego elementu na koniec listy.&#34;)
+        self.add_button(&#34;Push front&#34;, self.push_front, icon=Paths.icon(&#34;plus.png&#34;), hint=&#34;Dodanie nowego elementu na początek listy.&#34;)
+        self.add_button(&#34;Pop back&#34;, self.pop_back, icon=Paths.icon(&#34;minus.png&#34;), hint=&#34;Pobranie i usunięcie elementu z końca listy.&#34;)
+        self.add_button(&#34;Pop front&#34;, self.pop_front, icon=Paths.icon(&#34;minus.png&#34;), hint=&#34;Pobranie i usunięcie elementu z początku listyy.&#34;)
         self.add_button(&#34;Usuń&#34;, self.remove, icon=Paths.icon(&#34;minus.png&#34;), hint=&#34;Usunięcie pierwszego napotkanego elementu o podanej wartości.&#34;)
         self.add_button(&#34;Wyczyść&#34;, self.clear, icon=Paths.icon(&#34;clear.png&#34;), hint=&#34;Usunięcie wszystkich elementów oraz przywrócenie stanu początkowego.&#34;)
         self.add_button(&#34;Losowe dane&#34;, self.random_data, icon=Paths.icon(&#34;random.png&#34;), hint=&#34;Wylosowanie danych z ustawionego przedziału.&#34;)</code></pre>

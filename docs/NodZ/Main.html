@@ -31,11 +31,12 @@ import re
 import json
 
 from PyQt5 import QtGui, QtCore, QtWidgets
+from Paths import Paths
 import NodZ.Utils as utils
 
 
 
-defaultConfigPath = os.path.join(os.path.dirname(os.path.realpath(__file__)), &#39;Config.json&#39;)
+defaultConfigPath = Paths.nodz_config()
 
 
 class Nodz(QtWidgets.QGraphicsView):
@@ -3580,7 +3581,7 @@ def pen(self):
 </dd>
 <dt id="WizualizacjaAlgorytmow.NodZ.Main.Nodz"><code class="flex name class">
 <span>class <span class="ident">Nodz</span></span>
-<span>(</span><span>parent, configPath='/home/marcin648/python/WizualizacjaAlgorytmow/WizualizacjaAlgorytmow/NodZ/Config.json')</span>
+<span>(</span><span>parent, configPath='/home/marcin648/python/WizualizacjaAlgorytmow/WizualizacjaAlgorytmow/Resources/nodz.json')</span>
 </code></dt>
 <dd>
 <div class="desc"><p>The main view for the node graph representation.</p>
