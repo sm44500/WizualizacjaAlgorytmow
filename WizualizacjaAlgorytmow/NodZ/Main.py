@@ -3,11 +3,12 @@ import re
 import json
 
 from PyQt5 import QtGui, QtCore, QtWidgets
+from Paths import Paths
 import NodZ.Utils as utils
 
 
 
-defaultConfigPath = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'Config.json')
+defaultConfigPath = Paths.nodz_config()
 
 
 class Nodz(QtWidgets.QGraphicsView):
