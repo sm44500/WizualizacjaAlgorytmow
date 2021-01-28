@@ -16,6 +16,13 @@ class Paths:
 	algorithms = os.path.join(program, "Algorithms")
 
 	@staticmethod
+	def nodz_config():
+		"""
+		Zwraca ścieżkę do konfiguracji biblioteki nodz.
+		"""
+		return os.path.join(Paths.resources, "nodz.json")
+
+	@staticmethod
 	def icon(icon_file: str):
 		"""
 		Pobiera ikonę.

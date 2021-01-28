@@ -44,6 +44,13 @@ class Paths:
         algorithms = os.path.join(program, &#34;Algorithms&#34;)
 
         @staticmethod
+        def nodz_config():
+                &#34;&#34;&#34;
+                Zwraca ścieżkę do konfiguracji biblioteki nodz.
+                &#34;&#34;&#34;
+                return os.path.join(Paths.resources, &#34;nodz.json&#34;)
+
+        @staticmethod
         def icon(icon_file: str):
                 &#34;&#34;&#34;
                 Pobiera ikonę.
@@ -153,6 +160,13 @@ Każda ścieżka jest ścieżką bezwzględną.</p></div>
         resources = os.path.join(program, &#34;Resources&#34;)
         icons = os.path.join(resources, &#34;Icons&#34;)
         algorithms = os.path.join(program, &#34;Algorithms&#34;)
+
+        @staticmethod
+        def nodz_config():
+                &#34;&#34;&#34;
+                Zwraca ścieżkę do konfiguracji biblioteki nodz.
+                &#34;&#34;&#34;
+                return os.path.join(Paths.resources, &#34;nodz.json&#34;)
 
         @staticmethod
         def icon(icon_file: str):
@@ -366,6 +380,23 @@ def logic(algorithm_name: str):
         return os.path.join(algorithm_path, &#34;load.py&#34;)</code></pre>
 </details>
 </dd>
+<dt id="WizualizacjaAlgorytmow.Paths.Paths.nodz_config"><code class="name flex">
+<span>def <span class="ident">nodz_config</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Zwraca ścieżkę do konfiguracji biblioteki nodz.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def nodz_config():
+        &#34;&#34;&#34;
+        Zwraca ścieżkę do konfiguracji biblioteki nodz.
+        &#34;&#34;&#34;
+        return os.path.join(Paths.resources, &#34;nodz.json&#34;)</code></pre>
+</details>
+</dd>
 <dt id="WizualizacjaAlgorytmow.Paths.Paths.test"><code class="name flex">
 <span>def <span class="ident">test</span></span>(<span>algorithm_name: str)</span>
 </code></dt>
@@ -444,6 +475,7 @@ def test_question_image(algorithm_name: str, image_name:str):
 <li><code><a title="WizualizacjaAlgorytmow.Paths.Paths.icon" href="#WizualizacjaAlgorytmow.Paths.Paths.icon">icon</a></code></li>
 <li><code><a title="WizualizacjaAlgorytmow.Paths.Paths.icons" href="#WizualizacjaAlgorytmow.Paths.Paths.icons">icons</a></code></li>
 <li><code><a title="WizualizacjaAlgorytmow.Paths.Paths.logic" href="#WizualizacjaAlgorytmow.Paths.Paths.logic">logic</a></code></li>
+<li><code><a title="WizualizacjaAlgorytmow.Paths.Paths.nodz_config" href="#WizualizacjaAlgorytmow.Paths.Paths.nodz_config">nodz_config</a></code></li>
 <li><code><a title="WizualizacjaAlgorytmow.Paths.Paths.program" href="#WizualizacjaAlgorytmow.Paths.Paths.program">program</a></code></li>
 <li><code><a title="WizualizacjaAlgorytmow.Paths.Paths.resources" href="#WizualizacjaAlgorytmow.Paths.Paths.resources">resources</a></code></li>
 <li><code><a title="WizualizacjaAlgorytmow.Paths.Paths.test" href="#WizualizacjaAlgorytmow.Paths.Paths.test">test</a></code></li>
