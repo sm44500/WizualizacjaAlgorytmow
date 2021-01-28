@@ -42,9 +42,12 @@ class AlgorithmsManager:
 		self.combobox.clear()
 		for algorithm_class in Algorithms.AlgorythmsClasses:
 			algorithm = algorithm_class()
-			self.combobox.add_algorithms(algorithm.title, algorithm.difficulty)
 			self.algorithms.append(algorithm)
 
+		self.algorithms.sort(key=lambda algo: algo.difficulty)
+
+		for algorithm in self.algorithms:
+			self.combobox.add_algorithms(algorithm.title, algorithm.difficulty)
 		self.main_widget.top_widget.currentIndexChanged.connect(self.on_change_algorithm)
 		self.reset()
 		self.set_algorithm(0)
