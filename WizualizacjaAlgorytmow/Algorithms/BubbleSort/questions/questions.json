@@ -9,7 +9,7 @@
             "O(n)"
         ],
         "correct": 0,
-        "explanation": "Algorytm składa się z dwóch pętli: jednej zewnętrznej, a drugiej wewnętrznej. Z każdą iteracją pętli zewnętrznej wykonuje maksymalnie N operacji porównania. Dla tego należy do klasy n^2."
+        "explanation": "Algorytm składa się z dwóch pętli: jednej zewnętrznej, a drugiej wewnętrznej. Z każdą iteracją pętli zewnętrznej wykonuje maksymalnie N operacji porównania. Dlatego należy do klasy n^2."
     },
     {
         "question": "Co z tego jest opisem działania algorytmu sortowania bąbelkowego?",
@@ -45,6 +45,6 @@
             "Cocktail sort"
         ],
         "correct": 3,
-        "explanation": "Jest jeszcze nazywany 'Bidirectional bubble sort' bo szuka na zmianę wartości maksymalnej i minimalnej."
+        "explanation": "Jest jeszcze nazywany 'Dwukierunkowe sortowanie bąbelkowe' bo szuka na zmianę wartości maksymalnej i minimalnej."
     }
 ]
