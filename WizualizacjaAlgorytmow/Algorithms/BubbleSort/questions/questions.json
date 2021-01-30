@@ -33,7 +33,7 @@
             "for j = 1 to n-2"
         ],
         "correct": 1,
-        "explanation": "Możemy nie sprawdzać ostatnich elemetów bo są już posortowane."
+        "explanation": "Możemy nie sprawdzać ostatnich 'i' elemetów bo są już posortowane."
     },
     {
         "question": "Który z poniższych algorytmów najbardziej podobny do sortowania bąbelkowego?",
@@ -42,7 +42,7 @@
             "Merge sort",
             "Counting sort",
             "Insertion sort",
-            "Cocktail sort"
+            "Cocktail-shaker sort"
         ],
         "correct": 3,
         "explanation": "Jest jeszcze nazywany 'Dwukierunkowe sortowanie bąbelkowe' bo szuka na zmianę wartości maksymalnej i minimalnej."

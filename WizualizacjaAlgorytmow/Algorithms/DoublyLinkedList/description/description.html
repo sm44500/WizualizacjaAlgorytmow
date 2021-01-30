@@ -14,9 +14,10 @@
                         Opis krótki:
                     </h1>
                 </p>
-    
+                
                 <p>
                     <h3>
+                        
                         Lista – struktura danych służąca do reprezentacji zbiorów dynamicznych, w której elementy ułożone są w liniowym porządku.<br>
                         Rozróżniane są dwa podstawowe rodzaje list: lista jednokierunkowa w której z każdego elementu możliwe jest przejście do jego następnika <br>
                         oraz lista dwukierunkowa w której z każdego elementu możliwe jest przejście do jego poprzednika i następnika.
@@ -39,26 +40,35 @@
                     </h3>
                 </p>
     
-                <img src="resources/singly_linked_list1.png" alt="img3">
-    
                 <p>
                     <h3>
-                        Mechanizm wskazywania, iż pewien węzeł jest ostatnim węzłem listy,<br> 
-                        najczęściej wykorzystuje<b> NULL (nil, UNKNOWN)</b> jako umowną wartość wskaźnika do nieistniejącego następnika.
+                        Lista dwukierunkowa – w każdym elemencie listy jest przechowywane odniesienie zarówno do następnika, jak i poprzednika elementu w liście.<br>
+                        Taka reprezentacja umożliwia swobodne przemieszczanie się po liście w obie strony.
                     </h3>
                 </p>
-    
+
+
+                <p>
+                    <h1>
+                        Mechanizm wskazywania:                  
+                    </h1>
+                </p>
+
+                <p>
+                    <h3>
+                        Iż pewien węzeł jest ostatnim lub pierwszym węzłem listy,<br> 
+                        najczęściej wykorzystuje<b> <b>NULL</b> (nil, UNKNOWN)</b> jako umowną wartość wskaźnika do nieistniejącego następnika lub poprzednika.
+                    </h3>
+                </p>
+ 
+                <p>&nbsp;</p>               
+                <img src="resources/bidirectional_list1.png" alt="img3">
                 <p>&nbsp;</p> 
+
                 <p>
                     <h1>
                         Wstawienie nowego elementu:                  
                     </h1>
-                </p>
-                <p>
-                    <h3>
-                        Mechanizm wskazywania, iż pewien węzeł jest ostatnim węzłem listy,<br> 
-                        najczęściej wykorzystuje<b> NULL (nil, UNKNOWN)</b> jako umowną wartość wskaźnika do nieistniejącego następnika.
-                    </h3>
                 </p>
     
                 <h3>
@@ -68,20 +78,30 @@
                             do następnika w nowym węźle ustawia się na dotychczasowy początek listy (czoło),<br> 
                             jednocześnie modyfikując informację o lokalizacji nowego czoła listy;
                         </li>
-    
+
                         <li>
-                            jeśli ma to nastąpić na końcu listy, to wskaźnik w obiekcie ostatnim ustawia się na nowy element składowy (węzeł);
+                            jeśli ma to nastąpić na końcu listy, to wskaźnik <br> 
+                            do poprzednika w nowym węźle ustawia się na dotychczasowy koniec listy (ogon),<br> 
+                            jednocześnie modyfikując informację o lokalizacji nowego ogona listy;
                         </li>
     
                         <li>
-                            jeśli ma to nastąpić wewnątrz listy, to wskaźnik ustawia się na następnik elementu,<br> 
-                            przed którym ma być wstawiany, zaś wskaźnik poprzednika przestawia się na ten nowy węzeł.
+                            jeśli ma to nastąpić wewnątrz listy, to
+                            <ul>
+                                <li>
+                                    wskaźnik <span style="color:#002a86">"next" </span> ustawia się na następnika elementu,<br> 
+                                    przed którym ma być wstawiany, zaś wskaźnik poprzednika przestawia się na ten nowy węzeł,
+                                </li>
+                                <li>
+                                    wskaźnik <span style="color:#008607">"previous" </span> ustawia się na poprzednika elementu,<br> 
+                                    po którym ma być wstawiany, zaś wskaźnik następnika przestawia się na ten nowy węzeł,                                    
+                                </li>
+                            </ul>
                         </li>
                     </ul>                
                 </h3>
     
-                <img src="resources/singly_linked_list2.png" alt="img3">
-    
+
                 <p>&nbsp;</p> 
                 <p>
                     <h1>
@@ -91,40 +111,34 @@
     
                 <h3>
                     <ul>
+                        Najpierw trzeba go odnaleźć, przemieszczając się od czoła listy kierunku jej końca (albo odwrotnie), a jeśli wyszukiwanie zakończy się sukcesem to:
                         <li>
-                            najpierw trzeba go odnaleźć, przemieszczając się od czoła listy kierunku jej końca, a jeśli wyszukiwanie zakończy się sukcesem to:
+                            jeśli jest to pierwszy węzeł listy (czoło), to należy zmodyfikować informację o lokalizacji nowego czoła listy,<br>
+                            a wskaźnik <span style="color:#008607">"previous" </span> u następnika ustawić na <b>NULL</b>;
                         </li>
     
                         <li>
-                            jeśli jest to pierwszy węzeł listy (czoło), to należy zmodyfikować informację o lokalizacji nowego czoła listy;
+                            jeśli ma to ostatni węzeł listy (ogon), to należy zmodyfikować informację o lokalizacji nowego ogona listy,<br>
+                            a wskaźnik <span style="color:#002a86">"next" </span> u popszednika ustawić na <b>NULL</b>;
                         </li>
-    
+
                         <li>
-                            jeśli ma to nastąpić na końcu listy, to wskaźnik w przedostatnim (jeśli usuwany węzeł nie jest jedynym) ustawia się na NULL;
+                            jeśli ma to nastąpić wewnątrz listy, to
+                            <ul>
+                                <li>
+                                    należy przechować tymczasowo wskaźnik do usuwanego elementu (aby nie "zgubić" jego adresu)
+                                </li>
+                                <li>
+                                    Wskaźnik wiążący poprzednika ustawić na następnik usuwanego elementu.                                   
+                                </li>
+                                <li>
+                                    Wskaźnik wiążący następnika ustawić na poprzednik usuwanego elementu.                                   
+                                </li>
+                            </ul>
                         </li>
-    
-                        <li>
-                            jeśli ma to nastąpić wewnątrz listy, to należy przechować tymczasowo wskaźnik do usuwanego elementu (aby nie "zgubić" jego adresu), <br>
-                            a następnie wskaźnik wiążący poprzednika ustawić na następnik usuwanego elementu.
-                        </li>
+
                     </ul>                
                 </h3>
-    
-                <img src="resources/singly_linked_list3.png" alt="img3">
-    
-                <p>&nbsp;</p> 
-                <hr>
-                <p>&nbsp;</p> 
-                
-                <p>
-                    <h3>
-                        Lista dwukierunkowa – w każdym elemencie listy jest przechowywane odniesienie zarówno do następnika, jak i poprzednika elementu w liście.<br>
-                        Taka reprezentacja umożliwia swobodne przemieszczanie się po liście w obie strony.
-                    </h3>
-                </p>
-                <img src="resources/bidirectional_list1.png" alt="img3">
-
-                <p>&nbsp;</p> 
             </div>
         </div>
     </body>
